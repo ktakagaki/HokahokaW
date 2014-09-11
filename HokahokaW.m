@@ -43,8 +43,22 @@ $Path
 (*Git and date messages*)
 
 
-HHNewestFileDate[package_String]:=DateString[Max @@ AbsoluteTime /@ FileDate /@ FileNames[ "*",package,Infinity] ];
+HHNewestFileDate[package_String]:=
+Module[{tempdir},
+	tempdir = FileNames[ "*",
+				ParentDirectory[DirectoryName[ FindFile[package] ]],
+				Infinity
+				];
+	If[ Length[tempdir]==0,
+		Message[HHNewestFileDate::noFilesFound, package];
+		" ",
+		DateString[Max @@ AbsoluteTime /@ FileDate /@ tempdir ]
+	]
+];
+
 HHNewestFileDate[args___]:=Message[HHNewestFileDate::invalidArgs,{args}];
+
+HHNewestFileDate::noFilesFound = "No files were found for package string `1`.";
 
 
 HHGitRemotes[package_String]:=
@@ -56,6 +70,7 @@ Module[{tempret},
 	ResetDirectory[];
 	tempret
 ];
+
 HHGitRemotes[args___]:=Message[HHGitRemotes::invalidArgs,{args}];
 
 
