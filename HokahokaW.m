@@ -17,7 +17,8 @@ General::invalidOptionValue="Option argument `2` -> `1` is invalid.";
 
 
 HHNewestFileDate::usage="Returns newest file date in package.";
-HHGitRemotes::usage="Prints a list of git remotes for either the given directory or the current NotebookDirectory[]";
+HHGitRemotes::usage="Prints a list of git remotes for either the given package or the current NotebookDirectory[]";
+HHGitHEADHash::usage="Prints the git HEAD hash for either the given directory or the current NotebookDirectory[]";
 
 
 $PackageDirectoryNounouW = ParentDirectory[DirectoryName[FindFile["NounouW`"]]];
@@ -34,9 +35,6 @@ $GitCurrentHeadNounouW = Module[{tempretNN},
 Begin["`Private`"]
 (* Implementation of the package *)
 
-
-
-$Path
 
 
 (* ::Subsection:: *)
@@ -61,9 +59,19 @@ HHNewestFileDate[args___]:=Message[HHNewestFileDate::invalidArgs,{args}];
 HHNewestFileDate::noFilesFound = "No files were found for package string `1`.";
 
 
-HHGitRemotes[package_String]:=
+HHGitRemotes[package_String]:= Module[{tempFile},
+	tempFile=FindFile[package];
+	If[ tempFile === $Failed,
+		Message[HHGitRemotes::noFilesFound, package];
+		" ",
+		HHGitRemotesImpl[ ParentDirectory[DirectoryName[ tempFile ]] ]
+	]
+];
+HHGitRemotes[package_String]:= HHGitRemotesImpl[ NotebookDirectory[] ];
+
+HHGitRemotesImpl[directory_String]:=
 Module[{tempret},
-	SetDirectory[ ParentDirectory[DirectoryName[ FindFile[package] ]] ];
+	SetDirectory[  ];
 	Run["git remote -v > HHTempGitRemotes.txt"];
 	tempret= Import["HHTempGitRemotes.txt"];
 	DeleteFile["HHTempGitRemotes.txt"];
@@ -72,6 +80,33 @@ Module[{tempret},
 ];
 
 HHGitRemotes[args___]:=Message[HHGitRemotes::invalidArgs,{args}];
+
+HHGitRemotes::noFilesFound = HHNewestFileDate::noFilesFound;
+
+
+HHGitHEADHash[package_String]:= Module[{tempFile},
+	tempFile=FindFile[package];
+	If[ tempFile === $Failed,
+		Message[HHGitHEADHash::noFilesFound, package];
+		" ",
+		HHGitHEADHashImpl[ ParentDirectory[DirectoryName[ tempFile ]] ]
+	]
+];
+HHGitHEADHash[package_String]:= HHGitHEADHashImpl[ NotebookDirectory[] ];
+
+HHGitHEADHashImpl[directory_String]:=
+Module[{tempret},
+	SetDirectory[ directory ];
+	Run["git rev-parse HEAD > HHTempGitCurrentHEADHash.txt"];
+	tempret= Import["HHTempGitCurrentHEADHash.txt"];
+	DeleteFile["HHTempGitCurrentHEADHash.txt"];
+	ResetDirectory[];
+	tempret
+];
+
+HHGitHEADHash[args___]:=Message[HHGitHEADHash::invalidArgs,{args}];
+
+HHGitHEADHash::noFilesFound = HHNewestFileDate::noFilesFound;
 
 
 End[]
