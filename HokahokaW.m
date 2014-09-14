@@ -23,7 +23,7 @@ HHPackageMessage::usage"Prints standard package message.";
 HHNotebookMessage::usage"Prints standard notebook message.";
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Rule List and Option Handling*)
 
 
@@ -50,8 +50,8 @@ HHAddOptions::usage=
 "or a List of rules (i.e., brackets {opts} are optional).";
 
 
-HHExtractRules::usage=
-"Extracts options from an object, e.g. NNMData[<<>>,  opt->1] ==> {opt->1}";
+HHOptionValue::usage= "Can be used to extract options from an object, such as a Graphic[..., opt->optval]."
+HHAbsoluteOptionValue::usage= "Can be used to extract absolute options from an object, such as a Graphic[..., opt->optval]."
 
 
 (* ::Subsubsection::Closed:: *)
@@ -156,8 +156,8 @@ Style[package, FontWeight -> "Bold", FontVariations -> {"Underline" -> True}], "
 Style[StringJoin@@Riffle[
 					"("<> #[[1]]<>")[" <> #[[2]] <>"]"& /@
 					Union[ImportString[HHGitRemotes[package]][[All, 1;;2]]]
-				,"\n"],
-    FontFamily->"Courier"], "\n",
+				,"\n"],Small, FontFamily->"Courier"], 
+"\n",
 Style[
 	"current Git HEAD:  "<> HHGitHEADHash[package]<>"\n" <>
 	"newest file:  "<> HHNewestFileDate[package]<>" ", Small, FontFamily->"Courier"]
@@ -170,8 +170,8 @@ Style[NotebookFileName[], FontWeight -> "Bold", FontVariations -> {"Underline" -
 Style[StringJoin@@Riffle[
 					"("<> #[[1]]<>")[" <> #[[2]] <>"]"& /@
 					Union[ImportString[HHGitRemotes[]][[All, 1;;2]]]
-				,"\n"],
-    FontFamily->"Courier"], "\n",
+				,"\n"],Small,FontFamily->"Courier"], 
+"\n",
 Style[
 	"current Git HEAD:  "<> HHGitHEADHash[]<>"\n" <>
 	"last saved:  "<> DateString[FileDate[NotebookFileName[]]]<>" ", Small, FontFamily->"Courier"]
@@ -255,8 +255,13 @@ HHAddOptions[symbol_[contents___], {opts___}]:=
 HHAddOptions[args___]:=Message[HHAddOptions::invalidArgs,{args}];
 
 
-HHExtractRules[x_[arg___]]:=Flatten[If[HHRuleQ[#],#,{}]& /@ {arg}];
-HHExtractRules[args___]:=Message[HHExtractRules::invalidArgs,{args}];
+(*HHExtractRules[x_[arg___]]:=Flatten[If[HHRuleQ[#],#,{}]& /@ {arg}];
+HHExtractRules[args___]:=Message[HHExtractRules::invalidArgs,{args}];*)
+HHOptionValue[x_/;ValueQ[x], optionSymbol_]:=OptionValue[Options[x,optionSymbol],optionSymbol];
+HHOptionValue[args___]:=Message[HHOptionValue::invalidArgs,{args}];
+
+HHAbsoluteOptionValue[x_/;ValueQ[x], optionSymbol_]:=OptionValue[AbsoluteOptions[x,optionSymbol],optionSymbol]
+HHAbsoluteOptionValue[args___]:=Message[HHAbsoluteOptionValue::invalidArgs,{args}];
 
 
 (* ::Subsubsection::Closed:: *)
