@@ -1,12 +1,23 @@
 Resources[
+
     Version[1],
+
     Java[
+
         Directory["javaOutput"],
-        Directory["test/Java"]
-    ],
-    ExecutionBuildCommand["<<test`"],
+
+        Directory["HokahokaW/Java"]
+    
+	],
+    
+    ExecutionBuildCommand["<<HokahokaW`"],
+
     Paclet[
-        PacletFolder["test"],
+
+        PacletFolder["HokahokaW"],
+
         FunctionPaclet[False]
+
     ]
+
 ]
