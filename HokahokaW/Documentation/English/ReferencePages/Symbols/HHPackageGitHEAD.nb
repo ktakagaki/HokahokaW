@@ -59,7 +59,7 @@ HHPackageGitHEAD.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$1785], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$1808], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageGitHEAD", ".html"]], None}]}]},
@@ -108,7 +108,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->224682462],
+ CellID->307334495],
 
 Cell[CellGroupData[{
 
@@ -118,7 +118,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->38138185],
+ CellID->24867746],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
@@ -174,7 +174,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 2, 3, 15, 29, 53.4516553}", 
+   "built" -> "{2015, 2, 3, 16, 49, 15.9160527}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -206,7 +206,7 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[3433, 95, 387, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->224682462]}
+   CellID->307334495]}
  }
 *)
 (*CellTagsIndex
@@ -225,10 +225,10 @@ Cell[2934, 78, 474, 13, 81, "Usage",
 Cell[CellGroupData[{
 Cell[3433, 95, 387, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->224682462],
+ CellID->307334495],
 Cell[CellGroupData[{
 Cell[3845, 114, 194, 6, 25, "ExampleSection",
- CellID->38138185],
+ CellID->24867746],
 Cell[4042, 122, 118, 3, 28, "Input",
  CellID->641573816],
 Cell[CellGroupData[{
