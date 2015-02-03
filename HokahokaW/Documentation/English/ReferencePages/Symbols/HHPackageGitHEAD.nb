@@ -10,11 +10,11 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      7403,        226]
-NotebookOptionsPosition[      4713,        149]
-NotebookOutlinePosition[      6872,        205]
-CellTagsIndexPosition[      6788,        200]
-WindowTitle->HHPackageGitRemotes
+NotebookDataLength[      7778,        244]
+NotebookOptionsPosition[      4941,        161]
+NotebookOutlinePosition[      7098,        217]
+CellTagsIndexPosition[      7014,        212]
+WindowTitle->HHPackageGitHEAD
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -31,12 +31,12 @@ Cell[BoxData[GridBox[{
         TextCell[
          Row[{"URL", 
            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
-       StripOnInput->False], {"\<\"HokahokaW/ref/HHPackageGitRemotes\"\>":>
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHPackageGitHEAD\"\>":>
       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
       Module[{DocumentationSearch`Private`nb$}, 
        DocumentationSearch`Private`nb$ = NotebookPut[
           Notebook[{
-            Cell["HokahokaW/ref/HHPackageGitRemotes"]}, Visible -> False]]; 
+            Cell["HokahokaW/ref/HHPackageGitHEAD"]}, Visible -> False]]; 
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
@@ -49,7 +49,7 @@ Cell[BoxData[GridBox[{
               MakeBoxes[
                Hyperlink[
                "http://reference.wolfram.com/language/HokahokaW/ref/\
-HHPackageGitRemotes.html"], StandardForm]], "Input", TextClipboardType -> 
+HHPackageGitHEAD.html"], StandardForm]], "Input", TextClipboardType -> 
              "PlainText"]}, Visible -> False]]; 
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
@@ -59,10 +59,10 @@ HHPackageGitRemotes.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$2286], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$1785], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
-            "HokahokaW/ref/HHPackageGitRemotes", ".html"]], None}]}]},
+            "HokahokaW/ref/HHPackageGitHEAD", ".html"]], None}]}]},
       Appearance->None,
       MenuAppearance->Automatic]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
@@ -73,17 +73,16 @@ HHPackageGitRemotes.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHPackageGitRemotes", "ObjectName",
+Cell["HHPackageGitHEAD", "ObjectName",
  CellID->1224892054],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      RowBox[{"HHPackageGitRemotes", "[", "packageName_String", "]"}]], 
+      RowBox[{"HHPackageGitHEAD", "[", "packageName_String", "]"}]], 
       "InlineFormula"],
-     " \[LineSeparator]",
-     "Prints a list of git remotes for either the given package or the \
-current NotebookDirectory[]."
+     " \[LineSeparator]HHPackageGitHEAD prints the git HEAD hash for either \
+the given package or the current NotebookDirectory[]."
     }]]}
   }]], "Usage",
  GridBoxOptions->{
@@ -109,7 +108,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->266604840],
+ CellID->697068917],
 
 Cell[CellGroupData[{
 
@@ -119,28 +118,41 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->280125255],
+ CellID->43420361],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
  CellLabel->"In[1]:=",
- CellID->416772385],
+ CellID->641573816],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"HHPackageGitRemotes", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
+ RowBox[{"HHPackageGitHEAD", "[", "]"}]], "Input",
  CellLabel->"In[2]:=",
- CellID->23527239],
+ CellID->250094976],
 
-Cell[BoxData["\<\"origin\\thttps://ktakagaki@github.com/ktakagaki/HokahokaW.\
-git (fetch)\\norigin\\thttps://ktakagaki@github.com/ktakagaki/HokahokaW.git \
-(push)\"\>"], "Output",
- ImageSize->{496, 33},
+Cell[BoxData["\<\"7e04ea33f3f0a19483a5d32bed73b73105678073\"\>"], "Output",
+ ImageSize->{284, 15},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->528819684]
+ CellID->58373518]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPackageGitHEAD", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->702191801],
+
+Cell[BoxData["\<\"7e04ea33f3f0a19483a5d32bed73b73105678073\"\>"], "Output",
+ ImageSize->{284, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->815025123]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -151,7 +163,7 @@ Saveable->False,
 ScreenStyleEnvironment->"Working",
 WindowSize->{725, 724},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-WindowTitle->"HHPackageGitRemotes",
+WindowTitle->"HHPackageGitHEAD",
 TaggingRules->{
  "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
   GridBox[{{
@@ -162,17 +174,17 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 2, 3, 12, 42, 20.1476392}", 
+   "built" -> "{2015, 2, 3, 12, 42, 18.7445589}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
     "status" -> "None", "summary" -> 
-    "HHPackageGitRemotes[packageName_String] Prints a list of git remotes for \
-either the given package or the current NotebookDirectory[].", 
-    "synonyms" -> {}, "title" -> "HHPackageGitRemotes", "titlemodifier" -> "",
-     "windowtitle" -> "HHPackageGitRemotes", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHPackageGitRemotes"}, "SearchTextTranslated" -> ""},
+    "HHPackageGitHEAD[packageName_String] HHPackageGitHEAD prints the git \
+HEAD hash for either the given package or the current NotebookDirectory[].", 
+    "synonyms" -> {}, "title" -> "HHPackageGitHEAD", "titlemodifier" -> "", 
+    "windowtitle" -> "HHPackageGitHEAD", "type" -> "Symbol", "uri" -> 
+    "HokahokaW/ref/HHPackageGitHEAD"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
 StyleDefinitions->Notebook[{
@@ -192,42 +204,48 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[3450, 96, 387, 15, 31, "PrimaryExamplesSection",
+  Cell[3433, 95, 387, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->266604840]}
+   CellID->697068917]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 6646, 193}
+ {"PrimaryExamplesSection", 6872, 205}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[591, 21, 2293, 52, 48, "AnchorBarGrid",
+Cell[588, 21, 2281, 52, 48, "AnchorBarGrid",
  CellID->1],
-Cell[2887, 75, 62, 1, 43, "ObjectName",
+Cell[2872, 75, 59, 1, 43, "ObjectName",
  CellID->1224892054],
-Cell[2952, 78, 473, 14, 81, "Usage",
+Cell[2934, 78, 474, 13, 81, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3450, 96, 387, 15, 31, "PrimaryExamplesSection",
+Cell[3433, 95, 387, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->266604840],
+ CellID->697068917],
 Cell[CellGroupData[{
-Cell[3862, 115, 195, 6, 25, "ExampleSection",
- CellID->280125255],
-Cell[4060, 123, 118, 3, 28, "Input",
- CellID->416772385],
+Cell[3845, 114, 194, 6, 25, "ExampleSection",
+ CellID->43420361],
+Cell[4042, 122, 118, 3, 28, "Input",
+ CellID->641573816],
 Cell[CellGroupData[{
-Cell[4203, 130, 131, 3, 28, "Input",
- CellID->23527239],
-Cell[4337, 135, 310, 7, 54, "Output",
- CellID->528819684]
+Cell[4185, 129, 107, 3, 28, "Input",
+ CellID->250094976],
+Cell[4295, 134, 205, 5, 36, "Output",
+ CellID->58373518]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4537, 144, 129, 3, 28, "Input",
+ CellID->702191801],
+Cell[4669, 149, 206, 5, 36, "Output",
+ CellID->815025123]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[4686, 147, 23, 0, 41, "FooterCell"]
+Cell[4914, 159, 23, 0, 41, "FooterCell"]
 }
 ]
 *)
