@@ -109,7 +109,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->266604840],
+ CellID->621643230],
 
 Cell[CellGroupData[{
 
@@ -119,7 +119,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->280125255],
+ CellID->271540948],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
@@ -162,7 +162,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 2, 3, 12, 42, 20.1476392}", 
+   "built" -> "{2015, 2, 3, 15, 29, 54.7627303}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -194,7 +194,7 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[3450, 96, 387, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->266604840]}
+   CellID->621643230]}
  }
 *)
 (*CellTagsIndex
@@ -213,10 +213,10 @@ Cell[2952, 78, 473, 14, 81, "Usage",
 Cell[CellGroupData[{
 Cell[3450, 96, 387, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->266604840],
+ CellID->621643230],
 Cell[CellGroupData[{
 Cell[3862, 115, 195, 6, 25, "ExampleSection",
- CellID->280125255],
+ CellID->271540948],
 Cell[4060, 123, 118, 3, 28, "Input",
  CellID->416772385],
 Cell[CellGroupData[{
