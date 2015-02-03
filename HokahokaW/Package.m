@@ -13,6 +13,7 @@ General::deprecated="Function is deprecated, use `1` instead.";
 HHPackageNewestFileDate::usage="Prints the newest file change date for all files within the given package or within the current NotebookDirectory[].";
 HHPackageGitRemotes::usage="Prints a list of git remotes for either the given package or the current NotebookDirectory[].";
 HHPackageGitHEAD::usage="Prints the git HEAD hash for either the given directory or the current NotebookDirectory[].";
+HHPackageUpdateGitHEADFile::usage="Bundles a GitHEAD.m file for marking deployments without active Git management.";
 HHPackageMessage::usage="Prints standard package message.";
 (* TODO: test that notebook message is working with HHPackageMessage[] *)
 (*HHNotebookMessage::usage="Prints standard notebook message.";*)
@@ -86,6 +87,17 @@ HHPackageGitRemotes::noFilesFound = HHPackageNewestFileDate::noFilesFound;
 (* ::Subsection::Closed:: *)
 (* HHPackageGitHEAD *)
 
+HHPackageUpdateGitHEADFile[notebookDirectory_String]:= 
+Module[{hhPrePackageGitHead, hhPrePackageGitHeadDate},
+	Print[hhPrePackageGitHead = HHPackageGitHEAD[]];
+	Print[hhPrePackageGitHeadDate = DateString[]];
+	Export[notebookDirectory <> "\\GitHEAD.m", {hhPrePackageGitHead, 
+  		hhPrePackageGitHeadDate}]
+];
+HHPackageUpdateGitHEADFile[args___]:=Message[HHPackageUpdateGitHEADFile::invalidArgs,{args}];
+
+
+HHPackageGitHEAD[]:= HHPackageGitImpl[ NotebookDirectory[], "git rev-parse HEAD" ];
 HHPackageGitHEAD[package_String]:= Module[{tempFile},
 	tempFile=FindFile[package];
 	If[ tempFile === $Failed,
@@ -103,13 +115,29 @@ HHPackageGitHEAD::noFilesFound = HHPackageNewestFileDate::noFilesFound;
 (* ::Subsection::Closed:: *)
 (* HHPackageMessage *)
 HHPackageMessage[package_String]:=
-Module[{remotes, head, newest},
+Module[{remotes, head, newest, tempFile, tempPreFile, searchFile},
 	remotes=Quiet[HHPackageGitRemotes[package]];
 	head=   Quiet[HHPackageGitHEAD[package]];
 	newest= Quiet[HHPackageNewestFileDate[package]];
 	
 	If[ remotes === $Failed || head === $Failed || newest === $Failed,
-		Message[HHPackageMessage::gitError, " ", package],
+		(*Search for GitHEAD.m and print*)
+		tempFile=FindFile[package];
+		If[ tempFile === $Failed,
+			Message[HHPackageMessage::noFilesFound, package];
+			tempPreFile = Import[ ParentDirectory[DirectoryName[tempFile]] <> "\\GitHEAD.m" ];
+			If[ tempPreFile === $Failed,
+				Message[HHPackageMessage::noPreFileFound, package],
+				CellPrint[TextCell[Row[{
+					Style["Git HEAD hash loaded on " <> tempPreFile[[2]] <> " is " <>
+							tempPreFile[[1]] <> ".\nRemember that this is at latest the \
+							penultimate commit before deployment. You should use a live git repo if possible, \
+							for better version tracking." ,Small, FontFamily->"Courier"]
+				}],"Text", Background -> LightGray]]
+			];
+		],	
+
+		(*Print info extracted from Git repo*)
 		CellPrint[TextCell[Row[{
 			Style[package, 
 				FontFamily -> "Helvetica", FontWeight -> "Bold", 
@@ -133,6 +161,8 @@ Module[{remotes, head, newest},
 HHPackageMessage[]:=HHPackageMessage[ NotebookDirectory[] ];
 
 HHPackageMessage::gitError=HHPackageGitImpl::gitError;
+HHPackageMessage::noFilesFound = HHPackageNewestFileDate::noFilesFound;
+HHPackageMessage::noPreFileFound = "Pre-generated GitHEAD.m file was not found, package may be corrupt.";
 
 (* ::Section::Closed:: *)
 (* End *)
