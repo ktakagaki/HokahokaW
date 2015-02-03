@@ -33,7 +33,7 @@
 	<property name="pacletName" value="HokahokaW"/>
 	<property name="app.name" value="HokahokaW"/>
 	<property name="pacletContainer" value="HokahokaW"/>
-	<property name="docInputDir" value="test/Documentation"/>
+	<property name="docInputDir" value="HokahokaW/Documentation"/>
 	<property name="docOutputDir" value="Documentation"/>
 	<property name="dist" value="${basedir}/build" />
 	
