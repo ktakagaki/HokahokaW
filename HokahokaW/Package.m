@@ -1,15 +1,13 @@
-(* Wolfram Language Package *)
-
-(* Created by the Wolfram Workbench Jan 31, 2015 *)
+(* ::Package:: *)
 
 BeginPackage["HokahokaW`Package`"];
+
 
 General::invalidArgs="Function called with invalid arguments `1`.";
 General::invalidOptionValue="Option argument `2` -> `1` is invalid.";
 General::deprecated="Function is deprecated, use `1` instead.";
 
-(* ::Section::Closed:: *)
-(* Package Git functions *)
+
 HHPackageNewestFileDate::usage="Prints the newest file change date for all files within the given package or within the current NotebookDirectory[].";
 HHPackageGitRemotes::usage="Prints a list of git remotes for either the given package or the current NotebookDirectory[].";
 HHPackageGitHEAD::usage="Prints the git HEAD hash for either the given directory or the current NotebookDirectory[].";
@@ -18,13 +16,15 @@ HHPackageMessage::usage="Prints standard package message.";
 (* TODO: test that notebook message is working with HHPackageMessage[] *)
 (*HHNotebookMessage::usage="Prints standard notebook message.";*)
 
-Begin["`Private`"];
-(* Implementation of the package *)
 
-(* ::Section::Closed:: *)
+Begin["`Private`"];
+
+
+(* ::Section:: *)
 (* Package Git functions *)
 
-(* ::Subsection::Closed:: *)
+
+(* ::Subsection:: *)
 (* HHPackageNewestFileDate *)
 
 
@@ -50,8 +50,11 @@ Module[{packageFile,tempdir},
 HHPackageNewestFileDate[args___]:=Message[HHPackageNewestFileDate::invalidArgs,{args}];
 HHPackageNewestFileDate::noFilesFound = "No files were found for package:  `1`.";
 
+
+
 (* ::Subsection::Closed:: *)
 (* HHPackageGitImpl (private) *)
+
 
 HHPackageGitImpl[directory_String, command_String]:=
 Module[{errorcode,tempret},
@@ -69,8 +72,11 @@ Module[{errorcode,tempret},
 HHPackageGitImpl::gitError="Call to Git returned error. It could be that Git is " <>
  "not installed correctly, the command `1` is not valid, or the directory `2` is not valid."; 
 
+
+
 (* ::Subsection::Closed:: *)
 (* HHPackageGitRemotes *)
+
 
 HHPackageGitRemotes[package_String]:= Module[{tempFile},
 	tempFile=FindFile[package];
@@ -84,14 +90,17 @@ HHPackageGitRemotes[]:= HHPackageGitImpl[ NotebookDirectory[], "git remote -v" ]
 HHPackageGitRemotes[args___]:=Message[HHPackageGitRemotes::invalidArgs,{args}];
 HHPackageGitRemotes::noFilesFound = HHPackageNewestFileDate::noFilesFound;
 
-(* ::Subsection::Closed:: *)
+
+
+(* ::Subsection:: *)
 (* HHPackageGitHEAD *)
+
 
 HHPackageUpdateGitHEADFile[notebookDirectory_String]:= 
 Module[{hhPrePackageGitHead, hhPrePackageGitHeadDate},
 	Print[hhPrePackageGitHead = HHPackageGitHEAD[]];
 	Print[hhPrePackageGitHeadDate = DateString[]];
-	Export[notebookDirectory <> "\\GitHEAD.m", {hhPrePackageGitHead, 
+	Export[notebookDirectory <> "GitHEAD.m", {hhPrePackageGitHead, 
   		hhPrePackageGitHeadDate}]
 ];
 HHPackageUpdateGitHEADFile[args___]:=Message[HHPackageUpdateGitHEADFile::invalidArgs,{args}];
@@ -112,8 +121,12 @@ HHPackageGitHEAD[]:= HHPackageGitImpl[ NotebookDirectory[], "git rev-parse HEAD"
 HHPackageGitHEAD[args___]:=Message[HHPackageGitHEAD::invalidArgs,{args}];
 HHPackageGitHEAD::noFilesFound = HHPackageNewestFileDate::noFilesFound;
 
+
+
 (* ::Subsection::Closed:: *)
 (* HHPackageMessage *)
+
+
 HHPackageMessage[package_String]:=
 Module[{remotes, head, newest, tempFile, tempPreFile, searchFile},
 	remotes=Quiet[HHPackageGitRemotes[package]];
@@ -164,8 +177,11 @@ HHPackageMessage::gitError=HHPackageGitImpl::gitError;
 HHPackageMessage::noFilesFound = HHPackageNewestFileDate::noFilesFound;
 HHPackageMessage::noPreFileFound = "Pre-generated GitHEAD.m file was not found, package may be corrupt.";
 
+
+
 (* ::Section::Closed:: *)
 (* End *)
+
 
 End[];
 

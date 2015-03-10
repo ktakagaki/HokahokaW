@@ -1,8 +1,10 @@
+(* ::Package:: *)
+
 (* Wolfram Language Init File *)
 
 Get[ "HokahokaW`HokahokaW`"];
-Get[ "HokahokaW`Package`"];
-Get[ "HokahokaW`Rules`"];
-Get[ "HokahokaW`Java`"];
-Get[ "HokahokaW`Graphics`"];
-Get[ "HokahokaW`Signal`"];
+Needs[ "HokahokaW`Package`"];
+Needs[ "HokahokaW`Rules`"];
+Needs[ "HokahokaW`Java`"];
+Needs[ "HokahokaW`Graphics`"];
+Needs[ "HokahokaW`Signal`"];
