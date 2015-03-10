@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2060,         71]
-NotebookOptionsPosition[      1580,         49]
-NotebookOutlinePosition[      1960,         65]
-CellTagsIndexPosition[      1917,         62]
+NotebookDataLength[      2359,         76]
+NotebookOptionsPosition[      1879,         54]
+NotebookOutlinePosition[      2259,         70]
+CellTagsIndexPosition[      2216,         67]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,18 +33,23 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell[BoxData["\<\"799fba6451b3923ea014645cc88bc57d83028b24\"\>"], "Print",
- CellChangeTimes->{{3.6319670612651997`*^9, 3.6319670614472103`*^9}}],
+Cell[BoxData["\<\"138404e62a39808c39a8749655855bb0f56ecac4\"\>"], "Print",
+ CellChangeTimes->{{3.6319670612651997`*^9, 3.6319670614472103`*^9}, {
+  3.634586608067458*^9, 3.634586608292471*^9}, {3.6345867308094788`*^9, 
+  3.6345867454523163`*^9}}],
 
-Cell[BoxData["\<\"Tue 3 Feb 2015 16:44:21\"\>"], "Print",
- CellChangeTimes->{{3.6319670612651997`*^9, 3.63196706144821*^9}}]
+Cell[BoxData["\<\"Fri 6 Mar 2015 00:25:45\"\>"], "Print",
+ CellChangeTimes->{{3.6319670612651997`*^9, 3.6319670614472103`*^9}, {
+  3.634586608067458*^9, 3.634586608292471*^9}, {3.6345867308094788`*^9, 
+  3.6345867454533167`*^9}}]
 }, Open  ]],
 
-Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\\\\\GitHEAD.m\
-\"\>"], "Output",
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\GitHEAD.m\"\>\
+"], "Output",
  CellChangeTimes->{{3.6319669806595893`*^9, 3.631966980990608*^9}, {
   3.631967022040956*^9, 3.631967022162963*^9}, {3.6319670612732*^9, 
-  3.6319670614522104`*^9}}]
+  3.6319670614522104`*^9}, {3.63458660809046*^9, 3.634586608299472*^9}, {
+  3.634586730817479*^9, 3.6345867454623165`*^9}}]
 }, Open  ]]
 },
 WindowSize->{952, 1133},
@@ -68,10 +73,10 @@ Cell[CellGroupData[{
 Cell[580, 22, 411, 9, 60, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[1016, 35, 144, 1, 26, "Print"],
-Cell[1163, 38, 124, 1, 26, "Print"]
+Cell[1016, 35, 246, 3, 26, "Print"],
+Cell[1265, 40, 229, 3, 26, "Print"]
 }, Open  ]],
-Cell[1302, 42, 262, 4, 93, "Output"]
+Cell[1509, 46, 354, 5, 93, "Output"]
 }, Open  ]]
 }
 ]
