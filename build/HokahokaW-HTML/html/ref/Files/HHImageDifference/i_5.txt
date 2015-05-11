@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>Image[HHImageDifference[testImages[[1]], ImageData[testImages[[2]]], 
+  0.25]]</pre><div class='IFU'><a name='1460132'></a>http://wolfram.com/xid/0f9jtgc6hih4kb030pvaul52e7yq-5kxi</div>

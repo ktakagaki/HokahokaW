@@ -1,7 +1,9 @@
+(* ::Package:: *)
+
 (* Wolfram Language package *)
 
 
-BeginPackage["HokahokaW`Signal`"];
+BeginPackage["HokahokaW`Signal`",{"HokahokaW`"}];
 
 
 HHStandardDeviationMedianEstimate::usage="Makes a standard deviation estimate based on medians (less sensitive to outliers).";

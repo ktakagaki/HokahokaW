@@ -1,0 +1,5 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>hello1 = 1;
+hello2 = 2^\[CapitalPi];
+hello3 = Sin;
+hello4 = &quot;string&quot;;
+hello5 = {1, 2, 3, 4};</pre><div class='IFU'><a name='115537652'></a>http://wolfram.com/xid/0ionrvl7bh0ycjqy9ftvn5v95urxwl2-b62npi</div>
