@@ -4,7 +4,7 @@
 
 (* Wolfram Language package *)
 
-BeginPackage["HokahokaW`Graphics`"];
+BeginPackage["HokahokaW`Graphics`",{"HokahokaW`"}];
 
 
 HHImageMean::usage="Gives the mean of a series of images. Image data must have the same dimensions and depths.";
