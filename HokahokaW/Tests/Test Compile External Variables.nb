@@ -1,0 +1,337 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10295,        328]
+NotebookOptionsPosition[      8536,        263]
+NotebookOutlinePosition[      8884,        278]
+CellTagsIndexPosition[      8841,        275]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Does Compile Take in External Variables?", "Title",
+ CellChangeTimes->{{3.633457093530052*^9, 3.6334571385826287`*^9}, {
+  3.63346208398649*^9, 3.633462098522321*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Integer", "Section",
+ CellChangeTimes->{{3.633462240976469*^9, 3.6334622456827383`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tempExt1", "=", "777"}], ";"}]], "Input",
+ CellChangeTimes->{{3.633462106998806*^9, 3.6334621139622045`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cFunc", "=", 
+   RowBox[{"Compile", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", " ", "_Integer"}], "}"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"x", "+", "tempExt1"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.633462100389428*^9, 3.6334621450829844`*^9}, 
+   3.633462200109132*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cFunc", "[", "3", "]"}]], "Input",
+ CellChangeTimes->{{3.6334621469640923`*^9, 3.63346215095432*^9}}],
+
+Cell[BoxData["780"], "Output",
+ CellChangeTimes->{{3.633462151278339*^9, 3.6334621761187596`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempExt1", "=", "300"}]], "Input",
+ CellChangeTimes->{{3.633462181823086*^9, 3.633462185579301*^9}}],
+
+Cell[BoxData["300"], "Output",
+ CellChangeTimes->{3.6334621862773404`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cFunc", "[", "3", "]"}]], "Input",
+ CellChangeTimes->{{3.6334621880094395`*^9, 3.633462189882547*^9}}],
+
+Cell[BoxData["303"], "Output",
+ CellChangeTimes->{3.63346219011656*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempExt1", "=", "Pi"}]], "Input",
+ CellChangeTimes->{{3.633462181823086*^9, 3.6334622150349855`*^9}}],
+
+Cell[BoxData["\[Pi]"], "Output",
+ CellChangeTimes->{{3.6334621862773404`*^9, 3.633462216270056*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cFunc", "[", "3", "]"}]], "Input",
+ CellChangeTimes->{{3.6334621880094395`*^9, 3.633462189882547*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfse"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Compiled expression \[NoBreak]\\!\\(\[Pi]\\)\[NoBreak] \
+should be a \[NoBreak]\\!\\(\\\"machine-size integer\\\"\\)\[NoBreak]. \\!\\(\
+\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfse\\\
+\", ButtonNote -> \\\"CompiledFunction::cfse\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6334622178861485`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfex"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not complete external evaluation at instruction \
+\[NoBreak]\\!\\(1\\)\[NoBreak]; proceeding with uncompiled evaluation. \\!\\(\
+\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfex\\\
+\", ButtonNote -> \\\"CompiledFunction::cfex\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.633462217902149*^9}],
+
+Cell[BoxData[
+ RowBox[{"3", "+", "\[Pi]"}]], "Output",
+ CellChangeTimes->{{3.63346219011656*^9, 3.633462217902149*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Integer (=> external types are assumed to be what is currently set)\
+\>", "Section",
+ CellChangeTimes->{{3.633462240976469*^9, 3.6334622456827383`*^9}, {
+  3.6334623653305817`*^9, 3.6334623801064267`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tempExt2", "=", 
+   RowBox[{"{", 
+    RowBox[{"0.1", ",", " ", "0.2", ",", " ", "0.3"}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6334622515220723`*^9, 3.633462262778716*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cFunc2", "=", 
+   RowBox[{"Compile", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", " ", "_Real"}], "}"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tempExt2", "+", "x"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6334622655328736`*^9, 3.6334622979317265`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cFunc2", "[", "1", "]"}]], "Input",
+ CellChangeTimes->{{3.633462299364809*^9, 3.6334623059801874`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.1`", ",", "1.2`", ",", "1.3`"}], "}"}]], "Output",
+ CellChangeTimes->{3.633462306332207*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tempExt2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.1", ",", " ", "0.2", ",", " ", "0.3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0.1", ",", " ", "0.2", ",", " ", "0.3"}], "}"}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6334623161827707`*^9, 3.6334623303635817`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cFunc2", "[", "1", "]"}]], "Input",
+ CellChangeTimes->{{3.633462299364809*^9, 3.6334623059801874`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfte"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Compiled expression \[NoBreak]\\!\\({\\(\\({0.1`, 0.2`, \
+0.3`}\\)\\), \\(\\({0.1`, 0.2`, 0.3`}\\)\\)}\\)\[NoBreak] should be a rank \
+\[NoBreak]\\!\\(1\\)\[NoBreak] tensor of \[NoBreak]\\!\\(\\\"machine-size \
+real number\\\"\\)\[NoBreak]s. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfte\\\", ButtonNote -> \
+\\\"CompiledFunction::cfte\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6334623356998873`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfex"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not complete external evaluation at instruction \
+\[NoBreak]\\!\\(1\\)\[NoBreak]; proceeding with uncompiled evaluation. \\!\\(\
+\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfex\\\
+\", ButtonNote -> \\\"CompiledFunction::cfex\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.633462335715888*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1.1`", ",", "1.2`", ",", "1.3`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.1`", ",", "1.2`", ",", "1.3`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.633462335716888*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tempExt2", "=", "0.5"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6334623161827707`*^9, 3.6334623552030025`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cFunc2", "[", "1", "]"}]], "Input",
+ CellChangeTimes->{{3.633462299364809*^9, 3.6334623059801874`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfte"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Compiled expression \[NoBreak]\\!\\(0.5`\\)\[NoBreak] \
+should be a rank \[NoBreak]\\!\\(1\\)\[NoBreak] tensor of \
+\[NoBreak]\\!\\(\\\"machine-size real number\\\"\\)\[NoBreak]s. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfte\\\
+\", ButtonNote -> \\\"CompiledFunction::cfte\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.6334623356998873`*^9, 3.6334623567800927`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"CompiledFunction", "::", "cfex"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not complete external evaluation at instruction \
+\[NoBreak]\\!\\(1\\)\[NoBreak]; proceeding with uncompiled evaluation. \\!\\(\
+\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/CompiledFunction/cfex\\\
+\", ButtonNote -> \\\"CompiledFunction::cfex\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.6334623356998873`*^9, 3.633462356796094*^9}}],
+
+Cell[BoxData["1.5`"], "Output",
+ CellChangeTimes->{{3.633462335716888*^9, 3.6334623567970934`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{952, 1133},
+WindowMargins->{{0, Automatic}, {Automatic, -1200}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 173, 2, 90, "Title"],
+Cell[CellGroupData[{
+Cell[778, 28, 94, 1, 63, "Section"],
+Cell[875, 31, 144, 3, 31, "Input"],
+Cell[1022, 36, 406, 12, 72, "Input"],
+Cell[CellGroupData[{
+Cell[1453, 52, 125, 2, 31, "Input"],
+Cell[1581, 56, 98, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1716, 62, 124, 2, 31, "Input"],
+Cell[1843, 66, 74, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1954, 72, 126, 2, 31, "Input"],
+Cell[2083, 76, 71, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2191, 82, 125, 2, 31, "Input"],
+Cell[2319, 86, 100, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2456, 92, 126, 2, 31, "Input"],
+Cell[2585, 96, 536, 10, 22, "Message"],
+Cell[3124, 108, 533, 10, 22, "Message"],
+Cell[3660, 120, 119, 2, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3828, 128, 215, 4, 63, "Section"],
+Cell[4046, 134, 220, 6, 31, "Input"],
+Cell[4269, 142, 380, 11, 72, "Input"],
+Cell[CellGroupData[{
+Cell[4674, 157, 127, 2, 31, "Input"],
+Cell[4804, 161, 134, 3, 31, "Output"]
+}, Open  ]],
+Cell[4953, 167, 354, 10, 31, "Input"],
+Cell[CellGroupData[{
+Cell[5332, 181, 127, 2, 31, "Input"],
+Cell[5462, 185, 650, 12, 22, "Message"],
+Cell[6115, 199, 533, 10, 22, "Message"],
+Cell[6651, 211, 251, 7, 31, "Output"]
+}, Open  ]],
+Cell[6917, 221, 146, 3, 31, "Input"],
+Cell[CellGroupData[{
+Cell[7088, 228, 127, 2, 31, "Input"],
+Cell[7218, 232, 614, 11, 22, "Message"],
+Cell[7835, 245, 559, 10, 22, "Message"],
+Cell[8397, 257, 99, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
