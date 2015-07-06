@@ -9,6 +9,7 @@ BeginPackage["HokahokaW`",{"JLink`"}];
 General::invalidArgs="Function called with invalid arguments `1`.";
 General::invalidOptionValue="Option argument `2` -> `1` is invalid.";
 General::deprecated="Function is deprecated, use `1` instead.";
+General::nullArgument="At least one of the required arguments is null!";
 
 
 (* ::Subsection:: *)
@@ -69,7 +70,7 @@ HHPackageMessage::usage="Prints standard package message.";
 (*HHNotebookMessage::usage="Prints standard notebook message.";*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities*)
 
 
@@ -81,6 +82,14 @@ HHPadZeros::usage =
 HHPrintAssignmentCell::usage =
 "Prints the given symbols and their value assignements in a cell. Use to record value assignments in a notebook.";
 Options[HHPrintAssignmentCell]={"PrintDateString"-> True, "PrintFilename"->True};
+
+
+HHSymbolNotNull::usage = 
+"Checks whether the given symbol name(s) given as String or List of String are not Null.";
+
+
+HHCreateDirectoryIfNone::usage = 
+"Checks whether the given directory name exists, and if not, calls CreateDirectory.";
 
 
 (* ::Section:: *)
@@ -396,7 +405,7 @@ HHPackageMessage::noPreFileFound = "Pre-generated GitHEAD.m file was not found, 
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities*)
 
 
@@ -436,6 +445,16 @@ HHPrintAssignmentCell[symbolNames__String, opts:OptionsPattern[]]:= HHPrintAssig
 
 HHPrintAssignmentCell[args___]:=Message[HHPrintAssignmentCell::invalidArgs,{args}];
 HHPrintAssignmentCell::noValidName="No active symbols with value assignments match the symbol name(s) `1`.";
+
+
+HHSymbolNotNull[symbolName_String]:= (Symbol[symbolName]!=Null);
+HHSymbolNotNull[symbolName_List]:= And@@(HHSymbolNotNull /@ symbolName);
+
+HHSymbolNotNull[args___]:=Message[HHSymbolNotNull::invalidArgs,{args}];
+
+
+HHCreateDirectoryIfNone[directoryName_String]:= If[ !FileExistsQ[directoryName], CreateDirectory[directoryName], Null ];
+HHCreateDirectoryIfNone[args___]:=Message[HHCreateDirectoryIfNone::invalidArgs,{args}];
 
 
 (* ::Section:: *)
