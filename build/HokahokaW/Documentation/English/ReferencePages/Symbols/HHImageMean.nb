@@ -1,0 +1,482 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17930,        472]
+NotebookOptionsPosition[     14566,        372]
+NotebookOutlinePosition[     16910,        435]
+CellTagsIndexPosition[     16790,        429]
+WindowTitle->HHImageMean
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Guides",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Guides", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->
+         False], {"\<\"FindClusters[{1, 2, 10, 12, 3, 1, 13, 25}]\"\>":>
+       Documentation`HelpLookup[
+       "paclet:ref/FindClusters[{1, 2, 10, 12, 3, 1, 13, 25}]"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"MoreAbout"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"HokahokaW/ref/HHImageMean\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["HokahokaW/ref/HHImageMean"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHImageMean.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$2770], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "HokahokaW/ref/HHImageMean", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["HHImageMean", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"HHImageMean", "[", "]"}]], "InlineFormula"],
+     " \[LineSeparator]Gives the mean of a series of images. Image data must \
+have the same dimensions and depths."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->378880536],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->333177122],
+
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`Graphics`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1850285],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"testImages", "=", "\[IndentingNewLine]", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Image", "[", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{"Gray", ",", 
+         RowBox[{"Rectangle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"20", ",", "20"}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"ColorData", "[", "\"\<DarkRainbow\>\"", "]"}], "[", 
+          RowBox[{"RandomReal", "[", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Disk", "[", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"RandomReal", "[", 
+              RowBox[{"{", 
+               RowBox[{"3", ",", "16"}], "}"}], "]"}], ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}], ",", "2"}], "]"}]}], 
+        "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", 
+        RowBox[{"72", "*", "1"}]}]}], "]"}], "]"}], ",", " ", 
+    RowBox[{"{", "10", "}"}]}], "]"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->697796],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1: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
+aKb99NyhwZ2hXg+ml8ydTkucprcGTsS//+qF0KD78eFRqdPty14vgs6VeDa3
+0jeWqeZbzegZWTB0gaclTtNbA/viak26+/QheGxcMvjZ2r1eBJ0r8XopVx1d
+wwu5FfmTaonT9NbAvvjmxmyUlFNDrXBFzrgvv/SS/Cr1ZsF+62tQK9aAlKuO
+kyn5NayWOE1vDeyLl4rLEYPuzc1pkTPuS9XI0C/HaQqcv+e7hxdCg679tPxV
+vZY4TW8NnIhv3U9GCToViVJnfBItcVovfna1Jt19+hA8ZqTv1NF0xO2I37k9
+GJpy9+8ekzrdvmiJ03rxs6cXc1FSTg21wpU9NU1H3I54oZB79KAv+JHrhfNm
+t8BridN68bNncysRgy6V4YpODMQti29uzP7wbW+9lHvn6oTgufZFS5zWm5hA
+V4R7dGpkpZ+80nTEbYqXisufl0852f+VJ+g8eM+/MrUYmnJ9Y9q/ujQUmu6h
++FzW4A35vAfiKu7e3Jz+2wdDb11On1s3+Hn4GrTEnbTeNM7F1ZVa59B88CPX
+haz8B+louj/iI/OZ3vHp9uHJQ0MTaqjXgzNGrnN8E7eGljgVMDSH9GLu8Nn9
+s06l3NickZ/yNN0H8Z1NMRPT1XyrGT2vpsUv8PwRt4yWOBUwNw31hn9ponYN
+a27/V56g80O8XspVR9dYKrcieTHvj7hltMSpgOnJqLhLZXL96aXJheXFZQP7
+vvZA052LqxVrQMpVx8lpyc+KeyJuHy1xKuB6spLQdOfi3a+mQoOufXhS8Iye
+iNtHS5wKuJ6sJDTdrbhak+4+fQgeM0tid+p8EHeCljgVcD1ZSWi6W/H0UjZK
+yqmhVrhSJ/VB3Ala4lTA9WQloeluxXc2xUQLutSi2O4/H8SdoCVOBVxPVhKa
+7ly8ayz8Hp0agptiPBG3j5Y4FXA9WUlounPxV9JzoSnXNyH5LW2eiNtHS5wK
+uJ6sJDTduXhuZaVzdCr4kevCsuQHKT0Rt4+WOBVwPVlJaLoP4uml7OGR/bNO
+pdzYvPCXF/kjbhktcSrgerKS0HRPxHc2xUzNWtj/lfdM3CZa4lTA9WQloele
+ie9silnM9s/MT2aWFnNe7PszNAcnaIlTAdeTlYSmI444FUAcd8RbBi1xKuB6
+spLQdMQRpwKI4454y6AlDgAAAAAAAOAV/wf4Ixa9
+    "], {{0, 152}, {419, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  BaseStyle->"ImageGraphics",
+  ImageSize->Automatic,
+  ImageSizeRaw->{419, 152},
+  PlotRange->{{0, 419}, {0, 152}}]], "Output",
+ ImageSize->{423, 152},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellTags->"RasterizedOutput",
+ CellLabel->"Out[2]=",
+ CellID->705782869]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHImageMean", "[", "testImages", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1460132],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1:eJztmt1yo0YQhV1JLvIaeZTkKtebJ9itSi6TKlniZ36BASR55X3l5MDIaDyC
+YYARjhJ1nVWxW17Mp9N9aGT/9OWvT3989/T09PwjXj59jn/ebD6nv/2Av/yS
+bn//8j0Ofj3/aY7/ftQdVvYfqgfXfdWD677qwXVf9eC6r7oFVy5lqFPNroBc
+SopK0D0nWjhWkge5yBkViqsSrCMyBboPsS8I1xCUVs1pwAv2rOVcaD8HlFYp
+1m7I5Vy1MVMO+Z8wzwP07XIuHyhodMryQihFVUlU1UrRopjv8kKuQko3zoGl
++gDt6jqPYmccSyWdZ9+N/DqS+Guye42etXBcssH0GIR6Q/sQLsSdBWUSdarT
+tKI9md+0nwOq1YyGXM6FrBuF+hrvwNWgETtAYMcoF4Zufa4sk51laL9rKGif
+JpoLUoy95xqDajV1ymZzyUzwnPKcQCJLShFVPD4l22uoQxJ3UFrdSXC1PlAN
+V+GKnVBcIjsTXZSluYhe4j9P0cZov63pVCdzyny58ptz9UBp12SiyKZKN8ck
+aj3qIdIq+CUHvOaruvl8te3XA6UtK8gzVJJoiOjMJS5vfqH4eB4q5rikIFzd
+TPWqoFtwKfLs5rLOOWIZwnD6rXk61yAUlPFIW1YNN2FJ7ftskx5DaOXkxJjB
+JTPp5mpasbWsSu0M7A0Ns3q2jrlL1FSubMwvSIrYwWVOVm8h97BdtOm3aKsP
+NV/AydlWN6FKN4c4Okbv0qN3ibpdTeUSGeu5c7GdJjpzke1lmhiFR+t/FDDj
+/mVxXUG9C43rhXCdmsFlpoeepvdQ9mRZC+FoBTF3BpfOKN2QOd2a7TcU7z6n
+xRKCW4B5O1B8jedlpURdscOeauG4VLwiCbaL1qPBG5Yj27syiYKkjQ9XjodH
+g6jTS5WexG5PXETnVnR+HjUEtWRCfbh6oaBjTb9l21e5G7qkI4sBjq85Vumb
+xfb9C+03/rZMnFAfLrRfL5TWa95c9gu/WnRJqom0DjUxG9jcIipKRrk8J3QS
+137ALK2TivWVW5dhQp2KyPpf+/ry/vtA+UzoVC4HlGnZnl6mDO3XQTVNaJjV
+QjWvZdlMXC6EJ1cxMRvdXEUhR7mQHt/yHVguZsmLWS9lcm6/un2SKs/Cos5b
+C3y5xhbLSVy5h186QGp+GZO39tt1TplEnagQVMiSfNB81a756pRrf0XzIzA4
+aAZFLxTEMw7PBHGFvNb1I9tyrqrko1CIuO7rLYvRfr1QEAMTl1AROjR8uDIP
+y6ynP/Pr1QAUpKEgyrC3DHbj1Mny50J66BDrlbp6Ti8Ni4egZEE7riZBpCwZ
+s4iWPLJ57od5X0Nad1iz9PuA1yEuhIbJJd5OA3ew7i5/ZPPk6ujgHdZdvLo/
+eegsHpgsbkKZXKFqEtek0hZb85UV1HJKK+y3zm7/eykYHeSeyFmTfgZRakDR
+4G6t8vs21ECImdhRsaVcC8f4l1t89rECFwJAG2QSdUpYs3UER1uBSxeu3yLa
+UZ5ydGYjOusm5ah1uGAILh4UCW8aL2mPyXvxoKatw9Vm4JiCWrYOF/Hh4iHH
+bK3c8OIKCLaSX75cwb7jv2i++P3NF2vz0K2wW8dq968Ry0L2YFOrcTXpMYQm
+QiaGrtW4dGEZvG6/O90Prws9h+0CQLf7ad+HcK1QD677qv8D16Pupf4BOaqY
+8Q==
+    "], {{0, 72}, {72, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  BaseStyle->"ImageGraphics",
+  ImageSize->Automatic,
+  ImageSizeRaw->{72, 72},
+  PlotRange->{{0, 72}, {0, 72}}]], "Output",
+ ImageSize->{76, 72},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellTags->"RasterizedOutput",
+ CellLabel->"Out[3]=",
+ CellID->324247656]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Related Guides"
+}], "MoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellID->38303248],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["FindClusters[{1, 2, 10, 12, 3, 1, 13, 25}]"]],
+   "paclet:ref/FindClusters[{1, 2, 10, 12, 3, 1, 13, 25}]"},
+  "RefLink",
+  BaseStyle->"MoreAbout"]], "MoreAbout",
+ CellID->194357178]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHImageMean",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
+  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2015, 10, 4, 21, 8, 15.5891539}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> 
+    "HHImageMean[] Gives the mean of a series of images. Image data must have \
+the same dimensions and depths.", "synonyms" -> {}, "title" -> "HHImageMean", 
+    "titlemodifier" -> "", "windowtitle" -> "HHImageMean", "type" -> "Symbol",
+     "uri" -> "HokahokaW/ref/HHImageMean"}, "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 7, 2015)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "10.2 for Microsoft Windows (64-bit) (July 7, 2015)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[4172, 117, 387, 15, 31, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->378880536]},
+ "RasterizedOutput"->{
+  Cell[6124, 185, 5382, 96, 173, "Output",
+   CellTags->"RasterizedOutput",
+   CellID->705782869],
+  Cell[11660, 291, 2227, 45, 93, "Output",
+   CellTags->"RasterizedOutput",
+   CellID->324247656]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 16425, 415},
+ {"RasterizedOutput", 16568, 419}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[583, 21, 3080, 75, 48, "AnchorBarGrid",
+ CellID->1],
+Cell[3666, 98, 54, 1, 43, "ObjectName",
+ CellID->1224892054],
+Cell[3723, 101, 424, 12, 81, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[4172, 117, 387, 15, 31, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->378880536],
+Cell[CellGroupData[{
+Cell[4584, 136, 195, 6, 25, "ExampleSection",
+ CellID->333177122],
+Cell[4782, 144, 104, 3, 28, "Input",
+ CellID->1850285],
+Cell[CellGroupData[{
+Cell[4911, 151, 1210, 32, 119, "Input",
+ CellID->697796],
+Cell[6124, 185, 5382, 96, 173, "Output",
+ CellTags->"RasterizedOutput",
+ CellID->705782869]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11543, 286, 114, 3, 28, "Input",
+ CellID->1460132],
+Cell[11660, 291, 2227, 45, 93, "Output",
+ CellTags->"RasterizedOutput",
+ CellID->324247656]
+}, Open  ]]
+}, Open  ]],
+Cell[13914, 340, 31, 0, 29, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13982, 345, 276, 12, 31, "MoreAboutSection",
+ CellID->38303248],
+Cell[14261, 359, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[14295, 361, 229, 6, 70, "MoreAbout",
+ CellID->194357178]
+}, Open  ]],
+Cell[14539, 370, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,358 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10251,        348]
+NotebookOptionsPosition[      6920,        243]
+NotebookOutlinePosition[      9004,        299]
+CellTagsIndexPosition[      8920,        294]
+WindowTitle->HHPadZeros
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHPadZeros\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["HokahokaW/ref/HHPadZeros"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHPadZeros.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$5126], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "HokahokaW/ref/HHPadZeros", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["HHPadZeros", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"HHPadZeros", "[", 
+       RowBox[{"n_", ",", " ", "m_"}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]HHPadZeros ",
+     "gives the numeral n string padded to m digits with zeros. Default for \
+m=3."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->252353955],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->884377550],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->406315985],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["(origin)[https://ktakagaki@github.com/ktakagaki/HokahokaW.git]",
+  StripOnInput->False,
+  FontFamily->"Courier",
+  FontSize->Small],
+ "\n",
+ StyleBox["current Git HEAD:  7e04ea33f3f0a19483a5d32bed73b73105678073\n\
+newest file:  Sun 1 Feb 2015 21:16:06 ",
+  StripOnInput->False,
+  FontFamily->"Courier",
+  FontSize->Small]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->44657946],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPadZeros", "[", "14", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->167297602],
+
+Cell[BoxData["\<\"014\"\>"], "Output",
+ ImageSize->{25, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->38683727]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPadZeros", "[", "999", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->43225250],
+
+Cell[BoxData["\<\"999\"\>"], "Output",
+ ImageSize->{25, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->1021876829]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPadZeros", "[", "1000", "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->62060929],
+
+Cell[BoxData["1000"], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->1031545743]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPadZeros", "[", "777.7", "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->611079026],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"IntegerDigits", "::", "int"}], "MessageName"], ":", 
+  " ", "\<\"Integer expected at position \[NoBreak]\\!\\(1\\)\[NoBreak] in \
+\[NoBreak]\\!\\(IntegerDigits[\\(\\(777.7`, 10, 3\\)\\)]\\)\[NoBreak]. \\!\\(\
+\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/int\\\", \
+ButtonNote -> \\\"IntegerDigits::int\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[5]:=",
+ CellID->13421978],
+
+Cell[BoxData["\<\"777.7103\"\>"], "Output",
+ ImageSize->{60, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
+ CellID->184169483]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPadZeros", "[", 
+  RowBox[{"1000", ",", " ", "7"}], "]"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->779666789],
+
+Cell[BoxData["\<\"0001000\"\>"], "Output",
+ ImageSize->{53, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
+ CellID->3505832]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHPadZeros",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
+  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2015, 10, 4, 21, 8, 23.3775994}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> 
+    "HHPadZeros[n_, m_] HHPadZeros gives the numeral n string padded to m \
+digits with zeros. Default for m=3.", "synonyms" -> {}, "title" -> 
+    "HHPadZeros", "titlemodifier" -> "", "windowtitle" -> "HHPadZeros", 
+    "type" -> "Symbol", "uri" -> "HokahokaW/ref/HHPadZeros"}, 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 7, 2015)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "10.2 for Microsoft Windows (64-bit) (July 7, 2015)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[3390, 96, 387, 15, 31, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->252353955]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 8778, 287}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[582, 21, 2257, 52, 48, "AnchorBarGrid",
+ CellID->1],
+Cell[2842, 75, 53, 1, 43, "ObjectName",
+ CellID->1224892054],
+Cell[2898, 78, 467, 14, 81, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[3390, 96, 387, 15, 31, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->252353955],
+Cell[CellGroupData[{
+Cell[3802, 115, 195, 6, 25, "ExampleSection",
+ CellID->884377550],
+Cell[4000, 123, 118, 3, 28, "Input",
+ CellID->406315985],
+Cell[4121, 128, 600, 21, 131, "Text",
+ CellID->44657946],
+Cell[CellGroupData[{
+Cell[4746, 153, 107, 3, 28, "Input",
+ CellID->167297602],
+Cell[4856, 158, 167, 5, 36, "Output",
+ CellID->38683727]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5060, 168, 107, 3, 28, "Input",
+ CellID->43225250],
+Cell[5170, 173, 169, 5, 36, "Output",
+ CellID->1021876829]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5376, 183, 108, 3, 28, "Input",
+ CellID->62060929],
+Cell[5487, 188, 162, 5, 36, "Output",
+ CellID->1031545743]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5686, 198, 110, 3, 28, "Input",
+ CellID->611079026],
+Cell[5799, 203, 532, 10, 20, "Message",
+ CellID->13421978],
+Cell[6334, 215, 173, 5, 36, "Output",
+ CellID->184169483]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6544, 225, 137, 4, 28, "Input",
+ CellID->779666789],
+Cell[6684, 231, 170, 5, 36, "Output",
+ CellID->3505832]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[6893, 241, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

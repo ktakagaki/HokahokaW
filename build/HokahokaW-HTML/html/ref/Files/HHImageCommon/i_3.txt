@@ -1,0 +1,6 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>testImages =
+ Table[Image[Graphics[{
+     Gray, Rectangle[{0, 0}, {20, 20}],
+     ColorData[&quot;DarkRainbow&quot;][RandomReal[]],
+     Disk[Table[RandomReal[{2, 17}], {2}], 2]
+     }, ImageSize -&gt; 72*1]], {10}]</pre><div class='IFU'><a name='697796'></a>http://wolfram.com/xid/0br3n2s0b3b8uspzpv6jfc88a7by-o8pi</div>
