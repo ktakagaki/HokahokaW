@@ -86,7 +86,7 @@ Module[{threshed, tempRes,
 	
 	optBlackout = OptionValue[HHPulseTrainBlackout];
 	If[ Head[optBlackout] === List && Length[optBlackout]==2,
-		tempRes = Select[ tempRes, (#[[2]]<optBlackout[[1]] && #[[1]]>optBlackout[[2]])&],
+		tempRes = Select[ tempRes, (#[[2]] < optBlackout[[1]] ||  optBlackout[[2]] < #[[1]] )&],
 		If[ Head[optBlackout]===Integer || Head[optBlackout] ===Real,
 			tempRes = Select[ tempRes, (#[[2]]>optBlackout)&]
 	]];

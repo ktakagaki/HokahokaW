@@ -274,43 +274,11 @@ HHImageMeanSubtractedAdjusted::dimensionsMustBeSame = "Input list of Image objec
 HHImageMeanSubtractedAdjusted[args___]:=Message[HHImageMean::invalidArgs, {args}];*)
 
 
-(*
-HHGraphicsColumn[list:{__}, opts:OptionsPattern[]]:= 
-Module[{tempPlotRange, tempPlotWidth, tailHeightAccumulate,tempHorizPadding},
+(*HHGraphicsColumn[list:{__}, opts:OptionsPattern[]]:= 
 
-	(*ToDo: With AbsoluteOption for ImageSize, once MMA bug is fixed*)
-	tempHorizPadding = 1.2;
-
-	tempPlotRange = HHOptionValue[list[[1]],PlotRange];
-
-	If[Dimensions[tempPlotRange]!={2,2},
-		Message[ HHGraphicsColumn::headNotGraphicsObject, list[[1]] ],
-		If[ Length[list]==1,
-			list[[1]],
-			tempPlotWidth = tempPlotRange[[1,2]]-tempPlotRange[[1,1]];
-			tailHeightAccumulate = Accumulate[tempPlotWidth * (HHOptionValue[#, AspectRatio]& /@ list[[2;;]])];
-
-			Graphics[
-				Prepend[
-					Table[ Inset[list[[n]], 
-							{tempPlotRange[[1,1]], tempPlotRange[[2,1]]-tailHeightAccumulate[[n-1]]*tempHorizPadding},
-							{Left, Bottom}, tempPlotWidth ],
-						{n,2,Length[list]}
-					],
-					Inset[list[[1]],{tempPlotRange[[1,1]], tempPlotRange[[2,1]]},{Left, Bottom}, tempPlotWidth] 
-				],
-				PlotRange->{tempPlotRange[[1]]+{-1,1}*tempPlotWidth*0.02,
-					  {tempPlotRange[[2,1]]-tailHeightAccumulate[[-1]]*tempHorizPadding,
-						tempPlotRange[[2,1]]+tempPlotWidth*HHOptionValue[list[[1]],AspectRatio]*tempHorizPadding}},
-				Sequence@@HHJoinOptionLists[ Graphics, {opts}, Options[HHGraphicsColumn] ]
-			]
-		]
-	]
-];
-
-HHGraphicsColumn[args___]:=Message[HHGraphicsColumn::invalidArgs,{args}];
-HHGraphicsColumn::headNotGraphicsObject="The first list element `1` must be a Graphics object with a PlotRange specification!";
-
+See tests in /HokahokaW/Tests/Graphics for more information.
+Until further improvements in graphics syntax, the best way is to use
+Column[  Show[gr1, ImageSize\[Rule] y*72], Show[gr2, ImageSize\[Rule] y*72] ]
 *)
 
 

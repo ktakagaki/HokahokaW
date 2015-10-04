@@ -23,7 +23,7 @@ HHRuleQ::usage=
 
 
 HHJoinOptionLists::usage=
-"HHJoinOptionLists[x_/;RuleQ[x], y_/;RuleQ[y]]...   joins the two option lists, "<>
+"HHJoinOptionLists[x_/;RuleQ[x], y_/;RuleQ[y]]...   joins two option lists, "<>
 "and if an option specified in x is repeated in y, the specification in y is dropped.
 
 HHJoinOptionLists[x_/;RuleQ[x], y_/;RuleQ[y], z_/;RuleQ[z]]...    joins the three option lists, "<>
