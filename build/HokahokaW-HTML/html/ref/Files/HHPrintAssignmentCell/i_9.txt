@@ -1,2 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>HHPrintAssignmentCell[{&quot;hello1&quot;, &quot;hello2&quot;, &quot;hello3&quot;}, 
- &quot;PrintDateString&quot; -&gt; False, &quot;PrintFilename&quot; -&gt; False]</pre><div class='IFU'><a name='49477792'></a>http://wolfram.com/xid/0ionrvl7bh0ycjqy9ftvn5v95urxwl2-3qrle</div>

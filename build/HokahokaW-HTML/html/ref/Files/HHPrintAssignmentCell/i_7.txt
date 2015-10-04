@@ -1,3 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>(* C:\prog\_w\HokahokaW\HokahokaW\Documentation\English\ReferencePages\Symbols\HHPrintAssignmentCell.nb *)
-(* Fri 6 Mar 2015 08:14:18 *)
-hello1 = 1;</pre><div class='IFU'><a name='71384698'></a>http://wolfram.com/xid/0ionrvl7bh0ycjqy9ftvn5v95urxwl2-bgsa2k</div>

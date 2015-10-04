@@ -8,6 +8,7 @@ BeginPackage["HokahokaW`Signal`",{"HokahokaW`"}];
 
 HHStandardDeviationMedianEstimate::usage="Makes a standard deviation estimate based on medians (less sensitive to outliers).";
 
+
 HHThreshold::usage="Takes a trace and returns timepoints at which it crosses threshold.";
 
 HHThresholdLevel::usage="What level to use for threshold.";
@@ -27,21 +28,27 @@ Options[HHPulseTrainDetect]={HHPulseTrainLengthMinimum->0, HHPulseTrainBlackout-
 
 Begin["`Private`"];
 
-(* TODO: Implement "HokahokaW`Signal`"
 
-HHMedianStandardDeviation
+(* ::Subsection:: *)
+(*HHStandardDeviationMedianEstimate*)
+
 
 HHStandardDeviationMedianEstimate[data_List] := MedianDeviation[data]/0.6745;
 
-HHThreshold
+
+(* ::Subsection:: *)
+(*HHThreshold*)
+
 
 HHThreshold[data_List, opts:OptionsPattern[]] :=  HHThreshold[data, Automatic, opts];
+
 
 HHThreshold[data_List, Automatic, opts:OptionsPattern[]] := HHThresholdImplSimpleAutoMedian[data];
 
 HHThreshold[data_List, thresholdValue_, opts:OptionsPattern[]] := HHThresholdImplSimple[data, thresholdValue];
 
 HHThreshold[args___]:=Message[HHThreshold::invalidArgs,{args}];
+
 
 HHThresholdImplSimpleAutoMedian[data_List]:=
 Module[{tempData},
@@ -51,6 +58,7 @@ Module[{tempData},
 	]
 ];
 
+
 HHThresholdImplSimple[data_List, threshValue_]:=
 Module[{tempRes},
 	tempRes=FoldList[Plus, 1, Length /@ Split[If[# < threshValue, 0, 1]& /@ data]];
@@ -59,9 +67,13 @@ Module[{tempRes},
 	tempRes	
 ];
 
-HHPulseTrainDetect
+
+(* ::Subsection:: *)
+(*HHPulseTrainDetect*)
+
 
 HHPulseTrainDetect[data_List, opts:OptionsPattern[]] := HHPulseTrainDetect[data, Automatic, opts]
+
 
 HHPulseTrainDetect[data_List, thresholdValue_, opts:OptionsPattern[]] := 
 Module[{threshed, tempRes,
@@ -74,7 +86,7 @@ Module[{threshed, tempRes,
 	
 	optBlackout = OptionValue[HHPulseTrainBlackout];
 	If[ Head[optBlackout] === List && Length[optBlackout]==2,
-		tempRes = Select[ tempRes, (#[[2]]<optBlackout[[1]] && #[[1]]>optBlackout[[2]])&],
+		tempRes = Select[ tempRes, (#[[2]] < optBlackout[[1]] ||  optBlackout[[2]] < #[[1]] )&],
 		If[ Head[optBlackout]===Integer || Head[optBlackout] ===Real,
 			tempRes = Select[ tempRes, (#[[2]]>optBlackout)&]
 	]];
@@ -92,7 +104,8 @@ HHPulseTrainDetect::noThresholdCrosses="No threshold crosses detected";
 HHPulseTrainDetect::oddThresholdCounts="Some error, odd number of thresholds should not occur with HHThreshold[]";
 
 HHPulseTrainDetect[args___]:=Message[HHPulseTrainDetect::invalidArgs,{args}];
-*)
+
+
 
 End[];
 
