@@ -25,6 +25,9 @@ HHPulseTrainBlackout::usage="Number of samples from beginning (or {beginning, en
 Options[HHPulseTrainDetect]={HHPulseTrainLengthMinimum->0, HHPulseTrainBlackout->None};
 
 
+(* ::Section:: *)
+(*Private*)
+
 
 Begin["`Private`"];
 
@@ -107,6 +110,14 @@ HHPulseTrainDetect[args___]:=Message[HHPulseTrainDetect::invalidArgs,{args}];
 
 
 
+(* ::Section:: *)
+(*Ending*)
+
+
 End[];
 
 EndPackage[];
+
+
+(* ::Section:: *)
+(*Bak*)

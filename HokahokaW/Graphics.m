@@ -2,9 +2,52 @@
 
 (* Wolfram Language package *)
 
-(* Wolfram Language package *)
-
 BeginPackage["HokahokaW`Graphics`",{"HokahokaW`"}];
+
+
+(* ::Subsection:: *)
+(*Package-specific Option Keys*)
+
+
+HHBaselineCorrection::usage="Option for HHStackTraces and HHListLinePlotStack. Specify how to correct the baseline for \
+individual traces. Specify a function: for example, Mean  (the default) will subtract individual trace means, First will \
+subtract the first value. (#[[1]]*2)& will subtract twice the First value.";
+
+
+HHStackIncrement::usage="Option for HHStackTraces and HHListLinePlotStack. \
+By what interval to stack lists. Automatic gives x1.1 of the 95% Min-Max quantile (i.e. Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1";
+
+
+(* ::Subsection:: *)
+(*HHStackLists / HHListLinePlotStack*)
+
+
+HHStackLists::usage="Augments a series of traces so that when plotted, they will be stacked vertically.";
+
+
+Options[HHStackLists] = {HHBaselineCorrection -> Mean, HHStackIncrement -> Automatic};
+
+
+HHListLinePlotStack::usage=
+"HHListLinePlotStack plots multiple traces together, stacked vertically.";
+
+
+HHListLinePlotStack$UniqueOptions = {
+	(*HHStackLists->Automatic,*) (*HHStackAxes->False,*)(* HHBaselineCorrection-> Mean*)
+};
+HHListLinePlotStack$OverrideOptions = { AspectRatio -> 1/2, PlotRange -> All };
+ 
+Options[HHListLinePlotStack] =
+HHJoinOptionLists[
+	HHListLinePlotStack$UniqueOptions, 
+	HHListLinePlotStack$OverrideOptions,
+	Options[HHStackLists],
+	Options[ListLinePlot]
+];
+
+
+(* ::Subsection::Closed:: *)
+(*HHImageMean/HHImageCommon/HHImageDifference*)
 
 
 HHImageMean::usage="Gives the mean of a series of images. Image data must have the same dimensions and depths.";
@@ -15,15 +58,95 @@ Options[HHImageDifference]={Normalized->False};
 HHImageSubtract::usage="Subtracts two images to give the difference.";
 
 
-(* //ToDo2 create HHImageTestImage[] for help files*)
+(* //ToDo2 create HHImageTestImage[] for help files??*)
 
 
-HHGraphicsColumn::usage="Stacks images vertically. In contrast to the standard GraphicsColumn, adjusts widths to be equal.";
-
-Options[HHGraphicsColumn]= Options[Graphics];
+(* ::Section:: *)
+(*Private*)
 
 
 Begin["`Private`"];
+
+
+(* ::Subsection:: *)
+(*HHStackLists / HHListLinePlotStack*)
+
+
+HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
+  Block[{tempTraces, temp, 
+		opHHBaselineCorrection, baselineSubtractFactors, 
+		opHHStackIncrement, stackAddFactors},
+	
+	tempTraces = traces;
+
+	opHHBaselineCorrection = OptionValue[HHBaselineCorrection];
+
+	baselineSubtractFactors = Switch[opHHBaselineCorrection,
+		None, Table[0, {Length[traces]}],
+		f_/;HHFunctionQ[f],    opHHBaselineCorrection/@traces, (*This covers specifications such as Mean and First or (#[[1]])& *)
+		f_/;(Quiet[temp=f[#]&/@traces]; And@@(NumericQ /@ temp) ), 
+								temp, (*This covers specifications such as Mean and First or (#[[1]])& *)
+		_, Message[ HHStackLists::invalidOptionValue, "HHBaselineCorrection", ToString[opHHBaselineCorrection]]; 
+								Table[0, {Length[traces]}]
+	];
+(*Print[baselineSubtractFactors];*)
+
+	tempTraces = tempTraces - baselineSubtractFactors;
+	
+	opHHStackIncrement=OptionValue[HHStackIncrement];
+	stackAddFactors = Switch[ opHHStackIncrement,
+		Automatic,                Table[ Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1.1, {Length[traces]}], (*- Subtract@@MinMax[ Flatten[traces] ]*)
+		x_/;NumericQ[x],         Table[ opHHStackIncrement, {Length[traces]}],
+		f_/;HHFunctionQ[f],      Table[ opHHStackIncrement[ Flatten[traces] ], {Length[traces]}], 
+										(*This covers specifications such as Mean[#]& or (#[[1]])& *)
+		f_/;(Quiet[temp=f[ Flatten[traces]]]; And@@(NumericQ /@ temp) ), 
+								  temp, (*This covers specifications such as Mean and First *)
+		_, Message[ HHStackLists::invalidOptionValue, "HHStackIncrement", ToString[opHHStackIncrement]]; Table[0, {Length[traces]}]
+	];
+(*Print[stackAddFactors];*)
+
+	tempTraces = tempTraces + FoldList[Plus, 0, stackAddFactors[[ ;; -2]] ]; 
+						(*last stack add factor is not used... nothing to stack on top*)
+
+	tempTraces
+
+   ];
+
+
+HHStackLists[traces_ /; (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), opts:OptionsPattern[]] :=
+  Block[{tempTimes, tempTraces},
+	
+	tempTimes = traces[[All, All, 1]];
+	tempTraces = traces[[All, All, 2]];
+
+	tempTraces =  HHStackLists[tempTraces, opts];
+
+	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
+   ];
+
+
+HHStackLists[args___] := Message[HHStackLists::invalidArgs, {args}];
+
+
+HHListLinePlotStack[
+	traces_/;(Depth[traces]==3 || (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
+	opts:OptionsPattern[]
+]:=
+Module[{tempData},
+	
+	tempData = HHStackLists[traces, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
+
+	ListLinePlot[tempData,
+		Sequence@@HHJoinOptionLists[ ListLinePlot, {opts}, HHListLinePlotStack$UniqueOptions ]
+	]
+];
+
+
+HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
+
+
+(* ::Subsection::Closed:: *)
+(*HHImageMean*)
 
 
 HHImageMean[x:{__Image}]:= HHImageMean[ImageData /@ x];
@@ -61,6 +184,10 @@ Module[{tempSelf,tempProd, threshLower, threshUpper},
 		]&, 
 		{tempSelf, tempProd, imageData}, {2}]
 ];*)
+
+
+(* ::Subsection::Closed:: *)
+(*HHImageDifference*)
 
 
 HHImageDifference[imageData_List/;Depth[imageData]==4, templateData_List, threshold_]:= 
@@ -186,6 +313,10 @@ HHImageDifference::commonDimensionMustMatch = "Input common Lists must have same
 HHImageDifference::thresholdDimensionMustMatch = "Input threshold List must have same dimensions as Images";
 
 
+(* ::Subsection::Closed:: *)
+(*HHImageCommon*)
+
+
 HHImageCommon[x:{__Image}/;Length[x]>=4]:=
 Module[{tempImageData},
 	(*The following part is repeated with modifications*)
@@ -260,6 +391,19 @@ simplePixelCluster[pixelList_, absThreshold_]:=
 ];*)
 
 
+(* ::Section:: *)
+(*Ending*)
+
+
+End[];
+
+EndPackage[];
+
+
+(* ::Section:: *)
+(*Bak*)
+
+
 (*HHImageMeanSubtractedAdjusted[x:{__Image}]:=
 Module[{tempImageData,tempMean},
 	tempImageData=ImageData /@ x;
@@ -280,8 +424,3 @@ See tests in /HokahokaW/Tests/Graphics for more information.
 Until further improvements in graphics syntax, the best way is to use
 Column[  Show[gr1, ImageSize\[Rule] y*72], Show[gr2, ImageSize\[Rule] y*72] ]
 *)
-
-
-End[];
-
-EndPackage[];
