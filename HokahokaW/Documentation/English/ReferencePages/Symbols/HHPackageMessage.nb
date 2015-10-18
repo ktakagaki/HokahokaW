@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12593,        508]
-NotebookOptionsPosition[      8182,        351]
-NotebookOutlinePosition[      8807,        375]
-CellTagsIndexPosition[      8729,        370]
+NotebookDataLength[     17226,        663]
+NotebookOptionsPosition[     12364,        490]
+NotebookOutlinePosition[     12990,        514]
+CellTagsIndexPosition[     12911,        509]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -207,11 +207,22 @@ Cell[BoxData[
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.631808393548538*^9, 3.6318084026880608`*^9}},
+ RowBox[{"<<", "\"\<HokahokaW`\>\""}]], "Input",
+ CellChangeTimes->{{3.631799686650532*^9, 3.6317996928488865`*^9}, {
+  3.6541871921502895`*^9, 3.6541871955024805`*^9}},
  CellLabel->"In[1]:=",
- CellID->28590909],
+ CellID->641573816],
+
+Cell[BoxData["\<\"HokahokaW`HHPackageGitLoad: Loaded Git repository located \
+at C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\"\>"], "Print",
+ CellChangeTimes->{3.654187196733551*^9, 3.654187579929469*^9, 
+  3.6541877077837815`*^9, 3.654188146345866*^9},
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->34437891]
+}, Open  ]],
 
 Cell[TextData[{
  StyleBox["HokahokaW`",
@@ -220,28 +231,92 @@ Cell[TextData[{
   FontWeight->"Bold",
   FontVariations->{"Underline"->True}],
  "\n",
- StyleBox["(origin)[https://ktakagaki@github.com/ktakagaki/HokahokaW.git]",
+ StyleBox["Sun 18 Oct 2015 22:15:46     [Mathematica: 10.3.0 for Microsoft \
+Windows (64-bit) (October 9, 2015)]",
   StripOnInput->False,
-  FontFamily->"Courier",
-  FontSize->Small],
+  FontFamily->"Helvetica",
+  FontSize->12],
  "\n",
- StyleBox["current Git HEAD:  7e04ea33f3f0a19483a5d32bed73b73105678073\n\
-newest file:  Sun 1 Feb 2015 20:56:23 ",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
   StripOnInput->False,
-  FontFamily->"Courier",
-  FontSize->Small]
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[0000d6200537209de6a630fb7d04a5669238dfac]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12]
 }], "Text",
  GeneratedCell->True,
  CellAutoOverwrite->True,
- CellChangeTimes->{3.631809386864352*^9},
+ CellChangeTimes->{3.6541881465028753`*^9},
  Background->GrayLevel[0.85],
- CellID->195653155],
+ CellID->62095111],
+
+Cell["Print a message for this notebook (NotebookDirectory[])", "Notes",
+ CellChangeTimes->{{3.6541873256359243`*^9, 3.6541873479942026`*^9}, {
+  3.654188061503013*^9, 3.6541880723986363`*^9}},
+ CellID->658416936],
+
+Cell[BoxData[
+ RowBox[{"HHPackageMessage", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6317999704007616`*^9, 3.631799980945365*^9}, 
+   3.654187658190945*^9},
+ CellLabel->"In[1]:=",
+ CellID->250094976],
+
+Cell[TextData[{
+ StyleBox["C:\\prog\\_w\\HokahokaW\\HokahokaW\\Documentation\\English\\\
+ReferencePages\\Symbols\\HHPackageMessage.nb",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Sun 18 Oct 2015 22:15:49     [Mathematica: 10.3.0 for Microsoft \
+Windows (64-bit) (October 9, 2015)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[0000d6200537209de6a630fb7d04a5669238dfac]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.6541881494680443`*^9},
+ Background->GrayLevel[0.85],
+ CellID->145262858],
 
 Cell[BoxData[
  RowBox[{"HHPackageMessage", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.6318084097584653`*^9, 3.6318084204320755`*^9}},
- CellLabel->"In[1]:=",
- CellID->356814593],
+ CellChangeTimes->{{3.6317999704007616`*^9, 3.6317999888568172`*^9}, 
+   3.654187722998652*^9},
+ CellLabel->"In[2]:=",
+ CellID->702191801],
 
 Cell[TextData[{
  StyleBox["HokahokaW`",
@@ -250,43 +325,107 @@ Cell[TextData[{
   FontWeight->"Bold",
   FontVariations->{"Underline"->True}],
  "\n",
- StyleBox["(origin)[https://ktakagaki@github.com/ktakagaki/HokahokaW.git]",
+ StyleBox["Sun 18 Oct 2015 22:15:52     [Mathematica: 10.3.0 for Microsoft \
+Windows (64-bit) (October 9, 2015)]",
   StripOnInput->False,
-  FontFamily->"Courier",
-  FontSize->Small],
+  FontFamily->"Helvetica",
+  FontSize->10],
  "\n",
- StyleBox["current Git HEAD:  7e04ea33f3f0a19483a5d32bed73b73105678073\n\
-newest file:  Sun 1 Feb 2015 20:56:23 ",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
   StripOnInput->False,
-  FontFamily->"Courier",
-  FontSize->Small]
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[0000d6200537209de6a630fb7d04a5669238dfac]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
 }], "Text",
  GeneratedCell->True,
  CellAutoOverwrite->True,
- CellChangeTimes->{3.6318093925006747`*^9},
+ CellChangeTimes->{3.654188152057193*^9},
  Background->GrayLevel[0.85],
- CellID->146838630],
+ CellID->774725794],
+
+Cell["\<\
+Nonexistent repositories (as well as any repositories not tracked by Git) \
+will get a message which encourages use of Git for tracking.\
+\>", "Notes",
+ CellChangeTimes->{{3.6541873256359243`*^9, 3.6541873479942026`*^9}, {
+  3.6541873957029314`*^9, 3.654187431357971*^9}, {3.654187743270811*^9, 
+  3.654187755030484*^9}},
+ CellID->15860803],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"HHPackageMessage", "[", "]"}]], "Input",
- CellChangeTimes->{{3.6318084097584653`*^9, 3.6318084380320826`*^9}},
- CellLabel->"In[2]:=",
- CellID->19369199],
+ RowBox[{"HHPackageMessage", "[", "\"\<NonexistentPackage\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6541873692524185`*^9, 3.654187378574952*^9}, 
+   3.6541877300470552`*^9},
+ CellLabel->"In[3]:=",
+ CellID->90773577],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"HHPackageMessage", "::", "remoteNotFound"}], "MessageName"], 
+   RowBox[{"HHPackageGitFindRepoDir", "::", "notGitDirectory"}], 
+   "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"HHGitRemotes result \\\"\[NoBreak]\\!\\($Failed\\)\
-\[NoBreak]\\\" is not a valid remote list, the package is not tracked with \
-git, or was probably not found.\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.631808501613719*^9, 3.631809395935871*^9},
- CellLabel->"During evaluation of In[2]:=",
- CellID->413258610]
-}, Open  ]]
+  ":", " "}], "\<\"No git directory \\\".git\\\" was found within the parent \
+tree of \[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"NonexistentPackage\\\\\\\"\\\"}\
+]\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.654187379717017*^9, 3.6541875903240633`*^9, 
+  3.6541877307480955`*^9, 3.6541881550783653`*^9},
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->122514950],
+
+Cell[BoxData["\<\"Unloading repository: C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\
+\"\>"], "Print",
+ CellChangeTimes->{3.6541873797180176`*^9, 3.6541875903250637`*^9, 
+  3.654187730749095*^9, 3.6541881550793657`*^9},
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->86884831]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["NonexistentPackage",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Sun 18 Oct 2015 22:15:55     [Mathematica: 10.3.0 for Microsoft \
+Windows (64-bit) (October 9, 2015)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     This package/notebook does not seem to be tracked by Git: no \
+.git  directory found",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     You should always track items with Git or another VCS for \
+reproducibility!",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.6541881550813656`*^9},
+ Background->GrayLevel[0.85],
+ CellID->114674161]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -349,10 +488,10 @@ Cell[BoxData[
  CellID->589267740]
 }, Open  ]]
 },
-WindowSize->{952, 1133},
-WindowMargins->{{0, Automatic}, {Automatic, -1200}},
+WindowSize->{952, 1080},
+WindowMargins->{{Automatic, 0}, {Automatic, -1200}},
 CellContext->"Global`",
-FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "ShiftJIS"]
 ]
@@ -362,14 +501,14 @@ StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb",
 (*CellTagsOutline
 CellTagsIndex->{
  "ExtendedExamples"->{
-  Cell[6662, 293, 100, 2, 53, "ExtendedExamplesSection",
+  Cell[10844, 432, 100, 2, 53, "ExtendedExamplesSection",
    CellTags->"ExtendedExamples",
    CellID->1854448968]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 8591, 363}
+ {"ExtendedExamples", 12772, 502}
  }
 *)
 (*NotebookFileOutline
@@ -468,46 +607,62 @@ Cell[3831, 190, 46, 1, 16, "MoreAbout",
 Cell[CellGroupData[{
 Cell[3914, 196, 356, 11, 68, "PrimaryExamplesSection",
  CellID->880084151],
-Cell[4273, 209, 185, 4, 27, "Input",
- CellID->28590909],
-Cell[4461, 215, 643, 22, 78, "Text",
- CellID->195653155],
-Cell[5107, 239, 199, 4, 27, "Input",
- CellID->356814593],
-Cell[5309, 245, 645, 22, 78, "Text",
- CellID->146838630],
 Cell[CellGroupData[{
-Cell[5979, 271, 176, 4, 27, "Input",
- CellID->19369199],
-Cell[6158, 277, 455, 10, 57, "Message",
- CellID->413258610]
-}, Open  ]]
+Cell[4295, 211, 226, 5, 27, "Input",
+ CellID->641573816],
+Cell[4524, 218, 310, 5, 21, "Print",
+ CellID->34437891]
+}, Open  ]],
+Cell[4849, 226, 979, 35, 103, "Text",
+ CellID->62095111],
+Cell[5831, 263, 213, 3, 23, "Notes",
+ CellID->658416936],
+Cell[6047, 268, 201, 5, 27, "Input",
+ CellID->250094976],
+Cell[6251, 275, 1076, 36, 111, "Text",
+ CellID->145262858],
+Cell[7330, 313, 225, 5, 27, "Input",
+ CellID->702191801],
+Cell[7558, 320, 978, 35, 95, "Text",
+ CellID->774725794],
+Cell[8539, 357, 350, 7, 37, "Notes",
+ CellID->15860803],
+Cell[CellGroupData[{
+Cell[8914, 368, 235, 6, 27, "Input",
+ CellID->90773577],
+Cell[9152, 376, 515, 12, 39, "Message",
+ CellID->122514950],
+Cell[9670, 390, 275, 5, 21, "Print",
+ CellID->86884831]
+}, Open  ]],
+Cell[9960, 398, 847, 29, 87, "Text",
+ CellID->114674161]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6662, 293, 100, 2, 53, "ExtendedExamplesSection",
+Cell[10844, 432, 100, 2, 53, "ExtendedExamplesSection",
  CellTags->"ExtendedExamples",
  CellID->1854448968],
-Cell[6765, 297, 125, 3, 30, "ExampleSection",
+Cell[10947, 436, 125, 3, 30, "ExampleSection",
  CellID->1293636265],
-Cell[6893, 302, 148, 3, 18, "ExampleSection",
+Cell[11075, 441, 148, 3, 18, "ExampleSection",
  CellID->1020263627],
 Cell[CellGroupData[{
-Cell[7066, 309, 127, 3, 18, "ExampleSection",
+Cell[11248, 448, 127, 3, 18, "ExampleSection",
  CellID->2061341341],
-Cell[7196, 314, 130, 3, 70, "ExampleSubsection",
+Cell[11378, 453, 130, 3, 70, "ExampleSubsection",
  CellID->1757724783],
-Cell[7329, 319, 130, 3, 70, "ExampleSubsection",
+Cell[11511, 458, 130, 3, 70, "ExampleSubsection",
  CellID->1295379749]
 }, Closed]],
-Cell[7474, 325, 131, 3, 18, "ExampleSection",
+Cell[11656, 464, 131, 3, 18, "ExampleSection",
  CellID->258228157],
-Cell[7608, 330, 142, 3, 18, "ExampleSection",
+Cell[11790, 469, 142, 3, 18, "ExampleSection",
  CellID->2123667759],
-Cell[7753, 335, 135, 3, 18, "ExampleSection",
+Cell[11935, 474, 135, 3, 18, "ExampleSection",
  CellID->1305812373],
-Cell[7891, 340, 140, 3, 18, "ExampleSection",
+Cell[12073, 479, 140, 3, 18, "ExampleSection",
  CellID->1653164318],
-Cell[8034, 345, 132, 3, 18, "ExampleSection",
+Cell[12216, 484, 132, 3, 18, "ExampleSection",
  CellID->589267740]
 }, Open  ]]
 }

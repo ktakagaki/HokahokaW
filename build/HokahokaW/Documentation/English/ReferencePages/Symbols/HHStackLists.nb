@@ -59,7 +59,7 @@ HHStackLists.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6635], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$7761], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHStackLists", ".html"]], None}]}]},
@@ -117,7 +117,7 @@ Cell[TextData[Cell[BoxData[
   Method->"Preemptive"]]]], "NotesSection",
  WholeCellGroupOpener->True,
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->942598893],
+ CellID->360402586],
 
 Cell["", "SectionHeaderSpacer"],
 
@@ -148,7 +148,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->416579897],
+ CellID->232847269],
 
 Cell[CellGroupData[{
 
@@ -158,7 +158,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->181448604],
+ CellID->542954497],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -1099,7 +1099,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 10, 17, 23, 13, 20.3237717}", 
+   "built" -> "{2015, 10, 18, 22, 18, 33.3974208}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -1129,7 +1129,7 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[4509, 135, 387, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->416579897]}
+   CellID->232847269]}
  }
 *)
 (*CellTagsIndex
@@ -1149,7 +1149,7 @@ Cell[2932, 80, 317, 11, 66, "Usage",
 Cell[CellGroupData[{
 Cell[3274, 95, 738, 24, 32, "NotesSection",
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->942598893],
+ CellID->360402586],
 Cell[4015, 121, 31, 0, 70, "SectionHeaderSpacer"],
 Cell[4049, 123, 411, 6, 70, "Notes",
  CellID->1067943069]
@@ -1158,10 +1158,10 @@ Cell[4049, 123, 411, 6, 70, "Notes",
 Cell[CellGroupData[{
 Cell[4509, 135, 387, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->416579897],
+ CellID->232847269],
 Cell[CellGroupData[{
 Cell[4921, 154, 195, 6, 25, "ExampleSection",
- CellID->181448604],
+ CellID->542954497],
 Cell[5119, 162, 95, 3, 28, "Input",
  CellID->4433785],
 Cell[5217, 167, 602, 21, 131, "Text",

@@ -60,7 +60,7 @@ HHPackageNewestFileDate.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$5253], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6713], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageNewestFileDate", ".html"]], None}]}]},
@@ -109,7 +109,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->337568635],
+ CellID->325000075],
 
 Cell[CellGroupData[{
 
@@ -119,7 +119,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->304663721],
+ CellID->457216849],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
@@ -186,7 +186,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 10, 17, 23, 13, 15.2754830}", 
+   "built" -> "{2015, 10, 18, 22, 18, 29.3181875}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -219,7 +219,7 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[3511, 96, 387, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->337568635]}
+   CellID->325000075]}
  }
 *)
 (*CellTagsIndex
@@ -238,10 +238,10 @@ Cell[2989, 79, 497, 13, 95, "Usage",
 Cell[CellGroupData[{
 Cell[3511, 96, 387, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->337568635],
+ CellID->325000075],
 Cell[CellGroupData[{
 Cell[3923, 115, 195, 6, 25, "ExampleSection",
- CellID->304663721],
+ CellID->457216849],
 Cell[4121, 123, 118, 3, 28, "Input",
  CellID->256563557],
 Cell[CellGroupData[{
