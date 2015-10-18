@@ -1,0 +1,385 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14009,        375]
+NotebookOptionsPosition[     11293,        295]
+NotebookOutlinePosition[     13358,        350]
+CellTagsIndexPosition[     13273,        345]
+WindowTitle->HHListLinePlotStack
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHListLinePlotStack\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["HokahokaW/ref/HHListLinePlotStack"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHListLinePlotStack.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$3904], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "HokahokaW/ref/HHListLinePlotStack", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["HHListLinePlotStack", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"HHListLinePlotStack", "[", "]"}]], "InlineFormula"],
+     " \[LineSeparator]HHListLinePlotStack"
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->13075894],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->303602231],
+
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->4433785],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["(origin)[https://ktakagaki@github.com/ktakagaki/HokahokaW.git]",
+  StripOnInput->False,
+  FontFamily->"Courier",
+  FontSize->Small],
+ "\n",
+ StyleBox["current Git HEAD:  e0c73998f5f7b95a360e2414d7f19a75de2075ca\n\
+newest file:  Tue 13 Oct 2015 08:12:57 ",
+  StripOnInput->False,
+  FontFamily->"Courier",
+  FontSize->Small]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->378032768],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tempData", "=", 
+   RowBox[{"Table", "[", " ", 
+    RowBox[{
+     RowBox[{"Sin", "[", 
+      RowBox[{"x", " ", "*", " ", "n", " ", "*", " ", "2", " ", "Pi"}], "]"}],
+      ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", " ", "1", ",", "5"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "1", ",", " ", "0.01"}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->295643787],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", "tempData", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->201417607],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.008333333333333333], 
+     AbsoluteThickness[1.6], LineBox[CompressedData["
+1:eJxdlFtIVFEUhk8qWEahOJbQVHZRosIuVnax/L3f53qOZxy1ohp6CJIewi4g
+24dCKuqhyIcysodS6aGgIrKYeTJ6EgqJSEpTMTUdH4QgYsxYa8PeHhgO3/nn
+32fvtf51Npxo8oXiDMMILfz+3+mazTf0CxdvD61JSn3Gz5diqL6zcSopwpyM
+C5fiQ86/75kduJvo/JMy0M+cDvfEjtxo3ydmJ9K7u8qDtz4zZ6CjNfPD7/yv
+zBvh6w43rBj4xrwZ3m3peS2Zw8xZOBo8n7Cp/wfzFvQueRnrC40yb0VqRorV
+Pz7GvB2rXn+Mf+UfZ87G5Jn6k8u7fjLvRNdc+73mkQnmXbiafWq+N2GKeTeC
+kVbXi6RfzDm4kTY4aM9J3oPRYLTjTWSaeS/mzeLUlU0zzPswtC557aOY5FzE
+lmU+HTsbZd6P+C/CPB2WfACxotHwQFTyQeh9ObRIz0Oc5j+8aP0jGNbenw/D
+UvcHjKn7F8B17XwFCKjnFwW4otWnUK+fKFxU3yKkqfUXC6z1pxjv1P6JYhzT
++lui91+UwNbyUYqHan5EKZxavsrgVfMnytCu5bMczWp+RTkmtXxXoE3Nv6hA
+YoMjJ+txZx7plWgmPUx6JYbJT2xUoYXWZ70KD+j9rFfDov2xXo31tH/Wa3Cf
+zsd6Darp/Ky74Kb6sO5CI9WPdbecD9bdcFD9WffAQf0hhgdT1D/+vwdPqL/E
+EQ/aqP/s96KO8sF+L25Sftjvlfliv1fOB/t9+E75ZL8P85Rf9vtkvtnvk/ln
+vx90n2W/X9eFX84X+/36+oYp55P9ppwP9psY0fZvyvlnvwVbO7+Fa2p9hIVu
+rX4WptX6GrXy+8T+BVb7I2r1/kVqcVzrrw2X2n/Y8vvJfht31PxEbKzW8hWA
+qeYPAfSo+RQBXFbzGwlgRst3Hc6p+Ucdz8fzt/8AMYbxMA==
+      "]]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], PointSize[0.008333333333333333], 
+     AbsoluteThickness[1.6], LineBox[CompressedData["
+1:eJxdU81LFHEYnkKw7IM211ppI/sSiZDKvizLx1x11VV3Z3d2Vlf72PQU5KlD
+tx9EVmvUqaKL4CU0gohOlbDTX7CHWLxYVCiWW9qhU9Ca8XsH3ncGluWZZ34z
+7/t87M2MmiPrDcMYWfv9/9fXr2ZDXvicnhwqVjh0fwMelwf/+Ap5wtsQmJ4K
+DzycJeyHOZ0b3FL4RDiAiwM3yvbnvxIOorLGZ+UXFwjXYOla+uqmqW+E92Gs
+fnj1XVmR8AHcr5qbs3//IFyL1USocuvoMuE6lDYefLFwfYXwIZRa53OFFRcf
+9uB6z/NHYFj8fUcxLr53DLfFPA2eeY+jSuxzApfEvidhCz1OISj0Oo0nQs9G
+LAm9z6B80N9Q+2yySeOz+KL5nMZNmNDnCZ/DHv1+wucR0d8n3IwhPR9hwK/n
+11gBRb0f8S24q/cnvgUPtD7EX3D9IH4Na32Jb3X1J96DjZB8XoVcP4hvc/0n
+vg1ZPo/Rjp98XtWOHXwfowOX+b6qw80n8WHs5HqpMJ4LPTuxzPVWneTHqxnN
+d+Ej90t14anwsxu7ud+qGymRhwgyPC8qgmqRpx6ZN9WDWyKPvcjyvKpeTz/6
+ZN5Vn6cPUYkR9Twflf1worgn+hGTfUUM82LeGHx8Hyfm+kHnTWS4HjBRLfQy
+8ZLr6Zj4IPoRR0V2ItJ4863uB+J4I/yK4xH304ljs+hHAkmeBySQFnlJIMDz
+5CTwXfTDwjjPIyyMibxaKPF+OBb+in4kZR/gwSrp+kHnk1gn+mG7ftB5G3dE
+X23XDzpvY7voRwpX+L5IYZjroVLYxfVyUngt+tGPWa43+qkf72f+AVGV8Ms=
+
+      "]]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], PointSize[0.008333333333333333], 
+     AbsoluteThickness[1.6], LineBox[CompressedData["
+1:eJxdlFtIVFEUho8XukwWThpMaGEXJSrsnlmav/fxPpdz5mZBlFMPQdJDWD3E
+lhBKiooegi5GQqHSgw+ZYcacJ6NehEIkstAc8VZNhBBEjhVrDeztgeHwzX/W
+Pmv/699nw/FGVzBe07Tgv9//O10/CjT1wvmLCcH0P6/5/2WwdXbYAzeGmZPh
+3GbLu5Q5xpyKlAyrMTg5wWxDx9yde03j08zpuLZmZMQ795U5A6Prk9e1R78z
+b0S0OBwaikSYNyP+g9BPhWKchQW9JGVVY+z5LfCZzbXPLLH1tmLmdP2JFR1T
+zNvxKq4nOhAMM2fD0Rk6snLoM/NO+Kd35EQG3jPvwkz9o6OzFpN5N5puj6ZZ
+UrpDxHvQtjT9t3VokHkv7jdnvvlV8JF5H44FziVuGvzCvB+pL94lPHdPMufg
+SnbDwsvEWeYDmAhEHvSZ35hzsbA88+nEmQjzQfBcmA8t0vMwrtTno0VZ/zDS
+lPcX4KTSH9Au9y+ALmV/hTgr718U4pPiTxGqZP9EEXyKv8Xolf0XxYvmUwJD
+np8oQZwhz7dUnb8oXZSPMjU/ogxXlXyVo1POnyiHVcmnHXY5v8KOtUq+K/BQ
+zr+ogKW1rTr3Ql8e6ZVoIZ39qUQS1bN/VXDQ+qxXwUbvZ70aT6g/1qtxnfpn
+vQbjtD/WazBP+2e9FonkD+u1WEL+sV4XOx+s1yFC/rPuQD/NhxgONND8+HkH
+cmm+xKYDwzR/rnein/JB/sCJW5Qf9suJx5QvYtOJAOWP/XUhifLJ9S60Un65
+3oUw5ZvrXZin/HO9G3Tn7xbciMq6cGNKqXfjpry+pmO18n4dhtyf0HFX6V9H
+r7w/zUCSsn8D3bI/wkCW4p8Bl+yv5kGP4r8HP+X5CA/q5fmZHkR1eb5exMnz
+hzd2PrjeizE5P6YXl5V8+dAu5w++2Peb633wy/k1fchX8u3HrJx/+Pl8vO3/
+CyBl8u8=
+      "]]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], PointSize[0.008333333333333333], 
+     AbsoluteThickness[1.6], LineBox[CompressedData["
+1:eJxd1F1IU3EYx/G1BGu9kKmVsMisRkRIZW/2tp9u6pxT93b24pTCJgRCXnXR
+RfCHYqFFtZugm6Cb0uii6CoSdrrtZkSMbkZQOCoXraKrQpf1fw48zw6M8d3O
+OTvn/9lzdo5PhSfsNpttYuX1711v3902ueFuvfN3QyFPn69BeC43uqHwnnoT
+GlsbjPynEnUTMu3p6su6MvU2VKPexo1T36idWPYs5AqVCnUrltfueVK6aHUb
+bjQXi/FfX6l3Y3EydX7d7GdqF86OXKrblf9IvRfOuVnfyO131PuwmHowVnaY
+1PvxQXdOdzt26P2pD2BMn4/6IMr696gP4Za+HuoOVPX1Uh+27of6CGzG//ul
+PooZvR7Ux7BFrxf1cWs9qTvxWK839QnUjzZ1uB4+m9d9EveExykkhMdptAiP
+M7gqPNw1HpAeCjUeXZjmHqoLC8KjG+e4h+pGi/Dw4C33UB68EB5erOceyouU
+8OjBF+6hepARHr1Y4h6qt8ajD6u4h+rDdeHhw2buoXxIC49+POceqp88XpGH
+H1nuofyICo8BbOUeasD6P9D3Aaw2mIcKoCrmY1B6qEFkxXwMocI91BDGxXwM
+Yzv3UMMoivkI4in3QBAu4RFEknuYQfwU8xHCTe6BEOwO7hGSHmZIetjCuMM9
+ELaeJ3R8GBe4hxnGFTEfEThm7gc6L7/WHojALzwiCHIPc2V/MR9RTHMPRLHE
+50NFpYcZteafjjdwjXvAwB/hYSDNPUwDbjEfMZS4B2J4xD1UDG3cw4whIeYj
+jh/cA3Hr+UnHx6WHGa+ZjwTs3AMJZLmHSqCZe5gJTIr5SCLDPZCk+Xgz/xes
+Qu6e
+      "]]}, 
+    {RGBColor[0.528488, 0.470624, 0.701351], PointSize[0.008333333333333333], 
+     AbsoluteThickness[1.6], LineBox[CompressedData["
+1:eJxdk8trE1EYxccqvhYqWKgLEa0liIivqjW2tqdpmjSvJpnMTCb1XYnbCqKi
+q7sU/wGhguCr9YXiSpBK46YLNyIFQZe60LqwLtwIvrnfhXtuIISTy/m+c35z
+Z8v4hN9s8zyv+e/7/1d/vg14/EF5YVfP4ty8/L8Sx8fOL9v6+oPodbj3/dr1
+ix8XRLfjT5Bev2biq+gN4Lkb4YX2+WbH34kTNL8LDdqfwIqj7d2JqZt9Wm9D
+qM9ntd6OY9ovegem9XzRO00+0btNPtF7TD7Re3GH/N04Q/P3IaD9+yXf0xmt
+D6BA+XswTv0O4iH1Tzr8Djn8eh1+fbhP/sM4SfP7EdH+Aay+eqOYvPRc+AE5
+O78CjlC/QUzZ/dUglhKfFPNTKSyn8yE8IP8QTtH8NJK0Py38Xgq/YTTt/GoY
+Y9Qvg7t2f5Ux+eQ8y/xUFj+J7wjzVyPO88mhl/bnsOrcu9kna+eEXx4Jyp9H
+g/oV8Jj6F/Cb7l/R4VfEEuJXwi3yl3Ca5o/iMu0flef7SviV0UX5y4ipXwWT
+dn9U8MvmoyrMr1VBG/Gt4jb5q8jb81UVsPe3qnjRMZ0rZz9LPh+ddn746Lf7
+Kd/k07rlm3zSv8b8UDP5xF8z+cRfQ4H4BUjR/kDu3xudTwWYpPwBzhK/EI+o
+f+jwCx1+ocMvwjPyRygSvwhp2h/hyqcLP768n5f7V8cmyl83+aR/3dxv6V83
+91/6xw6/mN9vFZt84o9RIn4NZGh/Q96PtzN/Ad7HzU0=
+      "]]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0., 101.}, {-1., 1.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ ImageSize->{244, 135},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->109369186]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHListLinePlotStack",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
+  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2015, 10, 17, 23, 13, 10.5232112}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> 
+    "HHListLinePlotStack[] HHListLinePlotStack", "synonyms" -> {}, "title" -> 
+    "HHListLinePlotStack", "titlemodifier" -> "", "windowtitle" -> 
+    "HHListLinePlotStack", "type" -> "Symbol", "uri" -> 
+    "HokahokaW/ref/HHListLinePlotStack"}, "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "10.3 for Microsoft Windows (64-bit) (October 9, 2015)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[3336, 93, 386, 15, 31, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->13075894]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 13132, 338}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[591, 21, 2293, 52, 48, "AnchorBarGrid",
+ CellID->1],
+Cell[2887, 75, 62, 1, 43, "ObjectName",
+ CellID->1224892054],
+Cell[2952, 78, 359, 11, 81, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[3336, 93, 386, 15, 31, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->13075894],
+Cell[CellGroupData[{
+Cell[3747, 112, 195, 6, 25, "ExampleSection",
+ CellID->303602231],
+Cell[3945, 120, 95, 3, 28, "Input",
+ CellID->4433785],
+Cell[4043, 125, 602, 21, 131, "Text",
+ CellID->378032768],
+Cell[4648, 148, 454, 14, 28, "Input",
+ CellID->295643787],
+Cell[CellGroupData[{
+Cell[5127, 166, 115, 3, 28, "Input",
+ CellID->201417607],
+Cell[5245, 171, 5982, 117, 156, "Output",
+ CellID->109369186]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[11266, 293, 23, 0, 41, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

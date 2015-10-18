@@ -1,0 +1,3 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>ListLinePlot[
+ HHStackLists[listXYValues, 
+  HHStackIncrement -&gt; (Quantile[ (# - Min[#]), 0.95]*1.1 &amp;)]]</pre><div class='IFU'><a name='70442006'></a>http://wolfram.com/xid/0g0gicmjie03uk8yqitfe36oudy-bf73oo</div>

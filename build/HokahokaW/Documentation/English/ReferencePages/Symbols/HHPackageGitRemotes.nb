@@ -3,17 +3,17 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 10.2' *)
+(* CreatedBy='Mathematica 10.3' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      7393,        226]
+NotebookDataLength[      7401,        226]
 NotebookOptionsPosition[      4712,        149]
-NotebookOutlinePosition[      6863,        205]
-CellTagsIndexPosition[      6779,        200]
+NotebookOutlinePosition[      6871,        205]
+CellTagsIndexPosition[      6787,        200]
 WindowTitle->HHPackageGitRemotes
 WindowFrame->Normal*)
 
@@ -59,7 +59,7 @@ HHPackageGitRemotes.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$3776], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$4570], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageGitRemotes", ".html"]], None}]}]},
@@ -109,7 +109,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->149225216],
+ CellID->108436297],
 
 Cell[CellGroupData[{
 
@@ -119,7 +119,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->49658825],
+ CellID->74718835],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
@@ -162,7 +162,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 10, 4, 21, 8, 19.0663528}", 
+   "built" -> "{2015, 10, 17, 23, 13, 12.9863521}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -174,7 +174,7 @@ either the given package or the current NotebookDirectory[].",
      "windowtitle" -> "HHPackageGitRemotes", "type" -> "Symbol", "uri" -> 
     "HokahokaW/ref/HHPackageGitRemotes"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 7, 2015)",
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -183,7 +183,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "10.2 for Microsoft Windows (64-bit) (July 7, 2015)", 
+  FrontEndVersion -> "10.3 for Microsoft Windows (64-bit) (October 9, 2015)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -194,12 +194,12 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[3450, 96, 387, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->149225216]}
+   CellID->108436297]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 6637, 193}
+ {"PrimaryExamplesSection", 6645, 193}
  }
 *)
 (*NotebookFileOutline
@@ -213,10 +213,10 @@ Cell[2952, 78, 473, 14, 81, "Usage",
 Cell[CellGroupData[{
 Cell[3450, 96, 387, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->149225216],
+ CellID->108436297],
 Cell[CellGroupData[{
 Cell[3862, 115, 194, 6, 25, "ExampleSection",
- CellID->49658825],
+ CellID->74718835],
 Cell[4059, 123, 118, 3, 28, "Input",
  CellID->416772385],
 Cell[CellGroupData[{

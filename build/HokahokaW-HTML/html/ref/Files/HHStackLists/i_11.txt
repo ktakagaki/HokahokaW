@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>ListLinePlot[HHStackLists[listXValues, HHBaselineCorrection -&gt; First]]</pre><div class='IFU'><a name='277624427'></a>http://wolfram.com/xid/0g0gicmjie03uk8yqitfe36oudy-evkqnx</div>

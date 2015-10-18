@@ -7,13 +7,17 @@ BeginPackage["HokahokaW`",{"JLink`"}];
 
 
 General::invalidArgs="Function called with invalid arguments `1`.";
-General::invalidOptionValue="Option argument `2` -> `1` is invalid.";
+General::invalidOptionValue="Option argument `1` -> `2` is invalid.";
 General::deprecated="Function is deprecated, use `1` instead.";
 General::nullArgument="At least one of the required arguments is null!";
 
 
 (* ::Subsection:: *)
-(*Rules*)
+(*Package-wide option keys*)
+
+
+(* ::Subsection:: *)
+(*Rules/Options*)
 
 
 HHRuleListQ::usage=
@@ -47,7 +51,14 @@ HHAbsoluteOptionValue::usage= "Can be used to extract absolute options from an o
 HHExtractRules[args___]:=Message[HHExtractRules::invalidArgs,{args}];*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
+(*HHFunctionQ*)
+
+
+HHFunctionQ::usage="Returns whether a given symbol is a pure function or a function rule.";
+
+
+(* ::Subsection::Closed:: *)
 (*Java*)
 
 
@@ -57,8 +68,11 @@ HHJavaObjectQ::usage="Checks whether something is a Java object and an instance 
 HHIncreaseJavaStack::usage="Increases the Java stack size.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Package Git functions *)
+
+
+HHPackageGitLoad::usage="Loads git repository into jgit. Specify directory or package name. If not specified, NotebookDirectory[] will be taken";
 
 
 HHPackageNewestFileDate::usage="Prints the newest file change date for all files within the given package or within the current NotebookDirectory[].";
@@ -70,7 +84,14 @@ HHPackageMessage::usage="Prints standard package message.";
 (*HHNotebookMessage::usage="Prints standard notebook message.";*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
+(*HHNextPower*)
+
+
+HHNextPower::usage=" ";
+
+
+(* ::Subsection::Closed:: *)
 (*Utilities*)
 
 
@@ -99,8 +120,8 @@ HHCreateDirectoryIfNone::usage =
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
-(*Rules*)
+(* ::Subsection::Closed:: *)
+(*Rules/Options*)
 
 
 HHRuleListQ[ruleList_List] := And @@ (HHRuleListQ /@ ruleList);
@@ -183,7 +204,24 @@ HHAbsoluteOptionValue[x_, optionSymbol_]:=Module[{tempOpts},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
+(*HHFunctionQ*)
+
+
+(*Tests whether the symbol is a function or not*)
+(*FunctionQ[x_String]:=FunctionQ[ToExpression[x]];*)
+HHFunctionQ[x_Function]:=True;
+HHFunctionQ[x_Symbol]:=MemberQ[Attributes[x], NumericFunction] (*&& (Length[Flatten[#[x]&/@{DownValues,UpValues}]]>0)*);
+(*HHFunctionQ[x_Symbol/;(MemberQ[Attributes[x],NumericFunction] || NumericQ[x[1]])]:=True;*)
+(*HHFunctionQ[x_Symbol, sampleArgs_]:=HHFunctionQ[x, sampleArgs, NumericQ];
+HHFunctionQ[x_Symbol, sampleArgs_, questionFunc_]:=Quiet[Check[questionFunc[  x[ sampleArgs ]], False]];*)
+HHFunctionQ[_]:=False;
+
+
+HHFunctionQ[args___]:=Message[HHFunctionQ::invalidArgs, {args}];
+
+
+(* ::Subsection::Closed:: *)
 (*Java*)
 
 
@@ -240,11 +278,66 @@ HHIncreaseJavaStack[stackSize_Integer]:=
 HHIncreaseJavaStack[args___]:=Message[HHIncreaseJavaStack::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
-(* Package Git functions *)
+(* ::Subsection:: *)
+(*Package Git functions *)
 
 
-(* ::Subsubsection::Closed:: *)
+(*Private variables for cache*)
+$HHCurrentGitRepositorySearchString = "";
+$HHCurrentGitRepository = 0;
+
+
+(*Private function to recursively work up directory tree and find ".git" folder in a parent (or not)*)
+HHFindGitDir[directory_String]:=
+Module[{parentDirectory, putativeGitDirectory},
+	parentDirectory=Quiet[Check[ParentDirectory[directory], 0]]; (*If there is no parent directory, etc.*)
+	If[  parentDirectory===0 || parentDirectory == directory,  (*If in root directory, ParentDirectory[] will act as Identity[] *)
+		0,
+		(*See if there is a ".git" folder in the parent directory, and if not, recurse up tree*)
+		putativeGitDirectory=FileNameJoin[{ parentDirectory, ".git"}]; 
+		If[ DirectoryQ[ putativeGitDirectory ], putativeGitDirectory, HHFindGitDir[parentDirectory] ]
+	]
+]; 
+
+
+(* ::Subsubsection:: *)
+(* HHPackageGitLoad*)
+
+
+HHPackageGitLoad[]:= HHPackageGitLoad[ NotebookDirectory[] ];
+
+HHPackageGitLoad[directory_String]:=
+Module[{gitDirectory, temp},
+	If[ directory =!= $HHCurrentGitRepositorySearchString,
+		gitDirectory = HHPackageGitLoadImpl[ directory ];
+		If[gitDirectory == 0,
+			Message[HHPackageGitLoad::notGitDirectory, directory],
+			$HHCurrentGitRepositorySearchString = directory;
+			$HHCurrentGitRepository = JavaNew["org.eclipse.jgit.internal.storage.file.FileRepository", gitDirectory];
+			Print["Loaded Git repository located at " <> gitDirectory ]
+		];
+	]
+];
+
+HHPackageGitLoad::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
+HHPackageGitLoad::gitError="Call to Git returned error. It could be that Git is " <>
+ "not installed correctly, the command `1` is not valid, or the directory `2` is not valid."; 
+
+
+HHPackageGitLoadImpl[directory_String]:=
+Module[{gitDirectory, temp},
+	
+	gitDirectory = 0;
+	If[ temp=FileNameJoin[{ directory, ".git"}]; DirectoryQ[temp], gitDirectory = temp ]; (*If the Git root is already specified*)
+	If[ gitDirectory == 0, gitDirectory = HHFindGitDir[directory] ];
+	If[ gitDirectory == 0, gitDirectory = HHFindGitDir[DirectoryName[FindFile[directory]]] ];
+	If[ gitDirectory == 0, gitDirectory = Quiet[Check[ DirectoryName[directory], 0]]  ];
+	
+	gitDirectory
+];
+
+
+(* ::Subsubsection:: *)
 (* HHPackageNewestFileDate *)
 
 
@@ -272,7 +365,7 @@ HHPackageNewestFileDate::noFilesFound = "No files were found for package:  `1`."
 
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitImpl (private) *)
 
 
@@ -293,7 +386,7 @@ HHPackageGitImpl::gitError="Call to Git returned error. It could be that Git is 
  "not installed correctly, the command `1` is not valid, or the directory `2` is not valid."; 
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitRemotes *)
 
 
@@ -405,7 +498,17 @@ HHPackageMessage::noPreFileFound = "Pre-generated GitHEAD.m file was not found, 
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
+(*HHNextPower*)
+
+
+HHNextPower[base_, n_]:= Ceiling[Log[base, n]];
+
+
+HHNextPower[args___]:=Message[HHNextPower::invalidArgs,{args}];
+
+
+(* ::Subsection::Closed:: *)
 (*Utilities*)
 
 

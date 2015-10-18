@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>tempData = Table[ Sin[x * n * 2 Pi], {n, 1, 5}, {x, 0, 1, 0.01}];</pre><div class='IFU'><a name='295643787'></a>http://wolfram.com/xid/0ehg02x8sv5mbe0mru12y8pitjqvct0-e6ayhp</div>
