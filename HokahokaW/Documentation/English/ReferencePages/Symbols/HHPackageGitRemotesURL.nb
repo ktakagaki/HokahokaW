@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10145,        339]
+NotebookDataLength[     10144,        339]
 NotebookOptionsPosition[      6911,        239]
-NotebookOutlinePosition[      8994,        294]
-CellTagsIndexPosition[      8910,        289]
+NotebookOutlinePosition[      8993,        294]
+CellTagsIndexPosition[      8909,        289]
 WindowTitle->HHPackageGitRemotesURL
 WindowFrame->Normal*)
 
@@ -106,7 +106,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->113880163],
+ CellID->247757798],
 
 Cell[CellGroupData[{
 
@@ -116,7 +116,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->88490422],
+ CellID->11057900],
 
 Cell[CellGroupData[{
 
@@ -252,7 +252,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 10, 18, 22, 18, 25.9229933}", 
+   "built" -> "{2015, 10, 21, 12, 58, 8.9460154}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -283,12 +283,12 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[3360, 93, 387, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->113880163]}
+   CellID->247757798]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 8768, 282}
+ {"PrimaryExamplesSection", 8767, 282}
  }
 *)
 (*NotebookFileOutline
@@ -302,10 +302,10 @@ Cell[2970, 78, 365, 11, 81, "Usage",
 Cell[CellGroupData[{
 Cell[3360, 93, 387, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->113880163],
+ CellID->247757798],
 Cell[CellGroupData[{
 Cell[3772, 112, 194, 6, 25, "ExampleSection",
- CellID->88490422],
+ CellID->11057900],
 Cell[CellGroupData[{
 Cell[3991, 122, 105, 3, 28, "Input",
  CellID->641573816],
