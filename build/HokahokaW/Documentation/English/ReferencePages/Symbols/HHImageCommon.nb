@@ -108,7 +108,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->196360205],
+ CellID->408666533],
 
 Cell[CellGroupData[{
 
@@ -118,7 +118,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->169948894],
+ CellID->129660000],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`Graphics`"}]], "Input",
@@ -262,7 +262,7 @@ gGMHDpwKJBmeZHvcB6sywKkAcOzAgRNCCCGEEEIIIbrl/6oSyI4=
  ImageRegion->{{0, 1}, {0, 1}},
  CellTags->"RasterizedOutput",
  CellLabel->"Out[2]=",
- CellID->653639593]
+ CellID->419976490]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -300,7 +300,7 @@ Yp9gyBcxgatw
  ImageRegion->{{0, 1}, {0, 1}},
  CellTags->"RasterizedOutput",
  CellLabel->"Out[3]=",
- CellID->343853347]
+ CellID->308329438]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -322,7 +322,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 10, 21, 12, 57, 58.0113900}", 
+   "built" -> "{2015, 10, 21, 23, 12, 36.2142740}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -354,14 +354,14 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[3413, 95, 387, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->196360205]},
+   CellID->408666533]},
  "RasterizedOutput"->{
   Cell[5365, 163, 5699, 101, 173, "Output",
    CellTags->"RasterizedOutput",
-   CellID->653639593],
+   CellID->419976490],
   Cell[11220, 274, 1198, 28, 93, "Output",
    CellTags->"RasterizedOutput",
-   CellID->343853347]}
+   CellID->308329438]}
  }
 *)
 (*CellTagsIndex
@@ -381,10 +381,10 @@ Cell[2916, 78, 472, 13, 95, "Usage",
 Cell[CellGroupData[{
 Cell[3413, 95, 387, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->196360205],
+ CellID->408666533],
 Cell[CellGroupData[{
 Cell[3825, 114, 195, 6, 25, "ExampleSection",
- CellID->169948894],
+ CellID->129660000],
 Cell[4023, 122, 104, 3, 28, "Input",
  CellID->1850285],
 Cell[CellGroupData[{
@@ -392,14 +392,14 @@ Cell[4152, 129, 1210, 32, 119, "Input",
  CellID->697796],
 Cell[5365, 163, 5699, 101, 173, "Output",
  CellTags->"RasterizedOutput",
- CellID->653639593]
+ CellID->419976490]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[11101, 269, 116, 3, 28, "Input",
  CellID->1460132],
 Cell[11220, 274, 1198, 28, 93, "Output",
  CellTags->"RasterizedOutput",
- CellID->343853347]
+ CellID->308329438]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
