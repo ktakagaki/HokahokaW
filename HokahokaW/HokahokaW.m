@@ -287,18 +287,21 @@ HHIncreaseJavaStack[args___]:=Message[HHIncreaseJavaStack::invalidArgs,{args}];
 (*Package Git functions *)
 
 
-(*Private variables for cache*)
+$HHCurrentGitRepositoryPath::usage="";
 $HHCurrentGitRepositoryPath = "";
-$HHCurrentGitRepository = 0;
+
+$HHCurrentGitRepository::usage="";
+$HHCurrentGitRepository = Null;
 
 
-(* ::Subsubsection::Closed:: *)
-(* HHPackageGitFindRepoDir (Impl)*)
+(* ::Subsubsection:: *)
+(* HHPackageGitFindRepoDir*)
 
 
 HHPackageGitFindRepoDir[directory_String]:=
-HHPackageGitFindRepoDir[directory]=
-Module[{temp},
+(*HHPackageGitFindRepoDir[directory]=*)
+Module[{tempret, temp},
+	tempret = 
 	If[ DirectoryQ[directory],
 		HHPackageGitFindRepoDirImpl[directory],
 		temp = FileNames[directory];
@@ -306,19 +309,21 @@ Module[{temp},
 			HHPackageGitFindRepoDirImpl[ DirectoryName[ temp[[1]] ] ],
 			temp = FindFile[directory];
 			If[ temp === $Failed,
-				Message[ HHPackageGitFindRepoDir::notGitDirectory, directory ]; 0,
+				"",
 				HHPackageGitFindRepoDirImpl[ DirectoryName[ temp ] ]
 			]
 		]
-	]		
+	];
+	If[tempret === "", Message[ HHPackageGitFindRepoDir::notGitDirectory, directory ]];
+	tempret 		
 ]; 
 
 
 HHPackageGitFindRepoDirImpl[directory_String]:=
 Module[{parentDirectory, putativeGitDirectory},
-	parentDirectory=Quiet[Check[ParentDirectory[directory], 0]]; (*If there is no parent directory, etc.*)
-	If[  parentDirectory===0 || parentDirectory == directory,  (*If in root directory, ParentDirectory[] will act as Identity[] *)
-		0,
+	parentDirectory=Quiet[Check[ParentDirectory[directory], ""]]; (*If there is no parent directory, etc.*)
+	If[  parentDirectory === "" || parentDirectory == directory,  (*If in root directory, ParentDirectory[] will act as Identity[] *)
+		"",
 		(*See if there is a ".git" folder in the parent directory, and if not, recurse up tree*)
 		putativeGitDirectory=FileNameJoin[{ parentDirectory, ".git"}]; 
 		If[ DirectoryQ[ putativeGitDirectory ], putativeGitDirectory, HHPackageGitFindRepoDirImpl[parentDirectory] ]
@@ -335,16 +340,16 @@ HHPackageGitFindRepoDir[args___]:=Message[HHPackageGitFindRepoDir::invalidArgs,{
 (* HHPackageGitLoad/Unload*)
 
 
-HHPackageGitLoad[]:= HHPackageGitLoad[ NotebookDirectory[] ];
-
+(*HHPackageGitLoad[]:= HHPackageGitLoad[ NotebookDirectory[] ];*)
 HHPackageGitLoad[directory_String]:=
 Module[{gitDirectory, temp},
 	gitDirectory = HHPackageGitFindRepoDir[directory];
-	If[ gitDirectory === 0,
+	If[ gitDirectory === "",
 		HHPackageGitUnload[],
 		If[ gitDirectory =!= $HHCurrentGitRepositoryPath,
 			HHPackageGitUnload[];
 			$HHCurrentGitRepositoryPath = gitDirectory;
+			(*Print[{gitDirectory,gitDirectory =!= $HHCurrentGitRepositoryPath}];*)
 			$HHCurrentGitRepository = 
 				JavaNew["org.eclipse.jgit.internal.storage.file.FileRepository", gitDirectory];
 			Print["HokahokaW`HHPackageGitLoad: Loaded Git repository located at " <> gitDirectory ]
@@ -408,11 +413,11 @@ Module[{},
 HHPackageGitUnload[args___]:=Message[HHPackageGitUnload::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitCurrentBranch*)
 
 
-HHPackageGitCurrentBranch[]:= HHPackageGitCurrentBranch[NotebookDirectory[]];
+HHPackageGitCurrentBranch[]:= HHPackageGitCurrentBranch[NotebookFileName[]];
 HHPackageGitCurrentBranch[package_String]:= 
 Module[{currBranch, currRef, currObjID},
 	HHPackageGitLoad[package];
@@ -426,16 +431,16 @@ Module[{currBranch, currRef, currObjID},
 HHPackageGitCurrentBranch[args___]:=Message[HHPackageGitCurrentBranch::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitHEAD *)
 
 
-HHPackageGitHEAD[]:= HHPackageGitHEAD[NotebookDirectory[]];
+HHPackageGitHEAD[]:= HHPackageGitHEAD[NotebookFileName[]];
 HHPackageGitHEAD[package_String]:= 
 Module[{currBranch, currRef, currObjID},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null,
-		currRef=$HHCurrentGitRepository@getRef[ HHPackageGitCurrentBranch[] ];
+		currRef=$HHCurrentGitRepository@getRef[ HHPackageGitCurrentBranch[package] ];
 		currObjID=currRef@getObjectId[];
 		currObjID@toString[ currObjID ],
 		"NO VALID REPOSITORY"
@@ -446,11 +451,11 @@ Module[{currBranch, currRef, currObjID},
 HHPackageGitHEAD[args___]:=Message[HHPackageGitHEAD::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitRemotes / HHPackageGitRemotesURL*)
 
 
-HHPackageGitRemotes[]:= HHPackageGitRemotes[NotebookDirectory[]];
+HHPackageGitRemotes[]:= HHPackageGitRemotes[NotebookFileName[]];
 HHPackageGitRemotes[package_String]:= 
 Module[{currConfig},
 	HHPackageGitLoad[package];
@@ -465,12 +470,12 @@ Module[{currConfig},
 HHPackageGitRemotes[args___]:=Message[HHPackageGitRemotes::invalidArgs,{args}];
 
 
-HHPackageGitRemotesURL[]:= HHPackageGitRemotesURL[NotebookDirectory[]];
+HHPackageGitRemotesURL[]:= HHPackageGitRemotesURL[NotebookFileName[]];
 HHPackageGitRemotesURL[package_String]:= 
 Module[{remotes, currConfig},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null,
-		remotes = HHPackageGitRemotes[];
+		remotes = HHPackageGitRemotes[package];
 		currConfig=$HHCurrentGitRepository@getConfig[];
 		currConfig@getString["remote", #, "url"]& /@ remotes,
 		"NO VALID REPOSITORY"
@@ -562,7 +567,7 @@ HHPackageNewestFileDate[args___]:=Message[HHPackageNewestFileDate::invalidArgs,{
 HHPackageNewestFileDate::noFilesFound = "No files were found for package:  `1`.";
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*BAK old implementations for HHPackageGitXXX*)
 
 

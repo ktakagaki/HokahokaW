@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11260,        333]
+NotebookDataLength[     11259,        333]
 NotebookOptionsPosition[      8532,        252]
-NotebookOutlinePosition[     10581,        306]
-CellTagsIndexPosition[     10496,        301]
+NotebookOutlinePosition[     10580,        306]
+CellTagsIndexPosition[     10495,        301]
 WindowTitle->HHImageDifference
 WindowFrame->Normal*)
 
@@ -106,7 +106,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->682189682],
+ CellID->61988411],
 
 Cell[CellGroupData[{
 
@@ -116,7 +116,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->98940522],
+ CellID->145151056],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`Graphics`"}]], "Input",
@@ -265,7 +265,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 10, 21, 12, 57, 59.2414603}", 
+   "built" -> "{2015, 10, 21, 23, 12, 37.9743747}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -293,9 +293,9 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[3320, 93, 387, 15, 31, "PrimaryExamplesSection",
+  Cell[3320, 93, 386, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->682189682]}
+   CellID->61988411]}
  }
 *)
 (*CellTagsIndex
@@ -312,12 +312,12 @@ Cell[2877, 75, 60, 1, 43, "ObjectName",
 Cell[2940, 78, 355, 11, 81, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3320, 93, 387, 15, 31, "PrimaryExamplesSection",
+Cell[3320, 93, 386, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->682189682],
+ CellID->61988411],
 Cell[CellGroupData[{
-Cell[3732, 112, 194, 6, 25, "ExampleSection",
- CellID->98940522],
+Cell[3731, 112, 195, 6, 25, "ExampleSection",
+ CellID->145151056],
 Cell[3929, 120, 104, 3, 28, "Input",
  CellID->1850285],
 Cell[CellGroupData[{

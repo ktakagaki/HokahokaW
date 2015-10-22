@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10144,        339]
-NotebookOptionsPosition[      6911,        239]
-NotebookOutlinePosition[      8993,        294]
-CellTagsIndexPosition[      8909,        289]
+NotebookDataLength[     10142,        339]
+NotebookOptionsPosition[      6910,        239]
+NotebookOutlinePosition[      8992,        294]
+CellTagsIndexPosition[      8908,        289]
 WindowTitle->HHPackageGitRemotesURL
 WindowFrame->Normal*)
 
@@ -106,7 +106,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->247757798],
+ CellID->34212813],
 
 Cell[CellGroupData[{
 
@@ -116,7 +116,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->11057900],
+ CellID->17718942],
 
 Cell[CellGroupData[{
 
@@ -252,7 +252,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2015, 10, 21, 12, 58, 8.9460154}", 
+   "built" -> "{2015, 10, 21, 23, 12, 52.0871819}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -281,9 +281,9 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[3360, 93, 387, 15, 31, "PrimaryExamplesSection",
+  Cell[3360, 93, 386, 15, 31, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->247757798]}
+   CellID->34212813]}
  }
 *)
 (*CellTagsIndex
@@ -300,47 +300,47 @@ Cell[2902, 75, 65, 1, 43, "ObjectName",
 Cell[2970, 78, 365, 11, 81, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3360, 93, 387, 15, 31, "PrimaryExamplesSection",
+Cell[3360, 93, 386, 15, 31, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->247757798],
+ CellID->34212813],
 Cell[CellGroupData[{
-Cell[3772, 112, 194, 6, 25, "ExampleSection",
- CellID->11057900],
+Cell[3771, 112, 194, 6, 25, "ExampleSection",
+ CellID->17718942],
 Cell[CellGroupData[{
-Cell[3991, 122, 105, 3, 28, "Input",
+Cell[3990, 122, 105, 3, 28, "Input",
  CellID->641573816],
-Cell[4099, 127, 198, 3, 41, "Print",
+Cell[4098, 127, 198, 3, 41, "Print",
  CellID->129784627]
 }, Open  ]],
-Cell[4312, 133, 936, 34, 171, "Text",
+Cell[4311, 133, 936, 34, 171, "Text",
  CellID->659877046],
-Cell[5251, 169, 106, 3, 30, "Notes",
+Cell[5250, 169, 106, 3, 30, "Notes",
  CellID->658416936],
 Cell[CellGroupData[{
-Cell[5382, 176, 113, 3, 28, "Input",
+Cell[5381, 176, 113, 3, 28, "Input",
  CellID->250094976],
-Cell[5498, 181, 241, 7, 36, "Output",
+Cell[5497, 181, 241, 7, 36, "Output",
  CellID->9992897]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5776, 193, 135, 3, 28, "Input",
+Cell[5775, 193, 135, 3, 28, "Input",
  CellID->702191801],
-Cell[5914, 198, 243, 7, 36, "Output",
+Cell[5913, 198, 243, 7, 36, "Output",
  CellID->441278134]
 }, Open  ]],
-Cell[6172, 208, 156, 4, 43, "Notes",
+Cell[6171, 208, 156, 4, 43, "Notes",
  CellID->15860803],
 Cell[CellGroupData[{
-Cell[6353, 216, 142, 4, 28, "Input",
+Cell[6352, 216, 142, 4, 28, "Input",
  CellID->90773577],
-Cell[6498, 222, 159, 3, 23, "Print",
+Cell[6497, 222, 159, 3, 23, "Print",
  CellID->160199228],
-Cell[6660, 227, 185, 5, 36, "Output",
+Cell[6659, 227, 185, 5, 36, "Output",
  CellID->418008245]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[6884, 237, 23, 0, 70, "FooterCell"]
+Cell[6883, 237, 23, 0, 70, "FooterCell"]
 }
 ]
 *)
