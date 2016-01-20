@@ -96,7 +96,7 @@ HHPackageMessage::usage="Prints standard package message.";
 HHNextPower::usage=" ";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities*)
 
 
@@ -341,9 +341,11 @@ HHPackageGitFindRepoDir[args___]:=Message[HHPackageGitFindRepoDir::invalidArgs,{
 
 
 (*HHPackageGitLoad[]:= HHPackageGitLoad[ NotebookDirectory[] ];*)
-HHPackageGitLoad[directory_String]:=
+HHPackageGitLoad[directory_String, verbose_:False]:=
 Module[{gitDirectory, temp},
+
 	gitDirectory = HHPackageGitFindRepoDir[directory];
+
 	If[ gitDirectory === "",
 		HHPackageGitUnload[],
 		If[ gitDirectory =!= $HHCurrentGitRepositoryPath,
@@ -352,22 +354,12 @@ Module[{gitDirectory, temp},
 			(*Print[{gitDirectory,gitDirectory =!= $HHCurrentGitRepositoryPath}];*)
 			$HHCurrentGitRepository = 
 				JavaNew["org.eclipse.jgit.internal.storage.file.FileRepository", gitDirectory];
-			Print["HokahokaW`HHPackageGitLoad: Loaded Git repository located at " <> gitDirectory ]
+			If[verbose,
+				Print["HokahokaW`HHPackageGitLoad: Loaded Git repository located at " <> gitDirectory ]
+			]
 		]
 	]
-(*		gitDirectory = HHPackageGitLoadImpl[ directory ];
-(*Print[ToString[{gitDirectory, gitDirectory\[Equal]0, gitDirectory===0}]];*)
-		If[gitDirectory == 0,
-	(*Print["Same"];*)
-			Message[HHPackageGitLoad::notGitDirectory, directory];
-			HHPackageGitUnload[],
 
-	(*Print["Different " <> ToString[gitDirectory]];*)
-			$HHCurrentGitRepositorySearchString = directory;
-			$HHCurrentGitRepository = JavaNew["org.eclipse.jgit.internal.storage.file.FileRepository", gitDirectory];
-			Print["Loaded Git repository located at " <> gitDirectory ]
-		];
-	]*)
 ];
 
 HHPackageGitLoad::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
@@ -377,34 +369,13 @@ HHPackageGitLoad::gitError="Call to Git returned error. It could be that Git is 
 HHPackageGitLoad[args___]:=Message[HHPackageGitLoad::invalidArgs,{args}];
 
 
-(*HHPackageGitLoadImpl[directory_String]:=
-Module[{gitDirectory, temp},
-	
-	gitDirectory = 0;
-	If[ temp=FileNameJoin[{ directory, ".git"}]; DirectoryQ[temp], gitDirectory = temp ]; (*If the Git root is specified*)
-(*Print[gitDirectory];*)
-	If[ gitDirectory \[Equal] 0, gitDirectory = HHPackageGitFindRepoDir[directory] ];
-(*Print[gitDirectory];*)
-	If[ gitDirectory \[Equal] 0, 
-		temp=FindFile[directory];
-		If[ temp =!= $Failed, gitDirectory = HHPackageGitFindRepoDir[DirectoryName[ temp ]] ]
-	];
-(*Print[gitDirectory];*)
-	If[ gitDirectory \[Equal] 0, gitDirectory = Quiet[Check[ DirectoryName[directory], 0]]  ];
-	
-	gitDirectory
-];*)
-
-
-(*HHPackageGitLoaded[]:= ($HHCurrentGitRepositorySearchString === "" || $HHCurrentGitRepository === Null);
-
-HHPackageGitLoaded[args___]:=Message[HHPackageGitLoaded::invalidArgs,{args}];*)
-
-
-HHPackageGitUnload[]:=
+HHPackageGitUnload[verbose_:False]:=
 Module[{},
+
 	If[ $HHCurrentGitRepositoryPath =!= "",
-		Print[ "Unloading repository: "<> $HHCurrentGitRepositoryPath];
+		If[verbose,
+			Print[ "Unloading repository: "<> $HHCurrentGitRepositoryPath]
+		];
 		$HHCurrentGitRepositoryPath = "";
 		$HHCurrentGitRepository = Null
 	];
