@@ -25,6 +25,9 @@ HHStackIncrement::usage="Option for HHStackTraces and HHListLinePlotStack. \
 By what interval to stack lists. Automatic gives x1.1 of the 95% Min-Max quantile (i.e. Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1";
 
 
+HHPlotRangeClipping::usage="";
+
+
 Options[HHStackLists] = {HHBaselineCorrection -> Mean, HHStackIncrement -> Automatic};
 
 
@@ -33,6 +36,7 @@ HHListLinePlotStack::usage=
 
 
 HHListLinePlotStack$UniqueOptions = {
+	HHPlotRangeClipping -> Automatic
 	(*HHStackLists->Automatic,*) (*HHStackAxes->False,*)(* HHBaselineCorrection-> Mean*)
 };
 HHListLinePlotStack$OverrideOptions = { AspectRatio -> 1/2, PlotRange -> All };
@@ -46,7 +50,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
@@ -100,14 +104,17 @@ HHImageSubtract::usage="Subtracts two images to give the difference.";
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHStackLists / HHListLinePlotStack*)
+
+
+$ActualStackRange={0,0};
 
 
 HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
   Block[{tempTraces, temp, 
 		opHHBaselineCorrection, baselineSubtractFactors, 
-		opHHStackIncrement, stackAddFactors},
+		opHHStackIncrement, stackAddFactors, stackFactorsCumulated},
 	
 	tempTraces = traces;
 
@@ -135,10 +142,14 @@ HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
 								  temp, (*This covers specifications such as Mean and First *)
 		_, Message[ HHStackLists::invalidOptionValue, "HHStackIncrement", ToString[opHHStackIncrement]]; Table[0, {Length[traces]}]
 	];
+
+
 (*Print[stackAddFactors];*)
 
+	stackFactorsCumulated = FoldList[Plus, 0, stackAddFactors];
+	$ActualStackRange = {- stackAddFactors[[1]], stackFactorsCumulated[[-1]]};
 	tempTraces = tempTraces + FoldList[Plus, 0, stackAddFactors[[ ;; -2]] ]; 
-						(*last stack add factor is not used... nothing to stack on top*)
+						(*last stack add factor is not used here... nothing to stack on top*)
 
 	tempTraces
 
@@ -164,12 +175,14 @@ HHListLinePlotStack[
 	traces_/;(Depth[traces]==3 || (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
 	opts:OptionsPattern[]
 ]:=
-Module[{tempData},
+Module[{tempData,tempPlotRange},
 	
 	tempData = HHStackLists[traces, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
+	tempPlotRange = If[ OptionValue[HHPlotRangeClipping] === Automatic, {PlotRange->{All, $ActualStackRange}},{}];
+		
 
 	ListLinePlot[tempData,
-		Sequence@@HHJoinOptionLists[ ListLinePlot, {opts}, HHListLinePlotStack$UniqueOptions ]
+		Sequence@@HHJoinOptionLists[ ListLinePlot, {tempPlotRange}, {opts}, HHListLinePlotStack$UniqueOptions ]
 	]
 ];
 
@@ -177,7 +190,7 @@ Module[{tempData},
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
