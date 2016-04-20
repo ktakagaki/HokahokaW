@@ -1,1 +1,2 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>HHJoinOptionLists[ {AlignmentPoint -&gt; Right}, Options[Graphics]]</pre><div class='IFU'><a name='272163417'></a>http://wolfram.com/xid/0e0ddfi8l7v1bj3xb15j2dmre95sj6-esbow7</div>
+<pre name='i_7_in' id='i_7_in' class='IFT'>HHJoinOptionLists[Graphics3D, {AlignmentPoint -&gt; Right, 
+  &quot;notValid&quot; -&gt; True}, Options[Plot]]</pre><div class='IFU'><a name='308652265'></a>http://wolfram.com/xid/0e0ddfi8l7v1bj3xb15j2dmre95sj6-fd1rwb</div>

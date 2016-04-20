@@ -1,0 +1,202 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      6619,        192]
+NotebookOptionsPosition[      4151,        122]
+NotebookOutlinePosition[      6291,        178]
+CellTagsIndexPosition[      6248,        175]
+WindowTitle->Handling rules and options
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W TUTORIAL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->
+        False], {"\<\"HokahokaW/tutorial/Handling rules and options\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["HokahokaW/tutorial/Handling rules and options"]}, Visible -> 
+           False]]; SelectionMove[
+        DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/HokahokaW/tutorial/\
+Handling rules and options.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$12180], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "HokahokaW/tutorial/Handling rules and options", ".html"]], 
+          None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["Handling rules and options", "Title",
+ CellID->509267359],
+
+Cell[BoxData[GridBox[{
+   {"HHRuleQ", Cell[
+    "Whether an object is a Rule or RuleDelayed object", "TableText"]},
+   {"HHRuleListQ", Cell["\<\
+Whether a List or Sequence is a sequence of Rule or RuleDelayed objects\
+\>", "TableText"]},
+   {"HHJoinOptionLists", Cell["Join (and filter) option lists", "TableText"]},
+   {"HHAddOptions", 
+    RowBox[{
+    "Add", " ", "further", " ", "options", " ", "to", " ", "a", " ", 
+     "current", " ", "option", " ", "list"}]},
+   {"HHOptionValue", 
+    RowBox[{"Extract", " ", "option", " ", "values", " ", 
+     RowBox[{"(", 
+      RowBox[{"or", " ", "defaults"}], ")"}], " ", "from", " ", "an", " ", 
+     RowBox[{"object", "."}]}]}
+  }]], "DefinitionBox",
+ CellID->2096742444],
+
+Cell["XXXX.", "Caption",
+ CellID->1891092685],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["XXXX"], "Input",
+ CellLabel->"In[1]:=",
+ CellID->2058623809],
+
+Cell[BoxData["XXXX"], "Output",
+ ImageSize->{40, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->1181321046]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Handling rules and options",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "TutorialColor", 
+  "LinkTrails" -> GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 4, 20, 9, 6, 7.6261332}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Tutorial", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> "XXXX.", "synonyms" -> {}, "title" -> 
+    "Handling rules and options", "titlemodifier" -> "", "windowtitle" -> 
+    "Handling rules and options", "type" -> "Tutorial", "uri" -> 
+    "HokahokaW/tutorial/Handling rules and options"}, "SearchTextTranslated" -> 
+  ""},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (January 25, 2013)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[597, 21, 2377, 55, 59, "AnchorBarGrid",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[2999, 80, 63, 1, 55, "Title",
+ CellID->509267359],
+Cell[3065, 83, 720, 17, 233, "DefinitionBox",
+ CellID->2096742444],
+Cell[3788, 102, 45, 1, 35, "Caption",
+ CellID->1891092685],
+Cell[CellGroupData[{
+Cell[3858, 107, 74, 2, 29, "Input",
+ CellID->2058623809],
+Cell[3935, 111, 162, 5, 38, "Output",
+ CellID->1181321046]
+}, Open  ]]
+}, Open  ]],
+Cell[4124, 120, 23, 0, 44, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

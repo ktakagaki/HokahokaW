@@ -13,38 +13,29 @@ General::nullArgument="At least one of the required arguments is null!";
 
 
 (* ::Subsection:: *)
-(*Package-wide option keys*)
-
-
-(* ::Subsection::Closed:: *)
 (*Rules/Options*)
 
 
 HHRuleListQ::usage=
-	"HHRuleListQ[ruleList_List]... returns whether the argument ruleList is a list of rules.";
+"returns whether the argument is a list or sequence of Rule or RuleDelayed objects.";
 HHRuleQ::usage=
-	"HHRuleQ[rule_]... returns whether the argument ruleList is a list of Rule or RuleDelayed objects.";
+"returns whether the argument is a Rule or RuleDelayed object.";
 
 
 HHJoinOptionLists::usage=
-"HHJoinOptionLists[x_/;RuleQ[x], y_/;RuleQ[y]]...   joins two option lists, "<>
-"and if an option specified in x is repeated in y, the specification in y is dropped.
-
-HHJoinOptionLists[x_/;RuleQ[x], y_/;RuleQ[y], z_/;RuleQ[z]]...    joins the three option lists, "<>
-"and if an option specified in x is repeated in y, the specification in y is dropped, etc.
-
-HHJoinOptionLists[symbol_Symbol, x_/;RuleQ[x], y_/;RuleQ[y],... ]...    Does the "<>
-"same as above, but filters the rules for Option[Symbol] before returning.";
+"joins two ore more option lists, \
+and if the first argument is a symbol, filters the joined option list for valid options for that symbol.";
 
 
 HHAddOptions::usage=
-"HHAddOptions[object, opts]...     returns the original object (e.g. NNMData[<<>>, opts]), "<>
+"returns the original object (e.g. NNMData[<<>>, opts]), "<>
 "but with the specified option(s) appended or replaced. opts can be specified either as a Sequence "<>
-"or a List of rules (i.e., brackets {opts} are optional).";
+"or a List of rules.";
 
 
-HHOptionValue::usage= "Can be used to extract options from an object, such as a Graphic[..., opt->optval]."
-HHAbsoluteOptionValue::usage= "Can be used to extract absolute options from an object, such as a Graphic[..., opt->optval]."
+HHOptionValue::usage= "extract options from an object, such as a Graphic[..., opt->optval], \
+and give the default Option value if not specified.";
+HHAbsoluteOptionValue::usage= "DEPRECATED: use AbsoluteOptions instead.";
 
 
 (*HHExtractRules[x_[arg___]]:=Flatten[If[HHRuleQ[#],#,{}]& /@ {arg}];
@@ -68,8 +59,13 @@ HHJavaObjectQ::usage="Checks whether something is a Java object and an instance 
 HHIncreaseJavaStack::usage="Increases the Java stack size.";
 
 
-(* ::Subsection:: *)
-(*Package Git functions *)
+(* ::Subsection::Closed:: *)
+(*HHPackageMessage/Package Git functions *)
+
+
+HHPackageMessage::usage="Prints standard package message, including Git information if available.";
+(* TODO: test that notebook message is working with HHPackageMessage[] *)
+(*HHNotebookMessage::usage="Prints standard notebook message.";*)
 
 
 HHPackageGitLoad::usage="Loads git repository into jgit. Specify directory or package name. If not specified, NotebookDirectory[] will be taken";
@@ -84,9 +80,6 @@ HHPackageGitRemotesURL::usage="Returns a list of git remote URLs for either the 
 
 HHPackageGitHEAD::usage="Returns the git HEAD hash for either the given directory or the current NotebookDirectory[].";
 (*HHPackageUpdateGitHEADFile::usage="Bundles a GitHEAD.m file for marking deployments without active Git management.";*)
-HHPackageMessage::usage="Prints standard package message.";
-(* TODO: test that notebook message is working with HHPackageMessage[] *)
-(*HHNotebookMessage::usage="Prints standard notebook message.";*)
 
 
 (* ::Subsection::Closed:: *)
@@ -125,8 +118,12 @@ HHCreateDirectoryIfNone::usage =
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Rules/Options*)
+
+
+(* ::Subsubsection::Closed:: *)
+(*HHRuleQ/HHRuleListQ*)
 
 
 HHRuleListQ[ruleList_List] := And @@ (HHRuleListQ /@ ruleList);
@@ -141,8 +138,11 @@ HHRuleListQ[args___]:=Message[HHRuleListQ::invalidArgs,{args}];
 
 HHRuleQ[rule_Rule] := True;
 HHRuleQ[rule_RuleDelayed] := True;
-HHRuleQ[_] := False;
-HHRuleQ[args___]:=Message[HHRuleQ::invalidArgs,{args}];
+HHRuleQ[___] := False;
+
+
+(* ::Subsubsection::Closed:: *)
+(*HHJoinOptionLists*)
 
 
 HHJoinOptionLists[x_/;HHRuleListQ[x], y_/;HHRuleListQ[y]]:=
@@ -178,6 +178,10 @@ HHJoinOptionLists[symbol_[contents_], x_/;HHRuleListQ[x], y__/;(And@@(HHRuleList
 HHJoinOptionLists[args___]:=Message[HHJoinOptionLists::invalidArgs,{args}];
 
 
+(* ::Subsubsection::Closed:: *)
+(*HHAddOptions*)
+
+
 HHAddOptions[symbol_[contents___], opts___]:=HHAddOptions[symbol[contents], {opts}];
 HHAddOptions[symbol_[contents___], {opts___}]:=
 	Module[{tempretNN(*,oldRules*)},
@@ -185,7 +189,8 @@ HHAddOptions[symbol_[contents___], {opts___}]:=
 		tempretNN = Select[{contents}, !HHRuleQ[#]&];
 		(*Append old rules which are not given in opts.*)
 
-		tempretNN = Append[tempretNN, Hold[Sequence@@HHJoinOptionLists[symbol, {opts}, Select[{contents}, RuleQ]]] ];
+		tempretNN = Append[tempretNN, 
+			Hold[Sequence@@HHJoinOptionLists[symbol, {opts}, Select[{contents}, HHRuleQ]]] ];
 		Return[ReleaseHold[ symbol[Sequence@@tempretNN] ]]
 		(*oldRules=FilterRules[Options[x], Except[opts]];
 			If[Length[oldRules]>0, tempretNN= Append[tempretNN, Hold[Sequence@@oldRules]]];
@@ -197,16 +202,18 @@ HHAddOptions[symbol_[contents___], {opts___}]:=
 HHAddOptions[args___]:=Message[HHAddOptions::invalidArgs,{args}];
 
 
+(* ::Subsubsection:: *)
+(*HHOptionValue*)
+
+
 HHOptionValue[x_, optionSymbol_]:=Module[{tempOpts},
 	tempOpts=Join[Options[x],Options[Head[x]]];
 	OptionValue[ tempOpts ,optionSymbol ]
 ];
 HHOptionValue[args___]:=Message[HHOptionValue::invalidArgs,{args}];
 
-HHAbsoluteOptionValue[x_, optionSymbol_]:=Module[{tempOpts},
-	tempOpts=Join[AbsoluteOptions[x],Options[Head[x]]];
-	OptionValue[ tempOpts ,optionSymbol ]
-];
+
+HHAbsoluteOptionValue[___]:=Message[HHOptionValue::deprecated,"AbsoluteOptions"];
 
 
 (* ::Subsection::Closed:: *)
@@ -283,8 +290,8 @@ HHIncreaseJavaStack[stackSize_Integer]:=
 HHIncreaseJavaStack[args___]:=Message[HHIncreaseJavaStack::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
-(*Package Git functions *)
+(* ::Subsection::Closed:: *)
+(*HHPackageMessage/Package Git functions*)
 
 
 $HHCurrentGitRepositoryPath::usage="";
@@ -294,170 +301,7 @@ $HHCurrentGitRepository::usage="";
 $HHCurrentGitRepository = Null;
 
 
-(* ::Subsubsection:: *)
-(* HHPackageGitFindRepoDir*)
-
-
-HHPackageGitFindRepoDir[directory_String]:=
-(*HHPackageGitFindRepoDir[directory]=*)
-Module[{tempret, temp},
-	tempret = 
-	If[ DirectoryQ[directory],
-		HHPackageGitFindRepoDirImpl[directory],
-		temp = FileNames[directory];
-		If[ Length[temp]>0, 
-			HHPackageGitFindRepoDirImpl[ DirectoryName[ temp[[1]] ] ],
-			temp = FindFile[directory];
-			If[ temp === $Failed,
-				"",
-				HHPackageGitFindRepoDirImpl[ DirectoryName[ temp ] ]
-			]
-		]
-	];
-	If[tempret === "", Message[ HHPackageGitFindRepoDir::notGitDirectory, directory ]];
-	tempret 		
-]; 
-
-
-HHPackageGitFindRepoDirImpl[directory_String]:=
-Module[{parentDirectory, putativeGitDirectory},
-	parentDirectory=Quiet[Check[ParentDirectory[directory], ""]]; (*If there is no parent directory, etc.*)
-	If[  parentDirectory === "" || parentDirectory == directory,  (*If in root directory, ParentDirectory[] will act as Identity[] *)
-		"",
-		(*See if there is a ".git" folder in the parent directory, and if not, recurse up tree*)
-		putativeGitDirectory=FileNameJoin[{ parentDirectory, ".git"}]; 
-		If[ DirectoryQ[ putativeGitDirectory ], putativeGitDirectory, HHPackageGitFindRepoDirImpl[parentDirectory] ]
-	]
-]; 
-
-
-HHPackageGitFindRepoDir::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
-
-HHPackageGitFindRepoDir[args___]:=Message[HHPackageGitFindRepoDir::invalidArgs,{args}];
-
-
-(* ::Subsubsection:: *)
-(* HHPackageGitLoad/Unload*)
-
-
-(*HHPackageGitLoad[]:= HHPackageGitLoad[ NotebookDirectory[] ];*)
-HHPackageGitLoad[directory_String, verbose_:False]:=
-Module[{gitDirectory, temp},
-
-	gitDirectory = HHPackageGitFindRepoDir[directory];
-
-	If[ gitDirectory === "",
-		HHPackageGitUnload[],
-		If[ gitDirectory =!= $HHCurrentGitRepositoryPath,
-			HHPackageGitUnload[];
-			$HHCurrentGitRepositoryPath = gitDirectory;
-			(*Print[{gitDirectory,gitDirectory =!= $HHCurrentGitRepositoryPath}];*)
-			$HHCurrentGitRepository = 
-				JavaNew["org.eclipse.jgit.internal.storage.file.FileRepository", gitDirectory];
-			If[verbose,
-				Print["HokahokaW`HHPackageGitLoad: Loaded Git repository located at " <> gitDirectory ]
-			]
-		]
-	]
-
-];
-
-HHPackageGitLoad::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
-HHPackageGitLoad::gitError="Call to Git returned error. It could be that Git is " <>
- "not installed correctly, the command `1` is not valid, or the directory `2` is not valid."; 
-
-HHPackageGitLoad[args___]:=Message[HHPackageGitLoad::invalidArgs,{args}];
-
-
-HHPackageGitUnload[verbose_:False]:=
-Module[{},
-
-	If[ $HHCurrentGitRepositoryPath =!= "",
-		If[verbose,
-			Print[ "Unloading repository: "<> $HHCurrentGitRepositoryPath]
-		];
-		$HHCurrentGitRepositoryPath = "";
-		$HHCurrentGitRepository = Null
-	];
-];
-
-HHPackageGitUnload[args___]:=Message[HHPackageGitUnload::invalidArgs,{args}];
-
-
-(* ::Subsubsection:: *)
-(* HHPackageGitCurrentBranch*)
-
-
-HHPackageGitCurrentBranch[]:= HHPackageGitCurrentBranch[NotebookFileName[]];
-HHPackageGitCurrentBranch[package_String]:= 
-Module[{currBranch, currRef, currObjID},
-	HHPackageGitLoad[package];
-	If[ $HHCurrentGitRepository =!= Null, 
-		$HHCurrentGitRepository@getBranch[], 
-		"NO VALID REPOSITORY"
-	]
-];
-
-
-HHPackageGitCurrentBranch[args___]:=Message[HHPackageGitCurrentBranch::invalidArgs,{args}];
-
-
-(* ::Subsubsection:: *)
-(* HHPackageGitHEAD *)
-
-
-HHPackageGitHEAD[]:= HHPackageGitHEAD[NotebookFileName[]];
-HHPackageGitHEAD[package_String]:= 
-Module[{currBranch, currRef, currObjID},
-	HHPackageGitLoad[package];
-	If[ $HHCurrentGitRepository =!= Null,
-		currRef=$HHCurrentGitRepository@getRef[ HHPackageGitCurrentBranch[package] ];
-		currObjID=currRef@getObjectId[];
-		currObjID@toString[ currObjID ],
-		"NO VALID REPOSITORY"
-	]
-];
-
-
-HHPackageGitHEAD[args___]:=Message[HHPackageGitHEAD::invalidArgs,{args}];
-
-
-(* ::Subsubsection:: *)
-(* HHPackageGitRemotes / HHPackageGitRemotesURL*)
-
-
-HHPackageGitRemotes[]:= HHPackageGitRemotes[NotebookFileName[]];
-HHPackageGitRemotes[package_String]:= 
-Module[{currConfig},
-	HHPackageGitLoad[package];
-	If[ $HHCurrentGitRepository =!= Null,
-		currConfig=$HHCurrentGitRepository@getConfig[];
-		currConfig@getSubsections["remote"]@toArray[],
-		"NO VALID REPOSITORY"
-	]
-];
-
-
-HHPackageGitRemotes[args___]:=Message[HHPackageGitRemotes::invalidArgs,{args}];
-
-
-HHPackageGitRemotesURL[]:= HHPackageGitRemotesURL[NotebookFileName[]];
-HHPackageGitRemotesURL[package_String]:= 
-Module[{remotes, currConfig},
-	HHPackageGitLoad[package];
-	If[ $HHCurrentGitRepository =!= Null,
-		remotes = HHPackageGitRemotes[package];
-		currConfig=$HHCurrentGitRepository@getConfig[];
-		currConfig@getString["remote", #, "url"]& /@ remotes,
-		"NO VALID REPOSITORY"
-	]
-];
-
-
-HHPackageGitRemotesURL[args___]:=Message[HHPackageGitRemotesURL::invalidArgs,{args}];
-
-
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (* HHPackageMessage *)
 
 
@@ -510,6 +354,169 @@ HHPackageMessage[args___]:=Message[HHPackageMessage::invalidArgs,{args}];
 
 
 (* ::Subsubsection::Closed:: *)
+(* HHPackageGitFindRepoDir*)
+
+
+HHPackageGitFindRepoDir[directory_String]:=
+(*HHPackageGitFindRepoDir[directory]=*)
+Module[{tempret, temp},
+	tempret = 
+	If[ DirectoryQ[directory],
+		HHPackageGitFindRepoDirImpl[directory],
+		temp = FileNames[directory];
+		If[ Length[temp]>0, 
+			HHPackageGitFindRepoDirImpl[ DirectoryName[ temp[[1]] ] ],
+			temp = FindFile[directory];
+			If[ temp === $Failed,
+				"",
+				HHPackageGitFindRepoDirImpl[ DirectoryName[ temp ] ]
+			]
+		]
+	];
+	If[tempret === "", Message[ HHPackageGitFindRepoDir::notGitDirectory, directory ]];
+	tempret 		
+]; 
+
+
+HHPackageGitFindRepoDirImpl[directory_String]:=
+Module[{parentDirectory, putativeGitDirectory},
+	parentDirectory=Quiet[Check[ParentDirectory[directory], ""]]; (*If there is no parent directory, etc.*)
+	If[  parentDirectory === "" || parentDirectory == directory,  (*If in root directory, ParentDirectory[] will act as Identity[] *)
+		"",
+		(*See if there is a ".git" folder in the parent directory, and if not, recurse up tree*)
+		putativeGitDirectory=FileNameJoin[{ parentDirectory, ".git"}]; 
+		If[ DirectoryQ[ putativeGitDirectory ], putativeGitDirectory, HHPackageGitFindRepoDirImpl[parentDirectory] ]
+	]
+]; 
+
+
+HHPackageGitFindRepoDir::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
+
+HHPackageGitFindRepoDir[args___]:=Message[HHPackageGitFindRepoDir::invalidArgs,{args}];
+
+
+(* ::Subsubsection::Closed:: *)
+(* HHPackageGitLoad/Unload*)
+
+
+(*HHPackageGitLoad[]:= HHPackageGitLoad[ NotebookDirectory[] ];*)
+HHPackageGitLoad[directory_String, verbose_:False]:=
+Module[{gitDirectory, temp},
+
+	gitDirectory = HHPackageGitFindRepoDir[directory];
+
+	If[ gitDirectory === "",
+		HHPackageGitUnload[],
+		If[ gitDirectory =!= $HHCurrentGitRepositoryPath,
+			HHPackageGitUnload[];
+			$HHCurrentGitRepositoryPath = gitDirectory;
+			(*Print[{gitDirectory,gitDirectory =!= $HHCurrentGitRepositoryPath}];*)
+			$HHCurrentGitRepository = 
+				JavaNew["org.eclipse.jgit.internal.storage.file.FileRepository", gitDirectory];
+			If[verbose,
+				Print["HokahokaW`HHPackageGitLoad: Loaded Git repository located at " <> gitDirectory ]
+			]
+		]
+	]
+
+];
+
+HHPackageGitLoad::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
+HHPackageGitLoad::gitError="Call to Git returned error. It could be that Git is " <>
+ "not installed correctly, the command `1` is not valid, or the directory `2` is not valid."; 
+
+HHPackageGitLoad[args___]:=Message[HHPackageGitLoad::invalidArgs,{args}];
+
+
+HHPackageGitUnload[verbose_:False]:=
+Module[{},
+
+	If[ $HHCurrentGitRepositoryPath =!= "",
+		If[verbose,
+			Print[ "Unloading repository: "<> $HHCurrentGitRepositoryPath]
+		];
+		$HHCurrentGitRepositoryPath = "";
+		$HHCurrentGitRepository = Null
+	];
+];
+
+HHPackageGitUnload[args___]:=Message[HHPackageGitUnload::invalidArgs,{args}];
+
+
+(* ::Subsubsection::Closed:: *)
+(* HHPackageGitCurrentBranch*)
+
+
+HHPackageGitCurrentBranch[]:= HHPackageGitCurrentBranch[NotebookFileName[]];
+HHPackageGitCurrentBranch[package_String]:= 
+Module[{currBranch, currRef, currObjID},
+	HHPackageGitLoad[package];
+	If[ $HHCurrentGitRepository =!= Null, 
+		$HHCurrentGitRepository@getBranch[], 
+		"NO VALID REPOSITORY"
+	]
+];
+
+
+HHPackageGitCurrentBranch[args___]:=Message[HHPackageGitCurrentBranch::invalidArgs,{args}];
+
+
+(* ::Subsubsection::Closed:: *)
+(* HHPackageGitHEAD *)
+
+
+HHPackageGitHEAD[]:= HHPackageGitHEAD[NotebookFileName[]];
+HHPackageGitHEAD[package_String]:= 
+Module[{currBranch, currRef, currObjID},
+	HHPackageGitLoad[package];
+	If[ $HHCurrentGitRepository =!= Null,
+		currRef=$HHCurrentGitRepository@getRef[ HHPackageGitCurrentBranch[package] ];
+		currObjID=currRef@getObjectId[];
+		currObjID@toString[ currObjID ],
+		"NO VALID REPOSITORY"
+	]
+];
+
+
+HHPackageGitHEAD[args___]:=Message[HHPackageGitHEAD::invalidArgs,{args}];
+
+
+(* ::Subsubsection::Closed:: *)
+(* HHPackageGitRemotes / HHPackageGitRemotesURL*)
+
+
+HHPackageGitRemotes[]:= HHPackageGitRemotes[NotebookFileName[]];
+HHPackageGitRemotes[package_String]:= 
+Module[{currConfig},
+	HHPackageGitLoad[package];
+	If[ $HHCurrentGitRepository =!= Null,
+		currConfig=$HHCurrentGitRepository@getConfig[];
+		currConfig@getSubsections["remote"]@toArray[],
+		"NO VALID REPOSITORY"
+	]
+];
+
+
+HHPackageGitRemotes[args___]:=Message[HHPackageGitRemotes::invalidArgs,{args}];
+
+
+HHPackageGitRemotesURL[]:= HHPackageGitRemotesURL[NotebookFileName[]];
+HHPackageGitRemotesURL[package_String]:= 
+Module[{remotes, currConfig},
+	HHPackageGitLoad[package];
+	If[ $HHCurrentGitRepository =!= Null,
+		remotes = HHPackageGitRemotes[package];
+		currConfig=$HHCurrentGitRepository@getConfig[];
+		currConfig@getString["remote", #, "url"]& /@ remotes,
+		"NO VALID REPOSITORY"
+	]
+];
+
+
+HHPackageGitRemotesURL[args___]:=Message[HHPackageGitRemotesURL::invalidArgs,{args}];
+
+
+(* ::Subsubsection::Closed:: *)
 (* DEPRECATED HHPackageNewestFileDate *)
 
 
@@ -538,7 +545,7 @@ HHPackageNewestFileDate[args___]:=Message[HHPackageNewestFileDate::invalidArgs,{
 HHPackageNewestFileDate::noFilesFound = "No files were found for package:  `1`.";
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*BAK old implementations for HHPackageGitXXX*)
 
 
@@ -595,7 +602,7 @@ HHPackageGitHEAD::noFilesFound = HHPackageNewestFileDate::noFilesFound;
 *)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*BAK old implementation for HHPackageMessage *)
 
 

@@ -1,0 +1,784 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21602,        776]
+NotebookOptionsPosition[     16080,        577]
+NotebookOutlinePosition[     16702,        601]
+CellTagsIndexPosition[     16623,        596]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.0", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["HokahokaW", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["HokahokaW`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["HokahokaW/ref/HHAbsoluteOptionValue", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["HHAbsoluteOptionValue", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"HHAbsoluteOptionValue", "[", "]"}]], "InlineFormula"],
+ " \[LineSeparator]",
+ Cell[BoxData[
+  RowBox[{"DEPRECATED", ":", " ", 
+   RowBox[{"use", " ", "AbsoluteOptions", " ", 
+    RowBox[{"instead", "."}]}]}]], "Code",
+  CellChangeTimes->{{3.6687686792626085`*^9, 3.6687687563810196`*^9}, {
+   3.6687693233864503`*^9, 3.6687693342580724`*^9}, {3.668769383089865*^9, 
+   3.668769384889968*^9}}]
+}], "Usage",
+ CellChangeTimes->{3.6687693891672125`*^9},
+ CellID->982511436],
+
+Cell["Former (failed) implementation:", "Notes",
+ CellChangeTimes->{{3.6687691830164213`*^9, 3.668769192701976*^9}, {
+  3.6687693530841494`*^9, 3.6687693971176677`*^9}},
+ CellID->1067943069],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHAbsoluteOptionValue", "[", 
+    RowBox[{"x_", ",", " ", "optionSymbol_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "tempOpts", "}"}], ",", "\n", "\t", 
+     RowBox[{
+      RowBox[{"tempOpts", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"AbsoluteOptions", "[", "x", "]"}], ",", 
+         RowBox[{"Options", "[", 
+          RowBox[{"Head", "[", "x", "]"}], "]"}]}], "]"}]}], ";", "\n", "\t", 
+      RowBox[{"OptionValue", "[", " ", 
+       RowBox[{"tempOpts", " ", ",", "optionSymbol"}], " ", "]"}]}]}], "\n", 
+    "]"}]}], ";"}]], "Code",
+ CellChangeTimes->{3.6687691571529427`*^9},
+ CellID->39368832]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`"}]], "Input",
+ CellChangeTimes->{{3.650850147515435*^9, 3.6508501511046405`*^9}},
+ CellLabel->"In[1]:=",
+ CellID->33535659],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Mon 4 Apr 2016 16:04:16     [Mathematica: 10.4.0 for Microsoft \
+Windows (64-bit) (February 26, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[e88c77baa446ff7c17d81aa6b3d6d1052b9c1cfd]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.668767456196912*^9},
+ Background->GrayLevel[0.85],
+ CellID->615563664],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Options", "[", "HHObject", "]"}], "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"ValidOption", "\[Rule]", "4"}], ",", " ", 
+    RowBox[{"ValidOption2", "\[Rule]", "1000"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.6687671949059668`*^9, 3.66876722940294*^9}},
+ CellLabel->"In[16]:=",
+ CellID->243122296],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"ValidOption", "\[Rule]", "4"}], ",", 
+   RowBox[{"ValidOption2", "\[Rule]", "1000"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.668767215089121*^9, 3.6687672303819957`*^9}, 
+   3.668767459265087*^9, 3.6687685259508395`*^9, 3.668768942629672*^9},
+ CellLabel->"Out[16]=",
+ CellID->170926196]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"temp", "=", 
+  RowBox[{"HHObject", "[", 
+   RowBox[{"1", ",", " ", "3", ",", " ", "\"\<values\>\"", ",", " ", 
+    RowBox[{"ValidOption", "\[Rule]", "3"}], ",", 
+    RowBox[{"\"\<ValidOptionText\>\"", "\[Rule]", "\"\<String\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.668767122602831*^9, 3.6687671390407715`*^9}, {
+  3.6687672195403757`*^9, 3.668767220949456*^9}, {3.668769121989931*^9, 
+  3.6687691286413116`*^9}},
+ CellLabel->"In[22]:=",
+ CellID->39093178],
+
+Cell[BoxData[
+ RowBox[{"HHObject", "[", 
+  RowBox[{"1", ",", "3", ",", "\<\"values\"\>", ",", 
+   RowBox[{"ValidOption", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"ValidOptionText\"\>", "\[Rule]", "\<\"String\"\>"}]}], 
+  "]"}]], "Output",
+ CellChangeTimes->{3.6687671403818483`*^9, 3.668767235023261*^9, 
+  3.6687674678765793`*^9, 3.668768527511929*^9, 3.6687689435377245`*^9, 
+  3.668769130313407*^9},
+ CellLabel->"Out[22]=",
+ CellID->252707219]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Options", "[", 
+  RowBox[{"temp", ",", " ", "ValidOption"}], "]"}]], "Input",
+ CellChangeTimes->{{3.668768536387437*^9, 3.6687685526113644`*^9}, {
+  3.668768638408272*^9, 3.6687686489438744`*^9}},
+ CellLabel->"In[18]:=",
+ CellID->1016720011],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"ValidOption", "\[Rule]", "3"}], "}"}]], "Output",
+ CellChangeTimes->{3.668768649195889*^9, 3.6687689449038024`*^9},
+ CellLabel->"Out[18]=",
+ CellID->132200920]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AbsoluteOptions", "[", 
+  RowBox[{"temp", ",", " ", "\"\<ValidOptionText\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6687690019380646`*^9, 3.668769006545328*^9}, {
+  3.6687691096882277`*^9, 3.6687691424110994`*^9}},
+ CellLabel->"In[23]:=",
+ CellID->45964637],
+
+Cell[BoxData[
+ RowBox[{"AbsoluteOptions", "[", 
+  RowBox[{
+   RowBox[{"HHObject", "[", 
+    RowBox[{"1", ",", "3", ",", "\<\"values\"\>", ",", 
+     RowBox[{"ValidOption", "\[Rule]", "3"}], ",", 
+     RowBox[{"\<\"ValidOptionText\"\>", "\[Rule]", "\<\"String\"\>"}]}], 
+    "]"}], ",", "\<\"ValidOptionText\"\>"}], "]"}]], "Output",
+ CellChangeTimes->{3.6687690068963485`*^9, 3.668769111954357*^9, 
+  3.668769142916128*^9},
+ CellLabel->"Out[23]=",
+ CellID->873505486]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHAbsoluteOptionValue", "[", 
+  RowBox[{"temp", ",", " ", "ValidOption2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.668768536387437*^9, 3.6687685526113644`*^9}, {
+  3.6687689572115064`*^9, 3.668768958474579*^9}},
+ CellLabel->"In[19]:=",
+ CellID->502747949],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Join", "::", "heads"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Heads \[NoBreak]\\!\\(\\*RowBox[{\\\"AbsoluteOptions\\\"}]\
+\\)\[NoBreak] and \[NoBreak]\\!\\(\\*RowBox[{\\\"List\\\"}]\\)\[NoBreak] at \
+positions \[NoBreak]\\!\\(\\*RowBox[{\\\"1\\\"}]\\)\[NoBreak] and \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"2\\\"}]\\)\[NoBreak] are expected to be the \
+same. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/heads\\\", \
+ButtonNote -> \\\"Join::heads\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.668768963495866*^9},
+ CellLabel->"During evaluation of In[19]:=",
+ CellID->233252767],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"OptionValue", "::", "rep"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"AbsoluteOptions\\\", \\\"[\\\", RowBox[{\\\"HHObject\\\", \
+\\\"[\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"\\\\\\\"values\\\\\\\"\\\", \\\",\\\", RowBox[{\\\"ValidOption\\\", \\\"\
+\[Rule]\\\", \\\"3\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"ValidOption\\\", \\\"\[Rule]\\\", \
+\\\"4\\\"}], \\\",\\\", RowBox[{\\\"ValidOption2\\\", \\\"\[Rule]\\\", \
+\\\"1000\\\"}]}], \\\"}\\\"}]}], \\\"]\\\"}]\\)\[NoBreak] is not a valid \
+replacement rule. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/rep\\\", ButtonNote -> \
+\\\"OptionValue::rep\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.668768963546869*^9},
+ CellLabel->"During evaluation of In[19]:=",
+ CellID->598109953],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"OptionValue", "::", "optnf"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Option name \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"ValidOption2\\\"}]\\)\[NoBreak] not found in \
+defaults for \[NoBreak]\\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"AbsoluteOptions\\\", \\\"[\\\", RowBox[{\\\"HHObject\\\", \
+\\\"[\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"\\\\\\\"values\\\\\\\"\\\", \\\",\\\", RowBox[{\\\"ValidOption\\\", \\\"\
+\[Rule]\\\", \\\"3\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"ValidOption\\\", \\\"\[Rule]\\\", \
+\\\"4\\\"}], \\\",\\\", RowBox[{\\\"ValidOption2\\\", \\\"\[Rule]\\\", \
+\\\"1000\\\"}]}], \\\"}\\\"}]}], \\\"]\\\"}]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/OptionValue\\\", ButtonNote -> \
+\\\"OptionValue::optnf\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6687689636178727`*^9},
+ CellLabel->"During evaluation of In[19]:=",
+ CellID->80558045],
+
+Cell[BoxData["ValidOption2"], "Output",
+ CellChangeTimes->{3.6687685530613904`*^9, 3.668768636733176*^9, 
+  3.6687689636178727`*^9},
+ CellLabel->"Out[19]=",
+ CellID->509567409]
+}, Open  ]],
+
+Cell[BoxData["AbsoluteOptions"], "Input",
+ CellChangeTimes->{{3.668768851929485*^9, 3.668768854874653*^9}},
+ CellID->355057238],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AbsoluteOptions", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"Sin", "[", "x", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}]}], "]"}], ",", "PlotRange"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6687688890746093`*^9, 3.6687688928928275`*^9}},
+ CellLabel->"In[14]:=",
+ CellID->635235521],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"PlotRange", "\[Rule]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.`", ",", "6.283185307179586`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "0.9999998593152271`"}], ",", "0.9999998782428621`"}], 
+      "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.668768894665929*^9},
+ CellLabel->"Out[14]=",
+ CellID->111587999]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AbsoluteOptions", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Circle", "[", "]"}], "}"}], "]"}], ",", "PlotRange"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6687688890746093`*^9, 3.6687689225565243`*^9}},
+ CellLabel->"In[15]:=",
+ CellID->177828218],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"PlotRange", "\[Rule]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1.`"}], ",", "1.`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1.`"}], ",", "1.`"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6687689233945723`*^9},
+ CellLabel->"Out[15]=",
+ CellID->96631216]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{1432, 1496},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+CellContext->"Global`",
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (February 25, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[14560, 519, 100, 2, 66, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 16484, 589}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 325, 14, 67, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[908, 38, 68, 1, 40, "CategorizationSection",
+ CellID->1122911449],
+Cell[979, 41, 79, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1061, 45, 82, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1146, 49, 79, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1228, 53, 80, 1, 70, "Categorization"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1345, 59, 55, 1, 30, "KeywordsSection",
+ CellID->477174294],
+Cell[1403, 62, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1485, 68, 65, 1, 30, "TemplatesSection",
+ CellID->1872225408],
+Cell[1553, 71, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1650, 75, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1735, 79, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1819, 83, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1938, 90, 53, 1, 30, "DetailsSection",
+ CellID->307771771],
+Cell[1994, 93, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2060, 97, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2132, 101, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2199, 105, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2271, 109, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2335, 113, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2399, 117, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2465, 121, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2546, 125, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2650, 132, 64, 1, 84, "ObjectName",
+ CellID->1224892054],
+Cell[2717, 135, 536, 14, 96, "Usage",
+ CellID->982511436],
+Cell[3256, 151, 190, 3, 36, "Notes",
+ CellID->1067943069],
+Cell[3449, 156, 706, 19, 158, "Code",
+ CellID->39368832]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4192, 180, 57, 1, 53, "TutorialsSection",
+ CellID->250839057],
+Cell[4252, 183, 45, 1, 26, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4334, 189, 83, 1, 40, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[4420, 192, 58, 1, 26, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4515, 198, 65, 1, 40, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[4583, 201, 49, 1, 26, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4669, 207, 55, 1, 40, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[4727, 210, 43, 1, 26, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4807, 216, 57, 1, 40, "MoreAboutSection",
+ CellID->38303248],
+Cell[4867, 219, 46, 1, 26, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4950, 225, 356, 11, 79, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[5309, 238, 164, 4, 38, "Input",
+ CellID->33535659],
+Cell[5476, 244, 979, 35, 221, "Text",
+ CellID->615563664],
+Cell[CellGroupData[{
+Cell[6480, 283, 339, 9, 73, "Input",
+ CellID->243122296],
+Cell[6822, 294, 341, 8, 37, "Output",
+ CellID->170926196]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7200, 307, 493, 11, 107, "Input",
+ CellID->39093178],
+Cell[7696, 320, 444, 10, 72, "Output",
+ CellID->252707219]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8177, 335, 265, 6, 38, "Input",
+ CellID->1016720011],
+Cell[8445, 343, 199, 5, 37, "Output",
+ CellID->132200920]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8681, 353, 285, 6, 73, "Input",
+ CellID->45964637],
+Cell[8969, 361, 467, 11, 140, "Output",
+ CellID->873505486]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9473, 377, 279, 6, 73, "Input",
+ CellID->502747949],
+Cell[9755, 385, 728, 14, 102, "Message",
+ CellID->233252767],
+Cell[10486, 401, 1034, 19, 170, "Message",
+ CellID->598109953],
+Cell[11523, 422, 1102, 20, 204, "Message",
+ CellID->80558045],
+Cell[12628, 444, 176, 4, 37, "Output",
+ CellID->509567409]
+}, Open  ]],
+Cell[12819, 451, 127, 2, 38, "Input",
+ CellID->355057238],
+Cell[CellGroupData[{
+Cell[12971, 457, 393, 12, 73, "Input",
+ CellID->635235521],
+Cell[13367, 471, 413, 13, 72, "Output",
+ CellID->111587999]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13817, 489, 308, 9, 73, "Input",
+ CellID->177828218],
+Cell[14128, 500, 383, 13, 37, "Output",
+ CellID->96631216]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14560, 519, 100, 2, 66, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[14663, 523, 125, 3, 46, "ExampleSection",
+ CellID->1293636265],
+Cell[14791, 528, 148, 3, 34, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[14964, 535, 127, 3, 34, "ExampleSection",
+ CellID->2061341341],
+Cell[15094, 540, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[15227, 545, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[15372, 551, 131, 3, 34, "ExampleSection",
+ CellID->258228157],
+Cell[15506, 556, 142, 3, 34, "ExampleSection",
+ CellID->2123667759],
+Cell[15651, 561, 135, 3, 34, "ExampleSection",
+ CellID->1305812373],
+Cell[15789, 566, 140, 3, 34, "ExampleSection",
+ CellID->1653164318],
+Cell[15932, 571, 132, 3, 34, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+

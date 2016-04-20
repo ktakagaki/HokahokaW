@@ -1,0 +1,421 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     12327,        411]
+NotebookOptionsPosition[      8891,        306]
+NotebookOutlinePosition[     11076,        363]
+CellTagsIndexPosition[     10991,        358]
+WindowTitle->HHAddOptions
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"HHJoinOptionLists\"\>":>
+       Documentation`HelpLookup["paclet:HokahokaW/ref/HHJoinOptionLists"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"HokahokaW/ref/HHAddOptions\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["HokahokaW/ref/HHAddOptions"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                
+                "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHAddOptions.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$4980], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "HokahokaW/ref/HHAddOptions", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["HHAddOptions", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"HHAddOptions", "[", "]"}]], "InlineFormula"],
+     " \[LineSeparator]",
+     "returns the original object (e.g. NNMData[<<>>, opts]), but with the \
+specified option(s) appended or replaced. opts can be specified either as a \
+Sequence or a List of rules."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->118131293],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->414264510],
+
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->33535659],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Mon 4 Apr 2016 16:04:16     [Mathematica: 10.4.0 for Microsoft \
+Windows (64-bit) (February 26, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[e88c77baa446ff7c17d81aa6b3d6d1052b9c1cfd]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->615563664],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Options", "[", "HHObject", "]"}], "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"ValidOption", "\[Rule]", "4"}], ",", " ", 
+    RowBox[{"ValidOption2", "\[Rule]", "1000"}]}], "}"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->243122296],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"ValidOption", "\[Rule]", "4"}], ",", 
+   RowBox[{"ValidOption2", "\[Rule]", "1000"}]}], "}"}]], "Output",
+ ImageSize->{330, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->286526650]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"temp", "=", 
+  RowBox[{"HHObject", "[", 
+   RowBox[{"1", ",", " ", "3", ",", " ", "\"\<values\>\"", ",", " ", 
+    RowBox[{"ValidOption", "\[Rule]", "3"}]}], "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->39093178],
+
+Cell[BoxData[
+ RowBox[{"HHObject", "[", 
+  RowBox[{"1", ",", "3", ",", "\<\"values\"\>", ",", 
+   RowBox[{"ValidOption", "\[Rule]", "3"}]}], "]"}]], "Output",
+ ImageSize->{337, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->22293886]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHAddOptions", "[", 
+  RowBox[{"temp", ",", " ", 
+   RowBox[{"ValidOption2", "\[Rule]", " ", "4"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->298862749],
+
+Cell[BoxData[
+ RowBox[{"HHObject", "[", 
+  RowBox[{"1", ",", "3", ",", "\<\"values\"\>", ",", 
+   RowBox[{"ValidOption2", "\[Rule]", "4"}], ",", 
+   RowBox[{"ValidOption", "\[Rule]", "3"}]}], "]"}]], "Output",
+ ImageSize->{489, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->50140523]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHAddOptions", "[", 
+  RowBox[{"temp", ",", " ", 
+   RowBox[{"ValidOption2", "\[RuleDelayed]", "  ", "4"}], ",", " ", 
+   RowBox[{"\"\<InvalidOption\>\"", "\[RuleDelayed]", " ", "4"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->7784925],
+
+Cell[BoxData[
+ RowBox[{"HHObject", "[", 
+  RowBox[{"1", ",", "3", ",", "\<\"values\"\>", ",", 
+   RowBox[{"ValidOption2", "\[RuleDelayed]", "4"}], ",", 
+   RowBox[{"ValidOption", "\[Rule]", "3"}]}], "]"}]], "Output",
+ ImageSize->{489, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
+ CellID->773313049]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+  Cell["HHJoinOptionLists"],"paclet:HokahokaW/ref/HHJoinOptionLists"},
+  "RefLink",
+  BaseStyle->{
+   "InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHAddOptions",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
+  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 4, 20, 9, 5, 41.2136225}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> 
+    "HHAddOptions[] returns the original object (e.g. NNMData[<<>>, opts]), \
+but with the specified option(s) appended or replaced. opts can be specified \
+either as a Sequence or a List of rules.", "synonyms" -> {}, "title" -> 
+    "HHAddOptions", "titlemodifier" -> "", "windowtitle" -> "HHAddOptions", 
+    "type" -> "Symbol", "uri" -> "HokahokaW/ref/HHAddOptions"}, 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (January 25, 2013)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[4217, 118, 387, 15, 33, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->118131293]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 10848, 351}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[583, 21, 3029, 74, 59, "AnchorBarGrid",
+ CellID->1],
+Cell[3615, 97, 55, 1, 51, "ObjectName",
+ CellID->1224892054],
+Cell[3673, 100, 519, 14, 106, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[4217, 118, 387, 15, 33, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->118131293],
+Cell[CellGroupData[{
+Cell[4629, 137, 195, 6, 28, "ExampleSection",
+ CellID->414264510],
+Cell[4827, 145, 96, 3, 29, "Input",
+ CellID->33535659],
+Cell[4926, 150, 937, 34, 178, "Text",
+ CellID->615563664],
+Cell[CellGroupData[{
+Cell[5888, 188, 271, 8, 29, "Input",
+ CellID->243122296],
+Cell[6162, 198, 288, 9, 38, "Output",
+ CellID->286526650]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6487, 212, 242, 6, 29, "Input",
+ CellID->39093178],
+Cell[6732, 220, 288, 8, 38, "Output",
+ CellID->22293886]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7057, 233, 185, 5, 29, "Input",
+ CellID->298862749],
+Cell[7245, 240, 339, 9, 38, "Output",
+ CellID->50140523]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7621, 254, 271, 7, 29, "Input",
+ CellID->7784925],
+Cell[7895, 263, 347, 9, 38, "Output",
+ CellID->773313049]
+}, Open  ]]
+}, Open  ]],
+Cell[8269, 276, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8337, 281, 270, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[8610, 295, 239, 6, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[8864, 304, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
