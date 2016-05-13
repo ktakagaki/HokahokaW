@@ -12,7 +12,7 @@ General::deprecated="Function is deprecated, use `1` instead.";
 General::nullArgument="At least one of the required arguments is null!";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Rules/Options*)
 
 
@@ -89,7 +89,7 @@ HHPackageGitHEAD::usage="Returns the git HEAD hash for either the given director
 HHNextPower::usage=" ";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Utilities*)
 
 
@@ -107,8 +107,20 @@ HHSymbolNotNull::usage =
 "Checks whether the given symbol name(s) given as String or List of String are not Null.";
 
 
+(* ::Subsection:: *)
+(*Utilities: File*)
+
+
 HHCreateDirectoryIfNone::usage = 
 "Checks whether the given directory name exists, and if not, calls CreateDirectory.";
+
+
+HHExtractArchive::usage = 
+"Attempts to use 7-zip program to extract a compressed archive (currently windows only).";
+
+Options[HHExtractArchive]={
+	"HH7ZipPath"-> Automatic
+};
 
 
 (* ::Section:: *)
@@ -118,7 +130,7 @@ HHCreateDirectoryIfNone::usage =
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Rules/Options*)
 
 
@@ -721,8 +733,65 @@ HHSymbolNotNull[symbolName_List]:= And@@(HHSymbolNotNull /@ symbolName);
 HHSymbolNotNull[args___]:=Message[HHSymbolNotNull::invalidArgs,{args}];
 
 
-HHCreateDirectoryIfNone[directoryName_String]:= If[ !FileExistsQ[directoryName], CreateDirectory[directoryName], Null ];
+(* ::Subsection:: *)
+(*Utilities: Files*)
+
+
+HHCreateDirectoryIfNone[directoryName_String]:= 
+	If[ !FileExistsQ[directoryName], CreateDirectory[directoryName], Null ];
 HHCreateDirectoryIfNone[args___]:=Message[HHCreateDirectoryIfNone::invalidArgs,{args}];
+
+
+HHExtractArchive[archiveFileName_String, opts:OptionsPattern[] ]:= 
+		HHExtractArchive[archiveFileName, "", opts];
+
+HHExtractArchive[archiveFileName_String, targetDir_String, opts:OptionsPattern[] ]:= 
+Module[
+	{path7z, outputDir, commandString, preChecks = True},
+
+	(*===Check system=== *)
+	If[!StringMatchQ[ $System, "*Windows*"],
+		Message[HHExtractArchive::winOnly, $System];
+		preChecks=False
+	];
+
+	(*===Find 7zip directory=== *)
+	path7z = OptionValue["HH7ZipPath"];
+	If[ preChecks && path7z === Automatic, path7z = FindFile["7z.exe"] ];
+	If[ preChecks && path7z === $Failed, path7z = FindFile["C:\\Program Files\\7-Zip\\7z.exe"] ];
+	If[ preChecks && Head[path7z]===String && FileExistsQ[path7z], 
+		path7z = DirectoryName[path7z],
+		Message[HHExtractArchive::cannotFind7ZipWin];
+		preChecks=False
+	];
+
+	If[ preChecks && !FileExistsQ[archiveFileName],
+		Message[HHExtractArchive::archiveFileInvalid, outputDir];
+		preChecks=False
+	];
+
+	outputDir=targetDir;
+	If[ preChecks && "" =!= outputDir,
+		HHCreateDirectoryIfNone[outputDir]
+	];
+	
+	If[preChecks,
+		SetDirectory[path7z];
+		commandString = "7z"<> " x "<> archiveFileName;
+		If[outputDir=!="",
+			commandString = commandString <> " -o" <> outputDir
+		];
+		Run[commandString];
+		ResetDirectory[]
+	];
+];
+
+HHExtractArchive[args___]:=Message[HHExtractArchive::invalidArgs,{args}];
+
+HHExtractArchive::winOnly = "HHExtractArchive currently works on windows only, not on `1`";
+HHExtractArchive::cannotFind7ZipWin = "Cannot find 7z.exe executable! Please specify option \
+\"HH7ZipPath\" or put 7z on the system path or standard location on C:.";
+HHExtractArchive::archiveFileInvalid = "Archive file `1` is invalid!";
 
 
 (* ::Section:: *)
