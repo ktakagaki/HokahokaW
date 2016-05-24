@@ -1,0 +1,587 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17324,        579]
+NotebookOptionsPosition[     13888,        451]
+NotebookOutlinePosition[     14231,        466]
+CellTagsIndexPosition[     14188,        463]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Tests for new server - based Pyonpyon tracking", "Title",
+ CellChangeTimes->{{3.672070593520771*^9, 3.672070614068947*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`"}]], "Input",
+ CellChangeTimes->{{3.6720726326304016`*^9, 3.672072637350672*^9}, {
+  3.672148265922678*^9, 3.6721482669677377`*^9}}],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Fri 13 May 2016 19:11:09     [Mathematica: 10.4.1 for Microsoft \
+Windows (64-bit) (April 11, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[f8b1e9e77f6c5ce6fee1d77bc7d4f703ef8ecadc]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.6721482691668634`*^9},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"testZipFile", "=", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", "\"\<Temp.zip\>\""}], 
+    "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6721483714707146`*^9, 3.6721483966271534`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Tests\\\\Temp.\
+zip\"\>"], "Output",
+ CellChangeTimes->{{3.6721483864235697`*^9, 3.6721483971091814`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", "testZipFile", "]"}]], "Input",
+ CellChangeTimes->{{3.6721484049836316`*^9, 3.6721484135051193`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.6721484139831467`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempDateString", "=", 
+  RowBox[{"DateString", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<YearShort\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\"", ",", 
+     "\"\<_\>\"", ",", "\"\<Hour24\>\"", ",", "\"\<Minute\>\"", ",", 
+     "\"\<Second\>\""}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.672071117497741*^9, 3.6720711207199254`*^9}, {
+  3.6720712005814934`*^9, 3.67207128724545*^9}, {3.6720722168866224`*^9, 
+  3.672072220373822*^9}}],
+
+Cell[BoxData["\<\"160513_191349\"\>"], "Output",
+ CellChangeTimes->{3.6720722511965847`*^9, 3.6720794722773957`*^9, 
+  3.672148429793051*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Play around, using 7z", "Section",
+ CellChangeTimes->{{3.6720717795046053`*^9, 3.672071825005208*^9}, {
+  3.6720720235175624`*^9, 3.672072030941987*^9}, {3.6720726653182716`*^9, 
+  3.6720726682544394`*^9}, {3.672072880678589*^9, 3.672072883582755*^9}, {
+  3.6720730016545086`*^9, 3.672073004142651*^9}, {3.672148464367028*^9, 
+  3.672148481324998*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$System"], "Input",
+ CellChangeTimes->{{3.6720778668625712`*^9, 3.672077867975635*^9}}],
+
+Cell[BoxData["\<\"Microsoft Windows (64-bit)\"\>"], "Output",
+ CellChangeTimes->{3.6720778687356787`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringMatchQ", "[", " ", 
+  RowBox[{"$System", ",", " ", "\"\<*Windows*\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.672077877760195*^9, 3.672077895280197*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.672077895669219*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<7z.exe\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.672072885727878*^9, 3.6720728966065006`*^9}}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.672072897393545*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$HokahokaW$7zPath", " ", "=", 
+  RowBox[{
+  "FindFile", "[", "\"\<C:\\\\Program Files\\\\7-Zip\\\\7z.exe\>\"", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.672072929926406*^9, 3.672072950590588*^9}, {
+  3.672072994400094*^9, 3.6720730219986725`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Program Files\\\\7-Zip\\\\7z.exe\"\>"], "Output",
+ CellChangeTimes->{3.672072951310629*^9, 3.672073023054733*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<C:\\\\Program Fileees\\\\7-Zip\\\\7z.exe\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.672072929926406*^9, 3.672072956198909*^9}}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.6720729567719417`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", "\"\<C:\\\\Program Files\\\\7-Zip\\\\7z.exe\>\"",
+   "]"}]], "Input",
+ CellChangeTimes->{3.6720781942732983`*^9}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.6720781950863447`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", "$Failed", "]"}]], "Input",
+ CellChangeTimes->{
+  3.6720781942732983`*^9, {3.67207823521664*^9, 3.6720782436561227`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"FileExistsQ", "::", "fstr"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\"}]\\)\[NoBreak] is not a string of \
+one or more characters. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/fstr\\\", ButtonNote -> \
+\\\"FileExistsQ::fstr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.672078243892136*^9}],
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", "$Failed", "]"}]], "Output",
+ CellChangeTimes->{3.672078243892136*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempFrameDir", "=", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"$TemporaryDirectory", ",", " ", 
+     RowBox[{"\"\<ppw\>\"", "<>", "tempDateString"}]}], "}"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6720726099521046`*^9, 3.672072618414589*^9}, 
+   3.672072922174963*^9}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Local\\\\Temp\\\\\
+ppw160512_214906\"\>"], "Output",
+ CellChangeTimes->{3.6720726187976103`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", "tempFrameDir", "]"}]], "Input",
+ CellChangeTimes->{{3.67207259431921*^9, 3.6720726244229326`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{3.672072624646945*^9, 3.6720731130698814`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileNameJoin", "[", 
+  RowBox[{"{", 
+   RowBox[{"tempDirectory", ",", "\"\<cam.zip\>\""}], "}"}], "]"}]], "Input"],
+
+Cell[BoxData["\<\"W:\\\\VSDdata\\\\proj.SPP\\\\data\\\\SPP.Coulb1\\\\SPP062\\\
+\\160502\\\\163850\\\\cam.zip\"\>"], "Output",
+ CellChangeTimes->{3.67207404404213*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"tempDirectory", ",", "\"\<cam.zip\>\""}], "}"}], "]"}], 
+  "]"}]], "Input"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.672073135812182*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHCreateDirectoryIfNone", "[", "tempFrameDir", "]"}]], "Input",
+ CellChangeTimes->{{3.672073354511691*^9, 3.672073367279421*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Local\\\\Temp\\\\\
+ppw160512_214906\"\>"], "Output",
+ CellChangeTimes->{3.6720733683874846`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["tempFrameDir"], "Input"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Local\\\\Temp\\\\\
+ppw160512_214906\"\>"], "Output",
+ CellChangeTimes->{3.672074014980468*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"<<", 
+  RowBox[{"(", 
+   RowBox[{
+   "\"\<!\>\"", "<>", "$HokahokaW$7zPath", "<>", " ", "\[IndentingNewLine]", 
+    "\"\< x \>\"", "<>", " ", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{"tempDirectory", ",", "\"\<cam.zip\>\""}], "}"}], "]"}], "<>", 
+    "\[IndentingNewLine]", "\"\< -o\>\"", " ", "<>", " ", "tempFrameDir"}], 
+   ")"}]}]], "Input",
+ CellChangeTimes->{{3.6720730338583508`*^9, 3.6720731763985033`*^9}, {
+   3.67207322563332*^9, 3.672073235623891*^9}, {3.672073313967372*^9, 
+   3.672073330119296*^9}, {3.672073878524663*^9, 3.6720738959356585`*^9}, 
+   3.6720741273438945`*^9, {3.672074196040824*^9, 3.672074198215948*^9}, 
+   3.6720742631436615`*^9, {3.672074358248101*^9, 3.6720743926080666`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Run", "[", "\"\<dir\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.672074404527748*^9, 3.6720744292151604`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.672074429579181*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$HokahokaW$7zPath", "<>", " ", "\[IndentingNewLine]", "\"\< x \>\"",
+   "<>", " ", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"tempDirectory", ",", "\"\<cam.zip\>\""}], "}"}], "]"}], "<>", 
+  "\[IndentingNewLine]", "\"\< -o\>\"", " ", "<>", " ", 
+  "tempFrameDir"}]], "Input"],
+
+Cell[BoxData["\<\"C:\\\\Program Files\\\\7-Zip\\\\7z.exe x \
+W:\\\\VSDdata\\\\proj.SPP\\\\data\\\\SPP.Coulb1\\\\SPP062\\\\160502\\\\163850\
+\\\\cam.zip \
+-oC:\\\\Users\\\\ktakagaki\\\\AppData\\\\Local\\\\Temp\\\\ppw160512_214906\"\>\
+"], "Output",
+ CellChangeTimes->{3.672074129910041*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"DirectoryName", "[", "$HokahokaW$7zPath", " ", "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.672074488775567*^9, 3.672074514640046*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Program Files\\\\7-Zip\"\>"], "Output",
+ CellChangeTimes->{3.672074515183078*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Run", "[", 
+  RowBox[{
+  "\"\<7z\>\"", "<>", " ", "\[IndentingNewLine]", "\"\< x \>\"", "<>", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"tempDirectory", ",", "\"\<cam.zip\>\""}], "}"}], "]"}], "<>", 
+   "\[IndentingNewLine]", "\"\< -o\>\"", " ", "<>", " ", "tempFrameDir"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6720730338583508`*^9, 3.6720731763985033`*^9}, {
+   3.67207322563332*^9, 3.672073235623891*^9}, {3.672073313967372*^9, 
+   3.672073330119296*^9}, {3.672073878524663*^9, 3.6720738959356585`*^9}, 
+   3.6720741273438945`*^9, {3.672074196040824*^9, 3.672074198215948*^9}, 
+   3.6720742631436615`*^9, {3.672074358248101*^9, 3.6720743926080666`*^9}, {
+   3.6720745305839586`*^9, 3.672074559096589*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.6720745397664833`*^9, 3.672074595532673*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", "tempFrameDir", "]"}]], "Input",
+ CellChangeTimes->{{3.67207259431921*^9, 3.6720726244229326`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{3.672072624646945*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"FileNameJoin", "[", 
+  RowBox[{"{", 
+   RowBox[{"$TemporaryDirectory", ",", " ", 
+    RowBox[{"\"\<ppw\>\"", "<>", "tempDateString"}]}], "}"}], "]"}]], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Extract files in HokahokaW", "Section",
+ CellChangeTimes->{{3.6720717795046053`*^9, 3.672071825005208*^9}, {
+  3.6720720235175624`*^9, 3.672072030941987*^9}, {3.6720726653182716`*^9, 
+  3.6720726682544394`*^9}, {3.672072880678589*^9, 3.672072883582755*^9}, {
+  3.6720730016545086`*^9, 3.672073004142651*^9}, {3.672079273401021*^9, 
+  3.6720792761051755`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempZipDir", "=", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"$TemporaryDirectory", ",", " ", "tempDateString"}], "}"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6721484997810535`*^9, 3.672148506976465*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Local\\\\Temp\\\\\
+160513_191349\"\>"], "Output",
+ CellChangeTimes->{3.672079571574075*^9, 3.6721485076585045`*^9, 
+  3.6721488723003607`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", "tempZipDir", "]"}]], "Input",
+ CellChangeTimes->{{3.6721485661888523`*^9, 3.672148568184966*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{3.672079604660968*^9, 3.672148568564988*^9, 
+  3.6721488737434435`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"HHExtractArchive", "[", " ", 
+  RowBox[{"testZipFile", ",", "tempZipDir"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6720793434810295`*^9, 3.672079343690041*^9}, {
+  3.6720795799135523`*^9, 3.672079688689774*^9}, {3.672148576150422*^9, 
+  3.6721485974246387`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileExistsQ", "[", "tempZipDir", "]"}]], "Input"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.6721486192758884`*^9, 3.6721488769396257`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"HHExtractArchive", "[", " ", 
+  RowBox[{"testZipFile", ",", "tempZipDir"}], "]"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Clean Up", "Section",
+ CellChangeTimes->{{3.6720723739056034`*^9, 3.6720723800889573`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DeleteDirectory", "[", " ", 
+  RowBox[{"tempZipDir", ",", 
+   RowBox[{"DeleteContents", "\[Rule]", " ", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.672072319137471*^9, 3.6720723708304276`*^9}, {
+  3.6721486663305798`*^9, 3.672148677927243*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1432, 1496},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 129, 1, 103, "Title"],
+Cell[712, 25, 173, 3, 33, "Input"],
+Cell[888, 30, 959, 34, 131, "Text"],
+Cell[CellGroupData[{
+Cell[1872, 68, 284, 7, 33, "Input"],
+Cell[2159, 77, 170, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2366, 84, 144, 2, 33, "Input"],
+Cell[2513, 88, 75, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2625, 94, 469, 10, 33, "Input"],
+Cell[3097, 106, 141, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3275, 113, 358, 5, 71, "Section"],
+Cell[CellGroupData[{
+Cell[3658, 122, 101, 1, 33, "Input"],
+Cell[3762, 125, 105, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3904, 131, 186, 3, 33, "Input"],
+Cell[4093, 136, 73, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4203, 142, 142, 2, 33, "Input"],
+Cell[4348, 146, 76, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4461, 152, 274, 6, 33, "Input"],
+Cell[4738, 160, 137, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4912, 166, 177, 3, 33, "Input"],
+Cell[5092, 171, 78, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5207, 177, 156, 3, 33, "Input"],
+Cell[5366, 182, 75, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5478, 188, 164, 3, 33, "Input"],
+Cell[5645, 193, 511, 11, 25, "Message"],
+Cell[6159, 206, 113, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6309, 213, 319, 8, 33, "Input"],
+Cell[6631, 223, 153, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6821, 230, 142, 2, 33, "Input"],
+Cell[6966, 234, 98, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7101, 240, 138, 3, 33, "Input"],
+Cell[7242, 245, 166, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7445, 252, 181, 5, 33, "Input"],
+Cell[7629, 259, 73, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7739, 265, 153, 2, 33, "Input"],
+Cell[7895, 269, 153, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8085, 276, 38, 0, 33, "Input"],
+Cell[8126, 278, 151, 2, 33, "Output"]
+}, Open  ]],
+Cell[8292, 283, 763, 15, 80, "Input"],
+Cell[CellGroupData[{
+Cell[9080, 302, 134, 2, 33, "Input"],
+Cell[9217, 306, 70, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9324, 312, 319, 7, 80, "Input"],
+Cell[9646, 321, 289, 5, 57, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9972, 331, 195, 4, 33, "Input"],
+Cell[10170, 337, 105, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10312, 343, 765, 14, 80, "Input"],
+Cell[11080, 359, 94, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11211, 365, 142, 2, 33, "Input"],
+Cell[11356, 369, 74, 1, 33, "Output"]
+}, Open  ]],
+Cell[11445, 373, 184, 4, 33, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[11666, 382, 365, 5, 57, "Section"],
+Cell[CellGroupData[{
+Cell[12056, 391, 254, 6, 33, "Input"],
+Cell[12313, 399, 199, 3, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12549, 407, 141, 2, 33, "Input"],
+Cell[12693, 411, 123, 2, 33, "Output"]
+}, Open  ]],
+Cell[12831, 416, 286, 5, 33, "Input"],
+Cell[CellGroupData[{
+Cell[13142, 425, 73, 1, 33, "Input"],
+Cell[13218, 428, 99, 1, 33, "Output"]
+}, Open  ]],
+Cell[13332, 432, 116, 2, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13485, 439, 97, 1, 71, "Section"],
+Cell[13585, 442, 275, 5, 75, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
