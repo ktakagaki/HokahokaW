@@ -482,7 +482,7 @@ HHImageDifference::commonDimensionMustMatch = "Input common Lists must have same
 HHImageDifference::thresholdDimensionMustMatch = "Input threshold List must have same dimensions as Images";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHImageCommon*)
 
 
@@ -560,18 +560,25 @@ simplePixelCluster[pixelList_, absThreshold_]:=
 ];*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHImageThresholdNormalize/HHImageThresholdLinearNormalize*)
 
 
 HHImageThresholdNormalize[imageData_List/;Depth[imageData]==4, threshold_:0.2]:= 
-	Map[If[Norm[#] < threshold, {0,0,0}, Normalize[#]]&, 
-		imageData, 
-		{2}];
+Map[(tempHHITNNorm = Norm[#]; If[ tempHHITNNorm < threshold, {0,0,0}, #/tempHHITNNorm])&, 
+	imageData, 
+	{2}
+];
+
+
+HHImageThresholdNormalize[imageData_List/;Depth[imageData]==3, threshold_:0.2]:= 
+Map[(tempHHITNNorm = Norm[#]; If[ tempHHITNNorm < threshold, {0,0,0}, #/tempHHITNNorm])&, 
+	imageData
+];
 
 
 HHImageThresholdNormalize[image_Image, threshold_:0.2]:= 
-	Image[ HHImageThresholdNormalize[ ImageData[image], threshold ] ];
+Image[ HHImageThresholdNormalize[ ImageData[image], threshold ] ];
 
 
 HHImageThresholdNormalize[args___]:=Message[HHImageThresholdNormalize::invalidArgs, {args}];

@@ -116,7 +116,7 @@ HHCreateDirectoryIfNone::usage =
 
 
 HHExtractArchive::usage = 
-"Attempts to use 7-zip program to extract a compressed archive (currently windows only).";
+"Attempts to use 7-zip program to extract a compressed archive (currently windows only). Files already present in target directory will be overwritten.";
 
 Options[HHExtractArchive]={
 	"HH7ZipPath"-> Automatic
@@ -777,7 +777,7 @@ Module[
 	
 	If[preChecks,
 		SetDirectory[path7z];
-		commandString = "7z"<> " x "<> archiveFileName;
+		commandString = "7z"<> " x "<> archiveFileName <> " -y ";
 		If[outputDir=!="",
 			commandString = commandString <> " -o" <> outputDir
 		];
