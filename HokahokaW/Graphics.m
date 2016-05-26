@@ -9,7 +9,7 @@ BeginPackage["HokahokaW`Graphics`",{"HokahokaW`"}];
 (*Package-specific Option Keys*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHStackLists / HHListLinePlotStack*)
 
 
@@ -25,6 +25,9 @@ HHStackIncrement::usage="Option for HHStackTraces and HHListLinePlotStack. \
 By what interval to stack lists. Automatic gives x1.1 of the 95% Min-Max quantile (i.e. Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1";
 
 
+HHPlotRangeClipping::usage="";
+
+
 Options[HHStackLists] = {HHBaselineCorrection -> Mean, HHStackIncrement -> Automatic};
 
 
@@ -33,6 +36,7 @@ HHListLinePlotStack::usage=
 
 
 HHListLinePlotStack$UniqueOptions = {
+	HHPlotRangeClipping -> Automatic
 	(*HHStackLists->Automatic,*) (*HHStackAxes->False,*)(* HHBaselineCorrection-> Mean*)
 };
 HHListLinePlotStack$OverrideOptions = { AspectRatio -> 1/2, PlotRange -> All };
@@ -46,7 +50,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
@@ -78,8 +82,8 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection::Closed:: *)
-(*HHImageMean/HHImageCommon/HHImageDifference*)
+(* ::Subsection:: *)
+(*Image Related*)
 
 
 HHImageMean::usage="Gives the mean of a series of images. Image data must have the same dimensions and depths.";
@@ -88,6 +92,14 @@ HHImageDifference::usage="Filters an image list based on the common and threshol
 Options[HHImageDifference]={Normalized->False};
 
 HHImageSubtract::usage="Subtracts two images to give the difference.";
+
+
+HHImageThresholdNormalize::usage="Normalizes an image to uniform brightness after thresholding.";
+HHImageThresholdLinearNormalize::usage="Normalizes an image to uniform summed vector length after thresholding.";
+
+
+HHImageThreshold::usage="Thresholds an image by closeness to the given color.";
+HHImageThresholdLinear::usage="Thresholds an image by linear closeness to the given color.";
 
 
 (* //ToDo2 create HHImageTestImage[] for help files??*)
@@ -104,10 +116,13 @@ Begin["`Private`"];
 (*HHStackLists / HHListLinePlotStack*)
 
 
+$ActualStackRange={0,0};
+
+
 HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
   Block[{tempTraces, temp, 
 		opHHBaselineCorrection, baselineSubtractFactors, 
-		opHHStackIncrement, stackAddFactors},
+		opHHStackIncrement, stackAddFactors, stackFactorsCumulated},
 	
 	tempTraces = traces;
 
@@ -135,26 +150,33 @@ HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
 								  temp, (*This covers specifications such as Mean and First *)
 		_, Message[ HHStackLists::invalidOptionValue, "HHStackIncrement", ToString[opHHStackIncrement]]; Table[0, {Length[traces]}]
 	];
+
+
 (*Print[stackAddFactors];*)
 
+	stackFactorsCumulated = FoldList[Plus, 0, stackAddFactors];
+	$ActualStackRange = {- stackAddFactors[[1]], stackFactorsCumulated[[-1]]};
 	tempTraces = tempTraces + FoldList[Plus, 0, stackAddFactors[[ ;; -2]] ]; 
-						(*last stack add factor is not used... nothing to stack on top*)
+						(*last stack add factor is not used here... nothing to stack on top*)
 
 	tempTraces
 
    ];
 
 
-HHStackLists[traces_ /; (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), opts:OptionsPattern[]] :=
-  Block[{tempTimes, tempTraces},
-	
+HHStackLists[
+	traces_ /; (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), 
+	opts:OptionsPattern[]] :=
+
+Block[{tempTimes, tempTraces},
+
 	tempTimes = traces[[All, All, 1]];
 	tempTraces = traces[[All, All, 2]];
 
 	tempTraces =  HHStackLists[tempTraces, opts];
 
 	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
-   ];
+];
 
 
 HHStackLists[args___] := Message[HHStackLists::invalidArgs, {args}];
@@ -164,12 +186,14 @@ HHListLinePlotStack[
 	traces_/;(Depth[traces]==3 || (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
 	opts:OptionsPattern[]
 ]:=
-Module[{tempData},
+Module[{tempData,tempPlotRange},
 	
 	tempData = HHStackLists[traces, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
+	tempPlotRange = If[ OptionValue[HHPlotRangeClipping] === Automatic, {PlotRange->{All, $ActualStackRange}},{}];
+		
 
 	ListLinePlot[tempData,
-		Sequence@@HHJoinOptionLists[ ListLinePlot, {opts}, HHListLinePlotStack$UniqueOptions ]
+		Sequence@@HHJoinOptionLists[ ListLinePlot, {tempPlotRange}, {opts}, HHListLinePlotStack$UniqueOptions ]
 	]
 ];
 
@@ -177,7 +201,7 @@ Module[{tempData},
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
@@ -458,7 +482,7 @@ HHImageDifference::commonDimensionMustMatch = "Input common Lists must have same
 HHImageDifference::thresholdDimensionMustMatch = "Input threshold List must have same dimensions as Images";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHImageCommon*)
 
 
@@ -534,6 +558,80 @@ simplePixelCluster[pixelList_, absThreshold_]:=
 	SortBy[Transpose[{clusterCount,clusters}], First][[-1,2]]
 
 ];*)
+
+
+(* ::Subsection:: *)
+(*HHImageThresholdNormalize/HHImageThresholdLinearNormalize*)
+
+
+HHImageThresholdNormalize[imageData_List/;Depth[imageData]==4, threshold_:0.2]:= 
+Map[(tempHHITNNorm = Norm[#]; If[ tempHHITNNorm < threshold, {0,0,0}, #/tempHHITNNorm])&, 
+	imageData, 
+	{2}
+];
+
+
+HHImageThresholdNormalize[imageData_List/;Depth[imageData]==3, threshold_:0.2]:= 
+Map[(tempHHITNNorm = Norm[#]; If[ tempHHITNNorm < threshold, {0,0,0}, #/tempHHITNNorm])&, 
+	imageData
+];
+
+
+HHImageThresholdNormalize[imageData_List/;Depth[imageData]==2, threshold_:0.2]:= 
+(tempHHITNNorm = Norm[imageData]; If[ tempHHITNNorm < threshold, {0,0,0}, imageData/tempHHITNNorm]);
+
+
+HHImageThresholdNormalize[image_Image, threshold_:0.2]:= 
+Image[ HHImageThresholdNormalize[ ImageData[image], threshold ] ];
+
+
+HHImageThresholdNormalize[args___]:=Message[HHImageThresholdNormalize::invalidArgs, {args}];
+
+
+HHImageThresholdLinearNormalize[imageData_List/;Depth[imageData]==4, threshold_:0.5]:= 
+Module[{sum},
+	Map[(sum = Plus @@ #;
+		If[ sum < threshold, {0,0,0}, # / sum * 3])&, 
+		imageData, 
+		{2}]
+];
+
+
+HHImageThresholdLinearNormalize[image_Image, threshold_:0.2]:= 
+	Image[ HHImageThresholdLinearNormalize[ ImageData[image], threshold ] ];
+
+
+HHImageThresholdLinearNormalize[args___]:=Message[HHImageThresholdLinearNormalize::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHImageThreshold/HHImageThresholdLinear*)
+
+
+HHImageThreshold[imageData_List/;Depth[imageData]==4, color_List/;Length[color]==3, threshold_:0.2]:= 
+	Map[If[Norm[# - color] < threshold, {1,1,1}, {0,0,0}]&, 
+		imageData, 
+		{2}];
+
+
+HHImageThreshold[image_Image, color_List/;Length[color]==3, threshold_:0.2]:= 
+	Image[ HHImageThreshold[ ImageData[image], color, threshold ] ];
+
+
+HHImageThreshold[args___]:=Message[HHImageThreshold::invalidArgs, {args}];
+
+
+HHImageThresholdLinear[imageData_List/;Depth[imageData]==4, color_List/;Length[color]==3, threshold_:0.2]:= 
+	Map[If[Sum @@ Abs[# - color] < threshold, {1,1,1}, {0,0,0}]&, 
+		imageData, 
+		{2}];
+
+
+HHImageThresholdLinear[image_Image, color_List/;Length[color]==3, threshold_:0.2]:= 
+	Image[ HHImageThresholdLinear[ ImageData[image], color, threshold ] ];
+
+
+HHImageThresholdLinear[args___]:=Message[HHImageThresholdLinear::invalidArgs, {args}];
 
 
 (* ::Section:: *)
