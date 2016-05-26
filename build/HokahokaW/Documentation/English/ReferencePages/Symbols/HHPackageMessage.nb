@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     12103,        401]
+NotebookDataLength[     12105,        401]
 NotebookOptionsPosition[      8981,        308]
-NotebookOutlinePosition[     11124,        364]
-CellTagsIndexPosition[     11039,        359]
+NotebookOutlinePosition[     11126,        364]
+CellTagsIndexPosition[     11041,        359]
 WindowTitle->HHPackageMessage
 WindowFrame->Normal*)
 
@@ -321,7 +321,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 6, 0.1027029}", 
+   "built" -> "{2016, 4, 20, 9, 47, 34.0223469}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -358,7 +358,7 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 10905, 352}
+ {"PrimaryExamplesSection", 10907, 352}
  }
 *)
 (*NotebookFileOutline

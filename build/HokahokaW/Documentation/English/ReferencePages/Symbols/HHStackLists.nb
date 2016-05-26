@@ -10,8 +10,8 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     50469,       1206]
-NotebookOptionsPosition[     45869,       1057]
+NotebookDataLength[     50468,       1206]
+NotebookOptionsPosition[     45868,       1057]
 NotebookOutlinePosition[     48032,       1116]
 CellTagsIndexPosition[     47910,       1110]
 WindowTitle->HHStackLists
@@ -117,7 +117,7 @@ Cell[TextData[Cell[BoxData[
   Method->"Preemptive"]]]], "NotesSection",
  WholeCellGroupOpener->True,
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->58330210],
+ CellID->32678377],
 
 Cell["", "SectionHeaderSpacer"],
 
@@ -148,7 +148,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->2872857],
+ CellID->51535731],
 
 Cell[CellGroupData[{
 
@@ -158,7 +158,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->398368512],
+ CellID->117080687],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -1047,7 +1047,7 @@ RERERERERESUxP8AsApkvw==
  ImageRegion->{{0, 1}, {0, 1}},
  CellTags->"RasterizedOutput",
  CellLabel->"Out[2]=",
- CellID->196224671]
+ CellID->6641314]
 }, Open  ]]
 }, Closed]]
 }, Closed]]
@@ -1070,7 +1070,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 6, 6.6350765}", 
+   "built" -> "{2016, 4, 20, 9, 47, 40.6447257}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -1098,19 +1098,19 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[4508, 135, 385, 15, 33, "PrimaryExamplesSection",
+  Cell[4508, 135, 386, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->2872857]},
+   CellID->51535731]},
  "RasterizedOutput"->{
-  Cell[39144, 932, 6647, 117, 70, "Output",
+  Cell[39145, 932, 6645, 117, 70, "Output",
    CellTags->"RasterizedOutput",
-   CellID->196224671]}
+   CellID->6641314]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 47645, 1099},
- {"RasterizedOutput", 47786, 1103}
+ {"PrimaryExamplesSection", 47646, 1099},
+ {"RasterizedOutput", 47788, 1103}
  }
 *)
 (*NotebookFileOutline
@@ -1125,89 +1125,89 @@ Cell[2932, 80, 317, 11, 69, "Usage",
 Cell[CellGroupData[{
 Cell[3274, 95, 737, 24, 35, "NotesSection",
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->58330210],
+ CellID->32678377],
 Cell[4014, 121, 31, 0, 70, "SectionHeaderSpacer"],
 Cell[4048, 123, 411, 6, 70, "Notes",
  CellID->1067943069]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4508, 135, 385, 15, 33, "PrimaryExamplesSection",
+Cell[4508, 135, 386, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->2872857],
+ CellID->51535731],
 Cell[CellGroupData[{
-Cell[4918, 154, 195, 6, 28, "ExampleSection",
- CellID->398368512],
-Cell[5116, 162, 95, 3, 29, "Input",
+Cell[4919, 154, 195, 6, 28, "ExampleSection",
+ CellID->117080687],
+Cell[5117, 162, 95, 3, 29, "Input",
  CellID->4433785],
-Cell[5214, 167, 602, 21, 140, "Text",
+Cell[5215, 167, 602, 21, 140, "Text",
  CellID->332832600],
-Cell[5819, 190, 681, 21, 68, "Input",
+Cell[5820, 190, 681, 21, 68, "Input",
  CellID->299732250],
-Cell[6503, 213, 1053, 34, 68, "Input",
+Cell[6504, 213, 1053, 34, 68, "Input",
  CellID->485949075],
 Cell[CellGroupData[{
-Cell[7581, 251, 117, 3, 29, "Input",
+Cell[7582, 251, 117, 3, 29, "Input",
  CellID->44306966],
-Cell[7701, 256, 6623, 126, 121, "Output",
+Cell[7702, 256, 6623, 126, 121, "Output",
  CellID->416001370]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14373, 388, 189, 6, 70, "ExampleSection",
+Cell[14374, 388, 189, 6, 70, "ExampleSection",
  CellID->2061341341],
 Cell[CellGroupData[{
-Cell[14587, 398, 114, 3, 70, "Input",
+Cell[14588, 398, 114, 3, 70, "Input",
  CellID->375663554],
-Cell[14704, 403, 387, 12, 58, "Output",
+Cell[14705, 403, 387, 12, 58, "Output",
  CellID->43872854]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15128, 420, 208, 6, 70, "ExampleSubsection",
+Cell[15129, 420, 208, 6, 70, "ExampleSubsection",
  CellID->1757724783],
-Cell[15339, 428, 255, 5, 70, "ExampleText",
+Cell[15340, 428, 255, 5, 70, "ExampleText",
  CellID->627308941],
-Cell[15597, 435, 90, 1, 70, "ExampleText",
+Cell[15598, 435, 90, 1, 70, "ExampleText",
  CellID->857993283],
 Cell[CellGroupData[{
-Cell[15712, 440, 243, 7, 70, "Input",
+Cell[15713, 440, 243, 7, 70, "Input",
  CellID->277624427],
-Cell[15958, 449, 6673, 129, 130, "Output",
+Cell[15959, 449, 6673, 129, 130, "Output",
  CellID->63966733]
 }, Open  ]],
-Cell[22646, 581, 192, 4, 70, "ExampleText",
+Cell[22647, 581, 192, 4, 70, "ExampleText",
  CellID->810974964],
 Cell[CellGroupData[{
-Cell[22863, 589, 374, 12, 70, "Input",
+Cell[22864, 589, 374, 12, 70, "Input",
  CellID->474682771],
-Cell[23240, 603, 6631, 126, 129, "Output",
+Cell[23241, 603, 6631, 126, 129, "Output",
  CellID->422547736]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[29920, 735, 204, 6, 70, "ExampleSubsection",
+Cell[29921, 735, 204, 6, 70, "ExampleSubsection",
  CellID->1295379749],
-Cell[30127, 743, 250, 5, 70, "ExampleText",
+Cell[30128, 743, 250, 5, 70, "ExampleText",
  CellID->207514061],
 Cell[CellGroupData[{
-Cell[30402, 752, 517, 15, 70, "Input",
+Cell[30403, 752, 517, 15, 70, "Input",
  CellID->70442006],
-Cell[30922, 769, 7852, 147, 130, "Output",
+Cell[30923, 769, 7852, 147, 130, "Output",
  CellID->482316280]
 }, Open  ]],
-Cell[38789, 919, 95, 1, 70, "ExampleText",
+Cell[38790, 919, 95, 1, 70, "ExampleText",
  CellID->196442571],
 Cell[CellGroupData[{
-Cell[38909, 924, 232, 6, 70, "Input",
+Cell[38910, 924, 232, 6, 70, "Input",
  CellID->31426966],
-Cell[39144, 932, 6647, 117, 70, "Output",
+Cell[39145, 932, 6645, 117, 70, "Output",
  CellTags->"RasterizedOutput",
- CellID->196224671]
+ CellID->6641314]
 }, Open  ]]
 }, Closed]]
 }, Closed]]
 }, Open  ]],
-Cell[45842, 1055, 23, 0, 70, "FooterCell"]
+Cell[45841, 1055, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

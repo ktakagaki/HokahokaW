@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     14258,        477]
+NotebookDataLength[     14260,        477]
 NotebookOptionsPosition[     10344,        358]
-NotebookOutlinePosition[     12614,        416]
-CellTagsIndexPosition[     12529,        411]
+NotebookOutlinePosition[     12616,        416]
+CellTagsIndexPosition[     12531,        411]
 WindowTitle->HHPrintAssignmentCell
 WindowFrame->Normal*)
 
@@ -133,7 +133,7 @@ Cell[TextData[Cell[BoxData[
   Method->"Preemptive"]]]], "NotesSection",
  WholeCellGroupOpener->True,
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->421303235],
+ CellID->826587876],
 
 Cell["", "SectionHeaderSpacer"],
 
@@ -162,7 +162,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->270470448],
+ CellID->383482447],
 
 Cell[CellGroupData[{
 
@@ -172,7 +172,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->30152145],
+ CellID->22434407],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -371,7 +371,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 6, 3.3138866}", 
+   "built" -> "{2016, 4, 20, 9, 47, 37.3265359}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -405,12 +405,12 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[4907, 149, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->270470448]}
+   CellID->383482447]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 12386, 404}
+ {"PrimaryExamplesSection", 12388, 404}
  }
 *)
 (*NotebookFileOutline
@@ -425,7 +425,7 @@ Cell[2986, 80, 882, 27, 200, "Usage",
 Cell[CellGroupData[{
 Cell[3893, 111, 738, 24, 35, "NotesSection",
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->421303235],
+ CellID->826587876],
 Cell[4634, 137, 31, 0, 70, "SectionHeaderSpacer"],
 Cell[4668, 139, 190, 4, 70, "Notes",
  CellID->1067943069]
@@ -434,10 +434,10 @@ Cell[4668, 139, 190, 4, 70, "Notes",
 Cell[CellGroupData[{
 Cell[4907, 149, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->270470448],
+ CellID->383482447],
 Cell[CellGroupData[{
 Cell[5319, 168, 194, 6, 28, "ExampleSection",
- CellID->30152145],
+ CellID->22434407],
 Cell[5516, 176, 97, 3, 29, "Input",
  CellID->190253715],
 Cell[5616, 181, 601, 21, 140, "Text",

@@ -577,6 +577,10 @@ Map[(tempHHITNNorm = Norm[#]; If[ tempHHITNNorm < threshold, {0,0,0}, #/tempHHIT
 ];
 
 
+HHImageThresholdNormalize[imageData_List/;Depth[imageData]==2, threshold_:0.2]:= 
+(tempHHITNNorm = Norm[imageData]; If[ tempHHITNNorm < threshold, {0,0,0}, imageData/tempHHITNNorm]);
+
+
 HHImageThresholdNormalize[image_Image, threshold_:0.2]:= 
 Image[ HHImageThresholdNormalize[ ImageData[image], threshold ] ];
 

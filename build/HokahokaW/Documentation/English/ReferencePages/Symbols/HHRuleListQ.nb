@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     10433,        345]
+NotebookDataLength[     10435,        345]
 NotebookOptionsPosition[      7377,        253]
-NotebookOutlinePosition[      9480,        309]
-CellTagsIndexPosition[      9396,        304]
+NotebookOutlinePosition[      9482,        309]
+CellTagsIndexPosition[      9398,        304]
 WindowTitle->HHRuleListQ
 WindowFrame->Normal*)
 
@@ -129,7 +129,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->528813346],
+ CellID->173860419],
 
 Cell[CellGroupData[{
 
@@ -139,7 +139,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->528181176],
+ CellID->436509591],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -266,7 +266,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
   "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 6, 4.4189498}", 
+   "built" -> "{2016, 4, 20, 9, 47, 38.4065977}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -298,12 +298,12 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[4103, 116, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->528813346]}
+   CellID->173860419]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 9253, 297}
+ {"PrimaryExamplesSection", 9255, 297}
  }
 *)
 (*NotebookFileOutline
@@ -317,10 +317,10 @@ Cell[3631, 99, 447, 13, 88, "Usage",
 Cell[CellGroupData[{
 Cell[4103, 116, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->528813346],
+ CellID->173860419],
 Cell[CellGroupData[{
 Cell[4515, 135, 195, 6, 28, "ExampleSection",
- CellID->528181176],
+ CellID->436509591],
 Cell[4713, 143, 96, 3, 29, "Input",
  CellID->94921402],
 Cell[4812, 148, 937, 34, 178, "Text",
