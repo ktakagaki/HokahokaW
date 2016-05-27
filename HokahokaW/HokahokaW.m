@@ -777,9 +777,9 @@ Module[
 	
 	If[preChecks,
 		SetDirectory[path7z];
-		commandString = "7z"<> " x "<> archiveFileName <> " -y ";
+		commandString = "7z"<> " x \""<> archiveFileName <> "\" -y ";
 		If[outputDir=!="",
-			commandString = commandString <> " -o" <> outputDir
+			commandString = commandString <> " -o\"" <> outputDir <>"\""
 		];
 		Run[commandString];
 		ResetDirectory[]
