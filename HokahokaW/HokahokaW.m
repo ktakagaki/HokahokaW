@@ -130,7 +130,7 @@ Options[HHExtractArchive]={
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Rules/Options*)
 
 
@@ -153,36 +153,36 @@ HHRuleQ[rule_RuleDelayed] := True;
 HHRuleQ[___] := False;
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*HHJoinOptionLists*)
 
 
 HHJoinOptionLists[x_/;HHRuleListQ[x], y_/;HHRuleListQ[y]]:=
-	Module[{tempretNN},
+	Block[{tempretNN},
 		tempretNN=Join[Flatten[x], FilterRules[Flatten[y], Except[x]]];
 		Return[tempretNN]
 	];
 
 HHJoinOptionLists[x_/;HHRuleListQ[x], y__/;(And@@(HHRuleListQ /@ {y}))]:=
-	Module[{tempretNN},
+	Block[{tempretNN},
 		tempretNN=x;
 		Do[tempretNN=HHJoinOptionLists[tempretNN, zz],{zz,{y}}];
 		Return[tempretNN]
 	];
 
 HHJoinOptionLists[symbol_Symbol, x_/;HHRuleListQ[x]]:=
-	Module[{},
+	Block[{},
 		Return[FilterRules[x, Options[symbol]]]
 	];
 
 HHJoinOptionLists[symbol_Symbol, x_/;HHRuleListQ[x], y__/;(And@@(HHRuleListQ /@ {y}))]:=
-	Module[{tempretNN},
+	Block[{tempretNN},
 		tempretNN = HHJoinOptionLists[x, y];
 		Return[FilterRules[tempretNN, Options[symbol]]]
 	];
 
 HHJoinOptionLists[symbol_[contents_], x_/;HHRuleListQ[x], y__/;(And@@(HHRuleListQ /@ {y}))]:=
-	Module[{tempretNN},
+	Block[{tempretNN},
 		tempretNN = HHJoinOptionLists[x, y];
 		Return[FilterRules[tempretNN, Options[symbol]]]
 	];
@@ -190,13 +190,13 @@ HHJoinOptionLists[symbol_[contents_], x_/;HHRuleListQ[x], y__/;(And@@(HHRuleList
 HHJoinOptionLists[args___]:=Message[HHJoinOptionLists::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*HHAddOptions*)
 
 
 HHAddOptions[symbol_[contents___], opts___]:=HHAddOptions[symbol[contents], {opts}];
 HHAddOptions[symbol_[contents___], {opts___}]:=
-	Module[{tempretNN(*,oldRules*)},
+	Block[{tempretNN(*,oldRules*)},
 		(*The following will strip off rules from the end.*)
 		tempretNN = Select[{contents}, !HHRuleQ[#]&];
 		(*Append old rules which are not given in opts.*)
@@ -218,7 +218,7 @@ HHAddOptions[args___]:=Message[HHAddOptions::invalidArgs,{args}];
 (*HHOptionValue*)
 
 
-HHOptionValue[x_, optionSymbol_]:=Module[{tempOpts},
+HHOptionValue[x_, optionSymbol_]:=Block[{tempOpts},
 	tempOpts=Join[Options[x],Options[Head[x]]];
 	OptionValue[ tempOpts ,optionSymbol ]
 ];
@@ -245,7 +245,7 @@ HHFunctionQ[_]:=False;
 HHFunctionQ[args___]:=Message[HHFunctionQ::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Java*)
 
 
@@ -257,7 +257,7 @@ HHJavaObjectQ[___]:= False;
 
 
 HHIncreaseJavaStack[stackSize_Integer]:=
-	Module[{tempOptStringI,tempOptStringR,tempReI=False, tempReR=False, 
+	Block[{tempOptStringI,tempOptStringR,tempReI=False, tempReR=False, 
 		tempPrint},
 		
 		tempPrint=PrintTemporary["Checking Java stack size..."];
@@ -297,12 +297,12 @@ HHIncreaseJavaStack[stackSize_Integer]:=
 		];
 
 		NotebookDelete[tempPrint];
-	]; (*Module for HHIncreaseJavaStack*)
+	]; (*Block for HHIncreaseJavaStack*)
 
 HHIncreaseJavaStack[args___]:=Message[HHIncreaseJavaStack::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHPackageMessage/Package Git functions*)
 
 
@@ -313,7 +313,7 @@ $HHCurrentGitRepository::usage="";
 $HHCurrentGitRepository = Null;
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageMessage *)
 
 
@@ -321,7 +321,7 @@ HHPackageMessage[]:=HHPackageMessage[NotebookFileName[]];
 HHPackageMessage[package_String]:=HHPackageMessage[package, ""];
 
 HHPackageMessage[package_String, append_String]:=
-Module[{remotes},
+Block[{remotes},
 
 	HHPackageGitLoad[package];
 	If[$HHCurrentGitRepository === Null,
@@ -342,7 +342,7 @@ Module[{remotes},
 
 
 HHPackageMessageImpl[package_String, contentLines_String, appendLines_String]:=
-Module[{},
+Block[{},
 	CellPrint[TextCell[Row[{
 		Style[package, FontFamily -> "Helvetica", FontWeight -> "Bold", FontVariations -> {"Underline" -> True}],
 		"\n" ,
@@ -365,13 +365,13 @@ Module[{},
 HHPackageMessage[args___]:=Message[HHPackageMessage::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitFindRepoDir*)
 
 
 HHPackageGitFindRepoDir[directory_String]:=
 (*HHPackageGitFindRepoDir[directory]=*)
-Module[{tempret, temp},
+Block[{tempret, temp},
 	tempret = 
 	If[ DirectoryQ[directory],
 		HHPackageGitFindRepoDirImpl[directory],
@@ -391,7 +391,7 @@ Module[{tempret, temp},
 
 
 HHPackageGitFindRepoDirImpl[directory_String]:=
-Module[{parentDirectory, putativeGitDirectory},
+Block[{parentDirectory, putativeGitDirectory},
 	parentDirectory=Quiet[Check[ParentDirectory[directory], ""]]; (*If there is no parent directory, etc.*)
 	If[  parentDirectory === "" || parentDirectory == directory,  (*If in root directory, ParentDirectory[] will act as Identity[] *)
 		"",
@@ -407,13 +407,13 @@ HHPackageGitFindRepoDir::notGitDirectory="No git directory \".git\" was found wi
 HHPackageGitFindRepoDir[args___]:=Message[HHPackageGitFindRepoDir::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitLoad/Unload*)
 
 
 (*HHPackageGitLoad[]:= HHPackageGitLoad[ NotebookDirectory[] ];*)
 HHPackageGitLoad[directory_String, verbose_:False]:=
-Module[{gitDirectory, temp},
+Block[{gitDirectory, temp},
 
 	gitDirectory = HHPackageGitFindRepoDir[directory];
 
@@ -441,7 +441,7 @@ HHPackageGitLoad[args___]:=Message[HHPackageGitLoad::invalidArgs,{args}];
 
 
 HHPackageGitUnload[verbose_:False]:=
-Module[{},
+Block[{},
 
 	If[ $HHCurrentGitRepositoryPath =!= "",
 		If[verbose,
@@ -455,13 +455,13 @@ Module[{},
 HHPackageGitUnload[args___]:=Message[HHPackageGitUnload::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitCurrentBranch*)
 
 
 HHPackageGitCurrentBranch[]:= HHPackageGitCurrentBranch[NotebookFileName[]];
 HHPackageGitCurrentBranch[package_String]:= 
-Module[{currBranch, currRef, currObjID},
+Block[{currBranch, currRef, currObjID},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null, 
 		$HHCurrentGitRepository@getBranch[], 
@@ -473,13 +473,13 @@ Module[{currBranch, currRef, currObjID},
 HHPackageGitCurrentBranch[args___]:=Message[HHPackageGitCurrentBranch::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitHEAD *)
 
 
 HHPackageGitHEAD[]:= HHPackageGitHEAD[NotebookFileName[]];
 HHPackageGitHEAD[package_String]:= 
-Module[{currBranch, currRef, currObjID},
+Block[{currBranch, currRef, currObjID},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null,
 		currRef=$HHCurrentGitRepository@getRef[ HHPackageGitCurrentBranch[package] ];
@@ -493,13 +493,13 @@ Module[{currBranch, currRef, currObjID},
 HHPackageGitHEAD[args___]:=Message[HHPackageGitHEAD::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitRemotes / HHPackageGitRemotesURL*)
 
 
 HHPackageGitRemotes[]:= HHPackageGitRemotes[NotebookFileName[]];
 HHPackageGitRemotes[package_String]:= 
-Module[{currConfig},
+Block[{currConfig},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null,
 		currConfig=$HHCurrentGitRepository@getConfig[];
@@ -514,7 +514,7 @@ HHPackageGitRemotes[args___]:=Message[HHPackageGitRemotes::invalidArgs,{args}];
 
 HHPackageGitRemotesURL[]:= HHPackageGitRemotesURL[NotebookFileName[]];
 HHPackageGitRemotesURL[package_String]:= 
-Module[{remotes, currConfig},
+Block[{remotes, currConfig},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null,
 		remotes = HHPackageGitRemotes[package];
@@ -528,12 +528,12 @@ Module[{remotes, currConfig},
 HHPackageGitRemotesURL[args___]:=Message[HHPackageGitRemotesURL::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* DEPRECATED HHPackageNewestFileDate *)
 
 
 HHPackageNewestFileDate[package_String]:=
-Module[{packageFile,tempdir},
+Block[{packageFile,tempdir},
 	
 	Message[HHPackageNewestFileDate::deprecated, "(don't use, not necessarily informative)"];
 
@@ -557,12 +557,12 @@ HHPackageNewestFileDate[args___]:=Message[HHPackageNewestFileDate::invalidArgs,{
 HHPackageNewestFileDate::noFilesFound = "No files were found for package:  `1`.";
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*BAK old implementations for HHPackageGitXXX*)
 
 
 (*HHPackageGitImpl[directory_String, command_String]:=
-Module[{errorcode,tempret},
+Block[{errorcode,tempret},
 	SetDirectory[ directory ];
 	errorcode = Run[command <> " > HHPackageGitImplTemp.txt"];
 	If[ errorcode == 0,
@@ -578,7 +578,7 @@ HHPackageGitImpl::gitError="Call to Git returned error. It could be that Git is 
  "not installed correctly, the command `1` is not valid, or the directory `2` is not valid."; *)
 
 
-(*HHPackageGitRemotes[package_String]:= Module[{tempFile},
+(*HHPackageGitRemotes[package_String]:= Block[{tempFile},
 	tempFile=FindFile[package];
 	If[ tempFile === $Failed,
 		Message[HHPackageGitRemotes::noFilesFound, package];
@@ -592,7 +592,7 @@ HHPackageGitRemotes::noFilesFound = HHPackageNewestFileDate::noFilesFound;*)
 
 
 (*HHPackageUpdateGitHEADFile[notebookDirectory_String]:= 
-Module[{hhPrePackageGitHead, hhPrePackageGitHeadDate},
+Block[{hhPrePackageGitHead, hhPrePackageGitHeadDate},
 	Print[hhPrePackageGitHead = HHPackageGitHEAD[]];
 	Print[hhPrePackageGitHeadDate = DateString[]];
 	Export[notebookDirectory <> "GitHEAD.m", {hhPrePackageGitHead, 
@@ -600,7 +600,7 @@ Module[{hhPrePackageGitHead, hhPrePackageGitHeadDate},
 ];
 HHPackageUpdateGitHEADFile[args___]:=Message[HHPackageUpdateGitHEADFile::invalidArgs,{args}];
 HHPackageGitHEAD[]:= HHPackageGitImpl[ NotebookDirectory[], "git rev-parse HEAD" ];
-HHPackageGitHEAD[package_String]:= Module[{tempFile},
+HHPackageGitHEAD[package_String]:= Block[{tempFile},
 	tempFile=FindFile[package];
 	If[ tempFile === $Failed,
 		Message[HHPackageGitHEAD::noFilesFound, package];
@@ -614,12 +614,12 @@ HHPackageGitHEAD::noFilesFound = HHPackageNewestFileDate::noFilesFound;
 *)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*BAK old implementation for HHPackageMessage *)
 
 
 (*HHPackageMessage[package_String]:=
-Module[{remotes, head, newest, tempFile, tempPreFile, searchFile},
+Block[{remotes, head, newest, tempFile, tempPreFile, searchFile},
 	remotes=Quiet[HHPackageGitRemotes[package]];
 	head=   Quiet[HHPackageGitHEAD[package]];
 	newest= Quiet[HHPackageNewestFileDate[package]];
@@ -685,7 +685,7 @@ HHNextPower[base_, n_]:= Ceiling[Log[base, n]];
 HHNextPower[args___]:=Message[HHNextPower::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities*)
 
 
@@ -700,7 +700,7 @@ HHPadZeros[args___]:=Message[HHPadZeros::invalidArgs,{args}];
 
 
 HHPrintAssignmentCell[symbolNames:{_String..}, opts:OptionsPattern[] ]:=
-Module[{names, expressionStrings, symbols, validNameValues},
+Block[{names, expressionStrings, symbols, validNameValues},
 	names=Flatten[Names/@symbolNames];
 	symbols= Symbol[#]& /@ names;
 	(* //ToDo3: The following does not work, due to evaluation order issues *)
@@ -746,7 +746,7 @@ HHExtractArchive[archiveFileName_String, opts:OptionsPattern[] ]:=
 		HHExtractArchive[archiveFileName, "", opts];
 
 HHExtractArchive[archiveFileName_String, targetDir_String, opts:OptionsPattern[] ]:= 
-Module[
+Block[
 	{path7z, outputDir, commandString, preChecks = True},
 
 	(*===Check system=== *)

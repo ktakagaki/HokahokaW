@@ -112,7 +112,7 @@ HHImageThresholdLinear::usage="Thresholds an image by linear closeness to the gi
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHStackLists / HHListLinePlotStack*)
 
 
@@ -186,7 +186,7 @@ HHListLinePlotStack[
 	traces_/;(Depth[traces]==3 || (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
 	opts:OptionsPattern[]
 ]:=
-Module[{tempData,tempPlotRange},
+Block[{tempData,tempPlotRange},
 	
 	tempData = HHStackLists[traces, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
 	tempPlotRange = If[ OptionValue[HHPlotRangeClipping] === Automatic, {PlotRange->{All, $ActualStackRange}},{}];
@@ -201,12 +201,12 @@ Module[{tempData,tempPlotRange},
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHListLinePlotMean*)
 
 
 HHListLinePlotMean[traces_/;(Length[Dimensions[traces]]==2 && Length[Union[Length/@traces]]==1), opts:OptionsPattern[]]:=
-Module[{temp,
+Block[{temp,
 		tempMeanData = {}, 
 		tempErrorMeanData = {}, tempErrorData1 = {}, tempErrorData2 = {},
 		opPlotStyle,
@@ -314,14 +314,14 @@ Module[{temp,
 HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHImageMean*)
 
 
 HHImageMean[x:{__Image}]:= HHImageMean[ImageData /@ x];
 
 HHImageMean[imageDataList_List/;Depth[imageDataList]==5]:=
-Module[{},
+Block[{},
 	(*The following part is repeated with modifications*)
 	If[ Length[Union[  Dimensions/@imageDataList ]]!=1,
 		Message[HHImageMean::dimensionsMustBeSame];,
@@ -340,14 +340,14 @@ HHImageSubtract[args___]:=Message[HHImageSubtract::invalidArgs, {args}];
 
 
 (*HHImageDifference[imageData_List, templateData_List, threshold_]:= 
-Module[{tempSelf,tempProd, threshLower, threshUpper},
+Block[{tempSelf,tempProd, threshLower, threshUpper},
 	tempSelf=MapThread[ Dot, {imageData,imageData},2];
 	tempProd=MapThread[ Dot, {imageData+0.0001,templateData+0.0001},2];
 	(*Map[ Clip[Norm[#],{1-threshold, 1+ threshold},{0, 0}]&, (imageData-templateData)(*tempSelf/tempProd*), {2}]*)
 	threshLower=1-threshold;
 	threshUpper=1+threshold;
 	MapThread[ 
-		Module[{temp},
+		Block[{temp},
 			temp=#1-#2;
 			If[threshLower \[LessEqual] temp &&  temp \[LessEqual] threshUpper, #3, {0.,0.,0.}]
 		]&, 
@@ -355,13 +355,13 @@ Module[{tempSelf,tempProd, threshLower, threshUpper},
 ];*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHImageDifference*)
 
 
 HHImageDifference[imageData_List/;Depth[imageData]==4, templateData_List, threshold_]:= 
 	MapThread[ 
-		Module[{temp},
+		Block[{temp},
 			temp=Norm[#1-#2];
 			If[temp <= threshold, {0.,0.,0.}, #1]
 		]&, 
@@ -371,7 +371,7 @@ HHImageDifference[imageData_List/;Depth[imageData]==4, templateData_List, thresh
 
 HHImageDifference[imageData_List/;Depth[imageData]==4, templateData_List, threshold_]:= 
 	MapThread[ 
-		Module[{temp},
+		Block[{temp},
 			temp=Norm[Normalize[#1]-Normalize[#2]];
 			If[temp <= threshold, {0.,0.,0.}, #1]
 		]&, 
@@ -381,7 +381,7 @@ HHImageDifference[imageData_List/;Depth[imageData]==4, templateData_List, thresh
 
 HHImageDifferenceImpl[imageDataNorm_List, templateData_List, threshold_]:= 
 	MapThread[ 
-		Module[{temp},
+		Block[{temp},
 			temp=Norm[#1-#2];
 			If[temp <= threshold, {0.,0.,0.}, #1]
 		]&, 
@@ -392,7 +392,7 @@ HHImageDifferenceImpl[imageDataNorm_List, templateData_List, threshold_]:=
 (*HHImageDifference[x_Image, commonList_List, threshold_]:= HHImageDifference[{x}, commonList, threshold][[1]];
 
 HHImageDifference[x:{__Image}, commonList_List, threshold_]:=
-Module[{commonListDim, threshold2, filterImage},
+Block[{commonListDim, threshold2, filterImage},
 	(*The following part is repeated with modifications*)
 	commonListDim = Dimensions[commonList];
 	threshold2 = threshold^2.;
@@ -403,7 +403,7 @@ Module[{commonListDim, threshold2, filterImage},
 		],
 		{{threshold2, _Real},{commonList, _Real, 3}}
 	];*)
-	filterImage[image_Image]:= Module[{imageData},
+	filterImage[image_Image]:= Block[{imageData},
 		imageData=ImageData[image];
 		If[ commonListDim != Dimensions[imageData],
 			Message[HHImageDifference::commonDimensionMustMatch];,
@@ -418,7 +418,7 @@ Module[{commonListDim, threshold2, filterImage},
 ];*)
 
 (*filterImage[imageData_List, commonList_List, threshold_]:=
-Module[{tempList, threshold2},
+Block[{tempList, threshold2},
 	threshold2 = threshold^2.;
 	(*tempList=Transpose[{imageData, commonList},{3,1,2}];
 	Map[   If[ Plus@@((#[[1]] - #[[2]])^2) <= threshold2,  {0,0,0}, #[[1]]  ]&,   tempList, {2} ]*)
@@ -428,7 +428,7 @@ Module[{tempList, threshold2},
 ];*)
 
 (*HHImageDifference[x:{__Image}, commonList_List, threshold_]:=
-Module[{tempImageData, tempImageDim, func, threshold2, euclideanDistance2Threshold},
+Block[{tempImageData, tempImageDim, func, threshold2, euclideanDistance2Threshold},
 	(*The following part is repeated with modifications*)
 	tempImageData=ImageData /@ x;
 	If[ Length[Union[  Dimensions/@tempImageData ]]!=1,
@@ -451,7 +451,7 @@ Module[{tempImageData, tempImageDim, func, threshold2, euclideanDistance2Thresho
 
 
 (*HHImageDifference[x:{__Image}, {commonList_List, thresholdList_List}]:=
-Module[{tempImageData, tempImageDim},
+Block[{tempImageData, tempImageDim},
 	(*The following part is repeated with modifications*)
 	tempImageData=ImageData /@ x;
 	If[ Length[Union[  Dimensions/@tempImageData ]]!=1,
@@ -468,7 +468,7 @@ Module[{tempImageData, tempImageDim},
 ];
 
 filterImage[imageData_List, {commonList_, thresholdList_}]:=
-Module[{tempList},
+Block[{tempList},
 	tempList=Transpose[{imageData, commonList, thresholdList},{3,1,2}];
 	Map[   If[ Plus@@((#[[1]] - #[[2]])^2) <= #[[3]],  {0,0,0}, #[[1]]  ]&,   tempList, {2} ]
 ];*)
@@ -487,7 +487,7 @@ HHImageDifference::thresholdDimensionMustMatch = "Input threshold List must have
 
 
 HHImageCommon[x:{__Image}/;Length[x]>=4]:=
-Module[{tempImageData},
+Block[{tempImageData},
 	(*The following part is repeated with modifications*)
 	tempImageData=ImageData /@ x;
 	If[ Length[Union[  Dimensions/@tempImageData ]]!=1,
@@ -507,7 +507,7 @@ Compile[{{imageDataList, _Real, 4}},
 ];*)
 
 (*medianQuietPixelsShort[pixels_List]:=
-Module[{pixelMedian, pixelsDist2, pixelsOrdering, pixelsSortedThresholded(*, pixelCutoff*)},
+Block[{pixelMedian, pixelsDist2, pixelsOrdering, pixelsSortedThresholded(*, pixelCutoff*)},
 	pixelMedian=Median /@ Transpose[pixels];
 	(*pixelsDist=EuclideanDistance[#, pixelMedian]& /@ pixels;*)
 	pixelsDist2=(Plus@@((#-pixelMedian)^2.))& /@ pixels;
@@ -534,7 +534,7 @@ Compile[{{pixelList, _Real, 2}},
 (*simpleDistance[a_,b_]:=Plus@@(Abs /@ (a-b));
 simplePixelCluster[pixelList_List/;Length[pixelList]==1, absThreshold_]:= pixelList[[1]];
 simplePixelCluster[pixelList_, absThreshold_]:=
-	Module[{clusters,clusterCount,innerBreak,innerRet},
+	Block[{clusters,clusterCount,innerBreak,innerRet},
 		clusters={pixelList[[1]]}; clusterCount={1};
 		
 	(*For each pixel in the list past index 2*)
@@ -589,7 +589,7 @@ HHImageThresholdNormalize[args___]:=Message[HHImageThresholdNormalize::invalidAr
 
 
 HHImageThresholdLinearNormalize[imageData_List/;Depth[imageData]==4, threshold_:0.5]:= 
-Module[{sum},
+Block[{sum},
 	Map[(sum = Plus @@ #;
 		If[ sum < threshold, {0,0,0}, # / sum * 3])&, 
 		imageData, 
@@ -643,12 +643,12 @@ End[];
 EndPackage[];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Bak*)
 
 
 (*HHImageMeanSubtractedAdjusted[x:{__Image}]:=
-Module[{tempImageData,tempMean},
+Block[{tempImageData,tempMean},
 	tempImageData=ImageData /@ x;
 	If[ Length[Union[  Dimensions/@tempImageData ]]!=1,
 		Message[HHImageMeanSubtractedAdjusted::dimensionsMustBeSame];,
