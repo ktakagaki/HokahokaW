@@ -779,7 +779,7 @@ Block[
 		If[ preChecks && linux7z =!= 0 && Head[path7z]===String && !FileExistsQ[path7z],
 			Message[HHExtractArchive::cannotFind7Zip];
 			preChecks=False
-		];
+		],
 
 
 		If[ StringMatchQ[ $System, "*Windows*"],
