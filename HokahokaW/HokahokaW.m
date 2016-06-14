@@ -808,11 +808,10 @@ Block[
 	
 	If[preChecks,
 		If[ path7z =!= "", SetDirectory[path7z] ];
+		
 		commandString = "7z"<> " x \""<> archiveFileName <> "\" -y ";
+		commandString = commandString <> " -o\"" <> outputDir <>"\"";
 
-		If[outputDir=!="",
-			commandString = commandString <> " -o\"" <> outputDir <>"\""
-		];
 		Run[commandString];
 		If[ path7z =!= "", ResetDirectory[]];
 	];
