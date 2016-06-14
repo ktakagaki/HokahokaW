@@ -6,6 +6,10 @@
 BeginPackage["HokahokaW`",{"JLink`"}];
 
 
+(* ::Section:: *)
+(*Declarations*)
+
+
 General::invalidArgs="Function called with invalid arguments `1`.";
 General::invalidOptionValue="Option argument `1` -> `2` is invalid.";
 General::deprecated="Function is deprecated, use `1` instead.";
@@ -119,7 +123,7 @@ HHExtractArchive::usage =
 "Attempts to use 7-zip program to extract a compressed archive (currently windows only). Files already present in target directory will be overwritten.";
 
 Options[HHExtractArchive]={
-	"HH7ZipPath"-> Automatic
+	"7ZipPath"-> Automatic
 };
 
 
@@ -130,7 +134,7 @@ Options[HHExtractArchive]={
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Rules/Options*)
 
 
@@ -153,7 +157,7 @@ HHRuleQ[rule_RuleDelayed] := True;
 HHRuleQ[___] := False;
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*HHJoinOptionLists*)
 
 
@@ -190,7 +194,7 @@ HHJoinOptionLists[symbol_[contents_], x_/;HHRuleListQ[x], y__/;(And@@(HHRuleList
 HHJoinOptionLists[args___]:=Message[HHJoinOptionLists::invalidArgs,{args}];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*HHAddOptions*)
 
 
@@ -214,7 +218,7 @@ HHAddOptions[symbol_[contents___], {opts___}]:=
 HHAddOptions[args___]:=Message[HHAddOptions::invalidArgs,{args}];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*HHOptionValue*)
 
 
@@ -245,7 +249,7 @@ HHFunctionQ[_]:=False;
 HHFunctionQ[args___]:=Message[HHFunctionQ::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Java*)
 
 
@@ -302,7 +306,7 @@ HHIncreaseJavaStack[stackSize_Integer]:=
 HHIncreaseJavaStack[args___]:=Message[HHIncreaseJavaStack::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHPackageMessage/Package Git functions*)
 
 
@@ -313,7 +317,7 @@ $HHCurrentGitRepository::usage="";
 $HHCurrentGitRepository = Null;
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (* HHPackageMessage *)
 
 
@@ -365,7 +369,7 @@ Block[{},
 HHPackageMessage[args___]:=Message[HHPackageMessage::invalidArgs,{args}];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (* HHPackageGitFindRepoDir*)
 
 
@@ -407,7 +411,7 @@ HHPackageGitFindRepoDir::notGitDirectory="No git directory \".git\" was found wi
 HHPackageGitFindRepoDir[args___]:=Message[HHPackageGitFindRepoDir::invalidArgs,{args}];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (* HHPackageGitLoad/Unload*)
 
 
@@ -455,7 +459,7 @@ Block[{},
 HHPackageGitUnload[args___]:=Message[HHPackageGitUnload::invalidArgs,{args}];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (* HHPackageGitCurrentBranch*)
 
 
@@ -473,7 +477,7 @@ Block[{currBranch, currRef, currObjID},
 HHPackageGitCurrentBranch[args___]:=Message[HHPackageGitCurrentBranch::invalidArgs,{args}];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (* HHPackageGitHEAD *)
 
 
@@ -493,7 +497,7 @@ Block[{currBranch, currRef, currObjID},
 HHPackageGitHEAD[args___]:=Message[HHPackageGitHEAD::invalidArgs,{args}];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (* HHPackageGitRemotes / HHPackageGitRemotesURL*)
 
 
@@ -528,7 +532,7 @@ Block[{remotes, currConfig},
 HHPackageGitRemotesURL[args___]:=Message[HHPackageGitRemotesURL::invalidArgs,{args}];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (* DEPRECATED HHPackageNewestFileDate *)
 
 
@@ -557,7 +561,7 @@ HHPackageNewestFileDate[args___]:=Message[HHPackageNewestFileDate::invalidArgs,{
 HHPackageNewestFileDate::noFilesFound = "No files were found for package:  `1`.";
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*BAK old implementations for HHPackageGitXXX*)
 
 
@@ -614,7 +618,7 @@ HHPackageGitHEAD::noFilesFound = HHPackageNewestFileDate::noFilesFound;
 *)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*BAK old implementation for HHPackageMessage *)
 
 
@@ -685,7 +689,7 @@ HHNextPower[base_, n_]:= Ceiling[Log[base, n]];
 HHNextPower[args___]:=Message[HHNextPower::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Utilities*)
 
 
@@ -742,6 +746,10 @@ HHCreateDirectoryIfNone[directoryName_String]:=
 HHCreateDirectoryIfNone[args___]:=Message[HHCreateDirectoryIfNone::invalidArgs,{args}];
 
 
+linux7z::usage="Null if not checked yet, 0 if linux 7z is present in system path";
+linux7z = Null;
+
+
 HHExtractArchive[archiveFileName_String, opts:OptionsPattern[] ]:= 
 		HHExtractArchive[archiveFileName, "", opts];
 
@@ -750,19 +758,39 @@ Block[
 	{path7z, outputDir, commandString, preChecks = True},
 
 	(*===Check system=== *)
-	If[!StringMatchQ[ $System, "*Windows*"],
-		Message[HHExtractArchive::winOnly, $System];
+	If[!StringMatchQ[ $System, "*Windows*"] && !StringMatchQ[ $System, "*Linux*"],
+		Message[HHExtractArchive::winLinuxOnly, $System];
 		preChecks=False
 	];
 
 	(*===Find 7zip directory=== *)
-	path7z = OptionValue["HH7ZipPath"];
-	If[ preChecks && path7z === Automatic, path7z = FindFile["7z.exe"] ];
-	If[ preChecks && path7z === $Failed, path7z = FindFile["C:\\Program Files\\7-Zip\\7z.exe"] ];
-	If[ preChecks && Head[path7z]===String && FileExistsQ[path7z], 
-		path7z = DirectoryName[path7z],
-		Message[HHExtractArchive::cannotFind7ZipWin];
-		preChecks=False
+	path7z = OptionValue["7ZipPath"];
+	If[ StringMatchQ[ $System, "*Linux*"],
+
+		If[ preChecks && path7z === Automatic, 
+			If[ linux7z === Null, linux7z = Run["7z"] ];
+			If[ linux7z === 0, 
+				path7z = "",
+				Message[HHExtractArchive::cannotFind7Zip];
+				preChecks = False
+			];
+		];
+		
+		If[ preChecks && linux7z =!= 0 && Head[path7z]===String && !FileExistsQ[path7z],
+			Message[HHExtractArchive::cannotFind7Zip];
+			preChecks=False
+		];
+
+
+		If[ StringMatchQ[ $System, "*Windows*"],
+			If[ preChecks && path7z === Automatic, path7z = FindFile["7z.exe"] ];
+			If[ preChecks && path7z === $Failed, path7z = FindFile["C:\\Program Files\\7-Zip\\7z.exe"] ];
+			If[ preChecks && Head[path7z]===String && FileExistsQ[path7z], 
+				path7z = DirectoryName[path7z],
+				Message[HHExtractArchive::cannotFind7Zip];
+				preChecks=False
+			]
+		]
 	];
 
 	If[ preChecks && !FileExistsQ[archiveFileName],
@@ -788,9 +816,9 @@ Block[
 
 HHExtractArchive[args___]:=Message[HHExtractArchive::invalidArgs,{args}];
 
-HHExtractArchive::winOnly = "HHExtractArchive currently works on windows only, not on `1`";
-HHExtractArchive::cannotFind7ZipWin = "Cannot find 7z.exe executable! Please specify option \
-\"HH7ZipPath\" or put 7z on the system path or standard location on C:.";
+HHExtractArchive::winLinuxOnly = "HHExtractArchive currently works on windows/linux only, not on `1`";
+HHExtractArchive::cannotFind7Zip = "Cannot find 7z executable! Please specify option \
+\"7ZipPath\" or put 7z on the system path or standard location on C: (for windows).";
 HHExtractArchive::archiveFileInvalid = "Archive file `1` is invalid!";
 
 
