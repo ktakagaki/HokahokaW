@@ -799,18 +799,22 @@ Block[
 	];
 
 	outputDir=targetDir;
-	If[ preChecks && "" =!= outputDir,
-		HHCreateDirectoryIfNone[outputDir]
+	If[ preChecks,
+		If[ "" =!= outputDir,
+			HHCreateDirectoryIfNone[outputDir],
+			outputDir = NotebookDirectory[]
+		]
 	];
 	
 	If[preChecks,
-		SetDirectory[path7z];
+		If[ path7z =!= "", SetDirectory[path7z] ];
 		commandString = "7z"<> " x \""<> archiveFileName <> "\" -y ";
+
 		If[outputDir=!="",
 			commandString = commandString <> " -o\"" <> outputDir <>"\""
 		];
 		Run[commandString];
-		ResetDirectory[]
+		If[ path7z =!= "", ResetDirectory[]];
 	];
 ];
 
