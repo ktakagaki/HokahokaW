@@ -1,0 +1,268 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7644,        260]
+NotebookOptionsPosition[      5899,        193]
+NotebookOutlinePosition[      6547,        218]
+CellTagsIndexPosition[      6421,        212]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Hokahoka File Utility Tests", "Title",
+ CellChangeTimes->{{3.672070593520771*^9, 3.672070614068947*^9}, {
+  3.6755709104282484`*^9, 3.6755709176366606`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`"}]], "Input",
+ CellChangeTimes->{{3.6720726326304016`*^9, 3.672072637350672*^9}, {
+  3.672148265922678*^9, 3.6721482669677377`*^9}}],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Wed 22 Jun 2016 09:55:34     [Mathematica: 10.4.1 for Microsoft \
+Windows (64-bit) (April 11, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[6348f1adee226b4de7b23c220d7c495baefa917f]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.675570934299614*^9},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"testDirectory", "=", 
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6755709587550125`*^9, 3.67557096797254*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Tests\\\\\"\>\
+"], "Output",
+ CellChangeTimes->{3.6755709690256*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"testFile", "=", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"testDirectory", ",", " ", "\"\<test.txt\>\""}], "}"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.675571049851223*^9, 3.6755710659251423`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Tests\\\\test.\
+txt\"\>"], "Output",
+ CellChangeTimes->{3.675571067655241*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["HHPrependFilename", "Section",
+ CellChangeTimes->{{3.6720723739056034`*^9, 3.6720723800889573`*^9}, 
+   3.6755710275659485`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "HHPrependFilename"}]], "Input",
+ CellChangeTimes->{{3.6755710303771095`*^9, 3.6755710323912244`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"Parses a file path and prepends a string to the filename \
+within the path.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6755710328182487`*^9},
+ CellTags->"Info33675578232-1277910"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPrependFilename", "[", " ", 
+  RowBox[{"testFile", ",", "\"\<hello\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.672072319137471*^9, 3.6720723708304276`*^9}, {
+  3.6721486663305798`*^9, 3.672148677927243*^9}, {3.6755710402606745`*^9, 
+  3.6755710802129593`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Tests\\\\\
+hellotest.txt\"\>"], "Output",
+ CellChangeTimes->{3.675571080618983*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPrependFilename", "[", " ", 
+  RowBox[{"testFile", ",", "\"\<hello.\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.672072319137471*^9, 3.6720723708304276`*^9}, {
+  3.6721486663305798`*^9, 3.672148677927243*^9}, {3.6755710402606745`*^9, 
+  3.6755710870373497`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Tests\\\\\
+hello.test.txt\"\>"], "Output",
+ CellChangeTimes->{3.6755710873783693`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["HHAppendFileBaseName", "Section",
+ CellChangeTimes->{{3.6720723739056034`*^9, 3.6720723800889573`*^9}, 
+   3.6755710275659485`*^9, 3.6755710944127717`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "HHAppendFileBaseName"}]], "Input",
+ CellChangeTimes->{{3.6755710303771095`*^9, 3.6755710323912244`*^9}, 
+   3.6755710958208523`*^9}],
+
+Cell[BoxData[
+ StyleBox["\<\"Parses a file path and append a string to the FileBaseName \
+only. Does not add periods.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.675571098156986*^9},
+ CellTags->"Info73675578298-1277910"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHAppendFileBaseName", "[", " ", 
+  RowBox[{"testFile", ",", "\"\<hello\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.672072319137471*^9, 3.6720723708304276`*^9}, {
+  3.6721486663305798`*^9, 3.672148677927243*^9}, {3.6755710402606745`*^9, 
+  3.675571096700903*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Tests\\\\\
+testhello.txt\"\>"], "Output",
+ CellChangeTimes->{3.675571080618983*^9, 3.675571255824004*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHAppendFileBaseName", "[", " ", 
+  RowBox[{"testFile", ",", "\"\<.hello.\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.672072319137471*^9, 3.6720723708304276`*^9}, {
+  3.6721486663305798`*^9, 3.672148677927243*^9}, {3.6755710402606745`*^9, 
+  3.6755710870373497`*^9}, {3.67557126205336*^9, 3.675571267486671*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Tests\\\\test.\
+hello..txt\"\>"], "Output",
+ CellChangeTimes->{
+  3.6755710873783693`*^9, {3.6755712622973742`*^9, 3.675571268363721*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{952, 1076},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info33675578232-1277910"->{
+  Cell[2965, 106, 224, 4, 44, "Print",
+   CellTags->"Info33675578232-1277910"]},
+ "Info73675578298-1277910"->{
+  Cell[4544, 155, 235, 4, 44, "Print",
+   CellTags->"Info73675578298-1277910"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info33675578232-1277910", 6206, 203},
+ {"Info73675578298-1277910", 6317, 206}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 163, 2, 103, "Title"],
+Cell[746, 26, 173, 3, 33, "Input"],
+Cell[922, 31, 957, 34, 131, "Text"],
+Cell[CellGroupData[{
+Cell[1904, 69, 167, 3, 33, "Input"],
+Cell[2074, 74, 132, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2243, 81, 248, 6, 33, "Input"],
+Cell[2494, 89, 142, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2673, 96, 134, 2, 71, "Section"],
+Cell[CellGroupData[{
+Cell[2832, 102, 130, 2, 33, "Input"],
+Cell[2965, 106, 224, 4, 44, "Print",
+ CellTags->"Info33675578232-1277910"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3226, 115, 289, 5, 33, "Input"],
+Cell[3518, 122, 147, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3702, 129, 290, 5, 33, "Input"],
+Cell[3995, 136, 150, 2, 33, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4194, 144, 161, 2, 71, "Section"],
+Cell[CellGroupData[{
+Cell[4380, 150, 161, 3, 33, "Input"],
+Cell[4544, 155, 235, 4, 44, "Print",
+ CellTags->"Info73675578298-1277910"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4816, 164, 290, 5, 33, "Input"],
+Cell[5109, 171, 169, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5315, 178, 339, 5, 33, "Input"],
+Cell[5657, 185, 202, 3, 33, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

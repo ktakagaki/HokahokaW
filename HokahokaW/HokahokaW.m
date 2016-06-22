@@ -127,6 +127,12 @@ Options[HHExtractArchive]={
 };
 
 
+HHPrependFilename::usage = 
+"Parses a file path and prepends a string to the filename within the path.";
+HHAppendFileBaseName::usage = 
+"Parses a file path and append a string to the FileBaseName only. Does not add periods.";
+
+
 (* ::Section:: *)
 (*Private*)
 
@@ -823,6 +829,30 @@ HHExtractArchive::winLinuxOnly = "HHExtractArchive currently works on windows/li
 HHExtractArchive::cannotFind7Zip = "Cannot find 7z executable! Please specify option \
 \"7ZipPath\" or put 7z on the system path or standard location on C: (for windows).";
 HHExtractArchive::archiveFileInvalid = "Archive file `1` is invalid!";
+
+
+HHPrependFilename[fileName_String, prepend_String]:= 
+Block[{fileNameSplit},
+	fileNameSplit = FileNameSplit[fileName];
+	FileNameJoin[ 
+		Join[ fileNameSplit[[ ;; -2]],{prepend <> fileNameSplit[[-1]]}]
+	]
+];
+HHPrependFilename[args___]:=Message[HHPrependFilename::invalidArgs,{args}];
+
+
+HHAppendFileBaseName[fileName_String, append_String]:= 
+Block[{fileNameSplit, fileBaseName, fileExtension},
+	fileNameSplit = FileNameSplit[fileName];
+	fileBaseName = fileNameSplit[[-1]];
+		fileExtension = FileExtension[fileBaseName];
+		fileBaseName = FileBaseName[fileBaseName];
+
+	FileNameJoin[ 
+		Join[ fileNameSplit[[ ;; -2]],{fileBaseName <> append <>"."<>fileExtension}]
+	]
+];
+HHAppendFileBaseName[args___]:=Message[HHAppendFileBaseName::invalidArgs,{args}];
 
 
 (* ::Section:: *)
