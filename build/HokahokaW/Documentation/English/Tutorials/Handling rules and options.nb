@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      6621,        192]
-NotebookOptionsPosition[      4151,        122]
-NotebookOutlinePosition[      6293,        178]
-CellTagsIndexPosition[      6250,        175]
+NotebookDataLength[      6696,        193]
+NotebookOptionsPosition[      4179,        123]
+NotebookOutlinePosition[      6368,        179]
+CellTagsIndexPosition[      6325,        176]
 WindowTitle->Handling rules and options
 WindowFrame->Normal*)
 
@@ -61,13 +61,14 @@ Handling rules and options.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$12180], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$15163], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/tutorial/Handling rules and options", ".html"]], 
           None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -132,15 +133,15 @@ TaggingRules->{
         ButtonBox[
         "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "ExampleCounter" -> 1, "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> 
-  None, "RootCaptions" -> "", 
-  "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 47, 41.6237817}", 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2016, 7, 10, 23, 8, 0.0197651}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Tutorial", "language" -> "en", "paclet" -> "HokahokaW", 
-    "status" -> "None", "summary" -> "XXXX.", "synonyms" -> {}, "title" -> 
+    "status" -> "None", "summary" -> "XXXX.", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$15108, "title" -> 
     "Handling rules and options", "titlemodifier" -> "", "windowtitle" -> 
     "Handling rules and options", "type" -> "Tutorial", "uri" -> 
     "HokahokaW/tutorial/Handling rules and options"}, "SearchTextTranslated" -> 
@@ -177,23 +178,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[597, 21, 2377, 55, 59, "AnchorBarGrid",
+Cell[597, 21, 2405, 56, 59, "AnchorBarGrid",
  CellID->1],
 Cell[CellGroupData[{
-Cell[2999, 80, 63, 1, 55, "Title",
+Cell[3027, 81, 63, 1, 55, "Title",
  CellID->509267359],
-Cell[3065, 83, 720, 17, 233, "DefinitionBox",
+Cell[3093, 84, 720, 17, 233, "DefinitionBox",
  CellID->2096742444],
-Cell[3788, 102, 45, 1, 35, "Caption",
+Cell[3816, 103, 45, 1, 35, "Caption",
  CellID->1891092685],
 Cell[CellGroupData[{
-Cell[3858, 107, 74, 2, 29, "Input",
+Cell[3886, 108, 74, 2, 29, "Input",
  CellID->2058623809],
-Cell[3935, 111, 162, 5, 38, "Output",
+Cell[3963, 112, 162, 5, 38, "Output",
  CellID->1181321046]
 }, Open  ]]
 }, Open  ]],
-Cell[4124, 120, 23, 0, 44, "FooterCell"]
+Cell[4152, 121, 23, 0, 44, "FooterCell"]
 }
 ]
 *)

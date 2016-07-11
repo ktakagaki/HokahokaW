@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     18026,        585]
-NotebookOptionsPosition[     13846,        451]
-NotebookOutlinePosition[     15943,        506]
-CellTagsIndexPosition[     15858,        501]
+NotebookDataLength[     18269,        596]
+NotebookOptionsPosition[     14107,        462]
+NotebookOutlinePosition[     16200,        518]
+CellTagsIndexPosition[     16115,        513]
 WindowTitle->HHAbsoluteOptionValue
 WindowFrame->Normal*)
 
@@ -59,12 +59,13 @@ HHAbsoluteOptionValue.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$4336], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$4311], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHAbsoluteOptionValue", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -73,8 +74,18 @@ HHAbsoluteOptionValue.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHAbsoluteOptionValue", "ObjectName",
- CellID->1224892054],
+Cell[TextData[{
+ Cell["HHAbsoluteOptionValue", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
 Cell[CellGroupData[{
 
@@ -121,7 +132,7 @@ Cell[TextData[Cell[BoxData[
   Method->"Preemptive"]]]], "NotesSection",
  WholeCellGroupOpener->True,
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->215807131],
+ CellID->5486020],
 
 Cell["", "SectionHeaderSpacer"],
 
@@ -167,7 +178,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->475384175],
+ CellID->106591888],
 
 Cell[CellGroupData[{
 
@@ -177,7 +188,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->11253939],
+ CellID->228445134],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -461,19 +472,20 @@ TaggingRules->{
         ButtonBox[
         "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
-  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 47, 16.8633655}", 
+   "built" -> "{2016, 7, 10, 23, 7, 35.9833903}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
     "status" -> "None", "summary" -> 
     "HHAbsoluteOptionValue[] DEPRECATED : use AbsoluteOptions instead.", 
-    "synonyms" -> {}, "title" -> "HHAbsoluteOptionValue", "titlemodifier" -> 
-    "", "windowtitle" -> "HHAbsoluteOptionValue", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHAbsoluteOptionValue"}, "SearchTextTranslated" -> ""},
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHAbsoluteOptionValue", 
+    "titlemodifier" -> "", "windowtitle" -> "HHAbsoluteOptionValue", "type" -> 
+    "Symbol", "uri" -> "HokahokaW/ref/HHAbsoluteOptionValue"}, 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->Notebook[{
@@ -493,100 +505,99 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[5068, 154, 387, 15, 33, "PrimaryExamplesSection",
+  Cell[5328, 165, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->475384175]}
+   CellID->106591888]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 15715, 494}
+ {"PrimaryExamplesSection", 15972, 506}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[592, 21, 2301, 52, 59, "AnchorBarGrid",
+Cell[592, 21, 2329, 53, 59, "AnchorBarGrid",
  CellID->1],
-Cell[2896, 75, 64, 1, 51, "ObjectName",
- CellID->1224892054],
+Cell[2924, 76, 298, 11, 54, "ObjectNameGrid"],
 Cell[CellGroupData[{
-Cell[2985, 80, 500, 15, 86, "Usage",
+Cell[3247, 91, 500, 15, 86, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3510, 99, 738, 24, 35, "NotesSection",
+Cell[3772, 110, 736, 24, 35, "NotesSection",
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->215807131],
-Cell[4251, 125, 31, 0, 70, "SectionHeaderSpacer"],
-Cell[4285, 127, 69, 1, 70, "Notes",
+ CellID->5486020],
+Cell[4511, 136, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[4545, 138, 69, 1, 70, "Notes",
  CellID->1067943069],
-Cell[4357, 130, 662, 18, 70, "Code",
+Cell[4617, 141, 662, 18, 70, "Code",
  CellID->39368832]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5068, 154, 387, 15, 33, "PrimaryExamplesSection",
+Cell[5328, 165, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->475384175],
+ CellID->106591888],
 Cell[CellGroupData[{
-Cell[5480, 173, 194, 6, 28, "ExampleSection",
- CellID->11253939],
-Cell[5677, 181, 96, 3, 29, "Input",
+Cell[5740, 184, 195, 6, 28, "ExampleSection",
+ CellID->228445134],
+Cell[5938, 192, 96, 3, 29, "Input",
  CellID->33535659],
-Cell[5776, 186, 937, 34, 178, "Text",
+Cell[6037, 197, 937, 34, 178, "Text",
  CellID->615563664],
 Cell[CellGroupData[{
-Cell[6738, 224, 271, 8, 29, "Input",
+Cell[6999, 235, 271, 8, 29, "Input",
  CellID->243122296],
-Cell[7012, 234, 288, 9, 38, "Output",
+Cell[7273, 245, 288, 9, 38, "Output",
  CellID->170926196]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7337, 248, 322, 8, 49, "Input",
+Cell[7598, 259, 322, 8, 49, "Input",
  CellID->39093178],
-Cell[7662, 258, 367, 10, 38, "Output",
+Cell[7923, 269, 367, 10, 38, "Output",
  CellID->252707219]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8066, 273, 145, 4, 29, "Input",
+Cell[8327, 284, 145, 4, 29, "Input",
  CellID->1016720011],
-Cell[8214, 279, 220, 7, 38, "Output",
+Cell[8475, 290, 220, 7, 38, "Output",
  CellID->132200920]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8471, 291, 163, 4, 29, "Input",
+Cell[8732, 302, 163, 4, 70, "Input",
  CellID->45964637],
-Cell[8637, 297, 463, 12, 58, "Output",
+Cell[8898, 308, 463, 12, 58, "Output",
  CellID->873505486]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9137, 314, 159, 4, 70, "Input",
+Cell[9398, 325, 159, 4, 70, "Input",
  CellID->502747949],
-Cell[9299, 320, 672, 12, 70, "Message",
+Cell[9560, 331, 672, 12, 70, "Message",
  CellID->233252767],
-Cell[9974, 334, 978, 17, 70, "Message",
+Cell[10235, 345, 978, 17, 70, "Message",
  CellID->598109953],
-Cell[10955, 353, 1042, 17, 70, "Message",
+Cell[11216, 364, 1042, 17, 70, "Message",
  CellID->80558045],
-Cell[12000, 372, 170, 5, 38, "Output",
+Cell[12261, 383, 170, 5, 38, "Output",
  CellID->509567409]
 }, Open  ]],
-Cell[12185, 380, 84, 2, 70, "Input",
+Cell[12446, 391, 84, 2, 70, "Input",
  CellID->355057238],
 Cell[CellGroupData[{
-Cell[12294, 386, 322, 11, 70, "Input",
+Cell[12555, 397, 322, 11, 70, "Input",
  CellID->635235521],
-Cell[12619, 399, 458, 15, 38, "Output",
+Cell[12880, 410, 458, 15, 38, "Output",
  CellID->111587999]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13114, 419, 237, 8, 70, "Input",
+Cell[13375, 430, 237, 8, 70, "Input",
  CellID->177828218],
-Cell[13354, 429, 426, 15, 38, "Output",
+Cell[13615, 440, 426, 15, 38, "Output",
  CellID->96631216]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[13819, 449, 23, 0, 70, "FooterCell"]
+Cell[14080, 460, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

@@ -1,0 +1,4 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>(*This tests the second signature with timestamps*)
+testDataXY = 
+  Table[ Table[{x*10, Sin[n x]}, {x, 0, 2 Pi, 2 Pi / 100}], {n, 1, 
+    5}];</pre><div class='IFU'><a name='485949075'></a>http://wolfram.com/xid/0cdvnol9jk7yaungi2n6mrhwjwvbf72-ibluzp</div>

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     12053,        402]
-NotebookOptionsPosition[      8224,        285]
-NotebookOutlinePosition[     10497,        344]
-CellTagsIndexPosition[     10352,        338]
+NotebookDataLength[     12290,        413]
+NotebookOptionsPosition[      8483,        296]
+NotebookOutlinePosition[     10751,        356]
+CellTagsIndexPosition[     10606,        350]
 WindowTitle->HHPackageGitHEAD
 WindowFrame->Normal*)
 
@@ -59,12 +59,13 @@ HHPackageGitHEAD.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$8079], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$9679], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageGitHEAD", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -73,8 +74,18 @@ HHPackageGitHEAD.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHPackageGitHEAD", "ObjectName",
- CellID->1224892054],
+Cell[TextData[{
+ Cell["HHPackageGitHEAD", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
 Cell[CellGroupData[{
 
@@ -118,7 +129,7 @@ Cell[TextData[Cell[BoxData[
   Method->"Preemptive"]]]], "NotesSection",
  WholeCellGroupOpener->True,
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->541309284],
+ CellID->12137246],
 
 Cell["", "SectionHeaderSpacer"],
 
@@ -147,7 +158,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->279147221],
+ CellID->93507150],
 
 Cell[CellGroupData[{
 
@@ -157,7 +168,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->1054928133],
+ CellID->133312220],
 
 Cell[CellGroupData[{
 
@@ -295,18 +306,19 @@ TaggingRules->{
         ButtonBox[
         "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
-  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 47, 28.6860417}", 
+   "built" -> "{2016, 7, 10, 23, 7, 47.9880770}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
     "status" -> "None", "summary" -> "HHPackageGitHEAD[packageName_String] ", 
-    "synonyms" -> {}, "title" -> "HHPackageGitHEAD", "titlemodifier" -> "", 
-    "windowtitle" -> "HHPackageGitHEAD", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHPackageGitHEAD"}, "SearchTextTranslated" -> ""},
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHPackageGitHEAD", 
+    "titlemodifier" -> "", "windowtitle" -> "HHPackageGitHEAD", "type" -> 
+    "Symbol", "uri" -> "HokahokaW/ref/HHPackageGitHEAD"}, 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->Notebook[{
@@ -326,84 +338,83 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "Info-af9476c6-379d-4540-9e64-1c4663a43c37"->{
-  Cell[4105, 124, 237, 4, 70, "Print",
+  Cell[4366, 135, 237, 4, 70, "Print",
    CellTags->"Info-af9476c6-379d-4540-9e64-1c4663a43c37",
    CellID->635870974]},
  "PrimaryExamplesSection"->{
-  Cell[4391, 134, 387, 15, 33, "PrimaryExamplesSection",
+  Cell[4652, 145, 386, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->279147221]}
+   CellID->93507150]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info-af9476c6-379d-4540-9e64-1c4663a43c37", 10059, 327},
- {"PrimaryExamplesSection", 10209, 331}
+ {"Info-af9476c6-379d-4540-9e64-1c4663a43c37", 10314, 339},
+ {"PrimaryExamplesSection", 10464, 343}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[587, 21, 2281, 52, 59, "AnchorBarGrid",
+Cell[587, 21, 2309, 53, 59, "AnchorBarGrid",
  CellID->1],
-Cell[2871, 75, 59, 1, 51, "ObjectName",
- CellID->1224892054],
+Cell[2899, 76, 293, 11, 54, "ObjectNameGrid"],
 Cell[CellGroupData[{
-Cell[2955, 80, 350, 12, 69, "Usage",
+Cell[3217, 91, 350, 12, 69, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3330, 96, 738, 24, 35, "NotesSection",
+Cell[3592, 107, 737, 24, 35, "NotesSection",
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->541309284],
-Cell[4071, 122, 31, 0, 70, "SectionHeaderSpacer"],
-Cell[4105, 124, 237, 4, 70, "Print",
+ CellID->12137246],
+Cell[4332, 133, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[4366, 135, 237, 4, 70, "Print",
  CellTags->"Info-af9476c6-379d-4540-9e64-1c4663a43c37",
  CellID->635870974]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4391, 134, 387, 15, 33, "PrimaryExamplesSection",
+Cell[4652, 145, 386, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->279147221],
+ CellID->93507150],
 Cell[CellGroupData[{
-Cell[4803, 153, 196, 6, 28, "ExampleSection",
- CellID->1054928133],
+Cell[5063, 164, 195, 6, 28, "ExampleSection",
+ CellID->133312220],
 Cell[CellGroupData[{
-Cell[5024, 163, 105, 3, 29, "Input",
+Cell[5283, 174, 105, 3, 29, "Input",
  CellID->641573816],
-Cell[5132, 168, 198, 3, 45, "Print",
+Cell[5391, 179, 198, 3, 45, "Print",
  CellID->129784627]
 }, Open  ]],
-Cell[5345, 174, 936, 34, 203, "Text",
+Cell[5604, 185, 936, 34, 203, "Text",
  CellID->659877046],
-Cell[6284, 210, 86, 1, 34, "Notes",
+Cell[6543, 221, 86, 1, 34, "Notes",
  CellID->658416936],
 Cell[CellGroupData[{
-Cell[6395, 215, 107, 3, 29, "Input",
+Cell[6654, 226, 107, 3, 29, "Input",
  CellID->250094976],
-Cell[6505, 220, 205, 5, 38, "Output",
+Cell[6764, 231, 205, 5, 38, "Output",
  CellID->41804506]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6747, 230, 129, 3, 29, "Input",
+Cell[7006, 241, 129, 3, 29, "Input",
  CellID->702191801],
-Cell[6879, 235, 206, 5, 38, "Output",
+Cell[7138, 246, 206, 5, 38, "Output",
  CellID->168118805]
 }, Open  ]],
-Cell[7100, 243, 156, 4, 51, "Notes",
+Cell[7359, 254, 156, 4, 70, "Notes",
  CellID->15860803],
 Cell[CellGroupData[{
-Cell[7281, 251, 139, 4, 70, "Input",
+Cell[7540, 262, 139, 4, 70, "Input",
  CellID->90773577],
-Cell[7423, 257, 385, 9, 70, "Message",
+Cell[7682, 268, 385, 9, 70, "Message",
  CellID->245304057],
-Cell[7811, 268, 159, 3, 70, "Print",
+Cell[8070, 279, 159, 3, 70, "Print",
  CellID->506342886],
-Cell[7973, 273, 185, 5, 38, "Output",
+Cell[8232, 284, 185, 5, 38, "Output",
  CellID->470296383]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[8197, 283, 23, 0, 70, "FooterCell"]
+Cell[8456, 294, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

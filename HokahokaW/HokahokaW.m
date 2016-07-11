@@ -13,6 +13,7 @@ BeginPackage["HokahokaW`",{"JLink`"}];
 General::invalidArgs="Function called with invalid arguments `1`.";
 General::invalidOptionValue="Option argument `1` -> `2` is invalid.";
 General::deprecated="Function is deprecated, use `1` instead.";
+General::deprecatedSignature="Function signature is deprecated, see help for updated signature which should be used.";
 General::nullArgument="At least one of the required arguments is null!";
 
 

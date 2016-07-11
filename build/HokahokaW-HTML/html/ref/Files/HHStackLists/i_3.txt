@@ -1,3 +1,3 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>(*This tests a square matrix*)
-listXValues = 
-  Table[Sin[(x*2 Pi + Pi/4)* n], {n, 1, 5}, {x, 0, 1.2, 0.01}];</pre><div class='IFU'><a name='299732250'></a>http://wolfram.com/xid/0g0gicmjie03uk8yqitfe36oudy-e8qk54</div>
+<pre name='i_3_in' id='i_3_in' class='IFT'>(*This tests the first signature*)
+testData = 
+  Table[ Table[Sin[n x], {x, 0, 2 Pi, 2 Pi / 100}], {n, 1, 5}];</pre><div class='IFU'><a name='500094463'></a>http://wolfram.com/xid/0g0gicmjie03uk8yqitfe36oudy-ij01m5</div>

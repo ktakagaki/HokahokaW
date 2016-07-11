@@ -103,7 +103,7 @@ p.formtext { margin:0 0 15px 0; font-size: 14px; }
 </head>
 <body style="background-image:none; background-color:#fff; padding: 20px 30px;">
 
-<img src="/2013/images/unfinished.png" alt="unfinished" class="unfinished-image">
+<img src="../images/unfinished.png" alt="unfinished" class="unfinished-image">
 <form action="" method="POST" id="the-form" class="unfinished-form">
     <p class="formtext"><strong>This page isn't quite ready yet.</strong><br>Sign up to be notified about progress:</p>
     <input type="text" class="text placeholder" id="sign-up-email" name="sign-up-email" value="$vars->{'sign-up-email'}">
@@ -154,8 +154,8 @@ p.formtext { margin:0 0 10px 0; }
 
 </head>
 <body style="background-image: none; background-color: #fff; padding: 20px 30px;">
-    <img src="/2013/images/unfinished.png" alt="unfinished" class="unfinished-image">
-    <p id="thanks"><img src="/2013/images/thanks.png" alt="Thanks!"><br><br>We'll keep you posted.</p>
+    <img src="../images/unfinished.png" alt="unfinished" class="unfinished-image">
+    <p id="thanks"><img src="../images/thanks.png" alt="Thanks!"><br><br>We'll keep you posted.</p>
 </body>
 </html>  
 EOF
@@ -183,7 +183,7 @@ sub validate() {
        || !valid($vars->{'sign-up-email'})) {
         $errors->{'errors'} = 1;
 
-        $errors->{'sign-up-email'} = "<span class=\"errors\" /><img src=\"/2013/images/warning.png\" alt=\"warning\">Please enter a valid email address.</span>"
+        $errors->{'sign-up-email'} = "<span class=\"errors\" /><img src=\"../images/warning.png\" alt=\"warning\">Please enter a valid email address.</span>"
     }
 
     return $errors;

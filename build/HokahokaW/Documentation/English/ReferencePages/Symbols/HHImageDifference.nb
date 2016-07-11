@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     11260,        333]
-NotebookOptionsPosition[      8532,        252]
-NotebookOutlinePosition[     10579,        306]
-CellTagsIndexPosition[     10494,        301]
+NotebookDataLength[     11505,        344]
+NotebookOptionsPosition[      8794,        263]
+NotebookOutlinePosition[     10838,        318]
+CellTagsIndexPosition[     10753,        313]
 WindowTitle->HHImageDifference
 WindowFrame->Normal*)
 
@@ -59,12 +59,13 @@ HHImageDifference.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6014], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6454], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHImageDifference", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -73,8 +74,18 @@ HHImageDifference.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHImageDifference", "ObjectName",
- CellID->1224892054],
+Cell[TextData[{
+ Cell["HHImageDifference", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -106,7 +117,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->364888492],
+ CellID->194030583],
 
 Cell[CellGroupData[{
 
@@ -116,7 +127,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->231821232],
+ CellID->278656946],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`Graphics`"}]], "Input",
@@ -262,18 +273,19 @@ TaggingRules->{
         ButtonBox[
         "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
-  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 47, 22.0926646}", 
+   "built" -> "{2016, 7, 10, 23, 7, 40.4716471}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
     "status" -> "None", "summary" -> "HHImageDifference[] HHImageDifference", 
-    "synonyms" -> {}, "title" -> "HHImageDifference", "titlemodifier" -> "", 
-    "windowtitle" -> "HHImageDifference", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHImageDifference"}, "SearchTextTranslated" -> ""},
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHImageDifference", 
+    "titlemodifier" -> "", "windowtitle" -> "HHImageDifference", "type" -> 
+    "Symbol", "uri" -> "HokahokaW/ref/HHImageDifference"}, 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->Notebook[{
@@ -293,48 +305,47 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[3319, 93, 387, 15, 33, "PrimaryExamplesSection",
+  Cell[3581, 104, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->364888492]}
+   CellID->194030583]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 10352, 294}
+ {"PrimaryExamplesSection", 10610, 306}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[588, 21, 2285, 52, 59, "AnchorBarGrid",
+Cell[588, 21, 2313, 53, 59, "AnchorBarGrid",
  CellID->1],
-Cell[2876, 75, 60, 1, 51, "ObjectName",
- CellID->1224892054],
-Cell[2939, 78, 355, 11, 88, "Usage",
+Cell[2904, 76, 294, 11, 54, "ObjectNameGrid"],
+Cell[3201, 89, 355, 11, 88, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3319, 93, 387, 15, 33, "PrimaryExamplesSection",
+Cell[3581, 104, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->364888492],
+ CellID->194030583],
 Cell[CellGroupData[{
-Cell[3731, 112, 195, 6, 28, "ExampleSection",
- CellID->231821232],
-Cell[3929, 120, 104, 3, 29, "Input",
+Cell[3993, 123, 195, 6, 28, "ExampleSection",
+ CellID->278656946],
+Cell[4191, 131, 104, 3, 29, "Input",
  CellID->1850285],
 Cell[CellGroupData[{
-Cell[4058, 127, 1209, 32, 125, "Input",
+Cell[4320, 138, 1209, 32, 125, "Input",
  CellID->697796],
-Cell[5270, 161, 1839, 43, 95, "Output",
+Cell[5532, 172, 1839, 43, 95, "Output",
  CellID->97076300]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7146, 209, 358, 11, 49, "Input",
+Cell[7408, 220, 358, 11, 49, "Input",
  CellID->1460132],
-Cell[7507, 222, 959, 23, 93, "Output",
+Cell[7769, 233, 959, 23, 93, "Output",
  CellID->60692833]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[8505, 250, 23, 0, 44, "FooterCell"]
+Cell[8767, 261, 23, 0, 44, "FooterCell"]
 }
 ]
 *)

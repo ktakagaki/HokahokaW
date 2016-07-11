@@ -1,1 +1,1 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>ListLinePlot[HHStackLists[listXYValues, HHStackIncrement -&gt; 4]]</pre><div class='IFU'><a name='31426966'></a>http://wolfram.com/xid/0g0gicmjie03uk8yqitfe36oudy-szvhk</div>
+<pre name='i_17_in' id='i_17_in' class='IFT'>ListLinePlot[ HHStackLists[testDataXY, -1.5], ImageSize -&gt;  Medium ]</pre><div class='IFU'><a name='58367800'></a>http://wolfram.com/xid/0g0gicmjie03uk8yqitfe36oudy-81a52</div>

@@ -10,12 +10,13 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`"}];
 
 
 (* ::Subsection:: *)
-(*HHStackLists / HHListLinePlotStack*)
+(*HHStackLists / HHListLineStackPlot (HHListLinePlotStack)*)
 
 
-HHStackLists::usage="Augments a series of traces so that when plotted, they will be stacked vertically.";
+HHStackLists::usage = 
+"HHStackLists takes lists and stacks the values (e.g. for stacked list plots with HHListLineStackPlot[])";
 
-Options[HHStackLists] = {HHOptBaselineCorrection -> Mean, HHOptStack -> Automatic};
+Options[HHStackLists] = {HHOptBaselineCorrection -> None, HHOptStack -> Automatic};
 
 
 HHOptBaselineCorrection::usage =
@@ -35,8 +36,23 @@ None: no increment";
 HHPlotRangeClipping::usage="";
 
 
+HHListLineStackPlot::usage=
+"HHListLineStaciPlot plots multiple traces together, stacked vertically.";
+
 HHListLinePlotStack::usage=
-"HHListLinePlotStack plots multiple traces together, stacked vertically.";
+"DEPRECATED HHListLinePlotStack plots multiple traces together, stacked vertically.";
+
+
+HHListLineStackPlot$UniqueOptions = {};
+HHListLineStackPlot$OverrideOptions = { PlotRange -> Automatic };
+ 
+Options[HHListLineStackPlot] =
+HHJoinOptionLists[
+	HHListLineStackPlot$UniqueOptions, 
+	HHListLineStackPlot$OverrideOptions,
+	Options[HHStackLists],
+	Options[ListLinePlot]
+];
 
 
 HHListLinePlotStack$UniqueOptions = {
@@ -116,12 +132,68 @@ HHImageThresholdLinear::usage="Thresholds an image by linear closeness to the gi
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
-(*HHStackLists / HHListLinePlotStack*)
+(* ::Subsection::Closed:: *)
+(*HHStackLists*)
 
 
-(*Used to pass variables to HHListLinePlotStack in an extra-functional manner*)
-$ActualStackRange={0,0};
+HHStackLists[
+	traces_ /; Length[Dimensions[traces]]==2, 
+	increment_/;NumericQ[increment], 
+	opts:OptionsPattern[]
+] :=
+Block[{tempTraces, temp, 
+		opHHOptBaselineCorrection, baselineSubtractFactors, 
+		opHHOptStack, stackAddFactors, stackFactorsCumulated},
+	
+	tempTraces = traces;
+
+	opHHOptBaselineCorrection = OptionValue[HHOptBaselineCorrection];
+
+	(*====================*)
+	(* Baseline subtraction *)
+	(*====================*)
+	baselineSubtractFactors = Switch[opHHOptBaselineCorrection,
+		None, None,
+		(*This covers specifications such as (#[[1]])& *)
+		f_/;HHFunctionQ[f],
+		    opHHOptBaselineCorrection/@traces, 
+		(*This covers specifications such as Mean and First, which are function names *)
+		f_/;(Quiet[temp=f[#]&/@traces]; And@@(NumericQ /@ temp) ), 
+			temp, 
+		_, Message[ HHStackLists::invalidOptionValue, "HHOptBaselineCorrection", ToString[opHHOptBaselineCorrection]]; 
+			None
+	];
+	If[ baselineSubtractFactors =!= None,
+		tempTraces = tempTraces - baselineSubtractFactors
+	];
+
+	(*====================*)
+	(* Stack incrementation *)
+	(*====================*)
+	stackFactorsCumulated = FoldList[Plus, 0, Table[ increment, {Length[traces]}] ];
+	tempTraces + stackFactorsCumulated[[ ;; -2]]
+
+  ];
+
+
+(*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
+HHStackLists[
+	traces_ /; (Length[Dimensions[traces]] == 3 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), 
+	increment_/;NumericQ[increment], 
+	opts:OptionsPattern[]] :=
+Block[{tempTimes, tempTraces},
+
+	tempTimes = traces[[All, All, 1]];
+	tempTraces = traces[[All, All, 2]];
+
+	tempTraces =  HHStackLists[tempTraces, increment, opts];
+
+	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
+];
+
+
+(* ::Subsubsection::Closed:: *)
+(*Old Signatures*)
 
 
 HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
@@ -129,6 +201,8 @@ Block[{tempTraces, temp,
 		opHHOptBaselineCorrection, baselineSubtractFactors, 
 		opHHOptStack, stackAddFactors, stackFactorsCumulated},
 	
+	Message[ HHStackLists::deprecatedSignature ];
+
 	tempTraces = traces;
 
 	opHHOptBaselineCorrection = OptionValue[HHOptBaselineCorrection];
@@ -153,8 +227,8 @@ Block[{tempTraces, temp,
 	(*====================*)
 	opHHOptStack = OptionValue[HHOptStack];
 	stackAddFactors = Switch[ opHHOptStack,
-		None,                     None,
-		Automatic,                Table[ Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1.1, {Length[traces]}], (*- Subtract@@MinMax[ Flatten[traces] ]*)
+		None,                    None,
+		Automatic,               Table[ Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1.1, {Length[traces]}], (*- Subtract@@MinMax[ Flatten[traces] ]*)
 		x_/;NumericQ[x],         Table[ opHHOptStack, {Length[traces]}],
 		f_/;HHFunctionQ[f],      Table[ opHHOptStack[ Flatten[traces] ], {Length[traces]}], 
 										(*This covers specifications such as Mean[#]& or (#[[1]])& *)
@@ -177,6 +251,8 @@ HHStackLists[
 
 Block[{tempTimes, tempTraces},
 
+	Message[ HHStackLists::deprecatedSignature ];
+
 	tempTimes = traces[[All, All, 1]];
 	tempTraces = traces[[All, All, 2]];
 
@@ -186,7 +262,118 @@ Block[{tempTimes, tempTraces},
 ];
 
 
+(* ::Subsubsection:: *)
+(*Fallthrough*)
+
+
 HHStackLists[args___] := Message[HHStackLists::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHListLineStackPlot*)
+
+
+(*Used to pass variables to HHListLinePlotStack in an extra-functional manner*)
+$ActualStackRange={0,0};
+
+
+HHListLineStackPlot[
+	traces_/;(Length[Dimensions[traces]] == 2 || 
+		(Length[Dimensions[traces]] == 3 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
+	increment_/;NumericQ[increment], 
+	opts:OptionsPattern[]
+]:=
+Block[{tempData, tempPlotRangeOpts},
+	
+	tempData = HHStackLists[traces, increment, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
+	tempPlotRangeOpts = 
+		If[ OptionValue[PlotRange] === Automatic, 
+			{PlotRange -> {All, {- increment/2, (Length[traces]-1/2)*increment}},
+			AxesOrigin -> If[OptionValue[AxesOrigin] === Automatic, {Automatic, - increment/2}, OptionValue[AxesOrigin]]},
+			{PlotRange -> OptionValue[PlotRange]}
+		];
+
+	ListLinePlot[tempData,
+		Sequence@@HHJoinOptionLists[ ListLinePlot, tempPlotRangeOpts, {opts}, HHListLineStackPlot$UniqueOptions ]
+	]
+];
+
+
+(* ::Subsubsection:: *)
+(*Fallthrough*)
+
+
+HHListLineStackPlot[args___] := Message[HHListLineStackPlot::invalidArgs, {args}];
+
+
+(* ::Subsubsection::Closed:: *)
+(*HHListLinePlotStack (Old Signature)*)
+
+
+HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
+Block[{tempTraces, temp, 
+		opHHOptBaselineCorrection, baselineSubtractFactors, 
+		opHHOptStack, stackAddFactors, stackFactorsCumulated},
+	
+	Message[ HHStackLists::deprecatedSignature ];
+
+	tempTraces = traces;
+
+	opHHOptBaselineCorrection = OptionValue[HHOptBaselineCorrection];
+
+	(*====================*)
+	(* Baseline subtraction *)
+	(*====================*)
+	baselineSubtractFactors = Switch[opHHOptBaselineCorrection,
+		None, None,
+		f_/;HHFunctionQ[f],    opHHOptBaselineCorrection/@traces, (*This covers specifications such as Mean and First or (#[[1]])& *)
+		f_/;(Quiet[temp=f[#]&/@traces]; And@@(NumericQ /@ temp) ), 
+					temp, (*This covers specifications such as Mean and First or (#[[1]])& *)
+		_, Message[ HHStackLists::invalidOptionValue, "HHOptBaselineCorrection", ToString[opHHOptBaselineCorrection]]; 
+		   None
+	];
+	If[ baselineSubtractFactors =!= None,
+		tempTraces = tempTraces - baselineSubtractFactors
+	];
+	
+	(*====================*)
+	(* Stack incrementation *)
+	(*====================*)
+	opHHOptStack = OptionValue[HHOptStack];
+	stackAddFactors = Switch[ opHHOptStack,
+		None,                    None,
+		Automatic,               Table[ Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1.1, {Length[traces]}], (*- Subtract@@MinMax[ Flatten[traces] ]*)
+		x_/;NumericQ[x],         Table[ opHHOptStack, {Length[traces]}],
+		f_/;HHFunctionQ[f],      Table[ opHHOptStack[ Flatten[traces] ], {Length[traces]}], 
+										(*This covers specifications such as Mean[#]& or (#[[1]])& *)
+		f_/;(Quiet[temp=f[ Flatten[traces]]]; And@@(NumericQ /@ temp) ), 
+								  temp, (*This covers specifications such as Mean and First *)
+		_, Message[ HHStackLists::invalidOptionValue, "HHOptStack", ToString[opHHOptStack]]; Table[0, {Length[traces]}]
+	];
+	stackFactorsCumulated = FoldList[Plus, 0, stackAddFactors];
+	$ActualStackRange = {- stackAddFactors[[1]], stackFactorsCumulated[[ -1 ]]};
+	tempTraces + stackFactorsCumulated[[ ;; -2]](*FoldList[Plus, 0, stackAddFactors[[ ;; -2]] ]*)
+						(*last stack add factor is not used here... nothing to stack on top*)
+
+   ];
+
+
+(*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
+HHStackLists[
+	traces_ /; (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), 
+	opts:OptionsPattern[]] :=
+
+Block[{tempTimes, tempTraces},
+
+	Message[ HHStackLists::deprecatedSignature ];
+
+	tempTimes = traces[[All, All, 1]];
+	tempTraces = traces[[All, All, 2]];
+
+	tempTraces =  HHStackLists[tempTraces, opts];
+
+	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
+];
 
 
 HHListLinePlotStack[
@@ -194,6 +381,9 @@ HHListLinePlotStack[
 	opts:OptionsPattern[]
 ]:=
 Block[{tempData,tempPlotRange},
+
+	Message[ HHStackLists::deprecatedSignature ];
+
 	
 	tempData = HHStackLists[traces, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
 	tempPlotRange = If[ OptionValue[HHPlotRangeClipping] === Automatic, {PlotRange->{All, $ActualStackRange}},{}];

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      5401,        148]
-NotebookOptionsPosition[      3410,         95]
-NotebookOutlinePosition[      5322,        144]
-CellTagsIndexPosition[      5279,        141]
+NotebookDataLength[      5642,        158]
+NotebookOptionsPosition[      3672,        106]
+NotebookOutlinePosition[      5577,        155]
+CellTagsIndexPosition[      5534,        152]
 WindowTitle->HHPackageGitCurrentBranch
 WindowFrame->Normal*)
 
@@ -61,12 +61,13 @@ HHPackageGitCurrentBranch.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$7728], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$9212], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageGitCurrentBranch", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -75,8 +76,18 @@ HHPackageGitCurrentBranch.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHPackageGitCurrentBranch", "ObjectName",
- CellID->1224892054],
+Cell[TextData[{
+ Cell["HHPackageGitCurrentBranch", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -105,20 +116,20 @@ TaggingRules->{
         ButtonBox[
         "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
-  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 47, 27.5799785}", 
+   "built" -> "{2016, 7, 10, 23, 7, 47.0090210}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
     "status" -> "None", "summary" -> 
     "HHPackageGitCurrentBranch[] HHPackageGitCurrentBranch", "synonyms" -> {},
-     "title" -> "HHPackageGitCurrentBranch", "titlemodifier" -> "", 
-    "windowtitle" -> "HHPackageGitCurrentBranch", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHPackageGitCurrentBranch"}, "SearchTextTranslated" -> 
-  ""},
+     "tabletags" -> {}, "title" -> "HHPackageGitCurrentBranch", 
+    "titlemodifier" -> "", "windowtitle" -> "HHPackageGitCurrentBranch", 
+    "type" -> "Symbol", "uri" -> "HokahokaW/ref/HHPackageGitCurrentBranch"}, 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->Notebook[{
@@ -143,13 +154,12 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[596, 21, 2339, 54, 70, "AnchorBarGrid",
+Cell[596, 21, 2367, 55, 70, "AnchorBarGrid",
  CellID->1],
-Cell[2938, 77, 68, 1, 70, "ObjectName",
- CellID->1224892054],
-Cell[3009, 80, 371, 11, 70, "Usage",
+Cell[2966, 78, 302, 11, 70, "ObjectNameGrid"],
+Cell[3271, 91, 371, 11, 70, "Usage",
  CellID->982511436],
-Cell[3383, 93, 23, 0, 70, "FooterCell"]
+Cell[3645, 104, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

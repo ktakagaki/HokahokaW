@@ -618,20 +618,20 @@
          
          for(var i in myjson.urls) {
                 $("[href='"+myjson.urls[i]+"']").addClass("thickbox").each(function() {
-                     this.href="/2013/includes/sign-up.cgi?url="+this.href+"&keepThis=true&amp;TB_iframe=true&amp;width=572&amp;height=174";
+                     this.href="../includes/sign-up.cgi?url="+this.href+"&keepThis=true&amp;TB_iframe=true&amp;width=572&amp;height=174";
               }
             );
          
          }
          
        /*   $.ajax({
-            url: "/2013/javascript/urls.json",
+            url: "../javascript/urls.json",
             dataType: "json",
             success: function(data) {
             alert(data.urls);
             for(var i in data.urls) {
                 $("[href='"+data.urls[i]+"']").addClass("thickbox").each(function() {
-                     this.href="/2013/includes/sign-up.cgi?url="+this.href+"&keepThis=true&amp;TB_iframe=true&amp;width=572&amp;height=174";
+                     this.href="../includes/sign-up.cgi?url="+this.href+"&keepThis=true&amp;TB_iframe=true&amp;width=572&amp;height=174";
               }
             );
          
