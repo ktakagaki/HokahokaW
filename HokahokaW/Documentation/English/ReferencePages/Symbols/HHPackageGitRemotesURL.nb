@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     10145,        339]
-NotebookOptionsPosition[      6911,        239]
-NotebookOutlinePosition[      8992,        294]
-CellTagsIndexPosition[      8908,        289]
+NotebookDataLength[     10388,        349]
+NotebookOptionsPosition[      7174,        250]
+NotebookOutlinePosition[      9249,        305]
+CellTagsIndexPosition[      9165,        300]
 WindowTitle->HHPackageGitRemotesURL
 WindowFrame->Normal*)
 
@@ -59,12 +59,13 @@ HHPackageGitRemotesURL.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$9098], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$11046], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageGitRemotesURL", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -73,8 +74,18 @@ HHPackageGitRemotesURL.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHPackageGitRemotesURL", "ObjectName",
- CellID->1224892054],
+Cell[TextData[{
+ Cell["HHPackageGitRemotesURL", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -106,7 +117,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->179860538],
+ CellID->440289227],
 
 Cell[CellGroupData[{
 
@@ -116,7 +127,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->267465282],
+ CellID->363487765],
 
 Cell[CellGroupData[{
 
@@ -249,18 +260,18 @@ TaggingRules->{
         ButtonBox[
         "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
-  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 47, 31.9002256}", 
+   "built" -> "{2016, 7, 10, 23, 7, 51.0092498}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
     "status" -> "None", "summary" -> 
     "HHPackageGitRemotesURL[] HHPackageGitRemotesURL", "synonyms" -> {}, 
-    "title" -> "HHPackageGitRemotesURL", "titlemodifier" -> "", "windowtitle" -> 
-    "HHPackageGitRemotesURL", "type" -> "Symbol", "uri" -> 
+    "tabletags" -> {}, "title" -> "HHPackageGitRemotesURL", "titlemodifier" -> 
+    "", "windowtitle" -> "HHPackageGitRemotesURL", "type" -> "Symbol", "uri" -> 
     "HokahokaW/ref/HHPackageGitRemotesURL"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
@@ -281,66 +292,65 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[3359, 93, 387, 15, 33, "PrimaryExamplesSection",
+  Cell[3622, 104, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->179860538]}
+   CellID->440289227]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 8766, 282}
+ {"PrimaryExamplesSection", 9022, 293}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[593, 21, 2305, 52, 59, "AnchorBarGrid",
+Cell[593, 21, 2334, 53, 59, "AnchorBarGrid",
  CellID->1],
-Cell[2901, 75, 65, 1, 51, "ObjectName",
- CellID->1224892054],
-Cell[2969, 78, 365, 11, 88, "Usage",
+Cell[2930, 76, 299, 11, 54, "ObjectNameGrid"],
+Cell[3232, 89, 365, 11, 88, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3359, 93, 387, 15, 33, "PrimaryExamplesSection",
+Cell[3622, 104, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->179860538],
+ CellID->440289227],
 Cell[CellGroupData[{
-Cell[3771, 112, 195, 6, 28, "ExampleSection",
- CellID->267465282],
+Cell[4034, 123, 195, 6, 28, "ExampleSection",
+ CellID->363487765],
 Cell[CellGroupData[{
-Cell[3991, 122, 105, 3, 29, "Input",
+Cell[4254, 133, 105, 3, 29, "Input",
  CellID->641573816],
-Cell[4099, 127, 198, 3, 45, "Print",
+Cell[4362, 138, 198, 3, 45, "Print",
  CellID->129784627]
 }, Open  ]],
-Cell[4312, 133, 936, 34, 203, "Text",
+Cell[4575, 144, 936, 34, 203, "Text",
  CellID->659877046],
-Cell[5251, 169, 106, 3, 34, "Notes",
+Cell[5514, 180, 106, 3, 34, "Notes",
  CellID->658416936],
 Cell[CellGroupData[{
-Cell[5382, 176, 113, 3, 29, "Input",
+Cell[5645, 187, 113, 3, 29, "Input",
  CellID->250094976],
-Cell[5498, 181, 241, 7, 38, "Output",
+Cell[5761, 192, 241, 7, 38, "Output",
  CellID->9992897]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5776, 193, 135, 3, 29, "Input",
+Cell[6039, 204, 135, 3, 29, "Input",
  CellID->702191801],
-Cell[5914, 198, 243, 7, 38, "Output",
+Cell[6177, 209, 243, 7, 38, "Output",
  CellID->441278134]
 }, Open  ]],
-Cell[6172, 208, 156, 4, 51, "Notes",
+Cell[6435, 219, 156, 4, 51, "Notes",
  CellID->15860803],
 Cell[CellGroupData[{
-Cell[6353, 216, 142, 4, 70, "Input",
+Cell[6616, 227, 142, 4, 70, "Input",
  CellID->90773577],
-Cell[6498, 222, 159, 3, 70, "Print",
+Cell[6761, 233, 159, 3, 70, "Print",
  CellID->160199228],
-Cell[6660, 227, 185, 5, 38, "Output",
+Cell[6923, 238, 185, 5, 38, "Output",
  CellID->418008245]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[6884, 237, 23, 0, 70, "FooterCell"]
+Cell[7147, 248, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

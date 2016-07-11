@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      8304,        259]
-NotebookOptionsPosition[      5353,        173]
-NotebookOutlinePosition[      7562,        230]
-CellTagsIndexPosition[      7478,        225]
+NotebookDataLength[      8544,        269]
+NotebookOptionsPosition[      5614,        184]
+NotebookOutlinePosition[      7817,        241]
+CellTagsIndexPosition[      7733,        236]
 WindowTitle->HHPackageNewestFileDate
 WindowFrame->Normal*)
 
@@ -60,12 +60,13 @@ HHPackageNewestFileDate.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$10126], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$12422], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageNewestFileDate", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -74,8 +75,18 @@ HHPackageNewestFileDate.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHPackageNewestFileDate", "ObjectName",
- CellID->1224892054],
+Cell[TextData[{
+ Cell["HHPackageNewestFileDate", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -109,7 +120,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->159703439],
+ CellID->131576668],
 
 Cell[CellGroupData[{
 
@@ -119,7 +130,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->911622550],
+ CellID->45090618],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
@@ -183,10 +194,10 @@ TaggingRules->{
         ButtonBox[
         "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
-  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 47, 35.1784131}", 
+   "built" -> "{2016, 7, 10, 23, 7, 53.9794197}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -194,7 +205,7 @@ TaggingRules->{
     "status" -> "None", "summary" -> 
     "HHPackageNewestFileDate[packageName_String] HHPackageNewestFileDate \
 prints the newest file change date for either the given package or the \
-current NotebookDirectory[].", "synonyms" -> {}, "title" -> 
+current NotebookDirectory[].", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
     "HHPackageNewestFileDate", "titlemodifier" -> "", "windowtitle" -> 
     "HHPackageNewestFileDate", "type" -> "Symbol", "uri" -> 
     "HokahokaW/ref/HHPackageNewestFileDate"}, "SearchTextTranslated" -> ""},
@@ -217,50 +228,49 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[3511, 96, 387, 15, 33, "PrimaryExamplesSection",
+  Cell[3773, 107, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->159703439]}
+   CellID->131576668]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 7336, 218}
+ {"PrimaryExamplesSection", 7590, 229}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[594, 21, 2323, 53, 59, "AnchorBarGrid",
+Cell[594, 21, 2351, 54, 59, "AnchorBarGrid",
  CellID->1],
-Cell[2920, 76, 66, 1, 51, "ObjectName",
- CellID->1224892054],
-Cell[2989, 79, 497, 13, 105, "Usage",
+Cell[2948, 77, 300, 11, 54, "ObjectNameGrid"],
+Cell[3251, 90, 497, 13, 105, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3511, 96, 387, 15, 33, "PrimaryExamplesSection",
+Cell[3773, 107, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->159703439],
+ CellID->131576668],
 Cell[CellGroupData[{
-Cell[3923, 115, 195, 6, 28, "ExampleSection",
- CellID->911622550],
-Cell[4121, 123, 118, 3, 29, "Input",
+Cell[4185, 126, 194, 6, 28, "ExampleSection",
+ CellID->45090618],
+Cell[4382, 134, 118, 3, 29, "Input",
  CellID->256563557],
 Cell[CellGroupData[{
-Cell[4264, 130, 135, 3, 29, "Input",
+Cell[4525, 141, 135, 3, 29, "Input",
  CellID->55651148],
-Cell[4402, 135, 189, 5, 38, "Output",
+Cell[4663, 146, 189, 5, 38, "Output",
  CellID->209700511]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4628, 145, 160, 4, 29, "Input",
+Cell[4889, 156, 160, 4, 29, "Input",
  CellID->443917790],
-Cell[4791, 151, 330, 8, 43, "Message",
+Cell[5052, 162, 330, 8, 43, "Message",
  CellID->629780426],
-Cell[5124, 161, 163, 5, 38, "Output",
+Cell[5385, 172, 163, 5, 38, "Output",
  CellID->62641909]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[5326, 171, 23, 0, 44, "FooterCell"]
+Cell[5587, 182, 23, 0, 44, "FooterCell"]
 }
 ]
 *)

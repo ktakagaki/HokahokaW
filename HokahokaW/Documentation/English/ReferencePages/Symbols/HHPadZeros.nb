@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     10258,        348]
-NotebookOptionsPosition[      6920,        243]
-NotebookOutlinePosition[      9010,        299]
-CellTagsIndexPosition[      8926,        294]
+NotebookDataLength[     10500,        358]
+NotebookOptionsPosition[      7182,        254]
+NotebookOutlinePosition[      9266,        310]
+CellTagsIndexPosition[      9182,        305]
 WindowTitle->HHPadZeros
 WindowFrame->Normal*)
 
@@ -59,12 +59,13 @@ HHPadZeros.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$10459], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$12871], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPadZeros", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -73,8 +74,18 @@ HHPadZeros.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHPadZeros", "ObjectName",
- CellID->1224892054],
+Cell[TextData[{
+ Cell["HHPadZeros", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -109,7 +120,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->369150693],
+ CellID->173616644],
 
 Cell[CellGroupData[{
 
@@ -119,7 +130,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->766329851],
+ CellID->289874408],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
@@ -253,19 +264,19 @@ TaggingRules->{
         ButtonBox[
         "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, 
-  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 4, 20, 9, 47, 36.2084720}", 
+   "built" -> "{2016, 7, 10, 23, 7, 54.9814770}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
     "status" -> "None", "summary" -> 
     "HHPadZeros[n_, m_] HHPadZeros gives the numeral n string padded to m \
-digits with zeros. Default for m=3.", "synonyms" -> {}, "title" -> 
-    "HHPadZeros", "titlemodifier" -> "", "windowtitle" -> "HHPadZeros", 
-    "type" -> "Symbol", "uri" -> "HokahokaW/ref/HHPadZeros"}, 
+digits with zeros. Default for m=3.", "synonyms" -> {}, "tabletags" -> {}, 
+    "title" -> "HHPadZeros", "titlemodifier" -> "", "windowtitle" -> 
+    "HHPadZeros", "type" -> "Symbol", "uri" -> "HokahokaW/ref/HHPadZeros"}, 
   "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
@@ -286,70 +297,69 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[3390, 96, 387, 15, 33, "PrimaryExamplesSection",
+  Cell[3652, 107, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->369150693]}
+   CellID->173616644]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 8784, 287}
+ {"PrimaryExamplesSection", 9039, 298}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[581, 21, 2258, 52, 59, "AnchorBarGrid",
+Cell[581, 21, 2286, 53, 59, "AnchorBarGrid",
  CellID->1],
-Cell[2842, 75, 53, 1, 51, "ObjectName",
- CellID->1224892054],
-Cell[2898, 78, 467, 14, 88, "Usage",
+Cell[2870, 76, 287, 11, 54, "ObjectNameGrid"],
+Cell[3160, 89, 467, 14, 88, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3390, 96, 387, 15, 33, "PrimaryExamplesSection",
+Cell[3652, 107, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->369150693],
+ CellID->173616644],
 Cell[CellGroupData[{
-Cell[3802, 115, 195, 6, 28, "ExampleSection",
- CellID->766329851],
-Cell[4000, 123, 118, 3, 29, "Input",
+Cell[4064, 126, 195, 6, 28, "ExampleSection",
+ CellID->289874408],
+Cell[4262, 134, 118, 3, 29, "Input",
  CellID->406315985],
-Cell[4121, 128, 600, 21, 140, "Text",
+Cell[4383, 139, 600, 21, 140, "Text",
  CellID->44657946],
 Cell[CellGroupData[{
-Cell[4746, 153, 107, 3, 29, "Input",
+Cell[5008, 164, 107, 3, 29, "Input",
  CellID->167297602],
-Cell[4856, 158, 167, 5, 38, "Output",
+Cell[5118, 169, 167, 5, 38, "Output",
  CellID->38683727]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5060, 168, 107, 3, 29, "Input",
+Cell[5322, 179, 107, 3, 29, "Input",
  CellID->43225250],
-Cell[5170, 173, 169, 5, 38, "Output",
+Cell[5432, 184, 169, 5, 38, "Output",
  CellID->1021876829]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5376, 183, 108, 3, 29, "Input",
+Cell[5638, 194, 108, 3, 29, "Input",
  CellID->62060929],
-Cell[5487, 188, 162, 5, 38, "Output",
+Cell[5749, 199, 162, 5, 38, "Output",
  CellID->1031545743]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5686, 198, 110, 3, 29, "Input",
+Cell[5948, 209, 110, 3, 29, "Input",
  CellID->611079026],
-Cell[5799, 203, 532, 10, 23, "Message",
+Cell[6061, 214, 532, 10, 23, "Message",
  CellID->13421978],
-Cell[6334, 215, 173, 5, 38, "Output",
+Cell[6596, 226, 173, 5, 38, "Output",
  CellID->184169483]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6544, 225, 137, 4, 29, "Input",
+Cell[6806, 236, 137, 4, 29, "Input",
  CellID->779666789],
-Cell[6684, 231, 170, 5, 38, "Output",
+Cell[6946, 242, 170, 5, 38, "Output",
  CellID->3505832]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[6893, 241, 23, 0, 70, "FooterCell"]
+Cell[7155, 252, 23, 0, 70, "FooterCell"]
 }
 ]
 *)
