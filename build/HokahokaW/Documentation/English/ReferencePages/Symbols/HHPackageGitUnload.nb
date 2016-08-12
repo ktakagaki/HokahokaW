@@ -10,29 +10,32 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      5520,        155]
-NotebookOptionsPosition[      3595,        104]
-NotebookOutlinePosition[      5455,        152]
-CellTagsIndexPosition[      5412,        149]
-WindowTitle->HHPackageGitUnload
+NotebookDataLength[      4763,        137]
+NotebookOptionsPosition[      3234,         93]
+NotebookOutlinePosition[      4600,        131]
+CellTagsIndexPosition[      4557,        128]
+WindowTitle->HHPackageGitUnload - Wolfram Mathematica
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Mathematica",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:HokahokaW/guide/HokahokaW"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
 Cell[BoxData[GridBox[{
-   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+   {Cell["HOKAHOKAW PACLET SYMBOL", "PacletNameCell"], Cell[TextData[Cell[
+    BoxData[
      ActionMenuBox[
-      FrameBox[
-       InterpretationBox[Cell[TextData[{
-         "URL",
-         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
-          StripOnInput->False]
-        }]],
-        TextCell[
-         Row[{"URL", 
-           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+      FrameBox["\<\"URL \[RightGuillemet]\"\>",
        StripOnInput->False], {"\<\"HokahokaW/ref/HHPackageGitUnload\"\>":>
-      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      None, "\<\"Copy Mathematica url\"\>":>
       Module[{DocumentationSearch`Private`nb$}, 
        DocumentationSearch`Private`nb$ = NotebookPut[
           Notebook[{
@@ -40,7 +43,7 @@ Cell[BoxData[GridBox[{
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
-      Delimiter, "\<\"Copy web URL\"\>":>
+      Delimiter, "\<\"Copy web url\"\>":>
       Module[{DocumentationSearch`Private`nb$}, 
        DocumentationSearch`Private`nb$ = NotebookPut[
           Notebook[{
@@ -48,24 +51,20 @@ Cell[BoxData[GridBox[{
              BoxData[
               MakeBoxes[
                Hyperlink[
-               "http://reference.wolfram.com/language/HokahokaW/ref/\
+               "http://reference.wolfram.com/mathematica/HokahokaW/ref/\
 HHPackageGitUnload.html"], StandardForm]], "Input", TextClipboardType -> 
              "PlainText"]}, Visible -> False]]; 
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
        NotebookClose[DocumentationSearch`Private`nb$]; 
-       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+       Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
         NotebookLocate[{
           URL[
            StringJoin[
-            If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$11496], 
-             "http://reference.wolfram.com/system-modeler/", 
-             "http://reference.wolfram.com/language/"], 
+           "http://reference.wolfram.com/mathematica/", 
             "HokahokaW/ref/HHPackageGitUnload", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic,
-      MenuStyle->"URLMenu"]],
+      MenuAppearance->Automatic]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -74,18 +73,8 @@ HHPackageGitUnload.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell[TextData[{
- Cell["HHPackageGitUnload", "ObjectName"],
- Cell[BoxData[
-  InterpretationBox[
-   StyleBox[
-    GraphicsBox[{},
-     BaselinePosition->Baseline,
-     ImageSize->{8, 0}],
-    CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+Cell["HHPackageGitUnload", "ObjectName",
+ CellID->1224892054],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -106,27 +95,17 @@ Saveable->False,
 ScreenStyleEnvironment->"Working",
 WindowSize->{725, 750},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-WindowTitle->"HHPackageGitUnload",
+WindowTitle->"HHPackageGitUnload - Wolfram Mathematica",
 TaggingRules->{
- "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
-  GridBox[{{
-      RowBox[{
-        ButtonBox[
-        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
-         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
-  None, "RootCaptions" -> "", 
+ "ModificationHighlight" -> False, 
   "Metadata" -> {
-   "built" -> "{2016, 7, 10, 23, 7, 51.9653045}", 
-    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
-    "keywords" -> {}, "specialkeywords" -> {}, 
-    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
-    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
-    "status" -> "None", "summary" -> 
-    "HHPackageGitUnload[] HHPackageGitUnload", "synonyms" -> {}, 
-    "tabletags" -> {}, "title" -> "HHPackageGitUnload", "titlemodifier" -> "",
-     "windowtitle" -> "HHPackageGitUnload", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHPackageGitUnload"}, "SearchTextTranslated" -> ""},
+   "built" -> "{2016, 8, 3, 12, 12, 58.6240078}", "context" -> "HokahokaW`", 
+    "keywords" -> {}, "index" -> True, "label" -> "HokahokaW Paclet Symbol", 
+    "language" -> "en", "paclet" -> "HokahokaW", "status" -> "None", 
+    "summary" -> "HHPackageGitUnload[] HHPackageGitUnload", "synonyms" -> {}, 
+    "title" -> "HHPackageGitUnload", "type" -> "Symbol", "uri" -> 
+    "HokahokaW/ref/HHPackageGitUnload"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->Notebook[{
@@ -151,14 +130,18 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[589, 21, 2318, 53, 70, "AnchorBarGrid",
+Cell[611, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[690, 24, 184, 5, 70, "LinkTrail"],
+Cell[877, 31, 1903, 42, 70, "AnchorBarGrid",
  CellID->1],
-Cell[2910, 76, 295, 11, 70, "ObjectNameGrid"],
-Cell[3208, 89, 357, 11, 70, "Usage",
+Cell[2783, 75, 61, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[2847, 78, 357, 11, 70, "Usage",
  CellID->982511436],
-Cell[3568, 102, 23, 0, 70, "FooterCell"]
+Cell[3207, 91, 23, 0, 70, "FooterCell"]
 }
 ]
 *)
 
 (* End of internal cache information *)
+

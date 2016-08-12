@@ -10,49 +10,42 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     10677,        355]
-NotebookOptionsPosition[      7639,        264]
-NotebookOutlinePosition[      9739,        320]
-CellTagsIndexPosition[      9655,        315]
-WindowTitle->HHRuleListQ
+NotebookDataLength[      9712,        322]
+NotebookOptionsPosition[      7115,        239]
+NotebookOutlinePosition[      8727,        285]
+CellTagsIndexPosition[      8643,        280]
+WindowTitle->HHRuleListQ - Wolfram Mathematica
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Mathematica",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:HokahokaW/guide/HokahokaW"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
 Cell[BoxData[GridBox[{
-   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["HOKAHOKAW PACLET SYMBOL", "PacletNameCell"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
-       FrameBox[
-        InterpretationBox[Cell[TextData[{
-          "See Also",
-          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
-           StripOnInput->False]
-         }]],
-         TextCell[
-          Row[{"See Also", 
-            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
         StripOnInput->False], {"\<\"HHRuleQ\"\>":>Documentation`HelpLookup[
        "paclet:HokahokaW/ref/HHRuleQ"]},
        Appearance->None,
-       MenuAppearance->Automatic,
-       MenuStyle->"SeeAlso"]],
+       MenuAppearance->Automatic]],
       LineSpacing->{1.4, 0}],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
       ActionMenuBox[
-       FrameBox[
-        InterpretationBox[Cell[TextData[{
-          "URL",
-          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
-           StripOnInput->False]
-         }]],
-         TextCell[
-          Row[{"URL", 
-            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
         StripOnInput->False], {"\<\"HokahokaW/ref/HHRuleListQ\"\>":>
-       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
        Module[{DocumentationSearch`Private`nb$}, 
         DocumentationSearch`Private`nb$ = NotebookPut[
            Notebook[{
@@ -60,7 +53,7 @@ Cell[BoxData[GridBox[{
         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
-       Delimiter, "\<\"Copy web URL\"\>":>
+       Delimiter, "\<\"Copy web url\"\>":>
        Module[{DocumentationSearch`Private`nb$}, 
         DocumentationSearch`Private`nb$ = NotebookPut[
            Notebook[{
@@ -68,24 +61,20 @@ Cell[BoxData[GridBox[{
               BoxData[
                MakeBoxes[
                 Hyperlink[
-                "http://reference.wolfram.com/language/HokahokaW/ref/\
+                "http://reference.wolfram.com/mathematica/HokahokaW/ref/\
 HHRuleListQ.html"], StandardForm]], "Input", TextClipboardType -> 
               "PlainText"]}, Visible -> False]]; 
         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
         NotebookClose[DocumentationSearch`Private`nb$]; 
-        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
          NotebookLocate[{
            URL[
             StringJoin[
-             If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$13806], 
-              "http://reference.wolfram.com/system-modeler/", 
-              "http://reference.wolfram.com/language/"], 
+            "http://reference.wolfram.com/mathematica/", 
              "HokahokaW/ref/HHRuleListQ", ".html"]], None}]}]},
        Appearance->None,
-       MenuAppearance->Automatic,
-       MenuStyle->"URLMenu"]],
+       MenuAppearance->Automatic]],
       LineSpacing->{1.4, 0}]
     }], "AnchorBar"]}
   }]], "AnchorBarGrid",
@@ -95,18 +84,8 @@ HHRuleListQ.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell[TextData[{
- Cell["HHRuleListQ", "ObjectName"],
- Cell[BoxData[
-  InterpretationBox[
-   StyleBox[
-    GraphicsBox[{},
-     BaselinePosition->Baseline,
-     ImageSize->{8, 0}],
-    CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+Cell["HHRuleListQ", "ObjectName",
+ CellID->1224892054],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -125,22 +104,20 @@ RuleDelayed objects."
 
 Cell[CellGroupData[{
 
-Cell[TextData[{
- Cell[BoxData[
-  InterpretationBox[
-   StyleBox[
-    GraphicsBox[{},
-     BaselinePosition->Baseline,
-     ImageSize->{6, 0}],
-    CacheGraphics->False],
-   Spacer[6]]]],
- "Examples",
- "\[NonBreakingSpace]\[NonBreakingSpace]",
- Cell["(1)", "ExampleCount"]
-}], "PrimaryExamplesSection",
- WholeCellGroupOpener->True,
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->165866170],
+ CellID->348749162],
 
 Cell[CellGroupData[{
 
@@ -148,9 +125,8 @@ Cell[TextData[{
  "Basic Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
  Cell["(1)", "ExampleCount"]
-}], "ExampleSection", "ExampleSection",
- WholeCellGroupOpener->True,
- CellID->52423335],
+}], "ExampleSection",
+ CellID->594779779],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -231,32 +207,31 @@ Cell[BoxData["True"], "Output",
  CellLabel->"Out[3]=",
  CellID->231533838]
 }, Open  ]]
-}, Open  ]],
-
-Cell["", "SectionFooterSpacer"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[TextData[{
- Cell[BoxData[
-  InterpretationBox[
-   StyleBox[
-    GraphicsBox[{},
-     BaselinePosition->Baseline,
-     ImageSize->{6, 0}],
-    CacheGraphics->False],
-   Spacer[6]]]],
- "See Also"
-}], "SeeAlsoSection",
- WholeCellGroupOpener->True,
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
  CellID->1255426704],
 
 Cell[TextData[Cell[BoxData[
- TemplateBox[{Cell["HHRuleQ"],"paclet:HokahokaW/ref/HHRuleQ"},
-  "RefLink",
-  BaseStyle->{
-   "InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]], "SeeAlso",
+ StyleBox[
+  ButtonBox["HHRuleQ",
+   BaseStyle->"Link",
+   ButtonData->"paclet:HokahokaW/ref/HHRuleQ"],
+  FontFamily->"Verdana"]], "InlineFormula"]], "SeeAlso",
  CellID->929782353]
 }, Open  ]],
 
@@ -266,28 +241,18 @@ Saveable->False,
 ScreenStyleEnvironment->"Working",
 WindowSize->{725, 750},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-WindowTitle->"HHRuleListQ",
+WindowTitle->"HHRuleListQ - Wolfram Mathematica",
 TaggingRules->{
- "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
-  GridBox[{{
-      RowBox[{
-        ButtonBox[
-        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
-         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
-  None, "RootCaptions" -> "", 
+ "ModificationHighlight" -> False, 
   "Metadata" -> {
-   "built" -> "{2016, 7, 10, 23, 7, 57.1175992}", 
-    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
-    "keywords" -> {}, "specialkeywords" -> {}, 
-    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
-    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
-    "status" -> "None", "summary" -> 
+   "built" -> "{2016, 8, 3, 12, 13, 4.8303627}", "context" -> "HokahokaW`", 
+    "keywords" -> {}, "index" -> True, "label" -> "HokahokaW Paclet Symbol", 
+    "language" -> "en", "paclet" -> "HokahokaW", "status" -> "None", 
+    "summary" -> 
     "HHRuleListQ[ruleList_] returns whether the argument ruleList is a list \
-or sequence of Rule or RuleDelayed objects.", "synonyms" -> {}, 
-    "tabletags" -> {}, "title" -> "HHRuleListQ", "titlemodifier" -> "", 
-    "windowtitle" -> "HHRuleListQ", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHRuleListQ"}, "SearchTextTranslated" -> ""},
+or sequence of Rule or RuleDelayed objects.", "synonyms" -> {}, "title" -> 
+    "HHRuleListQ", "type" -> "Symbol", "uri" -> "HokahokaW/ref/HHRuleListQ"}, 
+  "LinkTrails" -> "", "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->Notebook[{
@@ -307,56 +272,58 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[4366, 127, 387, 15, 33, "PrimaryExamplesSection",
+  Cell[3709, 106, 461, 13, 70, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->165866170]}
+   CellID->348749162]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 9512, 308}
+ {"PrimaryExamplesSection", 8500, 273}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[582, 21, 3018, 74, 59, "AnchorBarGrid",
+Cell[604, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[683, 24, 184, 5, 70, "LinkTrail"],
+Cell[870, 31, 2307, 53, 70, "AnchorBarGrid",
  CellID->1],
-Cell[3603, 97, 288, 11, 54, "ObjectNameGrid"],
-Cell[3894, 110, 447, 13, 88, "Usage",
+Cell[3180, 86, 54, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[3237, 89, 447, 13, 70, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[4366, 127, 387, 15, 33, "PrimaryExamplesSection",
+Cell[3709, 106, 461, 13, 70, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->165866170],
+ CellID->348749162],
 Cell[CellGroupData[{
-Cell[4778, 146, 194, 6, 28, "ExampleSection",
- CellID->52423335],
-Cell[4975, 154, 96, 3, 29, "Input",
+Cell[4195, 123, 148, 5, 70, "ExampleSection",
+ CellID->594779779],
+Cell[4346, 130, 96, 3, 70, "Input",
  CellID->94921402],
-Cell[5074, 159, 937, 34, 178, "Text",
+Cell[4445, 135, 937, 34, 70, "Text",
  CellID->172002506],
 Cell[CellGroupData[{
-Cell[6036, 197, 292, 7, 29, "Input",
+Cell[5407, 173, 292, 7, 70, "Input",
  CellID->20588467],
-Cell[6331, 206, 161, 5, 38, "Output",
+Cell[5702, 182, 161, 5, 38, "Output",
  CellID->283799355]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6529, 216, 320, 8, 29, "Input",
+Cell[5900, 192, 320, 8, 70, "Input",
  CellID->936476600],
-Cell[6852, 226, 161, 5, 38, "Output",
+Cell[6223, 202, 161, 5, 38, "Output",
  CellID->231533838]
 }, Open  ]]
-}, Open  ]],
-Cell[7040, 235, 31, 0, 29, "SectionFooterSpacer"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7108, 240, 270, 12, 33, "SeeAlsoSection",
+Cell[6445, 214, 417, 12, 70, "SeeAlsoSection",
  CellID->1255426704],
-Cell[7381, 254, 216, 5, 61, "SeeAlso",
+Cell[6865, 228, 208, 6, 70, "SeeAlso",
  CellID->929782353]
 }, Open  ]],
-Cell[7612, 262, 23, 0, 70, "FooterCell"]
+Cell[7088, 237, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

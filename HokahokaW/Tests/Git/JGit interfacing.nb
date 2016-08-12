@@ -1,0 +1,2791 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     99989,       2783]
+NotebookOptionsPosition[     93595,       2551]
+NotebookOutlinePosition[     93973,       2567]
+CellTagsIndexPosition[     93930,       2564]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`"}]], "Input",
+ CellChangeTimes->{{3.654107533439888*^9, 3.654107538349169*^9}, {
+  3.6541587069270277`*^9, 3.654158708331108*^9}, {3.6544824478192496`*^9, 
+  3.6544824500703783`*^9}}],
+
+Cell[BoxData["\<\"HokahokaW`HHPackageGitLoad: Loaded Git repository located \
+at C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\"\>"], "Print",
+ CellChangeTimes->{3.6544831497964*^9, 3.654483301141057*^9, 
+  3.6544833482767525`*^9, 3.6544834417430987`*^9, 3.6544835660322075`*^9, 
+  3.6544836417805405`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Thu 22 Oct 2015 08:20:41     [Mathematica: 10.3.0 for Microsoft \
+Windows (64-bit) (October 9, 2015)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[b320e903ad6ccf51bc51e88f3f6eae957df3419d]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.6544836419445496`*^9},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Check", " ", "which", " ", "library", " ", "location", " ", "we", " ", 
+     "are", " ", "loading", " ", 
+     RowBox[{"from", " ", "/", " ", 
+      RowBox[{"i", ".", "e", ".", " ", "deploy"}]}]}], ",", " ", 
+    RowBox[{"etc", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"FindFile", "[", "\"\<HokahokaW`\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6544830589892063`*^9, 3.654483069391802*^9}, {
+  3.6544831541516495`*^9, 3.6544831702395697`*^9}, {3.6544833983276157`*^9, 
+  3.654483410256298*^9}, {3.6544834672155557`*^9, 3.65448347043174*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Kernel\\\\\
+init.m\"\>"], "Output",
+ CellChangeTimes->{
+  3.6544830695928125`*^9, {3.6544833962494965`*^9, 3.654483410505312*^9}, {
+   3.6544834677935886`*^9, 3.6544834709217677`*^9}, 3.6544835716425285`*^9, 
+   3.6544836448837175`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Testing working up file tree", "Section",
+ CellChangeTimes->{{3.6541457135098467`*^9, 3.6541457225823655`*^9}, {
+  3.65414659701538*^9, 3.654146599542525*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"temp", "=", 
+  RowBox[{"FindFile", "[", "\"\<HokahokaW`\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6541075796085286`*^9, 3.6541076004377203`*^9}, {
+  3.654170070873008*^9, 3.6541700720730767`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Kernel\\\\\
+init.m\"\>"], "Output",
+ CellChangeTimes->{3.6541076006807337`*^9, 3.6541699155251226`*^9, 
+  3.6541700723510923`*^9, 3.654250731504715*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DirectoryQ", "[", "temp", "]"}]], "Input",
+ CellChangeTimes->{{3.6541699052425346`*^9, 3.6541699175602393`*^9}, {
+  3.6541700738721795`*^9, 3.6541700745282173`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{3.654169917855256*^9, 3.654170074826234*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileNames", "[", "temp", "]"}]], "Input",
+ CellChangeTimes->{{3.6541700254824123`*^9, 3.6541700298806634`*^9}, {
+  3.6541700637766023`*^9, 3.65417007703236*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", \
+"\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Kernel\\\\init.m\"\>", 
+  "}"}]], "Output",
+ CellChangeTimes->{3.654170077272374*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileNames", "[", "\"\<xxx\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6541700804995584`*^9, 3.654170087504959*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.6541700877509737`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DirectoryName", "[", "temp", "]"}]], "Input",
+ CellChangeTimes->{{3.654170212396103*^9, 3.654170223120716*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Kernel\\\\\"\>\
+"], "Output",
+ CellChangeTimes->{{3.654170215632288*^9, 3.654170223592743*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<HokahokaWdddd`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.654169925896716*^9, 3.6541699263767433`*^9}}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.654169926719763*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindFile", "[", "\"\<HokahokaWdddd`\>\"", "]"}], "===", 
+  "$Failed"}]], "Input",
+ CellChangeTimes->{{3.654169925896716*^9, 3.6541699313370275`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.654169931584041*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"findGitDir", "[", "directory_String", "]"}], ":=", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"parentDirectory", ",", " ", "putativeGitDirectory"}], "}"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"parentDirectory", "=", 
+        RowBox[{"Quiet", "[", 
+         RowBox[{"Check", "[", 
+          RowBox[{
+           RowBox[{"ParentDirectory", "[", "directory", "]"}], ",", " ", 
+           "0"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", "  ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"parentDirectory", "===", "0"}], " ", "||", " ", 
+          RowBox[{"parentDirectory", " ", "\[Equal]", " ", "directory"}]}], 
+         ",", " ", "\[IndentingNewLine]", "0", ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"putativeGitDirectory", "=", 
+           RowBox[{"FileNameJoin", "[", 
+            RowBox[{"{", " ", 
+             RowBox[{"parentDirectory", ",", " ", "\"\<.git\>\""}], "}"}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", " ", 
+           RowBox[{
+            RowBox[{
+            "DirectoryQ", "[", " ", "putativeGitDirectory", " ", "]"}], ",", 
+            "\[IndentingNewLine]", "\t", "putativeGitDirectory", ",", 
+            "\[IndentingNewLine]", "\t", 
+            RowBox[{"findGitDir", "[", "parentDirectory", "]"}]}], 
+           "\[IndentingNewLine]", "]"}]}]}], "]"}]}]}], "\[IndentingNewLine]",
+      "]"}]}], ";"}], " ", 
+  RowBox[{"(*", "Module", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6541078812337804`*^9, 3.6541079010379133`*^9}, {
+  3.654107941142207*^9, 3.6541079690058007`*^9}, {3.654108132902175*^9, 
+  3.654108161845831*^9}, {3.6541453049984813`*^9, 3.6541454019500265`*^9}, {
+  3.654145737222203*^9, 3.654145780206661*^9}, {3.6541458171827765`*^9, 
+  3.6541458286384315`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ParentDirectory", "[", 
+  RowBox[{"FindFile", "[", "\"\<HokahokaW`\>\"", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.654145843430278*^9, 3.6541458543579025`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ParentDirectory", "::", "dirnex"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Directory \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"C:\\\\\\\\\\\\\\\\prog\\\\\\\\\\\\\\\\_\
+w\\\\\\\\\\\\\\\\HokahokaW\\\\\\\\\\\\\\\\HokahokaW\\\\\\\\\\\\\\\\Kernel\\\\\
+\\\\\\\\\\\\init.m\\\\\\\"\\\"}]\\)\[NoBreak] does not exist. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/ParentDirectory\\\", ButtonNote \
+-> \\\"ParentDirectory::dirnex\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6541458549019337`*^9}],
+
+Cell[BoxData[
+ RowBox[{"ParentDirectory", 
+  "[", "\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Kernel\\\\init.m\"\>\
+", "]"}]], "Output",
+ CellChangeTimes->{3.654145854902934*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"findGitDir", "[", " ", 
+  RowBox[{"DirectoryName", "[", 
+   RowBox[{"FindFile", "[", "\"\<HokahokaW`\>\"", "]"}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.65414578140473*^9, 3.6541457886621447`*^9}, {
+  3.654145890463968*^9, 3.6541458945182*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\"\>"], "Output",
+ CellChangeTimes->{3.6541458301385174`*^9, 3.654145894756213*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DirectoryName", "[", 
+  "\"\<C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6541458974723687`*^9, 3.6541459018466187`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\\"\>"], "Output",
+ CellChangeTimes->{3.654145902652665*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Recurrency with root directory, no parent", "Subsection",
+ CellChangeTimes->{{3.654145921553746*^9, 3.654145930622265*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ParentDirectory", "[", "\"\<C:\\\\\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.654107908582345*^9, 3.6541079317336693`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\\"\>"], "Output",
+ CellChangeTimes->{3.654107932153693*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ParentDirectory", "[", 
+  "\"\<C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.654107908582345*^9, 3.6541079317336693`*^9}, {
+  3.6541079720059724`*^9, 3.654107984669697*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\"\>"], "Output",
+ CellChangeTimes->{3.654107984985715*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Recurrency with no directory found", "Subsection",
+ CellChangeTimes->{{3.654145921553746*^9, 3.654145955213671*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ParentDirectory", "[", 
+  "\"\<C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaWxxxx\\\\\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.654107908582345*^9, 3.6541079317336693`*^9}, {
+  3.6541079720059724`*^9, 3.654107989061948*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ParentDirectory", "::", "dirnex"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Directory \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"C:\\\\\\\\\\\\\\\\prog\\\\\\\\\\\\\\\\_\
+w\\\\\\\\\\\\\\\\HokahokaW\\\\\\\\\\\\\\\\HokahokaWxxxx\\\\\\\\\\\\\\\\\\\\\\\
+\"\\\"}]\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\
+\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/ParentDirectory\\\", ButtonNote -> \
+\\\"ParentDirectory::dirnex\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6541079894059677`*^9}],
+
+Cell[BoxData[
+ RowBox[{"ParentDirectory", 
+  "[", "\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaWxxxx\\\\\"\>", 
+  "]"}]], "Output",
+ CellChangeTimes->{3.6541079894069676`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Check", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+   "ParentDirectory", "[", 
+    "\"\<C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\\>\"", "]"}], ",", " ",
+    "\[IndentingNewLine]", "Null"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{3.654108105397602*^9}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\"\>"], "Output",
+ CellChangeTimes->{3.6541081056676173`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Quiet", "[", 
+  RowBox[{"Check", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "ParentDirectory", "[", 
+     "\"\<C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaWxxxx\\\\\>\"", "]"}], ",",
+     " ", "\[IndentingNewLine]", "10"}], "\[IndentingNewLine]", "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6541079975154314`*^9, 3.654108043102039*^9}, {
+  3.6541081148151407`*^9, 3.654108125093728*^9}}],
+
+Cell[BoxData["10"], "Output",
+ CellChangeTimes->{{3.654108115448177*^9, 3.654108125346743*^9}}]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Testing Reading of Git Repo", "Section",
+ CellChangeTimes->{{3.6541457135098467`*^9, 3.6541457225823655`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"jGitBuilder", "=", 
+   RowBox[{
+   "JavaNew", "[", 
+    "\"\<org.eclipse.jgit.storage.file.FileRepositoryBuilder\>\"", "]"}]}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.654107616073614*^9, 3.6541077066617956`*^9}, 
+   3.6541077824221287`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\[LeftGuillemet]", 
+   RowBox[{"JavaObject", "[", 
+    RowBox[{
+    "org", ".", "eclipse", ".", "jgit", ".", "storage", ".", "file", ".", 
+     "FileRepositoryBuilder"}], "]"}], "\[RightGuillemet]"}],
+  JLink`Objects`vm1`JavaObject35571455630508033]], "Output",
+ CellChangeTimes->{{3.6541076926189923`*^9, 3.654107708328891*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"jGitRepository", "=", 
+  RowBox[{"JavaNew", "[", 
+   RowBox[{
+   "\"\<org.eclipse.jgit.internal.storage.file.FileRepository\>\"", ",", 
+    "\[IndentingNewLine]", "\"\<C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\>\""}], 
+   "]"}], "\t"}]], "Input",
+ CellChangeTimes->{{3.6541076974102664`*^9, 3.6541077326792836`*^9}, {
+   3.6541077783098936`*^9, 3.6541078084616184`*^9}, {3.654145545174218*^9, 
+   3.654145580366231*^9}, {3.6541456843831806`*^9, 3.654145685630252*^9}, 
+   3.6542509604158077`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\[LeftGuillemet]", 
+   RowBox[{"JavaObject", "[", 
+    RowBox[{
+    "org", ".", "eclipse", ".", "jgit", ".", "internal", ".", "storage", ".", 
+     "file", ".", "FileRepository"}], "]"}], "\[RightGuillemet]"}],
+  JLink`Objects`vm1`JavaObject2788269297238017]], "Output",
+ CellChangeTimes->{
+  3.6541455510625553`*^9, 3.6541455845174685`*^9, 3.6541456860902786`*^9, {
+   3.6542509569566097`*^9, 3.6542509608118305`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"jGitRepository", "@", 
+  RowBox[{"getRemoteNames", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.654145586678592*^9, 3.6541455920539*^9}, {
+  3.6541456310061274`*^9, 3.65414563367028*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\[LeftGuillemet]", 
+   RowBox[{"JavaObject", "[", 
+    RowBox[{"java", ".", "util", ".", "Collections$UnmodifiableSet"}], "]"}], 
+   "\[RightGuillemet]"}],
+  JLink`Objects`vm1`JavaObject16921831206289417]], "Output",
+ CellChangeTimes->{3.6541456340823035`*^9, 3.6541456876573677`*^9, 
+  3.6542510014411545`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"jGitRepository", "@", 
+  RowBox[{
+   RowBox[{"getRemoteNames", "[", "]"}], "@", 
+   RowBox[{"toArray", "[", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.654145586678592*^9, 3.6541455920539*^9}, {
+  3.6541456310061274`*^9, 3.65414563367028*^9}, {3.654145692958671*^9, 
+  3.654145701054134*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"origin\"\>", "}"}]], "Output",
+ CellChangeTimes->{
+  3.6541457014501567`*^9, {3.6542510107456865`*^9, 3.654251050073936*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"jGitRepository", "@", 
+  RowBox[{"getBranch", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.654145586678592*^9, 3.6541455920539*^9}, {
+  3.6541456310061274`*^9, 3.65414563367028*^9}, {3.65414567475863*^9, 
+  3.6541456791018786`*^9}}],
+
+Cell[BoxData["\<\"dev\"\>"], "Output",
+ CellChangeTimes->{3.654145688883438*^9, 3.65425110311397*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Testing jgit to gather advanced attributes", "Section",
+ CellChangeTimes->{{3.6541457135098467`*^9, 3.6541457225823655`*^9}, {
+  3.65414659701538*^9, 3.6541466112711954`*^9}, {3.654152741210808*^9, 
+  3.654152749186264*^9}}],
+
+Cell[BoxData[
+ RowBox[{"HHPackageGitLoad", "[", "]"}]], "Input",
+ CellChangeTimes->{3.654148195287796*^9, 3.6542511241031704`*^9}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"HHPackageGitLoad", "[", "\"\<HokahokaW`\>\"", "]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.654146617246537*^9, 3.654146634742538*^9}, 
+   3.654146824840411*^9, 3.654148075751959*^9, 3.6541505276662006`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["HokahokaW`Private`$HHCurrentGitRepositorySearchString"], "Input",
+ CellChangeTimes->{{3.654148237033184*^9, 3.6541482426565056`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\prog\\\\_w\\\\HokahokaW\\\\HokahokaW\\\\Tests\\\\\"\>\
+"], "Output",
+ CellChangeTimes->{3.654148243566558*^9, 3.6541505310463943`*^9, 
+  3.654153727169202*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "=", 
+  "HokahokaW`Private`$HHCurrentGitRepository"}]], "Input",
+ CellChangeTimes->{{3.654148237033184*^9, 3.6541482547521973`*^9}, {
+  3.654150543377099*^9, 3.654150545561224*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\[LeftGuillemet]", 
+   RowBox[{"JavaObject", "[", 
+    RowBox[{
+    "org", ".", "eclipse", ".", "jgit", ".", "internal", ".", "storage", ".", 
+     "file", ".", "FileRepository"}], "]"}], "\[RightGuillemet]"}],
+  JLink`Objects`vm1`JavaObject6663242982096897]], "Output",
+ CellChangeTimes->{
+  3.6541482551732216`*^9, {3.654150531957446*^9, 3.654150546046252*^9}, 
+   3.654153727912244*^9, 3.65425119000994*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getRemoteNames", "[", "]"}], "@", 
+   RowBox[{"toArray", "[", "]"}]}]}]], "Input",
+ CellChangeTimes->{3.6541505631372294`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"origin\"\>", "}"}]], "Output",
+ CellChangeTimes->{3.6541505637172623`*^9, 3.6542511969453363`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{"getBranch", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6541505469093013`*^9, 3.654150551889586*^9}}],
+
+Cell[BoxData["\<\"dev\"\>"], "Output",
+ CellChangeTimes->{3.6541505528536415`*^9, 3.65425119962649*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{"getFullBranch", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6541505469093013`*^9, 3.654150551889586*^9}, {
+  3.6541509237538557`*^9, 3.6541509266890235`*^9}}],
+
+Cell[BoxData["\<\"refs/heads/dev\"\>"], "Output",
+ CellChangeTimes->{3.6541509275300713`*^9, 3.6542512016496058`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"#", "@", 
+     RowBox[{"name", "[", "]"}]}], ")"}], "&"}], " ", "/@", 
+  RowBox[{"tempRepo", "@", 
+   RowBox[{
+    RowBox[{"getRepositoryState", "[", "]"}], "@", 
+    RowBox[{"values", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6541505469093013`*^9, 3.654150551889586*^9}, {
+  3.6541505919538774`*^9, 3.6541505963931313`*^9}, {3.6541506578736477`*^9, 
+  3.6541506821130342`*^9}, {3.654150756802306*^9, 3.6541507639927177`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"BARE\"\>", ",", "\<\"SAFE\"\>", ",", "\<\"MERGING\"\>", 
+   ",", "\<\"MERGING_RESOLVED\"\>", ",", "\<\"CHERRY_PICKING\"\>", 
+   ",", "\<\"CHERRY_PICKING_RESOLVED\"\>", ",", "\<\"REVERTING\"\>", 
+   ",", "\<\"REVERTING_RESOLVED\"\>", ",", "\<\"REBASING\"\>", 
+   ",", "\<\"REBASING_REBASING\"\>", ",", "\<\"APPLY\"\>", 
+   ",", "\<\"REBASING_MERGE\"\>", ",", "\<\"REBASING_INTERACTIVE\"\>", 
+   ",", "\<\"BISECTING\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.654150596817156*^9, 3.6541506845821753`*^9, 
+  3.654150764674757*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["current Ref", "Subsection",
+ CellChangeTimes->{{3.654152825034602*^9, 3.654152831410967*^9}, {
+  3.654152863490802*^9, 3.6541528653869104`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRef", "=", 
+  RowBox[{"tempRepo", "@", 
+   RowBox[{"getRef", "[", "\"\<dev\>\"", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6541511444174767`*^9, 3.6541511623775043`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\[LeftGuillemet]", 
+   RowBox[{"JavaObject", "[", 
+    RowBox[{
+    "org", ".", "eclipse", ".", "jgit", ".", "internal", ".", "storage", ".", 
+     "file", ".", "RefDirectory$LooseUnpeeled"}], "]"}], "\[RightGuillemet]"}],
+  JLink`Objects`vm1`JavaObject32212535369269249]], "Output",
+ CellChangeTimes->{{3.6541511489797373`*^9, 3.654151162789528*^9}, 
+   3.6542512113131585`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRef", "@", 
+  RowBox[{"getName", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6541511635815725`*^9, 3.654151173185122*^9}}],
+
+Cell[BoxData["\<\"refs/heads/dev\"\>"], "Output",
+ CellChangeTimes->{{3.6541511693219013`*^9, 3.6541511736001463`*^9}, 
+   3.654251226761042*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRef", "@", 
+  RowBox[{
+   RowBox[{"getObjectId", "[", "]"}], "@", 
+   RowBox[{"toString", "[", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6541511635815725`*^9, 3.6541512058339896`*^9}}],
+
+Cell[BoxData["\<\"AnyObjectId[bc911f1d68c5a4063caa037903f5428a07ec270e]\"\>"],\
+ "Output",
+ CellChangeTimes->{{3.6541511851818085`*^9, 3.654151206840047*^9}, 
+   3.654251228433138*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRef", "@", 
+  RowBox[{
+   RowBox[{"getObjectId", "[", "]"}], "@", 
+   RowBox[{"toString", "[", 
+    RowBox[{"tempRef", "@", 
+     RowBox[{"getObjectId", "[", "]"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6541511635815725`*^9, 3.6541512058339896`*^9}, {
+  3.654151291994918*^9, 3.6541512928419657`*^9}}],
+
+Cell[BoxData["\<\"bc911f1d68c5a4063caa037903f5428a07ec270e\"\>"], "Output",
+ CellChangeTimes->{3.6541512935830083`*^9, 3.654251233738441*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["play with api.Git", "Subsection",
+ CellChangeTimes->{{3.654152825034602*^9, 3.654152831410967*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempGit", "=", 
+  RowBox[{"JavaNew", "[", 
+   RowBox[{"\"\<org.eclipse.jgit.api.Git\>\"", ",", " ", "tempRepo"}], " ", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.654151524318206*^9, 3.654151566457616*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\[LeftGuillemet]", 
+   RowBox[{"JavaObject", "[", 
+    RowBox[{"org", ".", "eclipse", ".", "jgit", ".", "api", ".", "Git"}], 
+    "]"}], "\[RightGuillemet]"}],
+  JLink`Objects`vm1`JavaObject28264504928239617]], "Output",
+ CellChangeTimes->{3.6541515674516726`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempGit", "@", 
+  RowBox[{
+   RowBox[{"diff", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"call", "[", "]"}], "@", 
+    RowBox[{"toArray", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6541515691437693`*^9, 3.654151614588369*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject12635944226127873], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24338689802895361], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject3412392251752449], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject18549643424038913], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject22259416325685249], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject10780240691331073], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24286698837901313], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject9485063993425921], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20369580484460545], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2888805623267329], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6866148914102273], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject12682976953368577], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6013404481323009], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject1650609988042753], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15985540566351873], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject30924449628815361], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject4989590041526273], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35412530935365633], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject5477840178905089], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject5161817928105985], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject23545731885301761], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject23355872033898497], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject31850238503288833], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24344739214000129], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject13654309107400705], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject14267224059543553], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35811046270697473], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject18775043106406401], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject28914264089559041], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject12362964023640065], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject7813967179153409], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20063046638501889], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject30302501236375553], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject9119922835685377], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject12720835680796673], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject23477349244731393], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2020472388583425], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject5474863699460097], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject14110330414170113], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject10533525203714049], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject22224818183077889], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20248384426213377], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35989326420508673], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject16764928249561089], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject26822828070273025], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject28849514890657793], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject34178566094585857], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject17677486141734913], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15835966669324289], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject12932012377636865], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject17381481659760641], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject31521212031041537], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject18649742334492673], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject28102695642464257], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject25971278544371713], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject22716506391445505], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject8028232662122497], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject19578502302924801], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject17134268559917057], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20347121546821633], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject34314675420135425], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20420178571427841], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2433516558090241], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject3416318439063553], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject17421020172386305], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6080407246209025], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15538376673329153], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject10132260032348161], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject17063034849591297], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject34209040229728257], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject31026741573058561], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject14771472396451841], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35261703578976257], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject19129769287221249], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject33977139174834177], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6815952826007553], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24514212902469633], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject11103490935881729], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject31302427353284609], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject22297758320820225], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject10155893509324801], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6564437980872705], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject23363848643805185], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject9375794254053377], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject9011074741305345], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject10632899220996097], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject34975230887723009], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject10335292112240641], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6820267842076673], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2791746459140097], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject34785221333221377], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject27194465366048769], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject13249989241208833], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35476293768183809], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject9722920540569601], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject12342667904024577], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject5258033550589953], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject9032686983184385], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24037556240777217], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject14322690944925697], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject22823030052880385], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20382424433164289], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject12903216484188161], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject3481519448391681], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject33450830711488513], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject32390650968145921], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject28590913248821249], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject7548445153820673], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24234923023925249], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject17135105625554945], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject19080032039206913], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject23540915465355265], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20798740277231617], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject33627281876320257], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35383948297109505], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject17137933475643393], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24678570546692097], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject8653613924614145], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject22309005179224065], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject28685792364724225], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject25544571211481089], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15700120997724161], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject33678857504555009], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject26593092987518977], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject513148750659585], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject4487161327910913], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject21785059467984897], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject18477086142365697], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24000275454885889], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject23318192688463873], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject14917885398876161], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject23576070577979393], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject10712932262346753], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20858778148667393], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject1067344419880961], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject18776216102240257], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject8637783967006721], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject1023210040590337], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24011091843481601], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject14054705688739841], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject13341829231542273], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15769755604484097], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject666658716778497], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject19849566044028929], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject25732053412610049], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24615247595700225], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject11198858671423489], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20613361704108033], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject21258897268408321], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2188203595399169], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject29987117492862977], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35699309794033665], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject978716125560833], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15002128934240257], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6502330539180033], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject21176405089845249], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject7190069458763777], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject22177330122194945], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6513651804536833], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject750161957486593], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject18513779457261569], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject26674046024286209], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject29374642724536321], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15766217457401857], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20350160907272193], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2801739237425153], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject289295491399681], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject9977420656410625], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2669635254091777], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject9559760219144193], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject6947453215440897], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject11442471665926145], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject18318674762924033], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject23677597850271745], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject16112065135509505], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject11246912309035009], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject19109425939742721], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject27846926095351809], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15119443281575937], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject16399531541266433], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject28890224855613441], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject31902397408215041], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35044143956754433], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject25940541023715329], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject10833334775054337], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject31277970450546689], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject4737495812014081], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2991731746275329], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject20968569005146113], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject25992596866203649], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject29810017586642945], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject28415023298641921], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject24869631411879937], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject19588684797968385], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject30604870004244481], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject5267245483687937], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject7881499734966273], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject29164186374242305], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject25932984347525121], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject34464041984327681], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject29159982993768449], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject28539816123564033], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject15302729953968129], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject21032711825129473], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject30201690988740609], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject11282773104918529], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject31687565912309761], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject32571443136954369], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject34423072962379777], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject35642306350546945], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject5555694665203713], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject25952960710180865], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject34490508512329729], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject2177910421061633], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject32240945873289217], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject4052810714841089], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"JavaObject", "[", 
+      RowBox[{
+      "org", ".", "eclipse", ".", "jgit", ".", "diff", ".", "DiffEntry"}], 
+      "]"}], "\[RightGuillemet]"}],
+    JLink`Objects`vm1`JavaObject14400778517086209]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6541516089660473`*^9, 3.6541516160944552`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempGit", "@", 
+  RowBox[{
+   RowBox[{"diff", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"call", "[", "]"}], "@", 
+    RowBox[{"toArray", "[", "]"}]}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.654151700464281*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempGit", "@", 
+  RowBox[{
+   RowBox[{"diff", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"call", "[", "]"}], "@", 
+    RowBox[{"size", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6541517024903965`*^9, 3.6541517056575775`*^9}, {
+  3.65415174117861*^9, 3.6541517425546885`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.654151706276613*^9, 3.6541517432217264`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Methods", "[", "tempGit", "]"}]], "Input",
+ CellChangeTimes->{{3.6541519557498827`*^9, 3.6541519588270583`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"org.eclipse.jgit.api.AddCommand add()\"\>"},
+     {"\<\"org.eclipse.jgit.api.ApplyCommand apply()\"\>"},
+     {"\<\"org.eclipse.jgit.api.ArchiveCommand archive()\"\>"},
+     {"\<\"org.eclipse.jgit.api.BlameCommand blame()\"\>"},
+     {"\<\"org.eclipse.jgit.api.CreateBranchCommand branchCreate()\"\>"},
+     {"\<\"org.eclipse.jgit.api.DeleteBranchCommand branchDelete()\"\>"},
+     {"\<\"org.eclipse.jgit.api.ListBranchCommand branchList()\"\>"},
+     {"\<\"org.eclipse.jgit.api.RenameBranchCommand branchRename()\"\>"},
+     {"\<\"org.eclipse.jgit.api.CheckoutCommand checkout()\"\>"},
+     {"\<\"org.eclipse.jgit.api.CherryPickCommand cherryPick()\"\>"},
+     {"\<\"org.eclipse.jgit.api.CleanCommand clean()\"\>"},
+     {"\<\"static org.eclipse.jgit.api.CloneCommand cloneRepository()\"\>"},
+     {"\<\"void close()\"\>"},
+     {"\<\"org.eclipse.jgit.api.CommitCommand commit()\"\>"},
+     {"\<\"org.eclipse.jgit.api.DescribeCommand describe()\"\>"},
+     {"\<\"org.eclipse.jgit.api.DiffCommand diff()\"\>"},
+     {"\<\"boolean equals(Object)\"\>"},
+     {"\<\"org.eclipse.jgit.api.FetchCommand fetch()\"\>"},
+     {"\<\"org.eclipse.jgit.api.GarbageCollectCommand gc()\"\>"},
+     {"\<\"Class getClass()\"\>"},
+     {"\<\"org.eclipse.jgit.lib.Repository getRepository()\"\>"},
+     {"\<\"int hashCode()\"\>"},
+     {"\<\"static org.eclipse.jgit.api.InitCommand init()\"\>"},
+     {"\<\"org.eclipse.jgit.api.LogCommand log()\"\>"},
+     {"\<\"org.eclipse.jgit.api.LsRemoteCommand lsRemote()\"\>"},
+     {"\<\"static org.eclipse.jgit.api.LsRemoteCommand lsRemoteRepository()\"\
+\>"},
+     {"\<\"org.eclipse.jgit.api.MergeCommand merge()\"\>"},
+     {"\<\"org.eclipse.jgit.api.NameRevCommand nameRev()\"\>"},
+     {"\<\"org.eclipse.jgit.api.AddNoteCommand notesAdd()\"\>"},
+     {"\<\"org.eclipse.jgit.api.ListNotesCommand notesList()\"\>"},
+     {"\<\"org.eclipse.jgit.api.RemoveNoteCommand notesRemove()\"\>"},
+     {"\<\"org.eclipse.jgit.api.ShowNoteCommand notesShow()\"\>"},
+     {"\<\"void notify()\"\>"},
+     {"\<\"void notifyAll()\"\>"},
+     {"\<\"static org.eclipse.jgit.api.Git open(java.io.File, \
+org.eclipse.jgit.util.FS) throws java.io.IOException\"\>"},
+     {"\<\"static org.eclipse.jgit.api.Git open(java.io.File) throws \
+java.io.IOException\"\>"},
+     {"\<\"org.eclipse.jgit.api.PullCommand pull()\"\>"},
+     {"\<\"org.eclipse.jgit.api.PushCommand push()\"\>"},
+     {"\<\"org.eclipse.jgit.api.RebaseCommand rebase()\"\>"},
+     {"\<\"org.eclipse.jgit.api.ReflogCommand reflog()\"\>"},
+     {"\<\"org.eclipse.jgit.api.ResetCommand reset()\"\>"},
+     {"\<\"org.eclipse.jgit.api.RevertCommand revert()\"\>"},
+     {"\<\"org.eclipse.jgit.api.RmCommand rm()\"\>"},
+     {"\<\"org.eclipse.jgit.api.StashApplyCommand stashApply()\"\>"},
+     {"\<\"org.eclipse.jgit.api.StashCreateCommand stashCreate()\"\>"},
+     {"\<\"org.eclipse.jgit.api.StashDropCommand stashDrop()\"\>"},
+     {"\<\"org.eclipse.jgit.api.StashListCommand stashList()\"\>"},
+     {"\<\"org.eclipse.jgit.api.StatusCommand status()\"\>"},
+     {"\<\"org.eclipse.jgit.api.SubmoduleAddCommand submoduleAdd()\"\>"},
+     {"\<\"org.eclipse.jgit.api.SubmoduleInitCommand submoduleInit()\"\>"},
+     {"\<\"org.eclipse.jgit.api.SubmoduleStatusCommand submoduleStatus()\"\>"},
+     {"\<\"org.eclipse.jgit.api.SubmoduleSyncCommand submoduleSync()\"\>"},
+     {"\<\"org.eclipse.jgit.api.SubmoduleUpdateCommand submoduleUpdate()\"\>"},
+     {"\<\"org.eclipse.jgit.api.TagCommand tag()\"\>"},
+     {"\<\"org.eclipse.jgit.api.DeleteTagCommand tagDelete()\"\>"},
+     {"\<\"org.eclipse.jgit.api.ListTagCommand tagList()\"\>"},
+     {"\<\"String toString()\"\>"},
+     {"\<\"void wait(long, int) throws InterruptedException\"\>"},
+     {"\<\"void wait(long) throws InterruptedException\"\>"},
+     {"\<\"void wait() throws InterruptedException\"\>"},
+     {"\<\"static org.eclipse.jgit.api.Git \
+wrap(org.eclipse.jgit.lib.Repository)\"\>"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.654151959138076*^9}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempGit", "@", 
+  RowBox[{"log", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.65415289019833*^9, 3.654152904251134*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\[LeftGuillemet]", 
+   RowBox[{"JavaObject", "[", 
+    RowBox[{
+    "org", ".", "eclipse", ".", "jgit", ".", "api", ".", "LogCommand"}], 
+    "]"}], "\[RightGuillemet]"}],
+  JLink`Objects`vm1`JavaObject2685931618304001]], "Output",
+ CellChangeTimes->{3.6541529046421556`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Repo Config", "Subsection",
+ CellChangeTimes->{{3.654152825034602*^9, 3.6541528490029736`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{"getConfig", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6541522085543423`*^9, 3.6541522140026536`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\[LeftGuillemet]", 
+   RowBox[{"JavaObject", "[", 
+    RowBox[{
+    "org", ".", "eclipse", ".", "jgit", ".", "storage", ".", "file", ".", 
+     "FileBasedConfig"}], "]"}], "\[RightGuillemet]"}],
+  JLink`Objects`vm1`JavaObject26057110781427713]], "Output",
+ CellChangeTimes->{3.6541522142986703`*^9, 3.6542512629941144`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getConfig", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"getSections", "[", "]"}], "@", 
+    RowBox[{"toArray", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6541522716349497`*^9, 3.654152272642008*^9}, {
+  3.6541523050108585`*^9, 3.654152309090092*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"core\"\>", ",", "\<\"remote\"\>", ",", "\<\"branch\"\>", 
+   ",", "\<\"user\"\>", ",", "\<\"color\"\>", ",", "\<\"pack\"\>", 
+   ",", "\<\"help\"\>", ",", "\<\"http\"\>", ",", "\<\"sendemail\"\>", 
+   ",", "\<\"diff\"\>", ",", "\<\"rebase\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.6541522730400305`*^9, 3.65415230939911*^9, 
+  3.6542512679123955`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getConfig", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"getNames", "[", 
+     RowBox[{"\"\<user\>\"", ",", " ", "True"}], "]"}], "@", 
+    RowBox[{"toArray", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6541523308983393`*^9, 3.654152353442629*^9}, {
+  3.6541524026184416`*^9, 3.6541524034824915`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"email\"\>", ",", "\<\"name\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.654152353696644*^9, 3.6541524037955093`*^9, 
+  3.654251320755418*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getConfig", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"getSubsections", "[", "\"\<diff\>\"", "]"}], "@", 
+    RowBox[{"toArray", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6541524353863163`*^9, 3.6541524436347876`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"astextplain\"\>", "}"}]], "Output",
+ CellChangeTimes->{3.6541524439618063`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getConfig", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"getSubsections", "[", "\"\<remote\>\"", "]"}], "@", 
+    RowBox[{"toArray", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6541524353863163`*^9, 3.6541524515542407`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"origin\"\>", "}"}]], "Output",
+ CellChangeTimes->{3.654152451930262*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getConfig", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"getNames", "[", 
+     RowBox[{"\"\<remote\>\"", ",", "\"\<origin\>\""}], "]"}], "@", 
+    RowBox[{"toArray", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.654152505770342*^9, 3.654152523994384*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"fetch\"\>", ",", "\<\"url\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.654152519517128*^9, 3.654152524306402*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getConfig", "[", "]"}], "@", 
+   RowBox[{"getString", "[", 
+    RowBox[{
+    "\"\<remote\>\"", ",", "\"\<origin\>\"", ",", " ", "\"\<url\>\""}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.654152505770342*^9, 3.654152547266715*^9}}],
+
+Cell[BoxData["\<\"https://ktakagaki@github.com/ktakagaki/HokahokaW.git\"\>"], \
+"Output",
+ CellChangeTimes->{3.65415254752273*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getConfig", "[", "]"}], "@", 
+   RowBox[{
+    RowBox[{"getSubsections", "[", "\"\<branch\>\"", "]"}], "@", 
+    RowBox[{"toArray", "[", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6541524353863163`*^9, 3.654152471898404*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"dev\"\>", "}"}]], "Output",
+ CellChangeTimes->{{3.654152463377917*^9, 3.6541524721444187`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tempRepo", "@", 
+  RowBox[{
+   RowBox[{"getConfig", "[", "]"}], "@", 
+   RowBox[{"getStringList", "[", "\"\<diff\>\"", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6541522085543423`*^9, 3.6541522140026536`*^9}, {
+  3.6541522481466064`*^9, 3.654152252338846*^9}, {3.654152316115494*^9, 
+  3.6541523179625998`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Java", "::", "argx1"}], "MessageName"], ":", 
+  " ", "\<\"Method named \[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"getStringList\
+\\\\\\\"\\\"}]\\)\[NoBreak] defined in class \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"org.eclipse.jgit.storage.file.\
+FileBasedConfig\\\\\\\"\\\"}]\\)\[NoBreak] was called with an incorrect \
+number or type of arguments. The argument was \[NoBreak]\\!\\(\\*RowBox[{\\\"\
+\\\\\\\"diff\\\\\\\"\\\"}]\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6541522526588645`*^9, 3.6541523185546336`*^9}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.6541522526588645`*^9, 3.6541523185556335`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+},
+WindowSize->{952, 1140},
+WindowMargins->{{Automatic, 640}, {Automatic, -1200}},
+Magnification:>1.2 Inherited,
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 224, 4, 41, "Input"],
+Cell[807, 28, 298, 4, 55, "Print"]
+}, Open  ]],
+Cell[1120, 35, 960, 34, 159, "Text"],
+Cell[CellGroupData[{
+Cell[2105, 73, 626, 13, 100, "Input"],
+Cell[2734, 88, 300, 5, 40, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3071, 98, 165, 2, 97, "Section"],
+Cell[CellGroupData[{
+Cell[3261, 104, 225, 4, 51, "Input"],
+Cell[3489, 110, 216, 3, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3742, 118, 189, 3, 51, "Input"],
+Cell[3934, 123, 96, 1, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4067, 129, 185, 3, 51, "Input"],
+Cell[4255, 134, 166, 4, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4458, 143, 140, 2, 51, "Input"],
+Cell[4601, 147, 89, 2, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4727, 154, 135, 2, 51, "Input"],
+Cell[4865, 158, 159, 2, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5061, 165, 150, 2, 51, "Input"],
+Cell[5214, 169, 76, 1, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5327, 175, 184, 4, 51, "Input"],
+Cell[5514, 181, 73, 1, 51, "Output"]
+}, Open  ]],
+Cell[5602, 185, 1951, 44, 417, "Input"],
+Cell[CellGroupData[{
+Cell[7578, 233, 188, 3, 51, "Input"],
+Cell[7769, 238, 629, 12, 37, "Message"],
+Cell[8401, 252, 185, 4, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8623, 261, 278, 6, 51, "Input"],
+Cell[8904, 269, 138, 1, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9079, 275, 183, 3, 51, "Input"],
+Cell[9265, 280, 110, 1, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9412, 286, 129, 1, 73, "Subsection"],
+Cell[CellGroupData[{
+Cell[9566, 291, 149, 2, 51, "Input"],
+Cell[9718, 295, 83, 1, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9838, 301, 243, 4, 51, "Input"],
+Cell[10084, 307, 106, 1, 51, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[10239, 314, 122, 1, 57, "Subsection"],
+Cell[CellGroupData[{
+Cell[10386, 319, 250, 5, 51, "Input"],
+Cell[10639, 326, 605, 12, 37, "Message"],
+Cell[11247, 340, 176, 4, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11460, 349, 309, 7, 152, "Input"],
+Cell[11772, 358, 108, 1, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11917, 364, 428, 10, 152, "Input"],
+Cell[12348, 376, 95, 1, 51, "Output"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12504, 384, 116, 1, 79, "Section"],
+Cell[CellGroupData[{
+Cell[12645, 389, 285, 8, 43, "Input"],
+Cell[12933, 399, 374, 8, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13344, 412, 516, 10, 99, "Input"],
+Cell[13863, 424, 464, 10, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14364, 439, 212, 4, 43, "Input"],
+Cell[14579, 445, 356, 8, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14972, 458, 315, 7, 43, "Input"],
+Cell[15290, 467, 158, 3, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15485, 475, 257, 5, 43, "Input"],
+Cell[15745, 482, 101, 1, 43, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[15895, 489, 230, 3, 79, "Section"],
+Cell[16128, 494, 130, 2, 43, "Input"],
+Cell[16261, 498, 252, 5, 43, "Input"],
+Cell[CellGroupData[{
+Cell[16538, 507, 147, 1, 43, "Input"],
+Cell[16688, 510, 183, 3, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16908, 518, 216, 4, 43, "Input"],
+Cell[17127, 524, 455, 10, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17619, 539, 190, 5, 43, "Input"],
+Cell[17812, 546, 131, 2, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17980, 553, 155, 3, 43, "Input"],
+Cell[18138, 558, 103, 1, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18278, 564, 212, 4, 43, "Input"],
+Cell[18493, 570, 117, 1, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18647, 576, 499, 12, 43, "Input"],
+Cell[19149, 590, 574, 10, 99, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19760, 605, 150, 2, 61, "Subsection"],
+Cell[CellGroupData[{
+Cell[19935, 611, 199, 4, 43, "Input"],
+Cell[20137, 617, 424, 9, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20598, 631, 152, 3, 43, "Input"],
+Cell[20753, 636, 145, 2, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20935, 643, 213, 5, 43, "Input"],
+Cell[21151, 650, 184, 3, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21372, 658, 336, 8, 43, "Input"],
+Cell[21711, 668, 141, 1, 43, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21901, 675, 105, 1, 61, "Subsection"],
+Cell[CellGroupData[{
+Cell[22031, 680, 231, 5, 43, "Input"],
+Cell[22265, 687, 309, 7, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22611, 699, 256, 7, 51, "Input"],
+Cell[22870, 708, 59305, 1522, 4544, "Output"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[82212, 2235, 188, 6, 39, "Input"],
+Cell[82403, 2243, 87, 2, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[82527, 2250, 305, 8, 51, "Input"],
+Cell[82835, 2260, 94, 1, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[82966, 2266, 136, 2, 51, "Input"],
+Cell[83105, 2270, 4498, 82, 1948, "Output"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[87640, 2357, 145, 3, 39, "Input"],
+Cell[87788, 2362, 320, 8, 51, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88157, 2376, 101, 1, 73, "Subsection"],
+Cell[CellGroupData[{
+Cell[88283, 2381, 157, 3, 51, "Input"],
+Cell[88443, 2386, 368, 8, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88848, 2399, 320, 8, 51, "Input"],
+Cell[89171, 2409, 400, 7, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89608, 2421, 369, 9, 51, "Input"],
+Cell[89980, 2432, 187, 4, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[90204, 2441, 290, 7, 51, "Input"],
+Cell[90497, 2450, 112, 2, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[90646, 2457, 292, 7, 51, "Input"],
+Cell[90941, 2466, 105, 2, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[91083, 2473, 321, 8, 51, "Input"],
+Cell[91407, 2483, 161, 3, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[91605, 2491, 300, 8, 51, "Input"],
+Cell[91908, 2501, 130, 2, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[92075, 2508, 290, 7, 51, "Input"],
+Cell[92368, 2517, 128, 2, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[92533, 2524, 335, 7, 51, "Input"],
+Cell[92871, 2533, 579, 10, 69, "Message"],
+Cell[93453, 2545, 102, 1, 51, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+

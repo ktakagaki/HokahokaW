@@ -10,29 +10,32 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     16216,        419]
-NotebookOptionsPosition[     13085,        326]
-NotebookOutlinePosition[     15481,        391]
-CellTagsIndexPosition[     15361,        385]
-WindowTitle->HHImageCommon
+NotebookDataLength[     15114,        386]
+NotebookOptionsPosition[     12691,        310]
+NotebookOutlinePosition[     14343,        357]
+CellTagsIndexPosition[     14258,        352]
+WindowTitle->HHImageCommon - Wolfram Mathematica
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Mathematica",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:HokahokaW/guide/HokahokaW"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
 Cell[BoxData[GridBox[{
-   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+   {Cell["HOKAHOKAW PACLET SYMBOL", "PacletNameCell"], Cell[TextData[Cell[
+    BoxData[
      ActionMenuBox[
-      FrameBox[
-       InterpretationBox[Cell[TextData[{
-         "URL",
-         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
-          StripOnInput->False]
-        }]],
-        TextCell[
-         Row[{"URL", 
-           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+      FrameBox["\<\"URL \[RightGuillemet]\"\>",
        StripOnInput->False], {"\<\"HokahokaW/ref/HHImageCommon\"\>":>
-      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      None, "\<\"Copy Mathematica url\"\>":>
       Module[{DocumentationSearch`Private`nb$}, 
        DocumentationSearch`Private`nb$ = NotebookPut[
           Notebook[{
@@ -40,7 +43,7 @@ Cell[BoxData[GridBox[{
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
-      Delimiter, "\<\"Copy web URL\"\>":>
+      Delimiter, "\<\"Copy web url\"\>":>
       Module[{DocumentationSearch`Private`nb$}, 
        DocumentationSearch`Private`nb$ = NotebookPut[
           Notebook[{
@@ -48,24 +51,20 @@ Cell[BoxData[GridBox[{
              BoxData[
               MakeBoxes[
                Hyperlink[
-               "http://reference.wolfram.com/language/HokahokaW/ref/\
+               "http://reference.wolfram.com/mathematica/HokahokaW/ref/\
 HHImageCommon.html"], StandardForm]], "Input", TextClipboardType -> 
              "PlainText"]}, Visible -> False]]; 
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
        NotebookClose[DocumentationSearch`Private`nb$]; 
-       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+       Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
         NotebookLocate[{
           URL[
            StringJoin[
-            If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6005], 
-             "http://reference.wolfram.com/system-modeler/", 
-             "http://reference.wolfram.com/language/"], 
+           "http://reference.wolfram.com/mathematica/", 
             "HokahokaW/ref/HHImageCommon", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic,
-      MenuStyle->"URLMenu"]],
+      MenuAppearance->Automatic]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -74,18 +73,8 @@ HHImageCommon.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell[TextData[{
- Cell["HHImageCommon", "ObjectName"],
- Cell[BoxData[
-  InterpretationBox[
-   StyleBox[
-    GraphicsBox[{},
-     BaselinePosition->Baseline,
-     ImageSize->{8, 0}],
-    CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+Cell["HHImageCommon", "ObjectName",
+ CellID->1224892054],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -104,22 +93,20 @@ images.  Image data must have the same dimensions and depths."
 
 Cell[CellGroupData[{
 
-Cell[TextData[{
- Cell[BoxData[
-  InterpretationBox[
-   StyleBox[
-    GraphicsBox[{},
-     BaselinePosition->Baseline,
-     ImageSize->{6, 0}],
-    CacheGraphics->False],
-   Spacer[6]]]],
- "Examples",
- "\[NonBreakingSpace]\[NonBreakingSpace]",
- Cell["(1)", "ExampleCount"]
-}], "PrimaryExamplesSection",
- WholeCellGroupOpener->True,
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->49911822],
+ CellID->902497815],
 
 Cell[CellGroupData[{
 
@@ -127,9 +114,8 @@ Cell[TextData[{
  "Basic Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
  Cell["(1)", "ExampleCount"]
-}], "ExampleSection", "ExampleSection",
- WholeCellGroupOpener->True,
- CellID->412332347],
+}], "ExampleSection",
+ CellID->813589875],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`Graphics`"}]], "Input",
@@ -277,9 +263,8 @@ EoOREEIIIYQQQgghjfkfTJzSrA==
  ImageSize->{439, 152},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
- CellTags->"RasterizedOutput",
  CellLabel->"Out[2]=",
- CellID->370012231]
+ CellID->114334158]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -315,9 +300,8 @@ Yp9gyBcxgatw
  ImageSize->{76, 72},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
- CellTags->"RasterizedOutput",
  CellLabel->"Out[3]=",
- CellID->16791779]
+ CellID->72693005]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -328,29 +312,19 @@ Saveable->False,
 ScreenStyleEnvironment->"Working",
 WindowSize->{725, 750},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-WindowTitle->"HHImageCommon",
+WindowTitle->"HHImageCommon - Wolfram Mathematica",
 TaggingRules->{
- "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
-  GridBox[{{
-      RowBox[{
-        ButtonBox[
-        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
-         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
-  None, "RootCaptions" -> "", 
+ "ModificationHighlight" -> False, 
   "Metadata" -> {
-   "built" -> "{2016, 7, 10, 23, 7, 39.3985857}", 
-    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
-    "keywords" -> {}, "specialkeywords" -> {}, 
-    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
-    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
-    "status" -> "None", "summary" -> 
+   "built" -> "{2016, 8, 3, 12, 12, 43.1751241}", "context" -> "HokahokaW`", 
+    "keywords" -> {}, "index" -> True, "label" -> "HokahokaW Paclet Symbol", 
+    "language" -> "en", "paclet" -> "HokahokaW", "status" -> "None", 
+    "summary" -> 
     "HHImageCommon[] Gives the most common pixel cluster for each pixel in a \
 series of images. Image data must have the same dimensions and depths.", 
-    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHImageCommon", 
-    "titlemodifier" -> "", "windowtitle" -> "HHImageCommon", "type" -> 
-    "Symbol", "uri" -> "HokahokaW/ref/HHImageCommon"}, "SearchTextTranslated" -> 
-  ""},
+    "synonyms" -> {}, "title" -> "HHImageCommon", "type" -> "Symbol", "uri" -> 
+    "HokahokaW/ref/HHImageCommon"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->Notebook[{
@@ -370,57 +344,50 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[3674, 106, 386, 15, 33, "PrimaryExamplesSection",
+  Cell[3314, 95, 461, 13, 70, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->49911822]},
- "RasterizedOutput"->{
-  Cell[5625, 174, 6041, 107, 173, "Output",
-   CellTags->"RasterizedOutput",
-   CellID->370012231],
-  Cell[11822, 291, 1197, 28, 93, "Output",
-   CellTags->"RasterizedOutput",
-   CellID->16791779]}
+   CellID->902497815]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 14997, 371},
- {"RasterizedOutput", 15139, 375}
+ {"PrimaryExamplesSection", 14116, 345}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[584, 21, 2297, 53, 59, "AnchorBarGrid",
+Cell[606, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[685, 24, 184, 5, 70, "LinkTrail"],
+Cell[872, 31, 1883, 42, 70, "AnchorBarGrid",
  CellID->1],
-Cell[2884, 76, 290, 11, 54, "ObjectNameGrid"],
-Cell[3177, 89, 472, 13, 106, "Usage",
+Cell[2758, 75, 56, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[2817, 78, 472, 13, 70, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3674, 106, 386, 15, 33, "PrimaryExamplesSection",
+Cell[3314, 95, 461, 13, 70, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->49911822],
+ CellID->902497815],
 Cell[CellGroupData[{
-Cell[4085, 125, 195, 6, 28, "ExampleSection",
- CellID->412332347],
-Cell[4283, 133, 104, 3, 29, "Input",
+Cell[3800, 112, 148, 5, 70, "ExampleSection",
+ CellID->813589875],
+Cell[3951, 119, 104, 3, 70, "Input",
  CellID->1850285],
 Cell[CellGroupData[{
-Cell[4412, 140, 1210, 32, 125, "Input",
+Cell[4080, 126, 1210, 32, 125, "Input",
  CellID->697796],
-Cell[5625, 174, 6041, 107, 173, "Output",
- CellTags->"RasterizedOutput",
- CellID->370012231]
+Cell[5293, 160, 6010, 106, 173, "Output",
+ CellID->114334158]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11703, 286, 116, 3, 29, "Input",
+Cell[11340, 271, 116, 3, 29, "Input",
  CellID->1460132],
-Cell[11822, 291, 1197, 28, 93, "Output",
- CellTags->"RasterizedOutput",
- CellID->16791779]
+Cell[11459, 276, 1166, 27, 93, "Output",
+ CellID->72693005]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[13058, 324, 23, 0, 70, "FooterCell"]
+Cell[12664, 308, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

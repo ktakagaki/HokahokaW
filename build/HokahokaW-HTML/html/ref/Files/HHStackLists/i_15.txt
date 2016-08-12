@@ -1,1 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>ListLinePlot[testDataXY, ImageSize -&gt;  Medium]</pre><div class='IFU'><a name='122400899'></a>http://wolfram.com/xid/0g0gicmjie03uk8yqitfe36oudy-ca5re9</div>

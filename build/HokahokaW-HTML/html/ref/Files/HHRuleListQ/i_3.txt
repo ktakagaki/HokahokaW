@@ -1,1 +1,0 @@
-<pre name='i_3_in' id='i_3_in' class='IFT'>HHRuleListQ[ &quot;hello&quot; -&gt; 1, Sin :&gt; 3, ListPlot -&gt; 5]</pre><div class='IFU'><a name='20588467'></a>http://wolfram.com/xid/0br3n2s0b3b8uspzpv6jfdcn9nsz-mjkf5</div>

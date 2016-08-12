@@ -1,4 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>(*This tests a ragged array of {{x, y}...} lists*)
-listXYValues = 
-  Table[Table[{x, Sin[(x*2 Pi + Pi/4)* n]}, {x, 0, 1.2 - n*0.01, 
-     0.01}], {n, 1, 5}];</pre><div class='IFU'><a name='485949075'></a>http://wolfram.com/xid/0ehg02x8sv5mbe0mru12y8pitjqvct0-ibluzp</div>
