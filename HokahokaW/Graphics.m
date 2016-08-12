@@ -9,7 +9,7 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`"}];
 (*Declarations*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHStackLists / HHListLineStackPlot (HHListLinePlotStack)*)
 
 
@@ -102,7 +102,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Image Related*)
 
 
@@ -299,10 +299,6 @@ Block[{tempData, tempPlotRangeOpts},
 ];
 
 
-(* ::Subsubsection:: *)
-(*Fallthrough*)
-
-
 HHListLineStackPlot[args___] := Message[HHListLineStackPlot::invalidArgs, {args}];
 
 
@@ -398,7 +394,7 @@ Block[{tempData,tempPlotRange},
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
@@ -511,7 +507,7 @@ Block[{temp,
 HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHImageMean*)
 
 
@@ -552,7 +548,7 @@ Block[{tempSelf,tempProd, threshLower, threshUpper},
 ];*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHImageDifference*)
 
 
@@ -689,7 +685,9 @@ Block[{tempImageData},
 	tempImageData=ImageData /@ x;
 	If[ Length[Union[  Dimensions/@tempImageData ]]!=1,
 		Message[HHImageMean::dimensionsMustBeSame];,
-		ParallelMap[medianQuietPixelsShortC, Transpose[tempImageData, {3, 1, 2, 4}], {2}]
+		
+		ParallelMap[HHImageCommonImpl, tempImageData]
+		(*ParallelMap[medianQuietPixelsShortC, Transpose[tempImageData, {3, 1, 2, 4}], {2}]*)
 		(*medianQuietPixelsWholeShortC[ tempImageData ]*)
 	]
 ];
@@ -697,27 +695,65 @@ HHImageCommon::dimensionsMustBeSame = "Input list of Image objects must all have
 
 HHImageCommon[args___]:=Message[HHImageCommon::invalidArgs, {args}];
 
-(*medianQuietPixelsWholeShortC=
-Compile[{{imageDataList, _Real, 4}},
-	ParallelMap[medianQuietPixelsShortC, Transpose[imageDataList, {3, 1, 2, 4}], {2}],
-	Parallelization\[Rule]True
-];*)
 
-(*medianQuietPixelsShort[pixels_List]:=
-Block[{pixelMedian, pixelsDist2, pixelsOrdering, pixelsSortedThresholded(*, pixelCutoff*)},
-	pixelMedian=Median /@ Transpose[pixels];
-	(*pixelsDist=EuclideanDistance[#, pixelMedian]& /@ pixels;*)
-	pixelsDist2=(Plus@@((#-pixelMedian)^2.))& /@ pixels;
-	pixelsOrdering = Ordering[pixelsDist2][[1 ;; Round[Length[pixels]/4]]];
-	Mean /@ Transpose[pixels[[pixelsOrdering]]]
+(* ::Input::Initialization:: *)
+HHImageCommonImpl[{}, {remainingElements__List}, sqEucThreshold_]:=
+If[ Length[{remainingElements}] > 5,
+HHImageCommonImpl[
+ {{{remainingElements}[[1]] , {{remainingElements}[[1]]}}},  {remainingElements}[[2 ;;]],
+ sqEucThreshold
+],
+Message[ HHImageCommon::notEnoughItems, Length[{remainingElements}]]
+];
 
-(*	pixelMedian=Mean[pixelsSortedThresholded];
-	pixelsDist2=(Plus@@((#-pixelMedian)^2))& /@ pixels;
-	pixelsSortedThresholded=SortBy[Transpose[{pixelsDist2, pixels}], First];*)
-(*	{Mean[pixelsSortedThresholded[[All, 2]]], pixelsSortedThresholded[[-1, 1]]}*)
-];*)
 
-medianQuietPixelsShortC=
+(* ::Input::Initialization:: *)
+HHImageCommon::notEnoughItems="Not enough items in list (`1`)!";
+
+
+(* ::Input::Initialization:: *)
+HHImageCommonImpl[{dataElements__List}, {}, sqEucThreshold_]:=
+Block[{temp},
+temp= SortBy[{dataElements}, Length[#[[2]]]&][[-1]];
+If[ Length[temp[[2]]] <3,{},temp[[1]]]
+];
+
+
+(* ::Input::Initialization:: *)
+HHImageCommonImpl[{dataElements__List}, {remainingElements__List}, sqEucThreshold_]:=
+(* {dataElements} = {  {mean1, {{x,y,z}, {x,y,z}, ...}}, {mean2, {{x,y,z}, {x,y,z}, ...}}, ... } *)
+(* {remainingElements} = { {x,y,z}, {x,y,z}, ... } *)
+Block[{temp, tempNewElementList, elementC},
+elementC= First[{remainingElements}];
+temp={SquaredEuclideanDistance[elementC, #[[1]]], #}&/@{dataElements};
+temp= SortBy[ temp, First];(*sort by SquaredEuclideanDistance*)
+(* temp = {  { sed1, {mean1, {{x,y,z}, {x,y,z}, ...}}}, { sed2, {mean2, {{x,y,z}, {x,y,z}, ...}}}, ... } *)
+
+HHImageCommonImpl[
+If[ temp[[1,1]]<= sqEucThreshold,
+tempNewElementList= Append[(temp[[1,2,2]]), elementC];
+ReplacePart[temp[[All, 2]], 1 -> {Mean[tempNewElementList], tempNewElementList}],
+Join[temp[[All , 2]], {{elementC, {elementC}}}]
+],
+Rest[{remainingElements}], 
+sqEucThreshold
+]
+];
+
+
+(* ::Input::Initialization:: *)
+HHImageCommonImpl[list_List]:=
+Block[{temp},
+temp = HHImageCommonImpl[{},list, 0.00025];
+If[temp==={}, temp = HHImageCommonImpl[{},list, 0.001]];
+If[temp==={}, temp = HHImageCommonImpl[{},list, 0.004]];
+If[temp==={}, temp = HHImageCommonImpl[{},list, 0.016]];
+If[temp==={}, temp = HHImageCommonImpl[{},list, 0.064]];
+If[temp==={}, list[[1]]*0., temp ]
+];
+
+
+(*medianQuietPixelsShortC=
 Compile[{{pixelList, _Real, 2}},
 	pixelMedian=Median /@ Transpose[pixelList];
 	pixelsDist2=(Plus@@((#-pixelMedian)^2))& /@ pixelList;
@@ -726,38 +762,10 @@ Compile[{{pixelList, _Real, 2}},
 	Mean /@ Transpose[pixelList[[pixelsOrdering]]],
 {{pixelMedian, _Real, 1},{pixelsDist2, _Real, 1},
 {pixelsOrdering, _Integer, 1},{quartileEndIndex, _Integer}}
-];
-
-(*simpleDistance[a_,b_]:=Plus@@(Abs /@ (a-b));
-simplePixelCluster[pixelList_List/;Length[pixelList]==1, absThreshold_]:= pixelList[[1]];
-simplePixelCluster[pixelList_, absThreshold_]:=
-	Block[{clusters,clusterCount,innerBreak,innerRet},
-		clusters={pixelList[[1]]}; clusterCount={1};
-		
-	(*For each pixel in the list past index 2*)
-	Do[
-		innerBreak=False;innerRet=0;
-
-		(*For each cluster index*)
-		Do[
-			If[ simpleDistance[clusters[[n]],pixel]<=absThreshold,
-					clusters=ReplacePart[clusters, n->  Mean[{clusters[[n]],pixel}]];
-					clusterCount=ReplacePart[clusterCount,n->  (clusterCount[[n]]+1)];
-					Break[],
-				AppendTo[clusters,pixel]; AppendTo[clusterCount,1]
-			],
-		{n,Length[clusters]}
-		],
-
-	{pixel,pixelList[[2 ;; ]]}
-	];
-
-	SortBy[Transpose[{clusterCount,clusters}], First][[-1,2]]
-
 ];*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHImageThresholdNormalize/HHImageThresholdLinearNormalize*)
 
 
@@ -801,7 +809,7 @@ HHImageThresholdLinearNormalize[image_Image, threshold_:0.2]:=
 HHImageThresholdLinearNormalize[args___]:=Message[HHImageThresholdLinearNormalize::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHImageThreshold/HHImageThresholdLinear*)
 
 
@@ -840,7 +848,7 @@ End[];
 EndPackage[];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Bak*)
 
 
@@ -864,3 +872,45 @@ See tests in /HokahokaW/Tests/Graphics for more information.
 Until further improvements in graphics syntax, the best way is to use
 Column[  Show[gr1, ImageSize\[Rule] y*72], Show[gr2, ImageSize\[Rule] y*72] ]
 *)
+
+
+(*medianQuietPixelsShort[pixels_List]:=
+Block[{pixelMedian, pixelsDist2, pixelsOrdering, pixelsSortedThresholded(*, pixelCutoff*)},
+	pixelMedian=Median /@ Transpose[pixels];
+	(*pixelsDist=EuclideanDistance[#, pixelMedian]& /@ pixels;*)
+	pixelsDist2=(Plus@@((#-pixelMedian)^2.))& /@ pixels;
+	pixelsOrdering = Ordering[pixelsDist2][[1 ;; Round[Length[pixels]/4]]];
+	Mean /@ Transpose[pixels[[pixelsOrdering]]]
+
+(*	pixelMedian=Mean[pixelsSortedThresholded];
+	pixelsDist2=(Plus@@((#-pixelMedian)^2))& /@ pixels;
+	pixelsSortedThresholded=SortBy[Transpose[{pixelsDist2, pixels}], First];*)
+(*	{Mean[pixelsSortedThresholded[[All, 2]]], pixelsSortedThresholded[[-1, 1]]}*)
+];*)
+(*simpleDistance[a_,b_]:=Plus@@(Abs /@ (a-b));
+simplePixelCluster[pixelList_List/;Length[pixelList]==1, absThreshold_]:= pixelList[[1]];
+simplePixelCluster[pixelList_, absThreshold_]:=
+	Block[{clusters,clusterCount,innerBreak,innerRet},
+		clusters={pixelList[[1]]}; clusterCount={1};
+		
+	(*For each pixel in the list past index 2*)
+	Do[
+		innerBreak=False;innerRet=0;
+
+		(*For each cluster index*)
+		Do[
+			If[ simpleDistance[clusters[[n]],pixel]<=absThreshold,
+					clusters=ReplacePart[clusters, n->  Mean[{clusters[[n]],pixel}]];
+					clusterCount=ReplacePart[clusterCount,n->  (clusterCount[[n]]+1)];
+					Break[],
+				AppendTo[clusters,pixel]; AppendTo[clusterCount,1]
+			],
+		{n,Length[clusters]}
+		],
+
+	{pixel,pixelList[[2 ;; ]]}
+	];
+
+	SortBy[Transpose[{clusterCount,clusters}], First][[-1,2]]
+
+];*)

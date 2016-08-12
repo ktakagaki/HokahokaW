@@ -10,11 +10,11 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      4763,        137]
-NotebookOptionsPosition[      3234,         93]
-NotebookOutlinePosition[      4600,        131]
-CellTagsIndexPosition[      4557,        128]
-WindowTitle->HHPackageGitUnload - Wolfram Mathematica
+NotebookDataLength[      4841,        138]
+NotebookOptionsPosition[      3287,         94]
+NotebookOutlinePosition[      4678,        132]
+CellTagsIndexPosition[      4635,        129]
+WindowTitle->HHPackageGitFindRepoDir - Wolfram Mathematica
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34,13 +34,14 @@ Cell[BoxData[GridBox[{
     BoxData[
      ActionMenuBox[
       FrameBox["\<\"URL \[RightGuillemet]\"\>",
-       StripOnInput->False], {"\<\"HokahokaW/ref/HHPackageGitUnload\"\>":>
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHPackageGitFindRepoDir\"\>":>
       None, "\<\"Copy Mathematica url\"\>":>
       Module[{DocumentationSearch`Private`nb$}, 
        DocumentationSearch`Private`nb$ = NotebookPut[
           Notebook[{
-            Cell["HokahokaW/ref/HHPackageGitUnload"]}, Visible -> False]]; 
-       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+            Cell["HokahokaW/ref/HHPackageGitFindRepoDir"]}, Visible -> 
+           False]]; SelectionMove[
+        DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
       Delimiter, "\<\"Copy web url\"\>":>
@@ -52,7 +53,7 @@ Cell[BoxData[GridBox[{
               MakeBoxes[
                Hyperlink[
                "http://reference.wolfram.com/mathematica/HokahokaW/ref/\
-HHPackageGitUnload.html"], StandardForm]], "Input", TextClipboardType -> 
+HHPackageGitFindRepoDir.html"], StandardForm]], "Input", TextClipboardType -> 
              "PlainText"]}, Visible -> False]]; 
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
@@ -62,7 +63,7 @@ HHPackageGitUnload.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
            "http://reference.wolfram.com/mathematica/", 
-            "HokahokaW/ref/HHPackageGitUnload", ".html"]], None}]}]},
+            "HokahokaW/ref/HHPackageGitFindRepoDir", ".html"]], None}]}]},
       Appearance->None,
       MenuAppearance->Automatic]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
@@ -73,14 +74,14 @@ HHPackageGitUnload.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHPackageGitUnload", "ObjectName",
+Cell["HHPackageGitFindRepoDir", "ObjectName",
  CellID->1224892054],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      RowBox[{"HHPackageGitUnload", "[", "]"}]], "InlineFormula"],
-     " \[LineSeparator]HHPackageGitUnload"
+      RowBox[{"HHPackageGitFindRepoDir", "[", "]"}]], "InlineFormula"],
+     " \[LineSeparator]HHPackageGitFindRepoDir"
     }]]}
   }]], "Usage",
  GridBoxOptions->{
@@ -95,17 +96,17 @@ Saveable->False,
 ScreenStyleEnvironment->"Working",
 WindowSize->{725, 750},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-WindowTitle->"HHPackageGitUnload - Wolfram Mathematica",
+WindowTitle->"HHPackageGitFindRepoDir - Wolfram Mathematica",
 TaggingRules->{
  "ModificationHighlight" -> False, 
   "Metadata" -> {
-   "built" -> "{2016, 8, 3, 12, 12, 58.6240078}", "context" -> "HokahokaW`", 
+   "built" -> "{2016, 8, 3, 12, 12, 52.3206472}", "context" -> "HokahokaW`", 
     "keywords" -> {}, "index" -> True, "label" -> "HokahokaW Paclet Symbol", 
     "language" -> "en", "paclet" -> "HokahokaW", "status" -> "None", 
-    "summary" -> "HHPackageGitUnload[] HHPackageGitUnload", "synonyms" -> {}, 
-    "title" -> "HHPackageGitUnload", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHPackageGitUnload"}, "LinkTrails" -> "", 
-  "SearchTextTranslated" -> ""},
+    "summary" -> "HHPackageGitFindRepoDir[] HHPackageGitFindRepoDir", 
+    "synonyms" -> {}, "title" -> "HHPackageGitFindRepoDir", "type" -> 
+    "Symbol", "uri" -> "HokahokaW/ref/HHPackageGitFindRepoDir"}, "LinkTrails" -> 
+  "", "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->Notebook[{
@@ -130,15 +131,15 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[611, 21, 76, 1, 70, "SymbolColorBar"],
-Cell[690, 24, 184, 5, 70, "LinkTrail"],
-Cell[877, 31, 1903, 42, 70, "AnchorBarGrid",
+Cell[616, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[695, 24, 184, 5, 70, "LinkTrail"],
+Cell[882, 31, 1936, 43, 70, "AnchorBarGrid",
  CellID->1],
-Cell[2783, 75, 61, 1, 70, "ObjectName",
+Cell[2821, 76, 66, 1, 70, "ObjectName",
  CellID->1224892054],
-Cell[2847, 78, 357, 11, 70, "Usage",
+Cell[2890, 79, 367, 11, 70, "Usage",
  CellID->982511436],
-Cell[3207, 91, 23, 0, 70, "FooterCell"]
+Cell[3260, 92, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

@@ -17,8 +17,11 @@ General::deprecatedSignature="Function signature is deprecated, see help for upd
 General::nullArgument="At least one of the required arguments is null!";
 
 
+HHVerbose::useage = "An option for several HokahokaW` functions whether audit output should be printed.";
+
+
 (* ::Subsection::Closed:: *)
-(*Rules/Options*)
+(*Rule/Option Handling*)
 
 
 HHRuleListQ::usage=
@@ -64,19 +67,23 @@ HHJavaObjectQ::usage="Checks whether something is a Java object and an instance 
 HHIncreaseJavaStack::usage="Increases the Java stack size.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHPackageMessage/Package Git functions *)
 
 
 HHPackageMessage::usage="Prints standard package message, including Git information if available.";
-(* TODO: test that notebook message is working with HHPackageMessage[] *)
-(*HHNotebookMessage::usage="Prints standard notebook message.";*)
+HHPackageWriteGitArtifact::usage="Saves git info if available in artifact file, and returns association.";
+
+(*HHPackageGitArtifact::usage="Checks if a package git artifact is present. Also checks whether currently in a git repository, \
+and updates the artifact if yes.";
+Options[HHPackageGitArtifact]={HHVerbose -> True};*)
 
 
 HHPackageGitLoad::usage="Loads git repository into jgit. Specify directory or package name. If not specified, NotebookDirectory[] will be taken";
 HHPackageGitUnload::usage="Unloads current git repository and resets search string, if they are set.";
 HHPackageGitFindRepoDir::usage="Searches up directory tree to try to find a .git repo directory.";
 HHPackageGitCurrentBranch::usage="Returns the current branch name for the given package or within the current NotebookDirectory[].";
+Options[HHPackageGitLoad]= Options[HHPackageGitUnload]={HHVerbose -> False};
 
 
 HHPackageNewestFileDate::usage="Prints the newest file change date for all files within the given package or within the current NotebookDirectory[].";
@@ -313,7 +320,7 @@ HHIncreaseJavaStack[stackSize_Integer]:=
 HHIncreaseJavaStack[args___]:=Message[HHIncreaseJavaStack::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHPackageMessage/Package Git functions*)
 
 
@@ -324,11 +331,74 @@ $HHCurrentGitRepository::usage="";
 $HHCurrentGitRepository = Null;
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageMessage *)
 
 
 HHPackageMessage[]:=HHPackageMessage[NotebookFileName[]];
+HHPackageMessage[package_String]:=HHPackageMessage[package, ""];
+
+
+HHPackageMessage[package_String, append_String]:=
+Block[{tempArtifactFile, 
+		temp, tempInfo, tempStrippedPackage,
+		infoPath, infoBranch, infoHEAD, infoRemotes, infoArtifactDate},
+
+	Quiet[ HHPackageGitLoad[package] ];
+
+	tempStrippedPackage = If[StringMatchQ[package,"*`"], StringTake[package, {1,-2}], package];
+
+	(*Where the artifact file will be read/written*)
+	tempArtifactFile=
+	If[ $HHCurrentGitRepository === Null,
+		(*If no repository was loaded*)
+		If[  FileExistsQ[ package ], 
+			(*For example, if notebook file is specified*)
+			FileNameJoin[{DirectoryName[package], "HHGitArtifact.m"}],
+
+			(*If not, "package" is probably package name*)
+			temp = FindFile[ tempStrippedPackage <>  "`"];
+			If[  temp === $Failed, 
+				Null (*Do not write artifact*), 
+				FileNameJoin[{ ParentDirectory[DirectoryName[ temp ]], "HHGitArtifact.m"}]
+			]
+		 ],
+
+		(*If repository was loaded*)
+		FileNameJoin[{ParentDirectory[$HHCurrentGitRepositoryPath], tempStrippedPackage, "HHGitArtifact.m"}]
+	];
+
+	If[$HHCurrentGitRepository === Null,
+		(*If we are not working in an active git repository, try to load artifact file *)
+		If[ FileExistsQ[ tempArtifactFile ],
+			tempInfo = Import[ tempArtifactFile ],
+			tempInfo = Null
+		],
+
+		(*If we are working in an active git repository, load/refresh info and write *)
+		tempInfo = HHPackageWriteGitArtifact[package, tempArtifactFile]
+	];
+
+	(*Printout*)
+	If[ tempInfo === Null,	
+		HHPackageMessageImpl[ package,
+			"No .git  directory found and no HHGitArtifact.m found for this package/notebook.",
+			"You should always track items with Git or another VCS for reproducibility!"
+		],
+		
+		HHPackageMessageImpl[ package,
+			If[ $HHCurrentGitRepository === Null, "Artifact info as of: ", "Git info loaded: "] <> 
+			tempInfo[["GitArtifactDate"]] <> "\n" <>
+			"Local repo path:   " <> tempInfo[["GitPath"]] <> "\n" <>
+			"Current branch [hash]:  "<> tempInfo[["GitBranch"]] <> " [" <> tempInfo[["GitHEAD"]] <>"]\n" <>
+			StringTake[ StringJoin[ ("Remote:  " <> #[[1]] <> " (" <> #[[2]]<>")\n")& /@ tempInfo[["GitRemotes"]] ], {1, -2}],
+			append
+		]
+	]
+];
+
+
+(*HHPackageMessage[]:=HHPackageMessage[NotebookFileName[]];
 HHPackageMessage[package_String]:=HHPackageMessage[package, ""];
 
 HHPackageMessage[package_String, append_String]:=
@@ -349,7 +419,7 @@ Block[{remotes},
 				append
 		]
 	];
-];
+];*)
 
 
 HHPackageMessageImpl[package_String, contentLines_String, appendLines_String]:=
@@ -376,6 +446,45 @@ Block[{},
 HHPackageMessage[args___]:=Message[HHPackageMessage::invalidArgs,{args}];
 
 
+(* ::Subsubsection:: *)
+(* HHPackageWriteGitArtifact *)
+
+
+HHPackageWriteGitArtifact[package_String, artifactFile_String: Automatic]:=
+
+Block[{tempInfo,tempArtifactFile,	infoPath, infoBranch, infoHEAD, infoRemotes, infoArtifactDate},
+
+	Quiet[ HHPackageGitLoad[package] ];
+
+	tempArtifactFile = If[ artifactFile === Automatic,
+		FileNameJoin[{NotebookDirectory[], "HHGitArtifact.m"}],
+		artifactFile
+	];
+
+	If[$HHCurrentGitRepository === Null,
+	
+		Message[HHPackageWriteGitArtifact::noRepo, package];
+		<| |>,
+
+		(*If we are working in an active git repository, load info and write *)
+		infoPath = $HHCurrentGitRepositoryPath;
+		infoBranch = HHPackageGitCurrentBranch[package];
+		infoHEAD = HHPackageGitHEAD[package];
+		infoRemotes = Apply[Rule, Transpose[ {HHPackageGitRemotes[package], HHPackageGitRemotesURL[package]} ], {1}];
+		infoArtifactDate =  DateString[];
+		tempInfo = <| "GitPath" -> infoPath, "GitBranch" -> infoBranch, "GitHEAD" -> infoHEAD, 
+			"GitRemotes" -> infoRemotes, "GitArtifactDate" -> infoArtifactDate |>;
+		Export[ tempArtifactFile, tempInfo ];
+		tempInfo
+	]
+];
+
+HHPackageWriteGitArtifact::noRepo="Package/file `1` is not in .git repo";
+
+
+HHPackageWriteGitArtifact[args___]:=Message[HHPackageWriteGitArtifact::invalidArgs,{args}];
+
+
 (* ::Subsubsection::Closed:: *)
 (* HHPackageGitFindRepoDir*)
 
@@ -396,8 +505,11 @@ Block[{tempret, temp},
 			]
 		]
 	];
-	If[tempret === "", Message[ HHPackageGitFindRepoDir::notGitDirectory, directory ]];
-	tempret 		
+	If[tempret === "", 
+		Message[ HHPackageGitFindRepoDir::notGitDirectory, directory ];
+		Null,
+		tempret
+	]		
 ]; 
 
 
@@ -419,24 +531,21 @@ HHPackageGitFindRepoDir[args___]:=Message[HHPackageGitFindRepoDir::invalidArgs,{
 
 
 (* ::Subsubsection::Closed:: *)
-(* HHPackageGitLoad/Unload*)
+(* HHPackageGitLoad*)
 
 
-(*HHPackageGitLoad[]:= HHPackageGitLoad[ NotebookDirectory[] ];*)
-HHPackageGitLoad[directory_String, verbose_:False]:=
+HHPackageGitLoad[directory_String, opts:OptionsPattern[](* verbose_:False*)]:=
 Block[{gitDirectory, temp},
 
 	gitDirectory = HHPackageGitFindRepoDir[directory];
 
-	If[ gitDirectory === "",
+	If[ gitDirectory === Null,
 		HHPackageGitUnload[],
 		If[ gitDirectory =!= $HHCurrentGitRepositoryPath,
-			HHPackageGitUnload[];
+			HHPackageGitUnload[HHVerbose -> False];
 			$HHCurrentGitRepositoryPath = gitDirectory;
-			(*Print[{gitDirectory,gitDirectory =!= $HHCurrentGitRepositoryPath}];*)
-			$HHCurrentGitRepository = 
-				JavaNew["org.eclipse.jgit.internal.storage.file.FileRepository", gitDirectory];
-			If[verbose,
+			$HHCurrentGitRepository = JavaNew["org.eclipse.jgit.internal.storage.file.FileRepository", gitDirectory];
+			If[OptionValue[HHVerbose](*verbose*),
 				Print["HokahokaW`HHPackageGitLoad: Loaded Git repository located at " <> gitDirectory ]
 			]
 		]
@@ -444,23 +553,26 @@ Block[{gitDirectory, temp},
 
 ];
 
-HHPackageGitLoad::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
+(*HHPackageGitLoad::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
 HHPackageGitLoad::gitError="Call to Git returned error. It could be that Git is " <>
- "not installed correctly, the command `1` is not valid, or the directory `2` is not valid."; 
+ "not installed correctly, the command `1` is not valid, or the directory `2` is not valid."; *)
 
 HHPackageGitLoad[args___]:=Message[HHPackageGitLoad::invalidArgs,{args}];
 
 
-HHPackageGitUnload[verbose_:False]:=
+(* ::Subsubsection:: *)
+(* HHPackageGitUnload*)
+
+
+HHPackageGitUnload[opts:OptionsPattern[](* verbose_:False*)]:=
 Block[{},
 
-	If[ $HHCurrentGitRepositoryPath =!= "",
-		If[verbose,
-			Print[ "Unloading repository: "<> $HHCurrentGitRepositoryPath]
-		];
-		$HHCurrentGitRepositoryPath = "";
+	If[ $HHCurrentGitRepository =!= Null,
+		If[OptionValue[HHVerbose](*verbose*),	Print[ "Unloading repository: "<> $HHCurrentGitRepositoryPath] ];
+		$HHCurrentGitRepositoryPath = Null;
 		$HHCurrentGitRepository = Null
 	];
+
 ];
 
 HHPackageGitUnload[args___]:=Message[HHPackageGitUnload::invalidArgs,{args}];
@@ -744,7 +856,7 @@ HHSymbolNotNull[symbolName_List]:= And@@(HHSymbolNotNull /@ symbolName);
 HHSymbolNotNull[args___]:=Message[HHSymbolNotNull::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Utilities: Files*)
 
 
