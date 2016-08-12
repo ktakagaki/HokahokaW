@@ -269,7 +269,7 @@ Block[{tempTimes, tempTraces},
 HHStackLists[args___] := Message[HHStackLists::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLineStackPlot*)
 
 
@@ -684,9 +684,11 @@ Block[{tempImageData},
 	(*The following part is repeated with modifications*)
 	tempImageData=ImageData /@ x;
 	If[ Length[Union[  Dimensions/@tempImageData ]]!=1,
-		Message[HHImageMean::dimensionsMustBeSame];,
+		Message[HHImageCommon::dimensionsMustBeSame];,
 		
-		ParallelMap[HHImageCommonImpl, tempImageData]
+		(*DistributeDefinitions["HokahokaW`Graphics`"];
+		DistributeDefinitions["HokahokaW`Graphics`Private`"];*)
+		ParallelMap[HHImageCommonImpl, Transpose[tempImageData, {3, 1, 2, 4}], {2}]
 		(*ParallelMap[medianQuietPixelsShortC, Transpose[tempImageData, {3, 1, 2, 4}], {2}]*)
 		(*medianQuietPixelsWholeShortC[ tempImageData ]*)
 	]
@@ -696,60 +698,88 @@ HHImageCommon::dimensionsMustBeSame = "Input list of Image objects must all have
 HHImageCommon[args___]:=Message[HHImageCommon::invalidArgs, {args}];
 
 
-(* ::Input::Initialization:: *)
-HHImageCommonImpl[{}, {remainingElements__List}, sqEucThreshold_]:=
-If[ Length[{remainingElements}] > 5,
-HHImageCommonImpl[
- {{{remainingElements}[[1]] , {{remainingElements}[[1]]}}},  {remainingElements}[[2 ;;]],
- sqEucThreshold
-],
-Message[ HHImageCommon::notEnoughItems, Length[{remainingElements}]]
+HHImageCommonImpl[{data__List}, sqEucThreshold_]:=
+Block[{dataBuildup, temp, tempNewElementList},
+	If[ Length[{data}] > 5,
+		dataBuildup = {{{data}[[1]] , {{data}[[1]]}}};
+
+		Do[
+			(*sort by SquaredEuclideanDistance*)
+			temp={SquaredEuclideanDistance[elementC, #[[1]]], #}&/@dataBuildup;
+			temp= SortBy[ temp, First]; 
+			(* temp = {  { sed1, {mean1, {{x,y,z}, {x,y,z}, ...}}}, { sed2, {mean2, {{x,y,z}, {x,y,z}, ...}}}, ... } *)
+
+			dataBuildup=If[ temp[[1,1]]<= sqEucThreshold,
+			tempNewElementList= Append[(temp[[1,2,2]]), elementC];
+			ReplacePart[temp[[All, 2]], 1 -> {Mean[tempNewElementList], tempNewElementList}],
+			Join[temp[[All , 2]], {{elementC, {elementC}}}]
+		],
+		{elementC, {data}[[2;;]]}
+	];
+
+	temp= SortBy[dataBuildup, Length[#[[2]]]&][[-1]];
+	If[ Length[temp[[2]]] <3,{},temp[[1]]],
+
+	Message[ HHImageCommon::notEnoughItems, Length[{data}]]
+	]
 ];
 
 
-(* ::Input::Initialization:: *)
+
 HHImageCommon::notEnoughItems="Not enough items in list (`1`)!";
 
 
-(* ::Input::Initialization:: *)
-HHImageCommonImpl[{dataElements__List}, {}, sqEucThreshold_]:=
+(*HHImageCommonImpl[{}, {remainingElements__List}, sqEucThreshold_]:=
+	If[ Length[{remainingElements}] > 5,
+		HHImageCommonImpl[
+		{{{remainingElements}[[1]] , {{remainingElements}[[1]]}}},  {remainingElements}[[2 ;;]],
+			 sqEucThreshold
+	],
+	Message[ HHImageCommon::notEnoughItems, Length[{remainingElements}]]
+];*)
+
+
+(*HHImageCommonImpl[{dataElements__List}, {}, sqEucThreshold_]:=
 Block[{temp},
-temp= SortBy[{dataElements}, Length[#[[2]]]&][[-1]];
-If[ Length[temp[[2]]] <3,{},temp[[1]]]
-];
+	temp= SortBy[{dataElements}, Length[#[[2]]]&][[-1]];
+	If[ Length[temp[[2]]] <3,{},temp[[1]]]
+];*)
 
 
-(* ::Input::Initialization:: *)
-HHImageCommonImpl[{dataElements__List}, {remainingElements__List}, sqEucThreshold_]:=
+(*HHImageCommonImpl[{dataElements__List}, {remainingElements__List}, sqEucThreshold_]:=
 (* {dataElements} = {  {mean1, {{x,y,z}, {x,y,z}, ...}}, {mean2, {{x,y,z}, {x,y,z}, ...}}, ... } *)
 (* {remainingElements} = { {x,y,z}, {x,y,z}, ... } *)
-Block[{temp, tempNewElementList, elementC},
-elementC= First[{remainingElements}];
-temp={SquaredEuclideanDistance[elementC, #[[1]]], #}&/@{dataElements};
-temp= SortBy[ temp, First];(*sort by SquaredEuclideanDistance*)
-(* temp = {  { sed1, {mean1, {{x,y,z}, {x,y,z}, ...}}}, { sed2, {mean2, {{x,y,z}, {x,y,z}, ...}}}, ... } *)
 
-HHImageCommonImpl[
-If[ temp[[1,1]]<= sqEucThreshold,
-tempNewElementList= Append[(temp[[1,2,2]]), elementC];
-ReplacePart[temp[[All, 2]], 1 -> {Mean[tempNewElementList], tempNewElementList}],
-Join[temp[[All , 2]], {{elementC, {elementC}}}]
-],
-Rest[{remainingElements}], 
-sqEucThreshold
-]
-];
+With[{elementC = First[{remainingElements}]},
+Block[{temp, tempNewElementList},
+
+	(*elementC = First[{remainingElements}];*)
+
+	(*sort by SquaredEuclideanDistance*)
+	temp = ( ({SquaredEuclideanDistance[ elementC,  #[[1]]], #}&) /@ {dataElements} );
+	temp = SortBy[ temp, First];
+	(* temp = {  { sed1, {mean1, {{x,y,z}, {x,y,z}, ...}}}, { sed2, {mean2, {{x,y,z}, {x,y,z}, ...}}}, ... } *)
+
+	HHImageCommonImpl[
+		If[ temp[[1,1]]<= sqEucThreshold,
+		tempNewElementList= Append[(temp[[1,2,2]]),elementC];
+		ReplacePart[temp[[All, 2]], 1 -> {Mean[tempNewElementList], tempNewElementList}],
+		Join[temp[[All , 2]], {{elementC, {elementC}}}]
+		],
+		Rest[{remainingElements}], 
+		sqEucThreshold
+	]
+]];*)
 
 
-(* ::Input::Initialization:: *)
 HHImageCommonImpl[list_List]:=
 Block[{temp},
-temp = HHImageCommonImpl[{},list, 0.00025];
-If[temp==={}, temp = HHImageCommonImpl[{},list, 0.001]];
-If[temp==={}, temp = HHImageCommonImpl[{},list, 0.004]];
-If[temp==={}, temp = HHImageCommonImpl[{},list, 0.016]];
-If[temp==={}, temp = HHImageCommonImpl[{},list, 0.064]];
-If[temp==={}, list[[1]]*0., temp ]
+	temp = HHImageCommonImpl[list, 0.00025];
+	If[temp==={}, temp = HHImageCommonImpl[list, 0.001]];
+	If[temp==={}, temp = HHImageCommonImpl[list, 0.004]];
+	If[temp==={}, temp = HHImageCommonImpl[list, 0.016]];
+	If[temp==={}, temp = HHImageCommonImpl[list, 0.064]];
+	If[temp==={}, list[[1]]*0., temp ]
 ];
 
 
