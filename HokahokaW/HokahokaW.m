@@ -327,11 +327,16 @@ HHIncreaseJavaStack[args___]:=Message[HHIncreaseJavaStack::invalidArgs,{args}];
 $HHCurrentGitRepositoryPath::usage="";
 $HHCurrentGitRepositoryPath = "";
 
+
 $HHCurrentGitRepository::usage="";
 $HHCurrentGitRepository = Null;
 
 
-(* ::Subsubsection:: *)
+$HHCurrentGitArtifact::usage="";
+$HHCurrentGitArtifact = Null;
+
+
+(* ::Subsubsection::Closed:: *)
 (* HHPackageMessage *)
 
 
@@ -508,39 +513,66 @@ Block[{tempret, temp},
 	If[tempret === "", 
 		Message[ HHPackageGitFindRepoDir::notGitDirectory, directory ];
 		Null,
-		tempret
+		FileNameJoin[{ tempret, ".git" }]
 	]		
 ]; 
 
 
 HHPackageGitFindRepoDirImpl[directory_String]:=
+(* Can assume that DirectoryQ[ directory ] \[Equal] True *)
+Block[{parentDirectory, putativeGitDirectory},
+
+	If[  directory === "" || directory === ParentDirectory[ directory ],  (*If in root directory, ParentDirectory[] will act as Identity[] *)
+		"",
+		(*See if there is a ".git" folder in the parent directory, and if not, recurse up tree*)
+		putativeGitDirectory=FileNameJoin[{ directory, ".git"}]; 
+		If[ DirectoryQ[ putativeGitDirectory ], 
+			directory,
+			parentDirectory=Quiet[Check[ParentDirectory[directory], ""]]; (*If there is no parent directory, etc.*) 
+			If[parentDirectory === "",
+				"",
+				HHPackageGitFindRepoDirImpl[ parentDirectory ] 
+			]
+		]
+	]
+	
+]; 
+
+
+(*HHPackageGitFindRepoDirImpl[directory_String]:=
 Block[{parentDirectory, putativeGitDirectory},
 	parentDirectory=Quiet[Check[ParentDirectory[directory], ""]]; (*If there is no parent directory, etc.*)
+	(*Print[parentDirectory];*)
 	If[  parentDirectory === "" || parentDirectory == directory,  (*If in root directory, ParentDirectory[] will act as Identity[] *)
 		"",
 		(*See if there is a ".git" folder in the parent directory, and if not, recurse up tree*)
 		putativeGitDirectory=FileNameJoin[{ parentDirectory, ".git"}]; 
+		(*Print[{putativeGitDirectory, DirectoryQ[ putativeGitDirectory ]}];*)
 		If[ DirectoryQ[ putativeGitDirectory ], putativeGitDirectory, HHPackageGitFindRepoDirImpl[parentDirectory] ]
 	]
-]; 
+]; *)
 
 
-HHPackageGitFindRepoDir::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`."; 
+HHPackageGitFindRepoDir::notGitDirectory="No git directory \".git\" was found within the parent tree of `1`. Check typos/path."; 
 
 HHPackageGitFindRepoDir[args___]:=Message[HHPackageGitFindRepoDir::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitLoad*)
 
 
 HHPackageGitLoad[directory_String, opts:OptionsPattern[](* verbose_:False*)]:=
-Block[{gitDirectory, temp},
+Block[{gitDirectory, tempArtifact},
 
-	gitDirectory = HHPackageGitFindRepoDir[directory];
+	gitDirectory = Quiet[ HHPackageGitFindRepoDir[directory] ];
 
 	If[ gitDirectory === Null,
-		HHPackageGitUnload[],
+		
+		(*If not in active git directory, unload package and search for HHGitArtifact.m*)
+		HHPackageGitUnload[], (*$HHCurrentGitRepository = Null*)
+		
+		(*If in active git directory, reload if different*)	
 		If[ gitDirectory =!= $HHCurrentGitRepositoryPath,
 			HHPackageGitUnload[HHVerbose -> False];
 			$HHCurrentGitRepositoryPath = gitDirectory;
@@ -549,6 +581,32 @@ Block[{gitDirectory, temp},
 				Print["HokahokaW`HHPackageGitLoad: Loaded Git repository located at " <> gitDirectory ]
 			]
 		]
+	];
+	
+	(*DEAL WITH ARTIFACTS, INDEPENDENTLY OF REPO => TODO prevent reload if already loaded*)
+	(*Is artifact directly in specified directory?*)
+	tempArtifact = FileNameJoin[{directory, "HHGitArtifact.m"}];
+	If[ FindFile[tempArtifact] === $Failed,
+		(*Is "directory" actually a package name/path?*)
+		tempArtifact = FindFile[directory];
+		If[ tempArtifact =!= $Failed,
+			(*Is "directory" actually a package path?*)
+			If[ FileNameSplit[ tempArtifact ][[ -1 ]] == "init.m",
+				tempArtifact = FileNameJoin[ {ParentDirectory[DirectoryName[tempArtifact]], "HHGitArtifact.m"} ]
+			];
+			If[ !FileExistsQ[tempArtifact], tempArtifact = $Failed ]
+		]
+	];
+	(*Load artifact*)
+	If[ tempArtifact === $Failed,
+		$HHCurrentGitArtifact = Null,
+		
+		$HHCurrentGitArtifact = Quiet[ Import[ tempArtifact ] ];
+		If[ $HHCurrentGitArtifact === $Failed || 
+				Head[$HHCurrentGitArtifact] =!= Association ||
+				Head[ $HHCurrentGitArtifact[["GitPath"]] ] =!= String,
+			$HHCurrentGitArtifact = Null
+		]				
 	]
 
 ];
@@ -570,7 +628,8 @@ Block[{},
 	If[ $HHCurrentGitRepository =!= Null,
 		If[OptionValue[HHVerbose](*verbose*),	Print[ "Unloading repository: "<> $HHCurrentGitRepositoryPath] ];
 		$HHCurrentGitRepositoryPath = Null;
-		$HHCurrentGitRepository = Null
+		$HHCurrentGitRepository = Null;
+		$HHCurrentGitArtifact = Null
 	];
 
 ];
@@ -578,7 +637,7 @@ Block[{},
 HHPackageGitUnload[args___]:=Message[HHPackageGitUnload::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitCurrentBranch*)
 
 
@@ -587,8 +646,15 @@ HHPackageGitCurrentBranch[package_String]:=
 Block[{currBranch, currRef, currObjID},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null, 
+
+		(*If in active git directory*)
 		$HHCurrentGitRepository@getBranch[], 
-		"NO VALID REPOSITORY"
+		
+		(*If not in active git directory*)
+		If[ $HHCurrentGitArtifact === Null,
+			"NO VALID REPOSITORY",
+			$HHCurrentGitArtifact[[ "GitBranch" ]]
+		]
 	]
 ];
 
@@ -596,7 +662,7 @@ Block[{currBranch, currRef, currObjID},
 HHPackageGitCurrentBranch[args___]:=Message[HHPackageGitCurrentBranch::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitHEAD *)
 
 
@@ -605,10 +671,17 @@ HHPackageGitHEAD[package_String]:=
 Block[{currBranch, currRef, currObjID},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null,
+	
+		(*If in active git directory*)
 		currRef=$HHCurrentGitRepository@getRef[ HHPackageGitCurrentBranch[package] ];
 		currObjID=currRef@getObjectId[];
 		currObjID@toString[ currObjID ],
-		"NO VALID REPOSITORY"
+		
+		(*If not in active git directory*)
+		If[ $HHCurrentGitArtifact === Null,
+			"NO VALID REPOSITORY",
+			$HHCurrentGitArtifact[[ "GitHEAD" ]]
+		]
 	]
 ];
 
@@ -616,7 +689,7 @@ Block[{currBranch, currRef, currObjID},
 HHPackageGitHEAD[args___]:=Message[HHPackageGitHEAD::invalidArgs,{args}];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageGitRemotes / HHPackageGitRemotesURL*)
 
 
@@ -625,9 +698,16 @@ HHPackageGitRemotes[package_String]:=
 Block[{currConfig},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null,
+
+		(*If in active git directory*)
 		currConfig=$HHCurrentGitRepository@getConfig[];
 		currConfig@getSubsections["remote"]@toArray[],
-		"NO VALID REPOSITORY"
+
+		(*If not in active git directory*)
+		If[ $HHCurrentGitArtifact === Null,
+			"NO VALID REPOSITORY",
+			(List@@#)& /@ $HHCurrentGitArtifact[[ "GitRemotes" ]]
+		]
 	]
 ];
 
@@ -640,10 +720,17 @@ HHPackageGitRemotesURL[package_String]:=
 Block[{remotes, currConfig},
 	HHPackageGitLoad[package];
 	If[ $HHCurrentGitRepository =!= Null,
+
+		(*If in active git directory*)
 		remotes = HHPackageGitRemotes[package];
 		currConfig=$HHCurrentGitRepository@getConfig[];
 		currConfig@getString["remote", #, "url"]& /@ remotes,
-		"NO VALID REPOSITORY"
+		
+		(*If not in active git directory*)
+		If[ $HHCurrentGitArtifact === Null,
+			"NO VALID REPOSITORY",
+			(#[[2]])& /@ $HHCurrentGitArtifact[[ "GitRemotes" ]]
+		]
 	]
 ];
 
