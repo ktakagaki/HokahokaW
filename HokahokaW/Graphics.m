@@ -9,6 +9,9 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`"}];
 (*Declarations*)
 
 
+HHOptLabelStyleSpecifications::usage = "Option for HHLabelGraphics.";
+
+
 (* ::Subsection::Closed:: *)
 (*HHStackLists / HHListLineStackPlot (HHListLinePlotStack)*)
 
@@ -16,7 +19,7 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`"}];
 HHStackLists::usage = 
 "HHStackLists takes lists and stacks the values (e.g. for stacked list plots with HHListLineStackPlot[])";
 
-Options[HHStackLists] = {HHOptBaselineCorrection -> None, HHOptStack -> Automatic};
+Options[HHStackLists] = {HHOptBaselineCorrection -> None(*, HHOptStack -> Automatic*)};
 
 
 HHOptBaselineCorrection::usage =
@@ -39,12 +42,12 @@ HHPlotRangeClipping::usage="";
 HHListLineStackPlot::usage=
 "HHListLineStaciPlot plots multiple traces together, stacked vertically.";
 
-HHListLinePlotStack::usage=
-"DEPRECATED HHListLinePlotStack plots multiple traces together, stacked vertically.";
+(*HHListLinePlotStack::usage=
+"DEPRECATED HHListLinePlotStack plots multiple traces together, stacked vertically.";*)
 
 
-HHListLineStackPlot$UniqueOptions = {};
-HHListLineStackPlot$OverrideOptions = { PlotRange -> Automatic };
+HHListLineStackPlot$UniqueOptions = { };
+HHListLineStackPlot$OverrideOptions = { PlotRange -> Automatic};
  
 Options[HHListLineStackPlot] =
 HHJoinOptionLists[
@@ -55,7 +58,7 @@ HHJoinOptionLists[
 ];
 
 
-HHListLinePlotStack$UniqueOptions = {
+(*HHListLinePlotStack$UniqueOptions = {
 	HHPlotRangeClipping -> Automatic
 	(*HHStackLists->Automatic,*) (*HHStackAxes->False,*)(* HHOptBaselineCorrection-> Mean*)
 };
@@ -67,7 +70,7 @@ HHJoinOptionLists[
 	HHListLinePlotStack$OverrideOptions,
 	Options[HHStackLists],
 	Options[ListLinePlot]
-];
+];*)
 
 
 (* ::Subsection::Closed:: *)
@@ -103,6 +106,14 @@ HHJoinOptionLists[
 
 
 (* ::Subsection:: *)
+(*HHLabelGraphics*)
+
+
+HHLabelGraphics::usage= "Labels a graphic with information on one of the corners.";
+Options[HHLabelGraphics]={ HHOptLabelStyleSpecifications -> Tiny };
+
+
+(* ::Subsection::Closed:: *)
 (*Image Related*)
 
 
@@ -302,11 +313,11 @@ Block[{tempData, tempPlotRangeOpts},
 HHListLineStackPlot[args___] := Message[HHListLineStackPlot::invalidArgs, {args}];
 
 
-(* ::Subsubsection::Closed:: *)
-(*HHListLinePlotStack (Old Signature)*)
+(* ::Subsubsection:: *)
+(*BAK: HHListLinePlotStack (Old Signature)*)
 
 
-HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
+(*HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
 Block[{tempTraces, temp, 
 		opHHOptBaselineCorrection, baselineSubtractFactors, 
 		opHHOptStack, stackAddFactors, stackFactorsCumulated},
@@ -351,10 +362,10 @@ Block[{tempTraces, temp,
 	tempTraces + stackFactorsCumulated[[ ;; -2]](*FoldList[Plus, 0, stackAddFactors[[ ;; -2]] ]*)
 						(*last stack add factor is not used here... nothing to stack on top*)
 
-   ];
+   ];*)
 
 
-(*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
+(*(*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
 HHStackLists[
 	traces_ /; (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), 
 	opts:OptionsPattern[]] :=
@@ -369,10 +380,10 @@ Block[{tempTimes, tempTraces},
 	tempTraces =  HHStackLists[tempTraces, opts];
 
 	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
-];
+];*)
 
 
-HHListLinePlotStack[
+(*HHListLinePlotStack[
 	traces_/;(Depth[traces]==3 || (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
 	opts:OptionsPattern[]
 ]:=
@@ -388,10 +399,10 @@ Block[{tempData,tempPlotRange},
 	ListLinePlot[tempData,
 		Sequence@@HHJoinOptionLists[ ListLinePlot, {tempPlotRange}, {opts}, HHListLinePlotStack$UniqueOptions ]
 	]
-];
+];*)
 
 
-HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
+(*HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];*)
 
 
 (* ::Subsection::Closed:: *)
@@ -507,7 +518,54 @@ Block[{temp,
 HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
+(*HHLabelGraphics*)
+
+
+HHLabelGraphics[ graphics_Graphics, text_String, opts:OptionsPattern[] ]:=
+	HHLabelGraphics[ graphics, text, {Right, Bottom}, opts];
+
+
+HHLabelGraphics[
+	graphics_Graphics, text_String, {alignmentX_:Right, alignmentY_:Bottom}, 
+	opts:OptionsPattern[] ]:=
+Block[{optLabelStyleSpecifications, tempAbsPlotRange,
+		tempX, tempY},
+		
+	optLabelStyleSpecifications = OptionValue[ HHOptLabelStyleSpecifications ];
+	tempAbsPlotRange = AbsoluteOptions[graphics, PlotRange][[1, 2]];
+	
+	tempX = Switch[ alignmentX, 
+		Left, tempAbsPlotRange[[1, 1]],
+		Right, tempAbsPlotRange[[1, 2]],
+		_,  Message[HHLabelGraphics::invalidAlignmentX, alignmentX];
+			tempAbsPlotRange[[1, 2]]
+	];
+	tempY = Switch[ alignmentY, 
+		Top, tempAbsPlotRange[[2, 2]],
+		Bottom, tempAbsPlotRange[[2, 1]],
+		_,  Message[HHLabelGraphics::invalidAlignmentY, alignmentY];
+			tempAbsPlotRange[[2, 1]]
+	];
+	
+	Show[
+		graphics,
+		Graphics[Text[ Style[ text, Sequence@@optLabelStyleSpecifications ],
+			{tempX, tempY}, {alignmentX, alignmentY}
+		]]
+	]
+];
+HHLabelGraphics::invalidAlignmentX = "X alignment must be Left or Right, not `1`";
+HHLabelGraphics::invalidAlignmentY = "Y alignment must be Top or Bottom, not `1`";
+
+HHLabelGraphics[args___]:=Message[HHLabelGraphics::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*Image Related*)
+
+
+(* ::Subsubsection:: *)
 (*HHImageMean*)
 
 
@@ -548,7 +606,7 @@ Block[{tempSelf,tempProd, threshLower, threshUpper},
 ];*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsubsection::Closed:: *)
 (*HHImageDifference*)
 
 
@@ -675,7 +733,7 @@ HHImageDifference::commonDimensionMustMatch = "Input common Lists must have same
 HHImageDifference::thresholdDimensionMustMatch = "Input threshold List must have same dimensions as Images";
 
 
-(* ::Subsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*HHImageCommon*)
 
 
@@ -795,7 +853,7 @@ Compile[{{pixelList, _Real, 2}},
 ];*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsubsection::Closed:: *)
 (*HHImageThresholdNormalize/HHImageThresholdLinearNormalize*)
 
 
@@ -839,7 +897,7 @@ HHImageThresholdLinearNormalize[image_Image, threshold_:0.2]:=
 HHImageThresholdLinearNormalize[args___]:=Message[HHImageThresholdLinearNormalize::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsubsection::Closed:: *)
 (*HHImageThreshold/HHImageThresholdLinear*)
 
 
