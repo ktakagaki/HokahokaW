@@ -67,7 +67,7 @@ HHJavaObjectQ::usage="Checks whether something is a Java object and an instance 
 HHIncreaseJavaStack::usage="Increases the Java stack size.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHPackageMessage/Package Git functions *)
 
 
@@ -568,7 +568,6 @@ Block[{gitDirectory, tempArtifact},
 	gitDirectory = Quiet[ HHPackageGitFindRepoDir[directory] ];
 
 	If[ gitDirectory === Null,
-		
 		(*If not in active git directory, unload package and search for HHGitArtifact.m*)
 		HHPackageGitUnload[], (*$HHCurrentGitRepository = Null*)
 		

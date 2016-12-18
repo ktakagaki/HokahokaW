@@ -1,0 +1,3 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>(* Fri 6 Mar 2015 08:15:06 *)
+hello4 = &quot;string&quot;;
+hello5 = {1, 2, 3, 4};</pre><div class='IFU'><a name='299018458'></a>http://wolfram.com/xid/0ionrvl7bh0ycjqy9ftvn5v95urxwl2-e8baek</div>

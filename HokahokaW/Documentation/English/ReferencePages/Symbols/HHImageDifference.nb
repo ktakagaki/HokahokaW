@@ -3,214 +3,136 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 10.0' *)
+(* CreatedBy='Mathematica 11.0' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     16648,        605]
-NotebookOptionsPosition[     12199,        446]
-NotebookOutlinePosition[     12817,        470]
-CellTagsIndexPosition[     12738,        465]
+NotebookDataLength[     12700,        385]
+NotebookOptionsPosition[      9843,        300]
+NotebookOutlinePosition[     11974,        357]
+CellTagsIndexPosition[     11889,        352]
+WindowTitle->HHImageDifference
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["0.0", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["HokahokaW", "Categorization",
- CellLabel->"Paclet Name",
- CellID->605800465],
-
-Cell["HokahokaW`", "Categorization",
- CellLabel->"Context",
- CellID->468444828],
-
-Cell["HokahokaW/ref/HHImageDifference", "Categorization",
- CellLabel->"URI"]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["HHImageDifference", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHImageDifference\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["HokahokaW/ref/HHImageDifference"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHImageDifference.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$5464], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "HokahokaW/ref/HHImageDifference", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
+ Cell["HHImageDifference", "ObjectName"],
  Cell[BoxData[
-  RowBox[{"HHImageDifference", "[", "]"}]], "InlineFormula"],
- " \[LineSeparator]Filters an image list based on the common and threshold \
-lists generated by HHImageCommon."
-}], "Usage",
- CellChangeTimes->{{3.6784147093682313`*^9, 3.678414730268427*^9}},
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"HHImageDifference", "[", "]"}]], "InlineFormula"],
+     " \[LineSeparator]Filters an image list based on the common and \
+threshold lists generated by HHImageCommon."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
  CellID->982511436],
 
-Cell["XXXX", "Notes",
- CellID->1067943069]
-}, Open  ]],
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->309648635],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
-
-Cell["XXXX", "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell["XXXX", "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->203222316],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`Graphics`"}]], "Input",
- CellChangeTimes->{{3.6333434288193884`*^9, 3.633343434068689*^9}},
- CellLabel->"In[10]:=",
+ CellLabel->"In[1]:=",
  CellID->1850285],
 
 Cell[TextData[{
@@ -246,7 +168,6 @@ C:\\prog\\_w\\HokahokaW\\.git",
 }], "Text",
  GeneratedCell->True,
  CellAutoOverwrite->True,
- CellChangeTimes->{3.678414611890656*^9},
  Background->GrayLevel[0.85],
  CellID->395203398],
 
@@ -283,10 +204,7 @@ Cell[BoxData[
        RowBox[{"ImageSize", "\[Rule]", 
         RowBox[{"72", "*", "1"}]}]}], "]"}], "]"}], ",", " ", 
     RowBox[{"{", "2", "}"}]}], "]"}]}]], "Input",
- CellChangeTimes->{{3.633343458603092*^9, 3.633343633836115*^9}, {
-   3.633343670909235*^9, 3.633343708844405*^9}, 3.6333492146573195`*^9, 
-   3.6345931874377766`*^9},
- CellLabel->"In[81]:=",
+ CellLabel->"In[2]:=",
  CellID->697796],
 
 Cell[BoxData[
@@ -294,15 +212,15 @@ Cell[BoxData[
   RowBox[{
    GraphicsBox[
     TagBox[RasterBox[CompressedData["
-1:eJzt1stOg1AUhWGiDnwNH0WNicZoGnTkwFiMlxYoCPTCvW+u22AcNCkl2eWQ
-pevPaUMn3flaOHDiBPbrgWVZ8bG82ePlaRSN07sj+XCWJi/OoRxc/ry+jz8Z
-YOs/FF1Y0YUVXVjRhRVdWNGFFV1Y0YXV4K5FWfTxtUO5JqulHfoX7vv59E2W
-HD8vkj1+v3lXUVf34azhbKxR4O3r7zPv2oZq1o3vVnWtn2LYJadfC6pZT0ms
-H2TYdTvzdrrkotMPMumSE+x3o2hf8yJXzjLpivO8C0qWnK7KWSZdshN2dH3k
-mXKW4etLtrsuLvkFlIMMux6TaCdKbgT6QYZdsnVc+9P2zXBVlvpB5u/Lsntc
-eZNtKFe9YzQN8nwol89DFPb3ELUe9HledLLvOfMkyNKs0m4UGw3o6jW6sKIL
-K7qwogsrurCiCyu6sKILK7qwogsrurCiCyu6sKILK7qwogsrurD6Dy6G0hce
-YG9C
+1:eJzt1stKw1AUheGiE4e+gm/hVESwiCJRJw7ERmNMczVJb7n2zXVLxEGhaeA0
+JyxdP0epDrr5NNnNiRkabwej0Sg5km/GZHEWx5PV3bH88BAkjh1Yr+MgtWwr
+PjUP5ZeXP1/frz8ZYOs/FF1Y0YUVXVjRhRVdWNGFFV1Y0YXV4K55WfTxtkO5
+nOXCiPwL9/18asuR1y/zdI/vr99V1NV9FDScjXMbevv69+l3bUM159p3q7pW
+n6LZJZdfC6o5z2miPkiz6ybwdrrkplMfpNMlF9jvomg/syJXnKXTleR5F5Qc
+uVwVZ+l0ySbs6PrIM8VZmu8vWXddXPIXUByk2fWUxjtR8kGgPkizS1bHlT9t
+X4bLslQfpP9zWbbH2HO2oVzljdE0yPOh3D6PcdTfQ9R60Od50cneM2dpmK2y
+SnVRbDSgq9fowoourOjCii6s6MKKLqzowoourOjCii6s6MKKLqzowoourOjC
+ii6s6MLqP7gYSl9XQnP9
       "], {{0, 72}, {72, 0}}, {0, 255},
       ColorFunction->RGBColor],
      BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
@@ -312,15 +230,15 @@ YG9C
     PlotRange->{{0, 72}, {0, 72}}], ",", 
    GraphicsBox[
     TagBox[RasterBox[CompressedData["
-1:eJzt1stOwlAUheFGHfgavokyMIQYY+oEEyS0xEvwXhAsEuRmUCu+MmxS44CE
-0sFmNwvXnwMpE04+aHe75z+4l1uO49R35c31WgdB4IWnO/IhFzYu/G05yP++
-5sdTBlhvg6ILK7qwogsrurCiC6sMXc32YH1fbu+6fno/8aPc2c9+cb7k2L8b
-q+9i6ep0+271K+YsrGMv0v37LF3LUPEqlL+7b2p7mbnk9EtAxat8o3ZCmrmO
-KtFKl1x0WtvZuOQE+xsUyasRDlV2tHEFrWEalCw5XVV2tHHJJEzpemyOVHY0
-u75k3KVxyS+gsp2Zq1T7WImSG4HWdmYuGR3586S/TAbLy6vardnyvizT47A0
-WYaqBToTI874+VAun+LV57ofonoZPc+LTuZe5XZ8/zxqd3QGxUKZuAyiCyu6
-sKILK7qwogsrurCiCyu6sKILK7qwogsrurCiCyu6sKILK7qwogsrurCiCyu6
-sPoPLobSDAS5eVM=
+1:eJzt1lFLwmAUxnGpmy77Cn2LLquLsIiIRWBg4lZrZbVqmqaJWRpaq75yHVl0
+ITi9OJ7x1PPnVdQLX366nW3Fu3ZOF3K5XHVJnhy3sR5FbnN/Wd4chNXzIPRP
+tsKaH/jRqrcoH+Z/HqPXXwyw7h+KLqzowoourOjCii6sMnTVW8/z+3J719nt
+y54Xbxx+rhVGS157VwP1XSxd7c6Tc/yWcMbWrhvr/n2WrkmoZG2X3juPanuZ
+ueTwS0Elq3ShdkCauXbK8VSXnHRa29m45AD7HRTpq9bsqexo44oavVlQsuRw
+VdnRxiWTcEbXTb2vsqPZ+SXjbhaX/AIq25m5ipXhVJRcCLS2M3PJ6Mgfpf1l
+MljuH9QuzZbXZZkem8WPSahKpDMxkozvD+X0KQSv876J6mZ0Py86mXvly0F4
+12+1dQbFWJm4DKILK7qwogsrurCiCyu6sKILK7qwogsrurCiCyu6sKILK7qw
+ogsrurCiCyu6sKILK7qw+g8uhtI3PZt+Dg==
       "], {{0, 72}, {72, 0}}, {0, 255},
       ColorFunction->RGBColor],
      BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
@@ -328,13 +246,10 @@ sPoPLobSDAS5eVM=
     BaseStyle->"ImageGraphics",
     ImageSizeRaw->{72, 72},
     PlotRange->{{0, 72}, {0, 72}}]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.633343498847394*^9, {3.633343587663474*^9, 3.6333436362262516`*^9}, {
-   3.633343676496555*^9, 3.6333437093504343`*^9}, 3.6333444310487127`*^9, 
-   3.633346691356995*^9, {3.633348933927263*^9, 3.633348950039184*^9}, 
-   3.6333490389592705`*^9, 3.633349101529849*^9, 3.6333491674486194`*^9, {
-   3.6333492100090537`*^9, 3.633349215315357*^9}, 3.634593187789797*^9},
- CellLabel->"Out[81]=",
+ ImageSize->{179, 74},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->97076300]
 }, Open  ]],
 
@@ -350,11 +265,7 @@ Cell[BoxData[
      RowBox[{"testImages", "[", 
       RowBox[{"[", "2", "]"}], "]"}], "]"}], ",", "0.25"}], "]"}], 
   "]"}]], "Input",
- CellChangeTimes->{{3.633343364482709*^9, 3.6333434437332416`*^9}, {
-  3.6333436828409176`*^9, 3.633343684345004*^9}, {3.6333488753119097`*^9, 
-  3.6333488767119904`*^9}, {3.634593193949149*^9, 3.6345932406928225`*^9}, {
-  3.6345932732686863`*^9, 3.6345932765568743`*^9}},
- CellLabel->"In[86]:=",
+ CellLabel->"In[3]:=",
  CellID->1460132],
 
 Cell[BoxData[
@@ -376,238 +287,109 @@ BifglE8=
   BaseStyle->"ImageGraphics",
   ImageSizeRaw->{72, 72},
   PlotRange->{{0, 72}, {0, 72}}]], "Output",
- CellChangeTimes->{
-  3.6333492425099125`*^9, 3.6345931990614414`*^9, {3.634593229653191*^9, 
-   3.6345932413938627`*^9}, 3.6345932768118887`*^9},
- CellLabel->"Out[86]=",
+ ImageSize->{76, 72},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
  CellID->60692833]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
-
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2061341341],
-
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1757724783],
-
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1295379749]
-}, Closed]],
-
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
-
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
-
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
-
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{952, 1076},
-WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHImageDifference",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 12, 18, 20, 32, 13.4455324}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> 
+    "HHImageDifference[] Filters an image list based on the common and \
+threshold lists generated by HHImageCommon.", "synonyms" -> {}, 
+    "tabletags" -> {}, "title" -> "HHImageDifference", "titlemodifier" -> "", 
+    "windowtitle" -> "HHImageDifference", "type" -> "Symbol", "uri" -> 
+    "HokahokaW/ref/HHImageDifference"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> 
+  "11.0 for Microsoft Windows (64-bit) (September 21, 2016)", 
+  StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
 
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "ExtendedExamples"->{
-  Cell[10679, 388, 100, 2, 57, "ExtendedExamplesSection",
-   CellTags->"ExtendedExamples",
-   CellID->1854448968]}
+ "PrimaryExamplesSection"->{
+  Cell[3656, 105, 387, 15, 33, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->309648635]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 12599, 458}
+ {"PrimaryExamplesSection", 11746, 345}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 325, 14, 26, "History",
- CellID->1247902091],
-Cell[CellGroupData[{
-Cell[908, 38, 68, 1, 31, "CategorizationSection",
- CellID->1122911449],
-Cell[979, 41, 79, 2, 70, "Categorization",
- CellID->686433507],
-Cell[1061, 45, 82, 2, 70, "Categorization",
- CellID->605800465],
-Cell[1146, 49, 79, 2, 70, "Categorization",
- CellID->468444828],
-Cell[1228, 53, 76, 1, 70, "Categorization"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1341, 59, 55, 1, 21, "KeywordsSection",
- CellID->477174294],
-Cell[1399, 62, 45, 1, 70, "Keywords",
- CellID->1164421360]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1481, 68, 65, 1, 21, "TemplatesSection",
- CellID->1872225408],
-Cell[1549, 71, 94, 2, 70, "Template",
- CellID->1562036412],
-Cell[1646, 75, 82, 2, 70, "Template",
- CellID->158391909],
-Cell[1731, 79, 81, 2, 70, "Template",
- CellID->1360575930],
-Cell[1815, 83, 82, 2, 70, "Template",
- CellID->793782254]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1934, 90, 53, 1, 21, "DetailsSection",
- CellID->307771771],
-Cell[1990, 93, 63, 2, 70, "Details",
- CellID->670882175],
-Cell[2056, 97, 69, 2, 70, "Details",
- CellID->350963985],
-Cell[2128, 101, 64, 2, 70, "Details",
- CellID->8391405],
-Cell[2195, 105, 69, 2, 70, "Details",
- CellID->3610269],
-Cell[2267, 109, 61, 2, 70, "Details",
- CellID->401364205],
-Cell[2331, 113, 61, 2, 70, "Details",
- CellID->350204745],
-Cell[2395, 117, 63, 2, 70, "Details",
- CellID->732958810],
-Cell[2461, 121, 78, 2, 70, "Details",
- CellID->222905350],
-Cell[2542, 125, 67, 2, 70, "Details",
- CellID->240026365]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[2646, 132, 60, 1, 68, "ObjectName",
- CellID->1224892054],
-Cell[2709, 135, 330, 8, 96, "Usage",
+Cell[589, 21, 2313, 53, 54, "AnchorBarGrid",
+ CellID->1],
+Cell[2905, 76, 294, 11, 52, "ObjectNameGrid"],
+Cell[3202, 89, 429, 12, 106, "Usage",
  CellID->982511436],
-Cell[3042, 145, 42, 1, 27, "Notes",
- CellID->1067943069]
-}, Open  ]],
 Cell[CellGroupData[{
-Cell[3121, 151, 57, 1, 44, "TutorialsSection",
- CellID->250839057],
-Cell[3181, 154, 45, 1, 17, "Tutorials",
- CellID->341631938]
-}, Open  ]],
+Cell[3656, 105, 387, 15, 33, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->309648635],
 Cell[CellGroupData[{
-Cell[3263, 160, 83, 1, 31, "RelatedDemonstrationsSection",
- CellID->1268215905],
-Cell[3349, 163, 58, 1, 17, "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3444, 169, 65, 1, 31, "RelatedLinksSection",
- CellID->1584193535],
-Cell[3512, 172, 49, 1, 17, "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3598, 178, 55, 1, 31, "SeeAlsoSection",
- CellID->1255426704],
-Cell[3656, 181, 43, 1, 17, "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3736, 187, 57, 1, 31, "MoreAboutSection",
- CellID->38303248],
-Cell[3796, 190, 46, 1, 17, "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3879, 196, 356, 11, 70, "PrimaryExamplesSection",
- CellID->880084151],
-Cell[4238, 209, 173, 4, 28, "Input",
+Cell[4068, 124, 195, 6, 28, "ExampleSection",
+ CellID->203222316],
+Cell[4266, 132, 104, 3, 30, "Input",
  CellID->1850285],
-Cell[4414, 215, 977, 35, 132, "Text",
+Cell[4373, 137, 935, 34, 203, "Text",
  CellID->395203398],
 Cell[CellGroupData[{
-Cell[5416, 254, 1378, 35, 139, "Input",
+Cell[5333, 175, 1209, 32, 131, "Input",
  CellID->697796],
-Cell[6797, 291, 2141, 46, 84, "Output",
+Cell[6545, 209, 1875, 43, 95, "Output",
  CellID->97076300]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8975, 342, 632, 15, 51, "Input",
+Cell[8457, 257, 358, 11, 70, "Input",
  CellID->1460132],
-Cell[9610, 359, 1020, 23, 82, "Output",
+Cell[8818, 270, 959, 23, 93, "Output",
  CellID->60692833]
 }, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[10679, 388, 100, 2, 57, "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-Cell[10782, 392, 125, 3, 35, "ExampleSection",
- CellID->1293636265],
-Cell[10910, 397, 148, 3, 23, "ExampleSection",
- CellID->1020263627],
-Cell[CellGroupData[{
-Cell[11083, 404, 127, 3, 23, "ExampleSection",
- CellID->2061341341],
-Cell[11213, 409, 130, 3, 70, "ExampleSubsection",
- CellID->1757724783],
-Cell[11346, 414, 130, 3, 70, "ExampleSubsection",
- CellID->1295379749]
-}, Closed]],
-Cell[11491, 420, 131, 3, 23, "ExampleSection",
- CellID->258228157],
-Cell[11625, 425, 142, 3, 23, "ExampleSection",
- CellID->2123667759],
-Cell[11770, 430, 135, 3, 23, "ExampleSection",
- CellID->1305812373],
-Cell[11908, 435, 140, 3, 18, "ExampleSection",
- CellID->1653164318],
-Cell[12051, 440, 132, 3, 18, "ExampleSection",
- CellID->589267740]
 }, Open  ]]
+}, Open  ]],
+Cell[9816, 298, 23, 0, 70, "FooterCell"]
 }
 ]
 *)
+
+(* End of internal cache information *)
 

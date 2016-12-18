@@ -1,45 +1,82 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<!DOCTYPE html>
+<html>
 <head>
-<title>Handling rules and options</title>
-<meta name='keywords' content='' />
-<meta name='description' content='XXXX XXXX. XXXX' />
-<link rel='stylesheet' type='text/css' href='../css/functions.css' />
-<script src='../javascript/menu.js' type='text/javascript'></script>
-<script src='../javascript/common.js' type='text/javascript'></script>
-<script src='../javascript/prototype-1.4.0.js' type='text/javascript'></script>
-<script src='../javascript/search.js' type='text/javascript'></script>
-<script src='../javascript/jquery.js' type='text/javascript'></script>
-<script src='../javascript/jquery-query.js' type='text/javascript'></script>
-<script src='../javascript/jquery.dimensions.min.js' type='text/javascript'></script>
-<script src='../javascript/jquery.mousewheel.min.js' type='text/javascript'></script>
-<script src='../javascript/jScrollPane.js' type='text/javascript'></script>
-<script src='../javascript/FunctionBrowser.js' type='text/javascript'></script>
-<script src='../javascript/VirtualBook.js' type='text/javascript'></script>
-<script src='../javascript/Navigator.js' type='text/javascript'></script>
-<script language='JavaScript' type='text/javascript'>baselang='Handling rules and options';</script>
+<title>Handling rules and options&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{0.0, , , }" />
+<meta name="keywords" content="Handling rules and options" />
+
+<meta name="description" content="XXXX XXXX. XXXX" />
+<script language="JavaScript" type="text/javascript">baselang='Handling rules and options';</script>
+<script language="JavaScript" type="text/javascript">packagename='HokahokaW';</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
 </head>
-<body style='margin:35px 0px 0px 0px; background:#ffffff'>
-<!-- saved from url=(0014)about:internet -->
+<body id="tutorial">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
 
 
-
-
-<div class="MainRoot" width = "727">
-
-    <div class="FltShdwBar">
-    <div class="Flt"><img src="../images/images/body_shdwspcr.gif" width="8" height="15" alt=""/></div>
-    <div id="TutorialContentTable">0<h1 class="Title"><a name="509267359"></a>Handling rules and options</h1>Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {HHRuleQ}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Whether an object is a Rule or RuleDelayed object}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {HHRuleListQ}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Whether a List or Sequence is a sequence of Rule or RuleDelayed objects}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {HHJoinOptionLists}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Join (and filter) option lists}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {HHAddOptions}], XMLElement[td, {}, {Add,  , further,  , options,  , to,  , a,  , current,  , option,  , list}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {HHOptionValue}], XMLElement[td, {}, {Extract,  , option,  , values,  , (, or,  , defaults, ),  , from,  , an,  , object, .}]}]}]}]<p class="Caption"><a name="1891092685"></a>XXXX.</p><a name="2058623809" /><a name="1181321046" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_1'), onmouseover -&gt; javascript:return(true);}, {In[1]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_1'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Handling rules and options/I_2.gif, height -&gt; 17, width -&gt; 37, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_1_out, id -&gt; i_1_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Handling rules and options/O_1.gif, height -&gt; 17, width -&gt; 36, alt -&gt; }, {}]}]}]}]}]</div>
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">HOKAHOKA W TUTORIAL</span></span>
   </div>
+  
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1 class="Title"><a name="509267359"></a>Handling rules and options</h1>
+ <div class="MathTable DefinitionBox">
+  <a name="2096742444"></a>
+  <table class="nogridboxdividers">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td>HHRuleQ</td><td><span class="TT">Whether an object is a Rule or RuleDelayed object</span></td></tr>
+   <tr class="" style=""><td>HHRuleListQ</td><td><span class="TT">Whether a List or Sequence is a sequence of Rule or RuleDelayed objects</span></td></tr>
+   <tr class="" style=""><td>HHJoinOptionLists</td><td><span class="TT"><span class="specialcharacters">Join <span class="openparenthesis">(</span>and filter<span class="closeparenthesis">)</span> option lists</span></span></td></tr>
+   <tr class="" style=""><td>HHAddOptions</td><td>Add further options to a current option list</td></tr>
+   <tr class="" style=""><td>HHOptionValue</td><td>Extract option values <span class="openparenthesis">(</span>or defaults<span class="closeparenthesis">)</span> from an object.</td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="1891092685"></a>XXXX.</p>
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab">In[1]:=</td><td class="Input"><div>
+      <a name="2058623809"></a>
+      <img src="Files/Handling rules and options/I_2.png"
+          height="19"
+          width="34"
+          alt="Click for copyable input" />
+     </div><div id="i_1_out" class="IFL"></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[1]=</td><td class="Output"><div class="output-image">
+      <img src="Files/Handling rules and options/O_1.png"
+          height="19"
+          width="30"
+          alt="" />
+     </div></td></tr>
+  </table>
+ </div>
+</div>
+</div><!-- /wrapper -->
 
- <img class="corner" src="../images/images/body_shadow_corner.gif" width="25" height="9" alt=" "/>
- 
-<div class="BtmShdw"><img  class="cornerbottomright" src="../images/images/body_shadow_bottomright.gif" width="23" height="9" alt=""/></div>
 
+	
 </div>
 
 
-    
-<div class="dashboard" />
-
+</body>
+		 </html>

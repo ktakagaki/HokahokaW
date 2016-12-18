@@ -3,229 +3,182 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 10.0' *)
+(* CreatedBy='Mathematica 11.0' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     15360,        592]
-NotebookOptionsPosition[     10162,        409]
-NotebookOutlinePosition[     11008,        438]
-CellTagsIndexPosition[     10869,        432]
+NotebookDataLength[     12306,        414]
+NotebookOptionsPosition[      8486,        296]
+NotebookOutlinePosition[     10766,        357]
+CellTagsIndexPosition[     10621,        351]
+WindowTitle->HHPackageGitHEAD
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["0.0", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["HokahokaW", "Categorization",
- CellLabel->"Paclet Name",
- CellID->605800465],
-
-Cell["HokahokaW`", "Categorization",
- CellLabel->"Context",
- CellID->468444828],
-
-Cell["HokahokaW/ref/HHPackageGitHEAD", "Categorization",
- CellLabel->"URI"]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["HHPackageGitHEAD", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHPackageGitHEAD\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["HokahokaW/ref/HHPackageGitHEAD"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHPackageGitHEAD.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$9479], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "HokahokaW/ref/HHPackageGitHEAD", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
+ Cell["HHPackageGitHEAD", "ObjectName"],
  Cell[BoxData[
-  RowBox[{"HHPackageGitHEAD", "[", "packageName_String", "]"}]], 
-  "InlineFormula"],
- " "
-}], "Usage",
- CellChangeTimes->{{3.6318098523779783`*^9, 3.631809862248543*^9}, {
-  3.631809966872527*^9, 3.6318099750079927`*^9}, {3.6541872393259873`*^9, 
-  3.65418724006203*^9}},
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"HHPackageGitHEAD", "[", "packageName_String", "]"}]], 
+      "InlineFormula"],
+     " "
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
  CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    InterpretationBox[
+     StyleBox[
+      GraphicsBox[{},
+       BaselinePosition->Baseline,
+       ImageSize->{6, 0}],
+      CacheGraphics->False],
+     Spacer[6]]]],
+   "Details"
+  }], "NotesFrameText"],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->179148660],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell[BoxData[
  StyleBox["\<\"Returns the git HEAD hash for either the given directory or \
 the current NotebookDirectory[].\"\>", "MSG"]], "Print", "PrintUsage",
- CellChangeTimes->{3.6541872237910986`*^9},
  CellTags->"Info-af9476c6-379d-4540-9e64-1c4663a43c37",
  CellID->635870974]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->449587972],
 
 Cell[CellGroupData[{
 
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
-
-Cell["XXXX", "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell["XXXX", "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->237083319],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"<<", "\"\<HokahokaW`\>\""}]], "Input",
- CellChangeTimes->{{3.631799686650532*^9, 3.6317996928488865`*^9}, {
-  3.6541871921502895`*^9, 3.6541871955024805`*^9}},
  CellLabel->"In[1]:=",
  CellID->641573816],
 
 Cell[BoxData["\<\"HokahokaW`HHPackageGitLoad: Loaded Git repository located \
 at C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\"\>"], "Print",
- CellChangeTimes->{3.654187196733551*^9, 3.654187579929469*^9, 
-  3.6541876836874037`*^9},
  CellLabel->"During evaluation of In[1]:=",
  CellID->129784627]
 }, Open  ]],
@@ -263,26 +216,24 @@ C:\\prog\\_w\\HokahokaW\\.git",
 }], "Text",
  GeneratedCell->True,
  CellAutoOverwrite->True,
- CellChangeTimes->{3.654187683858413*^9},
  Background->GrayLevel[0.85],
  CellID->659877046],
 
 Cell["Retrieve the package HEAD for NotebookDirectory[]", "Notes",
- CellChangeTimes->{{3.6541873256359243`*^9, 3.6541873479942026`*^9}},
  CellID->658416936],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"HHPackageGitHEAD", "[", "]"}]], "Input",
- CellChangeTimes->{{3.6317999704007616`*^9, 3.631799980945365*^9}},
- CellLabel->"In[1]:=",
+ CellLabel->"In[2]:=",
  CellID->250094976],
 
 Cell[BoxData["\<\"0000d6200537209de6a630fb7d04a5669238dfac\"\>"], "Output",
- CellChangeTimes->{{3.6317999763050995`*^9, 3.631799981600402*^9}, 
-   3.6541873174644566`*^9, 3.654187587692913*^9, 3.6541876908358126`*^9},
- CellLabel->"Out[1]=",
+ ImageSize->{324, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->41804506]
 }, Open  ]],
 
@@ -290,14 +241,14 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"HHPackageGitHEAD", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.6317999704007616`*^9, 3.6317999888568172`*^9}},
- CellLabel->"In[2]:=",
+ CellLabel->"In[3]:=",
  CellID->702191801],
 
 Cell[BoxData["\<\"0000d6200537209de6a630fb7d04a5669238dfac\"\>"], "Output",
- CellChangeTimes->{3.6317999891948366`*^9, 3.6541873190835495`*^9, 
-  3.6541875885809636`*^9, 3.6541876917478647`*^9},
- CellLabel->"Out[2]=",
+ ImageSize->{324, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
  CellID->168118805]
 }, Open  ]],
 
@@ -305,8 +256,6 @@ Cell["\<\
 Nonexistent repositories (as well as any repositories not tracked by Git) \
 will return \"NO VALID REPOSITORY\".\
 \>", "Notes",
- CellChangeTimes->{{3.6541873256359243`*^9, 3.6541873479942026`*^9}, {
-  3.6541873957029314`*^9, 3.654187431357971*^9}},
  CellID->15860803],
 
 Cell[CellGroupData[{
@@ -314,105 +263,75 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"HHPackageGitHEAD", "[", "\"\<NonexistentPackage\>\"", 
   "]"}]], "Input",
- CellChangeTimes->{{3.6541873692524185`*^9, 3.654187378574952*^9}},
- CellLabel->"In[3]:=",
+ CellLabel->"In[4]:=",
  CellID->90773577],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
    RowBox[{"HHPackageGitFindRepoDir", "::", "notGitDirectory"}], 
-   "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"No git directory \\\".git\\\" was found within the parent \
-tree of \[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"NonexistentPackage\\\\\\\"\\\"}\
-]\\)\[NoBreak].\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.654187379717017*^9, 3.6541875903240633`*^9, 
-  3.6541876959741063`*^9},
- CellLabel->"During evaluation of In[3]:=",
+   "MessageName"], ":", 
+  " ", "\<\"No git directory \\\".git\\\" was found within the parent tree of \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"NonexistentPackage\\\\\\\"\\\"}]\\)\
+\[NoBreak].\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[4]:=",
  CellID->245304057],
 
 Cell[BoxData["\<\"Unloading repository: C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\
 \"\>"], "Print",
- CellChangeTimes->{3.6541873797180176`*^9, 3.6541875903250637`*^9, 
-  3.6541876959751062`*^9},
  CellLabel->"During evaluation of In[3]:=",
  CellID->506342886],
 
 Cell[BoxData["\<\"NO VALID REPOSITORY\"\>"], "Output",
- CellChangeTimes->{3.6541873797190175`*^9, 3.6541875903260636`*^9, 
-  3.6541876959761066`*^9},
- CellLabel->"Out[3]=",
+ ImageSize->{157, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
  CellID->470296383]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
-
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2061341341],
-
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1757724783],
-
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1295379749]
-}, Closed]],
-
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
-
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
-
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
-
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{952, 1140},
-WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHPackageGitHEAD",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 12, 18, 20, 32, 22.3210400}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> "HHPackageGitHEAD[packageName_String] ", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHPackageGitHEAD", 
+    "titlemodifier" -> "", "windowtitle" -> "HHPackageGitHEAD", "type" -> 
+    "Symbol", "uri" -> "HokahokaW/ref/HHPackageGitHEAD"}, 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> 
+  "11.0 for Microsoft Windows (64-bit) (September 21, 2016)", 
+  StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
 
@@ -420,181 +339,86 @@ StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb",
 (*CellTagsOutline
 CellTagsIndex->{
  "Info-af9476c6-379d-4540-9e64-1c4663a43c37"->{
-  Cell[3058, 147, 281, 5, 42, "Print",
+  Cell[4368, 135, 237, 4, 70, "Print",
    CellTags->"Info-af9476c6-379d-4540-9e64-1c4663a43c37",
    CellID->635870974]},
- "ExtendedExamples"->{
-  Cell[8642, 351, 100, 2, 57, "ExtendedExamplesSection",
-   CellTags->"ExtendedExamples",
-   CellID->1854448968]}
+ "PrimaryExamplesSection"->{
+  Cell[4654, 145, 387, 15, 33, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->449587972]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info-af9476c6-379d-4540-9e64-1c4663a43c37", 10587, 421},
- {"ExtendedExamples", 10731, 425}
+ {"Info-af9476c6-379d-4540-9e64-1c4663a43c37", 10328, 340},
+ {"PrimaryExamplesSection", 10478, 344}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 325, 14, 26, "History",
- CellID->1247902091],
+Cell[588, 21, 2309, 53, 54, "AnchorBarGrid",
+ CellID->1],
+Cell[2900, 76, 293, 11, 52, "ObjectNameGrid"],
 Cell[CellGroupData[{
-Cell[908, 38, 68, 1, 31, "CategorizationSection",
- CellID->1122911449],
-Cell[979, 41, 79, 2, 70, "Categorization",
- CellID->686433507],
-Cell[1061, 45, 82, 2, 70, "Categorization",
- CellID->605800465],
-Cell[1146, 49, 79, 2, 70, "Categorization",
- CellID->468444828],
-Cell[1228, 53, 75, 1, 70, "Categorization"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1340, 59, 55, 1, 21, "KeywordsSection",
- CellID->477174294],
-Cell[1398, 62, 45, 1, 70, "Keywords",
- CellID->1164421360]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1480, 68, 65, 1, 21, "TemplatesSection",
- CellID->1872225408],
-Cell[1548, 71, 94, 2, 70, "Template",
- CellID->1562036412],
-Cell[1645, 75, 82, 2, 70, "Template",
- CellID->158391909],
-Cell[1730, 79, 81, 2, 70, "Template",
- CellID->1360575930],
-Cell[1814, 83, 82, 2, 70, "Template",
- CellID->793782254]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1933, 90, 53, 1, 21, "DetailsSection",
- CellID->307771771],
-Cell[1989, 93, 63, 2, 70, "Details",
- CellID->670882175],
-Cell[2055, 97, 69, 2, 70, "Details",
- CellID->350963985],
-Cell[2127, 101, 64, 2, 70, "Details",
- CellID->8391405],
-Cell[2194, 105, 69, 2, 70, "Details",
- CellID->3610269],
-Cell[2266, 109, 61, 2, 70, "Details",
- CellID->401364205],
-Cell[2330, 113, 61, 2, 70, "Details",
- CellID->350204745],
-Cell[2394, 117, 63, 2, 70, "Details",
- CellID->732958810],
-Cell[2460, 121, 78, 2, 70, "Details",
- CellID->222905350],
-Cell[2541, 125, 67, 2, 70, "Details",
- CellID->240026365]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[2645, 132, 59, 1, 68, "ObjectName",
- CellID->1224892054],
-Cell[2707, 135, 348, 10, 60, "Usage",
+Cell[3218, 91, 350, 12, 69, "Usage",
  CellID->982511436],
-Cell[3058, 147, 281, 5, 42, "Print",
+Cell[CellGroupData[{
+Cell[3593, 107, 738, 24, 33, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->179148660],
+Cell[4334, 133, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[4368, 135, 237, 4, 70, "Print",
  CellTags->"Info-af9476c6-379d-4540-9e64-1c4663a43c37",
  CellID->635870974]
+}, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3376, 157, 57, 1, 44, "TutorialsSection",
- CellID->250839057],
-Cell[3436, 160, 45, 1, 17, "Tutorials",
- CellID->341631938]
-}, Open  ]],
+Cell[4654, 145, 387, 15, 33, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->449587972],
 Cell[CellGroupData[{
-Cell[3518, 166, 83, 1, 31, "RelatedDemonstrationsSection",
- CellID->1268215905],
-Cell[3604, 169, 58, 1, 17, "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
+Cell[5066, 164, 195, 6, 28, "ExampleSection",
+ CellID->237083319],
 Cell[CellGroupData[{
-Cell[3699, 175, 65, 1, 31, "RelatedLinksSection",
- CellID->1584193535],
-Cell[3767, 178, 49, 1, 17, "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3853, 184, 55, 1, 31, "SeeAlsoSection",
- CellID->1255426704],
-Cell[3911, 187, 43, 1, 17, "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3991, 193, 57, 1, 31, "MoreAboutSection",
- CellID->38303248],
-Cell[4051, 196, 46, 1, 17, "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[4134, 202, 356, 11, 70, "PrimaryExamplesSection",
- CellID->880084151],
-Cell[CellGroupData[{
-Cell[4515, 217, 226, 5, 28, "Input",
+Cell[5286, 174, 105, 3, 30, "Input",
  CellID->641573816],
-Cell[4744, 224, 289, 5, 46, "Print",
+Cell[5394, 179, 198, 3, 47, "Print",
  CellID->129784627]
 }, Open  ]],
-Cell[5048, 232, 978, 35, 132, "Text",
+Cell[5607, 185, 936, 34, 203, "Text",
  CellID->659877046],
-Cell[6029, 269, 156, 2, 27, "Notes",
+Cell[6546, 221, 86, 1, 34, "Notes",
  CellID->658416936],
 Cell[CellGroupData[{
-Cell[6210, 275, 175, 4, 28, "Input",
+Cell[6657, 226, 107, 3, 30, "Input",
  CellID->250094976],
-Cell[6388, 281, 259, 4, 27, "Output",
+Cell[6767, 231, 205, 5, 39, "Output",
  CellID->41804506]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6684, 290, 199, 4, 28, "Input",
+Cell[7009, 241, 129, 3, 30, "Input",
  CellID->702191801],
-Cell[6886, 296, 237, 4, 27, "Output",
+Cell[7141, 246, 206, 5, 39, "Output",
  CellID->168118805]
 }, Open  ]],
-Cell[7138, 303, 277, 6, 45, "Notes",
+Cell[7362, 254, 156, 4, 51, "Notes",
  CellID->15860803],
 Cell[CellGroupData[{
-Cell[7440, 313, 207, 5, 28, "Input",
+Cell[7543, 262, 139, 4, 70, "Input",
  CellID->90773577],
-Cell[7650, 320, 491, 12, 46, "Message",
+Cell[7685, 268, 385, 9, 70, "Message",
  CellID->245304057],
-Cell[8144, 334, 254, 5, 23, "Print",
+Cell[8073, 279, 159, 3, 70, "Print",
  CellID->506342886],
-Cell[8401, 341, 192, 4, 27, "Output",
+Cell[8235, 284, 185, 5, 39, "Output",
  CellID->470296383]
 }, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[8642, 351, 100, 2, 57, "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-Cell[8745, 355, 125, 3, 35, "ExampleSection",
- CellID->1293636265],
-Cell[8873, 360, 148, 3, 23, "ExampleSection",
- CellID->1020263627],
-Cell[CellGroupData[{
-Cell[9046, 367, 127, 3, 23, "ExampleSection",
- CellID->2061341341],
-Cell[9176, 372, 130, 3, 70, "ExampleSubsection",
- CellID->1757724783],
-Cell[9309, 377, 130, 3, 70, "ExampleSubsection",
- CellID->1295379749]
-}, Closed]],
-Cell[9454, 383, 131, 3, 23, "ExampleSection",
- CellID->258228157],
-Cell[9588, 388, 142, 3, 23, "ExampleSection",
- CellID->2123667759],
-Cell[9733, 393, 135, 3, 23, "ExampleSection",
- CellID->1305812373],
-Cell[9871, 398, 140, 3, 23, "ExampleSection",
- CellID->1653164318],
-Cell[10014, 403, 132, 3, 23, "ExampleSection",
- CellID->589267740]
 }, Open  ]]
+}, Open  ]],
+Cell[8459, 294, 23, 0, 70, "FooterCell"]
 }
 ]
 *)
+
+(* End of internal cache information *)
 

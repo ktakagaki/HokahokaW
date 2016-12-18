@@ -3,39 +3,36 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 9.0' *)
+(* CreatedBy='Mathematica 11.0' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
-NotebookDataPosition[       157,          7]
-NotebookDataLength[     26988,        709]
-NotebookOptionsPosition[     23477,        596]
-NotebookOutlinePosition[     25249,        646]
-CellTagsIndexPosition[     25104,        640]
-WindowTitle->HHListLinePlotStack - Wolfram Mathematica
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     27942,        740]
+NotebookOptionsPosition[     23972,        618]
+NotebookOutlinePosition[     26249,        679]
+CellTagsIndexPosition[     26104,        673]
+WindowTitle->HHListLinePlotStack
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[" ", "SymbolColorBar",
- CellMargins->{{Inherited, Inherited}, {-5, 0}}],
-
-Cell[TextData[{
- ButtonBox["Mathematica",
-  BaseStyle->{"Link", "LinkTrail"},
-  ButtonData->"paclet:HokahokaW/guide/HokahokaW"],
- StyleBox[" > ", "LinkTrailSeparator"]
-}], "LinkTrail"],
-
 Cell[BoxData[GridBox[{
-   {Cell["HOKAHOKAW PACLET SYMBOL", "PacletNameCell"], Cell[TextData[Cell[
-    BoxData[
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
      ActionMenuBox[
-      FrameBox["\<\"URL \[RightGuillemet]\"\>",
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
        StripOnInput->False], {"\<\"HokahokaW/ref/HHListLinePlotStack\"\>":>
-      None, "\<\"Copy Mathematica url\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
       Module[{DocumentationSearch`Private`nb$}, 
        DocumentationSearch`Private`nb$ = NotebookPut[
           Notebook[{
@@ -43,7 +40,7 @@ Cell[BoxData[GridBox[{
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
-      Delimiter, "\<\"Copy web url\"\>":>
+      Delimiter, "\<\"Copy web URL\"\>":>
       Module[{DocumentationSearch`Private`nb$}, 
        DocumentationSearch`Private`nb$ = NotebookPut[
           Notebook[{
@@ -51,20 +48,24 @@ Cell[BoxData[GridBox[{
              BoxData[
               MakeBoxes[
                Hyperlink[
-               "http://reference.wolfram.com/mathematica/HokahokaW/ref/\
+               "http://reference.wolfram.com/language/HokahokaW/ref/\
 HHListLinePlotStack.html"], StandardForm]], "Input", TextClipboardType -> 
              "PlainText"]}, Visible -> False]]; 
        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
        NotebookClose[DocumentationSearch`Private`nb$]; 
-       Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
         NotebookLocate[{
           URL[
            StringJoin[
-           "http://reference.wolfram.com/mathematica/", 
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6970], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHListLinePlotStack", ".html"]], None}]}]},
       Appearance->None,
-      MenuAppearance->Automatic]],
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0}]], "AnchorBar"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
@@ -73,8 +74,18 @@ HHListLinePlotStack.html"], StandardForm]], "Input", TextClipboardType ->
    "RowsIndexed" -> {}}},
  CellID->1],
 
-Cell["HHListLinePlotStack", "ObjectName",
- CellID->1224892054],
+Cell[TextData[{
+ Cell["HHListLinePlotStack", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
 Cell[CellGroupData[{
 
@@ -94,11 +105,17 @@ Cell[BoxData[GridBox[{
 Cell[CellGroupData[{
 
 Cell[TextData[Cell[BoxData[
- ButtonBox[
-  FrameBox[
-   StyleBox[
-    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
-   StripOnInput->False],
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    InterpretationBox[
+     StyleBox[
+      GraphicsBox[{},
+       BaselinePosition->Baseline,
+       ImageSize->{6, 0}],
+      CacheGraphics->False],
+     Spacer[6]]]],
+   "Details"
+  }], "NotesFrameText"],
   Appearance->{Automatic, None},
   BaseStyle->None,
   ButtonFunction:>(FrontEndExecute[{
@@ -109,8 +126,11 @@ Cell[TextData[Cell[BoxData[
       FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
   Evaluator->None,
   Method->"Preemptive"]]]], "NotesSection",
+ WholeCellGroupOpener->True,
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->290313082],
+ CellID->183385804],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell[BoxData[
  StyleBox["\<\"HHListLinePlotStack plots multiple traces together, stacked \
@@ -122,20 +142,22 @@ vertically.\"\>", "MSG"]], "Print", "PrintUsage",
 
 Cell[CellGroupData[{
 
-Cell[TextData[ButtonBox["EXAMPLES",
- BaseStyle->None,
- Appearance->{Automatic, None},
- Evaluator->None,
- Method->"Preemptive",
- ButtonFunction:>(FrontEndExecute[{
-    FrontEnd`SelectionMove[
-     FrontEnd`SelectedNotebook[], All, ButtonCell], 
-    FrontEndToken["OpenCloseGroup"], 
-    FrontEnd`SelectionMove[
-     FrontEnd`SelectedNotebook[], After, 
-     CellContents]}]& )]], "PrimaryExamplesSection",
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(3)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->14983817],
+ CellID->328652856],
 
 Cell[CellGroupData[{
 
@@ -143,8 +165,9 @@ Cell[TextData[{
  "Basic Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
  Cell["(1)", "ExampleCount"]
-}], "ExampleSection",
- CellID->820545590],
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->122945632],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -364,7 +387,7 @@ fnXux68jSX4Nmb+GvK8N8ZP1VpPvA02sk18TP8mvKX6L4rd42e85NQPYbA==
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- ImageSize->{184, 110},
+ ImageSize->{244, 143},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[4]=",
@@ -527,7 +550,7 @@ H3zptv3T5bGqB386+yG/QX7waXBe8DDID34N5gUfgzzg27DxqvEO/zUbvxp9
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- ImageSize->{184, 109},
+ ImageSize->{244, 142},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[5]=",
@@ -537,32 +560,31 @@ H3zptv3T5bGqB386+yG/QX7waXBe8DDID34N5gUfgzzg27DxqvEO/zUbvxp9
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell[TextData[{
-   "Options",
-   "\[NonBreakingSpace]\[NonBreakingSpace]",
-   Cell["(2)", "ExampleCount"]
-  }], "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
+Cell[TextData[{
+ "Options",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
  CellID->2061341341],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell[TextData[{
-   "HHBaselineCorrection",
-   "\[NonBreakingSpace]\[NonBreakingSpace]",
-   Cell["(1)", "ExampleCount"]
-  }], "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
+Cell[TextData[{
+ "HHBaselineCorrection",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
  CellID->1757724783],
 
 Cell[TextData[{
  "See help file for ",
  Cell[BoxData[
-  ButtonBox["HHStackLists",
-   BaseStyle->"Link",
-   ButtonData->"paclet:HokahokaW/ref/HHStackLists"]], "InlineFormula"],
+  TemplateBox[{Cell[
+     TextData["HHStackLists"]],"paclet:HokahokaW/ref/HHStackLists"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
  "."
 }], "ExampleText",
  CellID->400631217]
@@ -570,21 +592,21 @@ Cell[TextData[{
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell[TextData[{
-   "HHStackIncrement",
-   "\[NonBreakingSpace]\[NonBreakingSpace]",
-   Cell["(1)", "ExampleCount"]
-  }], "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
+Cell[TextData[{
+ "HHStackIncrement",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
  CellID->1295379749],
 
 Cell[TextData[{
  "See help file for ",
  Cell[BoxData[
-  ButtonBox["HHStackLists",
-   BaseStyle->"Link",
-   ButtonData->"paclet:HokahokaW/ref/HHStackLists"]], "InlineFormula"],
+  TemplateBox[{Cell[
+     TextData["HHStackLists"]],"paclet:HokahokaW/ref/HHStackLists"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
  "."
 }], "ExampleText",
  CellID->87148522]
@@ -598,19 +620,29 @@ Saveable->False,
 ScreenStyleEnvironment->"Working",
 WindowSize->{725, 750},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-WindowTitle->"HHListLinePlotStack - Wolfram Mathematica",
+WindowTitle->"HHListLinePlotStack",
 TaggingRules->{
- "ModificationHighlight" -> False, 
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 8, 3, 12, 12, 47.5923768}", "context" -> "HokahokaW`", 
-    "keywords" -> {}, "index" -> True, "label" -> "HokahokaW Paclet Symbol", 
-    "language" -> "en", "paclet" -> "HokahokaW", "status" -> "None", 
-    "summary" -> "HHListLinePlotStack[] ", "synonyms" -> {}, "title" -> 
-    "HHListLinePlotStack", "type" -> "Symbol", "uri" -> 
-    "HokahokaW/ref/HHListLinePlotStack"}, "LinkTrails" -> "", 
+   "built" -> "{2016, 12, 18, 20, 32, 17.0197368}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> "HHListLinePlotStack[] ", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHListLinePlotStack", 
+    "titlemodifier" -> "", "windowtitle" -> "HHListLinePlotStack", "type" -> 
+    "Symbol", "uri" -> "HokahokaW/ref/HHListLinePlotStack"}, 
   "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -619,7 +651,8 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (January 25, 2013)", 
+  FrontEndVersion -> 
+  "11.0 for Microsoft Windows (64-bit) (September 21, 2016)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -628,89 +661,87 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "Info-7526f0de-d00b-451e-ba15-a92bb4462ea9"->{
-  Cell[3807, 114, 216, 4, 70, "Print",
+  Cell[4360, 134, 216, 4, 70, "Print",
    CellTags->"Info-7526f0de-d00b-451e-ba15-a92bb4462ea9",
    CellID->347328784]},
  "PrimaryExamplesSection"->{
-  Cell[4072, 124, 460, 13, 70, "PrimaryExamplesSection",
+  Cell[4625, 144, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->14983817]}
+   CellID->328652856]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info-7526f0de-d00b-451e-ba15-a92bb4462ea9", 24812, 629},
- {"PrimaryExamplesSection", 24962, 633}
+ {"Info-7526f0de-d00b-451e-ba15-a92bb4462ea9", 25811, 662},
+ {"PrimaryExamplesSection", 25961, 666}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[612, 21, 76, 1, 70, "SymbolColorBar"],
-Cell[691, 24, 184, 5, 70, "LinkTrail"],
-Cell[878, 31, 1907, 42, 70, "AnchorBarGrid",
+Cell[591, 21, 2321, 53, 54, "AnchorBarGrid",
  CellID->1],
-Cell[2788, 75, 62, 1, 70, "ObjectName",
- CellID->1224892054],
+Cell[2915, 76, 296, 11, 52, "ObjectNameGrid"],
 Cell[CellGroupData[{
-Cell[2875, 80, 324, 11, 70, "Usage",
+Cell[3236, 91, 324, 11, 69, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3224, 95, 580, 17, 70, "NotesSection",
+Cell[3585, 106, 738, 24, 33, "NotesSection",
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->290313082],
-Cell[3807, 114, 216, 4, 70, "Print",
+ CellID->183385804],
+Cell[4326, 132, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[4360, 134, 216, 4, 70, "Print",
  CellTags->"Info-7526f0de-d00b-451e-ba15-a92bb4462ea9",
  CellID->347328784]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4072, 124, 460, 13, 70, "PrimaryExamplesSection",
+Cell[4625, 144, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->14983817],
+ CellID->328652856],
 Cell[CellGroupData[{
-Cell[4557, 141, 148, 5, 70, "ExampleSection",
- CellID->820545590],
-Cell[4708, 148, 95, 3, 70, "Input",
+Cell[5037, 163, 195, 6, 28, "ExampleSection",
+ CellID->122945632],
+Cell[5235, 171, 95, 3, 30, "Input",
  CellID->4433785],
-Cell[4806, 153, 602, 21, 70, "Text",
+Cell[5333, 176, 602, 21, 140, "Text",
  CellID->378032768],
-Cell[5411, 176, 681, 21, 70, "Input",
+Cell[5938, 199, 681, 21, 71, "Input",
  CellID->299732250],
-Cell[6095, 199, 1053, 34, 70, "Input",
+Cell[6622, 222, 1053, 34, 71, "Input",
  CellID->485949075],
 Cell[CellGroupData[{
-Cell[7173, 237, 125, 3, 70, "Input",
+Cell[7700, 260, 125, 3, 30, "Input",
  CellID->201417607],
-Cell[7301, 242, 6680, 128, 131, "Output",
+Cell[7828, 265, 6680, 128, 164, "Output",
  CellID->3235055]
 }, Open  ]],
-Cell[13996, 373, 153, 4, 70, "Notes",
+Cell[14523, 396, 153, 4, 70, "Notes",
  CellID->640482915],
 Cell[CellGroupData[{
-Cell[14174, 381, 126, 3, 70, "Input",
+Cell[14701, 404, 126, 3, 70, "Input",
  CellID->191778665],
-Cell[14303, 386, 7851, 147, 130, "Output",
+Cell[14830, 409, 7851, 147, 163, "Output",
  CellID->60335353]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22203, 539, 223, 7, 70, "ExampleSection",
+Cell[22730, 562, 189, 6, 70, "ExampleSection",
  CellID->2061341341],
 Cell[CellGroupData[{
-Cell[22451, 550, 242, 7, 70, "ExampleSubsection",
+Cell[22944, 572, 208, 6, 70, "ExampleSubsection",
  CellID->1757724783],
-Cell[22696, 559, 219, 8, 70, "ExampleText",
+Cell[23155, 580, 254, 9, 70, "ExampleText",
  CellID->400631217]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[22952, 572, 238, 7, 70, "ExampleSubsection",
+Cell[23446, 594, 204, 6, 70, "ExampleSubsection",
  CellID->1295379749],
-Cell[23193, 581, 218, 8, 70, "ExampleText",
+Cell[23653, 602, 253, 9, 70, "ExampleText",
  CellID->87148522]
 }, Closed]]
 }, Closed]]
 }, Open  ]],
-Cell[23450, 594, 23, 0, 70, "FooterCell"]
+Cell[23945, 616, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

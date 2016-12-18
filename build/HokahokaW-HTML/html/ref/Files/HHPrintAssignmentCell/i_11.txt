@@ -1,0 +1,3 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>hello1 = 1;
+hello2 = 2^\[CapitalPi];
+hello3 = Sin;</pre><div class='IFU'><a name='21299251'></a>http://wolfram.com/xid/0ionrvl7bh0ycjqy9ftvn5v95urxwl2-mysv5</div>
