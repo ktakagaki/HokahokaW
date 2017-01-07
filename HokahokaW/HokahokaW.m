@@ -20,6 +20,10 @@ General::nullArgument="At least one of the required arguments is null!";
 HHVerbose::useage = "An option for several HokahokaW` functions whether audit output should be printed.";
 
 
+$HHPackageMessageRun::usage="List of packages run, to only run selected package message once.";
+$HHPackageMessageRun= {};
+
+
 (* ::Subsection::Closed:: *)
 (*Rule/Option Handling*)
 
@@ -67,7 +71,7 @@ HHJavaObjectQ::usage="Checks whether something is a Java object and an instance 
 HHIncreaseJavaStack::usage="Increases the Java stack size.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHPackageMessage/Package Git functions *)
 
 
@@ -336,7 +340,7 @@ $HHCurrentGitArtifact::usage="";
 $HHCurrentGitArtifact = Null;
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (* HHPackageMessage *)
 
 
@@ -348,14 +352,14 @@ HHPackageMessage[package_String, append_String]:=
 Block[{tempArtifactFile, 
 		temp, tempInfo, tempStrippedPackage,
 		infoPath, infoBranch, infoHEAD, infoRemotes, infoArtifactDate},
-
+If[ !MemberQ[$HHPackageMessageRun, package],
 	Quiet[ HHPackageGitLoad[package] ];
 
 	tempStrippedPackage = If[StringMatchQ[package,"*`"], StringTake[package, {1,-2}], package];
 
 	(*Where the artifact file will be read/written*)
 	tempArtifactFile=
-	If[ $HHCurrentGitRepository === Null,
+	If[ Head[$HHCurrentGitRepository]=!= String || !DirectoryQ[$HHCurrentGitRepository],
 		(*If no repository was loaded*)
 		If[  FileExistsQ[ package ], 
 			(*For example, if notebook file is specified*)
@@ -373,7 +377,7 @@ Block[{tempArtifactFile,
 		FileNameJoin[{ParentDirectory[$HHCurrentGitRepositoryPath], tempStrippedPackage, "HHGitArtifact.m"}]
 	];
 
-	If[$HHCurrentGitRepository === Null,
+	If[Head[$HHCurrentGitRepository]=!= String || !DirectoryQ[$HHCurrentGitRepository],
 		(*If we are not working in an active git repository, try to load artifact file *)
 		If[ FileExistsQ[ tempArtifactFile ],
 			tempInfo = Import[ tempArtifactFile ],
@@ -392,14 +396,17 @@ Block[{tempArtifactFile,
 		],
 		
 		HHPackageMessageImpl[ package,
-			If[ $HHCurrentGitRepository === Null, "Artifact info as of: ", "Git info loaded: "] <> 
-			tempInfo[["GitArtifactDate"]] <> "\n" <>
-			"Local repo path:   " <> tempInfo[["GitPath"]] <> "\n" <>
-			"Current branch [hash]:  "<> tempInfo[["GitBranch"]] <> " [" <> tempInfo[["GitHEAD"]] <>"]\n" <>
-			StringTake[ StringJoin[ ("Remote:  " <> #[[1]] <> " (" <> #[[2]]<>")\n")& /@ tempInfo[["GitRemotes"]] ], {1, -2}],
-			append
+			If[ Head[$HHCurrentGitRepository]=!= String || !DirectoryQ[$HHCurrentGitRepository],
+				 "Artifact info as of: ", "Git info loaded: "] <> 
+				tempInfo[["GitArtifactDate"]] <> "\n" <>
+				"Local repo path:   " <> tempInfo[["GitPath"]] <> "\n" <>
+				"Current branch [hash]:  "<> tempInfo[["GitBranch"]] <> " [" <> tempInfo[["GitHEAD"]] <>"]\n" <>
+				StringTake[ StringJoin[ ("Remote:  " <> #[[1]] <> " (" <> #[[2]]<>")\n")& /@ tempInfo[["GitRemotes"]] ], {1, -2}],
+				append
 		]
-	]
+	];
+	AppendTo[$HHPackageMessageRun, package]
+]
 ];
 
 

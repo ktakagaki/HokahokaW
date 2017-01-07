@@ -105,7 +105,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHLabelGraphics*)
 
 
@@ -518,7 +518,7 @@ Block[{temp,
 HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHLabelGraphics*)
 
 
@@ -561,7 +561,7 @@ HHLabelGraphics::invalidAlignmentY = "Y alignment must be Top or Bottom, not `1`
 HHLabelGraphics[args___]:=Message[HHLabelGraphics::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Image Related*)
 
 
@@ -936,7 +936,7 @@ End[];
 EndPackage[];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Bak*)
 
 
@@ -952,14 +952,6 @@ Block[{tempImageData,tempMean},
 HHImageMeanSubtractedAdjusted::dimensionsMustBeSame = "Input list of Image objects must all have the same dimensions and color depths!";
 
 HHImageMeanSubtractedAdjusted[args___]:=Message[HHImageMean::invalidArgs, {args}];*)
-
-
-(*HHGraphicsColumn[list:{__}, opts:OptionsPattern[]]:= 
-
-See tests in /HokahokaW/Tests/Graphics for more information.
-Until further improvements in graphics syntax, the best way is to use
-Column[  Show[gr1, ImageSize\[Rule] y*72], Show[gr2, ImageSize\[Rule] y*72] ]
-*)
 
 
 (*medianQuietPixelsShort[pixels_List]:=
