@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     16328,        421]
-NotebookOptionsPosition[     13183,        327]
-NotebookOutlinePosition[     15592,        393]
-CellTagsIndexPosition[     15472,        387]
+NotebookDataLength[     16321,        421]
+NotebookOptionsPosition[     13182,        327]
+NotebookOutlinePosition[     15586,        393]
+CellTagsIndexPosition[     15466,        387]
 WindowTitle->HHImageCommon
 WindowFrame->Normal*)
 
@@ -59,7 +59,7 @@ HHImageCommon.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$4973], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$4416], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHImageCommon", ".html"]], None}]}]},
@@ -119,7 +119,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->154148377],
+ CellID->396191329],
 
 Cell[CellGroupData[{
 
@@ -129,7 +129,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->806013259],
+ CellID->429207293],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`Graphics`"}]], "Input",
@@ -280,7 +280,7 @@ AAAAAAAAAACgHf8HNwTQAg==
  ImageRegion->{{0, 1}, {0, 1}},
  CellTags->"RasterizedOutput",
  CellLabel->"Out[2]=",
- CellID->209313154]
+ CellID->394782789]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -318,7 +318,7 @@ IskLHQuvtnOPhJQXL5IXL9YJhnwBamOwKw==
  ImageRegion->{{0, 1}, {0, 1}},
  CellTags->"RasterizedOutput",
  CellLabel->"Out[3]=",
- CellID->278398666]
+ CellID->47088905]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -340,7 +340,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 12, 18, 20, 32, 12.2724653}", 
+   "built" -> "{2017, 1, 7, 22, 6, 4.9346729}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -374,20 +374,20 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[3675, 106, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->154148377]},
+   CellID->396191329]},
  "RasterizedOutput"->{
   Cell[5627, 174, 6105, 108, 173, "Output",
    CellTags->"RasterizedOutput",
-   CellID->209313154],
-  Cell[11888, 292, 1229, 28, 93, "Output",
+   CellID->394782789],
+  Cell[11888, 292, 1228, 28, 93, "Output",
    CellTags->"RasterizedOutput",
-   CellID->278398666]}
+   CellID->47088905]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 15106, 373},
- {"RasterizedOutput", 15249, 377}
+ {"PrimaryExamplesSection", 15101, 373},
+ {"RasterizedOutput", 15244, 377}
  }
 *)
 (*NotebookFileOutline
@@ -400,10 +400,10 @@ Cell[3178, 89, 472, 13, 106, "Usage",
 Cell[CellGroupData[{
 Cell[3675, 106, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->154148377],
+ CellID->396191329],
 Cell[CellGroupData[{
 Cell[4087, 125, 195, 6, 28, "ExampleSection",
- CellID->806013259],
+ CellID->429207293],
 Cell[4285, 133, 104, 3, 30, "Input",
  CellID->1850285],
 Cell[CellGroupData[{
@@ -411,18 +411,18 @@ Cell[4414, 140, 1210, 32, 131, "Input",
  CellID->697796],
 Cell[5627, 174, 6105, 108, 173, "Output",
  CellTags->"RasterizedOutput",
- CellID->209313154]
+ CellID->394782789]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[11769, 287, 116, 3, 30, "Input",
  CellID->1460132],
-Cell[11888, 292, 1229, 28, 93, "Output",
+Cell[11888, 292, 1228, 28, 93, "Output",
  CellTags->"RasterizedOutput",
- CellID->278398666]
+ CellID->47088905]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[13156, 325, 23, 0, 70, "FooterCell"]
+Cell[13155, 325, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

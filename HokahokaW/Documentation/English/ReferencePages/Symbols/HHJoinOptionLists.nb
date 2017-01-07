@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17824,        519]
-NotebookOptionsPosition[     14545,        420]
-NotebookOutlinePosition[     16725,        478]
-CellTagsIndexPosition[     16640,        473]
+NotebookDataLength[     17823,        519]
+NotebookOptionsPosition[     14546,        420]
+NotebookOutlinePosition[     16723,        478]
+CellTagsIndexPosition[     16638,        473]
 WindowTitle->HHJoinOptionLists
 WindowFrame->Normal*)
 
@@ -80,7 +80,7 @@ HHJoinOptionLists.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6459], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$5902], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "HokahokaW/ref/HHJoinOptionLists", ".html"]], None}]}]},
@@ -141,7 +141,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->94325895],
+ CellID->482421097],
 
 Cell[CellGroupData[{
 
@@ -151,7 +151,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->291485898],
+ CellID->239832038],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -433,7 +433,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 12, 18, 20, 32, 15.8186681}", 
+   "built" -> "{2017, 1, 7, 22, 6, 8.5718810}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -465,14 +465,14 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[4461, 128, 386, 15, 33, "PrimaryExamplesSection",
+  Cell[4461, 128, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->94325895]}
+   CellID->482421097]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 16498, 466}
+ {"PrimaryExamplesSection", 16495, 466}
  }
 *)
 (*NotebookFileOutline
@@ -483,44 +483,44 @@ Cell[3660, 98, 294, 11, 52, "ObjectNameGrid"],
 Cell[3957, 111, 479, 13, 106, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[4461, 128, 386, 15, 33, "PrimaryExamplesSection",
+Cell[4461, 128, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->94325895],
+ CellID->482421097],
 Cell[CellGroupData[{
-Cell[4872, 147, 195, 6, 28, "ExampleSection",
- CellID->291485898],
-Cell[5070, 155, 96, 3, 30, "Input",
+Cell[4873, 147, 195, 6, 28, "ExampleSection",
+ CellID->239832038],
+Cell[5071, 155, 96, 3, 30, "Input",
  CellID->33535659],
-Cell[5169, 160, 934, 34, 178, "Text",
+Cell[5170, 160, 934, 34, 178, "Text",
  CellID->501272],
 Cell[CellGroupData[{
-Cell[6128, 198, 109, 3, 30, "Input",
+Cell[6129, 198, 109, 3, 30, "Input",
  CellID->61967407],
-Cell[6240, 203, 2463, 54, 300, "Output",
+Cell[6241, 203, 2463, 54, 300, "Output",
  CellID->157452926]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8740, 262, 270, 7, 70, "Input",
+Cell[8741, 262, 270, 7, 70, "Input",
  CellID->272163417],
-Cell[9013, 271, 2462, 54, 300, "Output",
+Cell[9014, 271, 2462, 54, 300, "Output",
  CellID->922563409]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11512, 330, 371, 9, 70, "Input",
+Cell[11513, 330, 371, 9, 70, "Input",
  CellID->308652265],
-Cell[11886, 341, 2008, 45, 261, "Output",
+Cell[11887, 341, 2008, 45, 261, "Output",
  CellID->62239509]
 }, Open  ]]
 }, Open  ]],
-Cell[13921, 390, 31, 0, 70, "SectionFooterSpacer"]
+Cell[13922, 390, 31, 0, 70, "SectionFooterSpacer"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13989, 395, 270, 12, 70, "SeeAlsoSection",
+Cell[13990, 395, 270, 12, 70, "SeeAlsoSection",
  CellID->1255426704],
-Cell[14262, 409, 241, 6, 70, "SeeAlso",
+Cell[14263, 409, 241, 6, 70, "SeeAlso",
  CellID->929782353]
 }, Open  ]],
-Cell[14518, 418, 23, 0, 70, "FooterCell"]
+Cell[14519, 418, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

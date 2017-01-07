@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12593,        422]
+NotebookDataLength[     12590,        422]
 NotebookOptionsPosition[      9167,        317]
-NotebookOutlinePosition[     11358,        375]
-CellTagsIndexPosition[     11273,        370]
+NotebookOutlinePosition[     11355,        375]
+CellTagsIndexPosition[     11270,        370]
 WindowTitle->HHAddOptions
 WindowFrame->Normal*)
 
@@ -80,7 +80,7 @@ HHAddOptions.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$3956], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$3399], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "HokahokaW/ref/HHAddOptions", ".html"]], None}]}]},
@@ -142,7 +142,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->122655085],
+ CellID->360902582],
 
 Cell[CellGroupData[{
 
@@ -152,7 +152,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->392672184],
+ CellID->451755585],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -330,7 +330,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 12, 18, 20, 32, 9.7833229}", 
+   "built" -> "{2017, 1, 7, 22, 6, 2.2755208}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -364,12 +364,12 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[4481, 129, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->122655085]}
+   CellID->360902582]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 11130, 363}
+ {"PrimaryExamplesSection", 11127, 363}
  }
 *)
 (*NotebookFileOutline
@@ -382,10 +382,10 @@ Cell[3937, 111, 519, 14, 106, "Usage",
 Cell[CellGroupData[{
 Cell[4481, 129, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->122655085],
+ CellID->360902582],
 Cell[CellGroupData[{
 Cell[4893, 148, 195, 6, 28, "ExampleSection",
- CellID->392672184],
+ CellID->451755585],
 Cell[5091, 156, 96, 3, 30, "Input",
  CellID->33535659],
 Cell[5190, 161, 937, 34, 178, "Text",
