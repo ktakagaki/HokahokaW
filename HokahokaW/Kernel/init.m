@@ -13,3 +13,4 @@ Get[ "HokahokaW`HokahokaW`"];
 
 Needs[ "HokahokaW`Graphics`"];
 Needs[ "HokahokaW`Signal`"];
+Needs[ "HokahokaW`Data`"];

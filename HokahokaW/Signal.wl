@@ -25,9 +25,6 @@ HHPulseTrainBlackout::usage="Number of samples from beginning (or {beginning, en
 Options[HHPulseTrainDetect]={HHPulseTrainLengthMinimum->0, HHPulseTrainBlackout->None};
 
 
-(* ::Section:: *)
-(*Private*)
-
 
 Begin["`Private`"];
 
@@ -89,7 +86,7 @@ Module[{threshed, tempRes,
 	
 	optBlackout = OptionValue[HHPulseTrainBlackout];
 	If[ Head[optBlackout] === List && Length[optBlackout]==2,
-		tempRes = Select[ tempRes, (#[[2]] < optBlackout[[1]] ||  optBlackout[[2]] < #[[1]] )&],
+		tempRes = Select[ tempRes, (#[[2]]<optBlackout[[1]] && #[[1]]>optBlackout[[2]])&],
 		If[ Head[optBlackout]===Integer || Head[optBlackout] ===Real,
 			tempRes = Select[ tempRes, (#[[2]]>optBlackout)&]
 	]];
@@ -110,14 +107,6 @@ HHPulseTrainDetect[args___]:=Message[HHPulseTrainDetect::invalidArgs,{args}];
 
 
 
-(* ::Section:: *)
-(*Ending*)
-
-
 End[];
 
 EndPackage[];
-
-
-(* ::Section:: *)
-(*Bak*)
