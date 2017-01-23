@@ -1,11 +1,15 @@
 (* Paclet Info File *)
 
-(* created 2015.01.31*)
+(* created 2017/01/23*)
 
 Paclet[
-  Name -> "HokahokaW",
-  Version -> "0.0.1",
-  MathematicaVersion -> "6+",
-  Extensions -> {
-    {"Documentation", Language -> "English"}
-}]
+    Name -> "HokahokaW",
+    Version -> "0.0.1",
+    MathematicaVersion -> "11+",
+    Extensions -> 
+        {
+            {"Documentation", Language -> "English"}
+        }
+]
+
+

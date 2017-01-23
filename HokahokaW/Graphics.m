@@ -73,34 +73,35 @@ HHJoinOptionLists[
 ];*)
 
 
-(* ::Subsection::Closed:: *)
-(*HHListLinePlotMean*)
+(* ::Subsection:: *)
+(*HHListLineMeanPlot*)
 
 
-HHListLinePlotMean::usage= "HHListLinePlotMean plots multiple traces together, along with mean and standard error.";
+HHListLineMeanPlot::usage= "HHListLinePlotMean plots multiple traces together, along with mean and standard error.";
 
 
-HHMeanPlot::usage= "Option for HHListLinePlotMean. Whether to plot a mean trace in NNListLinePlotMean. True (plots mean) or False/None,  or \
+HHOptMeanPlot::usage= "Option for HHListLinePlotMean. Whether to plot a mean trace in NNListLinePlotMean. True (plots mean) or False/None,  or \
 functional specification such as Mean, Median, etc.";
-HHMeanPlotStyle::usage= "PlotStyle for mean trace in NNListLinePlotMean.";
+HHOptMeanPlotStyle::usage= "PlotStyle for mean trace in NNListLinePlotMean.";
 
-HHErrorPlot::usage= "Option for HHListLinePlotMean. Whether to plot error bound traces in NNListLinePlotMean.";
-HHErrorPlotStyle::usage= "Option for HHListLinePlotMean. How to plot the upper and lower error bounds, also see HHErrorPlotFillingStyle.\
+HHOptErrorPlot::usage= "Option for HHListLinePlotMean. Whether to plot error bound traces in NNListLinePlotMean.";
+HHOptErrorPlotStyle::usage= "Option for HHListLinePlotMean. How to plot the upper and lower error bounds, also see HHErrorPlotFillingStyle.\
 True, False/None, or \"StandardDeviation\", \"StandardError\", \"Quartiles\", \"MinMax\".";
-HHErrorPlotFillingStyle::usage= "Option for HHListLinePlotMean. How to shade between the upper and lower error bounds, also see HHErrorPlotStyle.";
+HHOptErrorPlotFillingStyle::usage= "Option for HHListLinePlotMean. How to shade between the upper and lower error bounds, also see HHErrorPlotStyle.";
 
 
-HHListLinePlotMean$UniqueOptions = 
+HHListLineMeanPlot$UniqueOptions = 
 	{
-	HHMeanPlot -> True, HHMeanPlotStyle->Directive[Opacity[0.5]], 
-	HHErrorPlot -> True,  HHErrorPlotStyle -> None, HHErrorPlotFillingStyle -> Automatic
+	HHOptMeanPlot -> True, HHOptMeanPlotStyle->Directive[Opacity[0.5]], 
+	HHOptErrorPlot -> True,  HHOptErrorPlotStyle -> None, 
+	HHOptErrorPlotFillingStyle -> Automatic
 	};
-HHListLinePlotMean$OverrideOptions = { PlotStyle -> None };
+HHListLineMeanPlot$OverrideOptions = { PlotStyle -> None };
 
-Options[HHListLinePlotMean] =
+Options[HHListLineMeanPlot] =
 HHJoinOptionLists[
-	HHListLinePlotMean$UniqueOptions, 
-	HHListLinePlotMean$OverrideOptions,
+	HHListLineMeanPlot$UniqueOptions, 
+	HHListLineMeanPlot$OverrideOptions,
 	Options[ListLinePlot]
 ];
 
@@ -405,11 +406,11 @@ Block[{tempData,tempPlotRange},
 (*HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];*)
 
 
-(* ::Subsection::Closed:: *)
-(*HHListLinePlotMean*)
+(* ::Subsection:: *)
+(*HHListLineMeanPlot*)
 
 
-HHListLinePlotMean[traces_/;(Length[Dimensions[traces]]==2 && Length[Union[Length/@traces]]==1), opts:OptionsPattern[]]:=
+HHListLineMeanPlot[traces_/;(Length[Dimensions[traces]]==2 && Length[Union[Length/@traces]]==1), opts:OptionsPattern[]]:=
 Block[{temp,
 		tempMeanData = {}, 
 		tempErrorMeanData = {}, tempErrorData1 = {}, tempErrorData2 = {},
@@ -419,11 +420,12 @@ Block[{temp,
 		grMean, grError, grErrorFilling, grMain},
 
 	opPlotStyle=OptionValue[PlotStyle];
-	opMeanPlot=OptionValue[HHMeanPlot];	opMeanPlotStyle=OptionValue[HHMeanPlotStyle];
+	opMeanPlot=OptionValue[HHOptMeanPlot];	opMeanPlotStyle=OptionValue[HHMeanPlotStyle];
 	
-	opErrorPlot=OptionValue[HHErrorPlot]; opErrorPlotStyle=OptionValue[HHErrorPlotStyle]; 
-	opErrorPlotFillingStyle=OptionValue[HHErrorPlotFillingStyle];
-	If[ MemberQ[{False, None, Null}, opErrorPlotStyle] ==  None && MemberQ[{False, None, Null}, opErrorPlotFillingStyle], opErrorPlot = False];
+	opErrorPlot=OptionValue[HHOptErrorPlot]; opErrorPlotStyle=OptionValue[HHErrorPlotStyle]; 
+	opErrorPlotFillingStyle=OptionValue[HHOptErrorPlotFillingStyle];
+	If[ MemberQ[{False, None, Null}, opErrorPlotStyle] ==  
+		None && MemberQ[{False, None, Null}, opErrorPlotFillingStyle], opErrorPlot = False];
 	
 	(*==========Process data==========*)
 	tempMeanData = Switch[ opMeanPlot,
@@ -460,7 +462,7 @@ Block[{temp,
 			tempErrorData2 = tempErrorData1[[All, 1]];
 			tempErrorData1 = tempErrorData1[[All, 2]];
 		),
-		_, Message[ HHListLinePlotMean::invalidOptionValue, "HHErrorPlot", ToString[opErrorPlot]]
+		_, Message[ HHListLineMeanPlot::invalidOptionValue, "HHErrorPlot", ToString[opErrorPlot]]
 	];
 
 	If[ opErrorPlot =!= False && tempErrorData2 === {},
@@ -476,7 +478,7 @@ Block[{temp,
 			{},
 			ListLinePlot[tempMeanData, 
 				Sequence@@HHJoinOptionLists[ListLinePlot, 
-				{PlotStyle -> opMeanPlotStyle}, {opts}, Options[HHListLinePlotMean]]
+				{PlotStyle -> opMeanPlotStyle}, {opts}, Options[HHListLineMeanPlot]]
 			]
 		];
 
@@ -515,7 +517,7 @@ Block[{temp,
 ];
 
 
-HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
+HHListLineMeanPlot[args___] := Message[HHListLineMeanPlot::invalidArgs, {args}];
 
 
 (* ::Subsection::Closed:: *)
@@ -936,7 +938,7 @@ End[];
 EndPackage[];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Bak*)
 
 
