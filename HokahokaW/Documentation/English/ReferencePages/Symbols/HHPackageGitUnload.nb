@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      5498,        156]
+NotebookDataLength[      5499,        156]
 NotebookOptionsPosition[      3596,        104]
-NotebookOutlinePosition[      5434,        153]
-CellTagsIndexPosition[      5391,        150]
+NotebookOutlinePosition[      5435,        153]
+CellTagsIndexPosition[      5392,        150]
 WindowTitle->HHPackageGitUnload
 WindowFrame->Normal*)
 
@@ -59,7 +59,7 @@ HHPackageGitUnload.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$10905], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$10383], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageGitUnload", ".html"]], None}]}]},
@@ -117,7 +117,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2017, 1, 7, 22, 6, 19.7765218}", 
+   "built" -> "{2017, 1, 23, 23, 2, 30.0776396}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 

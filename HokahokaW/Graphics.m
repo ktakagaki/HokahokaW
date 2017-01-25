@@ -12,8 +12,8 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`"}];
 HHOptLabelStyleSpecifications::usage = "Option for HHLabelGraphics.";
 
 
-(* ::Subsection::Closed:: *)
-(*HHStackLists / HHListLineStackPlot (HHListLinePlotStack)*)
+(* ::Subsection:: *)
+(*HHStackLists / HHListLinePlotStack*)
 
 
 HHStackLists::usage = 
@@ -39,30 +39,15 @@ None: no increment";
 HHPlotRangeClipping::usage="";
 
 
-HHListLineStackPlot::usage=
+HHListLinePlotStack::usage=
 "HHListLineStaciPlot plots multiple traces together, stacked vertically.";
 
 (*HHListLinePlotStack::usage=
 "DEPRECATED HHListLinePlotStack plots multiple traces together, stacked vertically.";*)
 
 
-HHListLineStackPlot$UniqueOptions = { };
-HHListLineStackPlot$OverrideOptions = { PlotRange -> Automatic};
- 
-Options[HHListLineStackPlot] =
-HHJoinOptionLists[
-	HHListLineStackPlot$UniqueOptions, 
-	HHListLineStackPlot$OverrideOptions,
-	Options[HHStackLists],
-	Options[ListLinePlot]
-];
-
-
-(*HHListLinePlotStack$UniqueOptions = {
-	HHPlotRangeClipping -> Automatic
-	(*HHStackLists->Automatic,*) (*HHStackAxes->False,*)(* HHOptBaselineCorrection-> Mean*)
-};
-HHListLinePlotStack$OverrideOptions = { AspectRatio -> 1/2, PlotRange -> All };
+HHListLinePlotStack$UniqueOptions = { };
+HHListLinePlotStack$OverrideOptions = { PlotRange -> Automatic};
  
 Options[HHListLinePlotStack] =
 HHJoinOptionLists[
@@ -70,14 +55,14 @@ HHJoinOptionLists[
 	HHListLinePlotStack$OverrideOptions,
 	Options[HHStackLists],
 	Options[ListLinePlot]
-];*)
+];
 
 
 (* ::Subsection:: *)
-(*HHListLineMeanPlot*)
+(*HHListLinePlotMean*)
 
 
-HHListLineMeanPlot::usage= "HHListLinePlotMean plots multiple traces together, along with mean and standard error.";
+HHListLinePlotMean::usage= "HHListLinePlotMean plots multiple traces together, along with mean and standard error.";
 
 
 HHOptMeanPlot::usage= "Option for HHListLinePlotMean. Whether to plot a mean trace in NNListLinePlotMean. True (plots mean) or False/None,  or \
@@ -90,18 +75,18 @@ True, False/None, or \"StandardDeviation\", \"StandardError\", \"Quartiles\", \"
 HHOptErrorPlotFillingStyle::usage= "Option for HHListLinePlotMean. How to shade between the upper and lower error bounds, also see HHErrorPlotStyle.";
 
 
-HHListLineMeanPlot$UniqueOptions = 
+HHListLinePlotMean$UniqueOptions = 
 	{
 	HHOptMeanPlot -> True, HHOptMeanPlotStyle->Directive[Opacity[0.5]], 
 	HHOptErrorPlot -> True,  HHOptErrorPlotStyle -> None, 
 	HHOptErrorPlotFillingStyle -> Automatic
 	};
-HHListLineMeanPlot$OverrideOptions = { PlotStyle -> None };
+HHListLinePlotMean$OverrideOptions = { PlotStyle -> None };
 
-Options[HHListLineMeanPlot] =
+Options[HHListLinePlotMean] =
 HHJoinOptionLists[
-	HHListLineMeanPlot$UniqueOptions, 
-	HHListLineMeanPlot$OverrideOptions,
+	HHListLinePlotMean$UniqueOptions, 
+	HHListLinePlotMean$OverrideOptions,
 	Options[ListLinePlot]
 ];
 
@@ -282,14 +267,14 @@ HHStackLists[args___] := Message[HHStackLists::invalidArgs, {args}];
 
 
 (* ::Subsection::Closed:: *)
-(*HHListLineStackPlot*)
+(*HHListLinePlotStack*)
 
 
 (*Used to pass variables to HHListLinePlotStack in an extra-functional manner*)
 $ActualStackRange={0,0};
 
 
-HHListLineStackPlot[
+HHListLinePlotStack[
 	traces_/;(Length[Dimensions[traces]] == 2 || 
 		(Length[Dimensions[traces]] == 3 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
 	increment_/;NumericQ[increment], 
@@ -306,111 +291,21 @@ Block[{tempData, tempPlotRangeOpts},
 		];
 
 	ListLinePlot[tempData,
-		Sequence@@HHJoinOptionLists[ ListLinePlot, tempPlotRangeOpts, {opts}, HHListLineStackPlot$UniqueOptions ]
+		Sequence@@HHJoinOptionLists[ ListLinePlot, tempPlotRangeOpts, {opts}, 
+			HHListLinePlotStack$UniqueOptions 
+		]
 	]
 ];
 
 
-HHListLineStackPlot[args___] := Message[HHListLineStackPlot::invalidArgs, {args}];
-
-
-(* ::Subsubsection:: *)
-(*BAK: HHListLinePlotStack (Old Signature)*)
-
-
-(*HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
-Block[{tempTraces, temp, 
-		opHHOptBaselineCorrection, baselineSubtractFactors, 
-		opHHOptStack, stackAddFactors, stackFactorsCumulated},
-	
-	Message[ HHStackLists::deprecatedSignature ];
-
-	tempTraces = traces;
-
-	opHHOptBaselineCorrection = OptionValue[HHOptBaselineCorrection];
-
-	(*====================*)
-	(* Baseline subtraction *)
-	(*====================*)
-	baselineSubtractFactors = Switch[opHHOptBaselineCorrection,
-		None, None,
-		f_/;HHFunctionQ[f],    opHHOptBaselineCorrection/@traces, (*This covers specifications such as Mean and First or (#[[1]])& *)
-		f_/;(Quiet[temp=f[#]&/@traces]; And@@(NumericQ /@ temp) ), 
-					temp, (*This covers specifications such as Mean and First or (#[[1]])& *)
-		_, Message[ HHStackLists::invalidOptionValue, "HHOptBaselineCorrection", ToString[opHHOptBaselineCorrection]]; 
-		   None
-	];
-	If[ baselineSubtractFactors =!= None,
-		tempTraces = tempTraces - baselineSubtractFactors
-	];
-	
-	(*====================*)
-	(* Stack incrementation *)
-	(*====================*)
-	opHHOptStack = OptionValue[HHOptStack];
-	stackAddFactors = Switch[ opHHOptStack,
-		None,                    None,
-		Automatic,               Table[ Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1.1, {Length[traces]}], (*- Subtract@@MinMax[ Flatten[traces] ]*)
-		x_/;NumericQ[x],         Table[ opHHOptStack, {Length[traces]}],
-		f_/;HHFunctionQ[f],      Table[ opHHOptStack[ Flatten[traces] ], {Length[traces]}], 
-										(*This covers specifications such as Mean[#]& or (#[[1]])& *)
-		f_/;(Quiet[temp=f[ Flatten[traces]]]; And@@(NumericQ /@ temp) ), 
-								  temp, (*This covers specifications such as Mean and First *)
-		_, Message[ HHStackLists::invalidOptionValue, "HHOptStack", ToString[opHHOptStack]]; Table[0, {Length[traces]}]
-	];
-	stackFactorsCumulated = FoldList[Plus, 0, stackAddFactors];
-	$ActualStackRange = {- stackAddFactors[[1]], stackFactorsCumulated[[ -1 ]]};
-	tempTraces + stackFactorsCumulated[[ ;; -2]](*FoldList[Plus, 0, stackAddFactors[[ ;; -2]] ]*)
-						(*last stack add factor is not used here... nothing to stack on top*)
-
-   ];*)
-
-
-(*(*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
-HHStackLists[
-	traces_ /; (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), 
-	opts:OptionsPattern[]] :=
-
-Block[{tempTimes, tempTraces},
-
-	Message[ HHStackLists::deprecatedSignature ];
-
-	tempTimes = traces[[All, All, 1]];
-	tempTraces = traces[[All, All, 2]];
-
-	tempTraces =  HHStackLists[tempTraces, opts];
-
-	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
-];*)
-
-
-(*HHListLinePlotStack[
-	traces_/;(Depth[traces]==3 || (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
-	opts:OptionsPattern[]
-]:=
-Block[{tempData,tempPlotRange},
-
-	Message[ HHStackLists::deprecatedSignature ];
-
-	
-	tempData = HHStackLists[traces, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
-	tempPlotRange = If[ OptionValue[HHPlotRangeClipping] === Automatic, {PlotRange->{All, $ActualStackRange}},{}];
-		
-
-	ListLinePlot[tempData,
-		Sequence@@HHJoinOptionLists[ ListLinePlot, {tempPlotRange}, {opts}, HHListLinePlotStack$UniqueOptions ]
-	]
-];*)
-
-
-(*HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];*)
+HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
 (* ::Subsection:: *)
-(*HHListLineMeanPlot*)
+(*HHListLinePlotMean*)
 
 
-HHListLineMeanPlot[traces_/;(Length[Dimensions[traces]]==2 && Length[Union[Length/@traces]]==1), opts:OptionsPattern[]]:=
+HHListLinePlotMean[traces_/;(Length[Dimensions[traces]]==2 && Length[Union[Length/@traces]]==1), opts:OptionsPattern[]]:=
 Block[{temp,
 		tempMeanData = {}, 
 		tempErrorMeanData = {}, tempErrorData1 = {}, tempErrorData2 = {},
@@ -420,9 +315,9 @@ Block[{temp,
 		grMean, grError, grErrorFilling, grMain},
 
 	opPlotStyle=OptionValue[PlotStyle];
-	opMeanPlot=OptionValue[HHOptMeanPlot];	opMeanPlotStyle=OptionValue[HHMeanPlotStyle];
+	opMeanPlot=OptionValue[HHOptMeanPlot];	opMeanPlotStyle=OptionValue[HHOptMeanPlotStyle];
 	
-	opErrorPlot=OptionValue[HHOptErrorPlot]; opErrorPlotStyle=OptionValue[HHErrorPlotStyle]; 
+	opErrorPlot=OptionValue[HHOptErrorPlot]; opErrorPlotStyle=OptionValue[HHOptErrorPlotStyle]; 
 	opErrorPlotFillingStyle=OptionValue[HHOptErrorPlotFillingStyle];
 	If[ MemberQ[{False, None, Null}, opErrorPlotStyle] ==  
 		None && MemberQ[{False, None, Null}, opErrorPlotFillingStyle], opErrorPlot = False];
@@ -462,7 +357,7 @@ Block[{temp,
 			tempErrorData2 = tempErrorData1[[All, 1]];
 			tempErrorData1 = tempErrorData1[[All, 2]];
 		),
-		_, Message[ HHListLineMeanPlot::invalidOptionValue, "HHErrorPlot", ToString[opErrorPlot]]
+		_, Message[ HHListLinePlotMean::invalidOptionValue, "HHErrorPlot", ToString[opErrorPlot]]
 	];
 
 	If[ opErrorPlot =!= False && tempErrorData2 === {},
@@ -478,12 +373,14 @@ Block[{temp,
 			{},
 			ListLinePlot[tempMeanData, 
 				Sequence@@HHJoinOptionLists[ListLinePlot, 
-				{PlotStyle -> opMeanPlotStyle}, {opts}, Options[HHListLineMeanPlot]]
+				{PlotStyle -> opMeanPlotStyle}, {opts}, Options[HHListLinePlotMean]]
 			]
 		];
 
 		(*==========Error filling plot==========*)
-		grErrorFilling = If[ tempErrorData1 == {} || MemberQ[{False, Null, None, {}, ""}, opErrorPlotFillingStyle], 
+		grErrorFilling = 
+		If[ tempErrorData1 == {} || 
+			MemberQ[{False, Null, None, {}, ""}, opErrorPlotFillingStyle], 
 			{},
 			ListLinePlot[{tempErrorData1, tempErrorData2}, 
 				Sequence@@HHJoinOptionLists[ListLinePlot,
@@ -508,7 +405,9 @@ Block[{temp,
 		grMain = If[ MemberQ[{False, Null, None, {}, ""}, opPlotStyle],
 			{},
 			ListLinePlot[traces, 
-				Sequence@@HHJoinOptionLists[ListLinePlot, {PlotStyle -> opPlotStyle}, {opts}, Options[HHListLinePlotMean]]
+				Sequence@@HHJoinOptionLists[ ListLinePlot, 
+					{PlotStyle -> opPlotStyle}, {opts}, Options[HHListLinePlotMean]
+				]
 			]
 		];
 
@@ -517,7 +416,7 @@ Block[{temp,
 ];
 
 
-HHListLineMeanPlot[args___] := Message[HHListLineMeanPlot::invalidArgs, {args}];
+HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
 (* ::Subsection::Closed:: *)
@@ -996,3 +895,95 @@ simplePixelCluster[pixelList_, absThreshold_]:=
 	SortBy[Transpose[{clusterCount,clusters}], First][[-1,2]]
 
 ];*)
+
+
+(* ::Subsubsection::Closed:: *)
+(*BAK: HHListLinePlotStack (Old Signature)*)
+
+
+(*HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
+Block[{tempTraces, temp, 
+		opHHOptBaselineCorrection, baselineSubtractFactors, 
+		opHHOptStack, stackAddFactors, stackFactorsCumulated},
+	
+	Message[ HHStackLists::deprecatedSignature ];
+
+	tempTraces = traces;
+
+	opHHOptBaselineCorrection = OptionValue[HHOptBaselineCorrection];
+
+	(*====================*)
+	(* Baseline subtraction *)
+	(*====================*)
+	baselineSubtractFactors = Switch[opHHOptBaselineCorrection,
+		None, None,
+		f_/;HHFunctionQ[f],    opHHOptBaselineCorrection/@traces, (*This covers specifications such as Mean and First or (#[[1]])& *)
+		f_/;(Quiet[temp=f[#]&/@traces]; And@@(NumericQ /@ temp) ), 
+					temp, (*This covers specifications such as Mean and First or (#[[1]])& *)
+		_, Message[ HHStackLists::invalidOptionValue, "HHOptBaselineCorrection", ToString[opHHOptBaselineCorrection]]; 
+		   None
+	];
+	If[ baselineSubtractFactors =!= None,
+		tempTraces = tempTraces - baselineSubtractFactors
+	];
+	
+	(*====================*)
+	(* Stack incrementation *)
+	(*====================*)
+	opHHOptStack = OptionValue[HHOptStack];
+	stackAddFactors = Switch[ opHHOptStack,
+		None,                    None,
+		Automatic,               Table[ Quantile[ (# - Min[#])&[ Flatten[traces] ], 0.95]*1.1, {Length[traces]}], (*- Subtract@@MinMax[ Flatten[traces] ]*)
+		x_/;NumericQ[x],         Table[ opHHOptStack, {Length[traces]}],
+		f_/;HHFunctionQ[f],      Table[ opHHOptStack[ Flatten[traces] ], {Length[traces]}], 
+										(*This covers specifications such as Mean[#]& or (#[[1]])& *)
+		f_/;(Quiet[temp=f[ Flatten[traces]]]; And@@(NumericQ /@ temp) ), 
+								  temp, (*This covers specifications such as Mean and First *)
+		_, Message[ HHStackLists::invalidOptionValue, "HHOptStack", ToString[opHHOptStack]]; Table[0, {Length[traces]}]
+	];
+	stackFactorsCumulated = FoldList[Plus, 0, stackAddFactors];
+	$ActualStackRange = {- stackAddFactors[[1]], stackFactorsCumulated[[ -1 ]]};
+	tempTraces + stackFactorsCumulated[[ ;; -2]](*FoldList[Plus, 0, stackAddFactors[[ ;; -2]] ]*)
+						(*last stack add factor is not used here... nothing to stack on top*)
+
+   ];*)
+
+
+(*(*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
+HHStackLists[
+	traces_ /; (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), 
+	opts:OptionsPattern[]] :=
+
+Block[{tempTimes, tempTraces},
+
+	Message[ HHStackLists::deprecatedSignature ];
+
+	tempTimes = traces[[All, All, 1]];
+	tempTraces = traces[[All, All, 2]];
+
+	tempTraces =  HHStackLists[tempTraces, opts];
+
+	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
+];*)
+
+
+(*HHListLinePlotStack[
+	traces_/;(Depth[traces]==3 || (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2})), 
+	opts:OptionsPattern[]
+]:=
+Block[{tempData,tempPlotRange},
+
+	Message[ HHStackLists::deprecatedSignature ];
+
+	
+	tempData = HHStackLists[traces, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
+	tempPlotRange = If[ OptionValue[HHPlotRangeClipping] === Automatic, {PlotRange->{All, $ActualStackRange}},{}];
+		
+
+	ListLinePlot[tempData,
+		Sequence@@HHJoinOptionLists[ ListLinePlot, {tempPlotRange}, {opts}, HHListLinePlotStack$UniqueOptions ]
+	]
+];*)
+
+
+(*HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];*)

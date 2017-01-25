@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     27939,        740]
-NotebookOptionsPosition[     23972,        618]
-NotebookOutlinePosition[     26246,        679]
-CellTagsIndexPosition[     26101,        673]
+NotebookDataLength[     26870,        702]
+NotebookOptionsPosition[     23418,        595]
+NotebookOutlinePosition[     25519,        652]
+CellTagsIndexPosition[     25434,        647]
 WindowTitle->HHListLinePlotStack
 WindowFrame->Normal*)
 
@@ -59,7 +59,7 @@ HHListLinePlotStack.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6413], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$6392], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHListLinePlotStack", ".html"]], None}]}]},
@@ -87,13 +87,11 @@ Cell[TextData[{
  Cell[BoxData[""], "ObjectNameTranslation"]
 }], "ObjectNameGrid"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
       RowBox[{"HHListLinePlotStack", "[", "]"}]], "InlineFormula"],
-     " "
+     " plots multiple traces together, stacked vertically."
     }]]}
   }]], "Usage",
  GridBoxOptions->{
@@ -101,44 +99,6 @@ Cell[BoxData[GridBox[{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
    "RowsIndexed" -> {}}},
  CellID->982511436],
-
-Cell[CellGroupData[{
-
-Cell[TextData[Cell[BoxData[
- ButtonBox[Cell[TextData[{
-   Cell[BoxData[
-    InterpretationBox[
-     StyleBox[
-      GraphicsBox[{},
-       BaselinePosition->Baseline,
-       ImageSize->{6, 0}],
-      CacheGraphics->False],
-     Spacer[6]]]],
-   "Details"
-  }], "NotesFrameText"],
-  Appearance->{Automatic, None},
-  BaseStyle->None,
-  ButtonFunction:>(FrontEndExecute[{
-     FrontEnd`SelectionMove[
-      FrontEnd`SelectedNotebook[], All, ButtonCell], 
-     FrontEndToken["OpenCloseGroup"], 
-     FrontEnd`SelectionMove[
-      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
-  Evaluator->None,
-  Method->"Preemptive"]]]], "NotesSection",
- WholeCellGroupOpener->True,
- CellGroupingRules->{"SectionGrouping", 50},
- CellID->109427034],
-
-Cell["", "SectionHeaderSpacer"],
-
-Cell[BoxData[
- StyleBox["\<\"HHListLinePlotStack plots multiple traces together, stacked \
-vertically.\"\>", "MSG"]], "Print", "PrintUsage",
- CellTags->"Info-7526f0de-d00b-451e-ba15-a92bb4462ea9",
- CellID->347328784]
-}, Open  ]]
-}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -157,7 +117,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->558608084],
+ CellID->656140465],
 
 Cell[CellGroupData[{
 
@@ -167,7 +127,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->203483080],
+ CellID->241116851],
 
 Cell[BoxData[
  RowBox[{"<<", "HokahokaW`"}]], "Input",
@@ -181,21 +141,38 @@ Cell[TextData[{
   FontWeight->"Bold",
   FontVariations->{"Underline"->True}],
  "\n",
- StyleBox["(origin)[https://ktakagaki@github.com/ktakagaki/HokahokaW.git]",
+ StyleBox["Mon 23 Jan 2017 22:55:26     [Mathematica: 11.0.1 for Microsoft \
+Windows (64-bit) (September 20, 2016)]",
   StripOnInput->False,
-  FontFamily->"Courier",
-  FontSize->Small],
+  FontFamily->"Helvetica",
+  FontSize->10],
  "\n",
- StyleBox["current Git HEAD:  e0c73998f5f7b95a360e2414d7f19a75de2075ca\n\
-newest file:  Tue 13 Oct 2015 08:12:57 ",
+ StyleBox["     Artifact info as of: Sat 7 Jan 2017 13:51:46",
   StripOnInput->False,
-  FontFamily->"Courier",
-  FontSize->Small]
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Local repo path:   C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[e39644b3bc228e29af1030f6283774cbaa6717a5]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
 }], "Text",
  GeneratedCell->True,
  CellAutoOverwrite->True,
  Background->GrayLevel[0.85],
- CellID->378032768],
+ CellID->69466787],
 
 Cell[BoxData[
  RowBox[{
@@ -588,7 +565,7 @@ Cell[TextData[{
  "."
 }], "ExampleText",
  CellID->400631217]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -610,15 +587,15 @@ Cell[TextData[{
  "."
 }], "ExampleText",
  CellID->87148522]
-}, Open  ]]
-}, Open  ]]
+}, Closed]]
+}, Closed]]
 }, Open  ]],
 
 Cell[" ", "FooterCell"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
-WindowSize->{952, 1078},
+WindowSize->{725, 750},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 WindowTitle->"HHListLinePlotStack",
 TaggingRules->{
@@ -631,16 +608,17 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2017, 1, 7, 22, 6, 9.7989511}", 
+   "built" -> "{2017, 1, 23, 23, 2, 21.0991260}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
-    "status" -> "None", "summary" -> "HHListLinePlotStack[] ", 
-    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHListLinePlotStack", 
-    "titlemodifier" -> "", "windowtitle" -> "HHListLinePlotStack", "type" -> 
-    "Symbol", "uri" -> "HokahokaW/ref/HHListLinePlotStack"}, 
-  "SearchTextTranslated" -> ""},
+    "status" -> "None", "summary" -> 
+    "HHListLinePlotStack[] plots multiple traces together, stacked \
+vertically.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "HHListLinePlotStack", "titlemodifier" -> "", "windowtitle" -> 
+    "HHListLinePlotStack", "type" -> "Symbol", "uri" -> 
+    "HokahokaW/ref/HHListLinePlotStack"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
 FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
 StyleDefinitions->Notebook[{
@@ -660,20 +638,15 @@ StyleDefinitions->Notebook[{
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "Info-7526f0de-d00b-451e-ba15-a92bb4462ea9"->{
-  Cell[4360, 134, 216, 4, 44, "Print",
-   CellTags->"Info-7526f0de-d00b-451e-ba15-a92bb4462ea9",
-   CellID->347328784]},
  "PrimaryExamplesSection"->{
-  Cell[4625, 144, 387, 15, 33, "PrimaryExamplesSection",
+  Cell[3614, 104, 387, 15, 33, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->558608084]}
+   CellID->656140465]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info-7526f0de-d00b-451e-ba15-a92bb4462ea9", 25808, 662},
- {"PrimaryExamplesSection", 25958, 666}
+ {"PrimaryExamplesSection", 25291, 640}
  }
 *)
 (*NotebookFileOutline
@@ -681,68 +654,59 @@ Notebook[{
 Cell[591, 21, 2321, 53, 54, "AnchorBarGrid",
  CellID->1],
 Cell[2915, 76, 296, 11, 52, "ObjectNameGrid"],
-Cell[CellGroupData[{
-Cell[3236, 91, 324, 11, 69, "Usage",
+Cell[3214, 89, 375, 11, 69, "Usage",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[3585, 106, 738, 24, 33, "NotesSection",
- CellGroupingRules->{"SectionGrouping", 50},
- CellID->109427034],
-Cell[4326, 132, 31, 0, 14, "SectionHeaderSpacer"],
-Cell[4360, 134, 216, 4, 44, "Print",
- CellTags->"Info-7526f0de-d00b-451e-ba15-a92bb4462ea9",
- CellID->347328784]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[4625, 144, 387, 15, 33, "PrimaryExamplesSection",
+Cell[3614, 104, 387, 15, 33, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->558608084],
+ CellID->656140465],
 Cell[CellGroupData[{
-Cell[5037, 163, 195, 6, 28, "ExampleSection",
- CellID->203483080],
-Cell[5235, 171, 95, 3, 30, "Input",
+Cell[4026, 123, 195, 6, 28, "ExampleSection",
+ CellID->241116851],
+Cell[4224, 131, 95, 3, 30, "Input",
  CellID->4433785],
-Cell[5333, 176, 602, 21, 140, "Text",
- CellID->378032768],
-Cell[5938, 199, 681, 21, 51, "Input",
+Cell[4322, 136, 1059, 38, 230, "Text",
+ CellID->69466787],
+Cell[5384, 176, 681, 21, 71, "Input",
  CellID->299732250],
-Cell[6622, 222, 1053, 34, 51, "Input",
+Cell[6068, 199, 1053, 34, 71, "Input",
  CellID->485949075],
 Cell[CellGroupData[{
-Cell[7700, 260, 125, 3, 30, "Input",
+Cell[7146, 237, 125, 3, 30, "Input",
  CellID->201417607],
-Cell[7828, 265, 6680, 128, 164, "Output",
+Cell[7274, 242, 6680, 128, 164, "Output",
  CellID->3235055]
 }, Open  ]],
-Cell[14523, 396, 153, 4, 34, "Notes",
+Cell[13969, 373, 153, 4, 70, "Notes",
  CellID->640482915],
 Cell[CellGroupData[{
-Cell[14701, 404, 126, 3, 30, "Input",
+Cell[14147, 381, 126, 3, 70, "Input",
  CellID->191778665],
-Cell[14830, 409, 7851, 147, 163, "Output",
+Cell[14276, 386, 7851, 147, 163, "Output",
  CellID->60335353]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22730, 562, 189, 6, 28, "ExampleSection",
+Cell[22176, 539, 189, 6, 70, "ExampleSection",
  CellID->2061341341],
 Cell[CellGroupData[{
-Cell[22944, 572, 208, 6, 29, "ExampleSubsection",
+Cell[22390, 549, 208, 6, 70, "ExampleSubsection",
  CellID->1757724783],
-Cell[23155, 580, 254, 9, 40, "ExampleText",
+Cell[22601, 557, 254, 9, 70, "ExampleText",
  CellID->400631217]
-}, Open  ]],
+}, Closed]],
 Cell[CellGroupData[{
-Cell[23446, 594, 204, 6, 29, "ExampleSubsection",
+Cell[22892, 571, 204, 6, 70, "ExampleSubsection",
  CellID->1295379749],
-Cell[23653, 602, 253, 9, 40, "ExampleText",
+Cell[23099, 579, 253, 9, 70, "ExampleText",
  CellID->87148522]
-}, Open  ]]
-}, Open  ]]
+}, Closed]]
+}, Closed]]
 }, Open  ]],
-Cell[23945, 616, 23, 0, 44, "FooterCell"]
+Cell[23391, 593, 23, 0, 70, "FooterCell"]
 }
 ]
 *)
+
+(* End of internal cache information *)
 
