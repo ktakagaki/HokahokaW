@@ -71,7 +71,7 @@ HHJavaObjectQ::usage="Checks whether something is a Java object and an instance 
 HHIncreaseJavaStack::usage="Increases the Java stack size.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHPackageMessage/Package Git functions *)
 
 
@@ -143,6 +143,10 @@ HHPrependFilename::usage =
 "Parses a file path and prepends a string to the filename within the path.";
 HHAppendFileBaseName::usage = 
 "Parses a file path and append a string to the FileBaseName only. Does not add periods.";
+
+
+HHJitterize::usage = 
+"Jitters a list of elements with the given jitter factors.";
 
 
 (* ::Section:: *)
@@ -324,7 +328,7 @@ HHIncreaseJavaStack[stackSize_Integer]:=
 HHIncreaseJavaStack[args___]:=Message[HHIncreaseJavaStack::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHPackageMessage/Package Git functions*)
 
 
@@ -901,7 +905,7 @@ HHNextPower[base_, n_]:= Ceiling[Log[base, n]];
 HHNextPower[args___]:=Message[HHNextPower::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities*)
 
 
@@ -947,6 +951,11 @@ HHSymbolNotNull[symbolName_String]:= (Symbol[symbolName]!=Null);
 HHSymbolNotNull[symbolName_List]:= And@@(HHSymbolNotNull /@ symbolName);
 
 HHSymbolNotNull[args___]:=Message[HHSymbolNotNull::invalidArgs,{args}];
+
+
+HHJitterize[list_List, {lowerMultiply_, upperMultiply_}]:=
+	list*RandomReal[{lowerMultiply,upperMultiply}, Length[list]];
+HHJitterize[args___]:=Message[HHJitterize::invalidArgs,{args}];
 
 
 (* ::Subsection::Closed:: *)
