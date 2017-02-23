@@ -149,6 +149,13 @@ HHJitterize::usage =
 "Jitters a list of elements with the given jitter factors.";
 
 
+(* ::Subsection:: *)
+(*Utilities: List manipulation*)
+
+
+HHTakeCyclical::usage ="";
+
+
 (* ::Section:: *)
 (*Private*)
 
@@ -905,7 +912,7 @@ HHNextPower[base_, n_]:= Ceiling[Log[base, n]];
 HHNextPower[args___]:=Message[HHNextPower::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Utilities*)
 
 
@@ -1068,6 +1075,21 @@ Block[{fileNameSplit, fileBaseName, fileExtension},
 	]
 ];
 HHAppendFileBaseName[args___]:=Message[HHAppendFileBaseName::invalidArgs,{args}];
+
+
+(* ::Subsection:: *)
+(*Utilities: List manipulation*)
+
+
+HHTakeCyclical[ list_List, indices_List/;Depth[indices]==2]:=
+	list[[ Mod[indices - 1, Length[list]]+1 ]];
+
+
+HHTakeCyclical[ list_List, index_Integer]:=
+	list[[ Mod[index - 1, Length[list]]+1 ]];
+
+
+HHTakeCyclical[args___] := Message[HHTakeCyclical::invalidArgs, {args}];
 
 
 (* ::Section:: *)

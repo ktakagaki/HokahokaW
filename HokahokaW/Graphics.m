@@ -12,7 +12,7 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`"}];
 HHOptLabelStyleSpecifications::usage = "Option for HHLabelGraphics.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHStackLists / HHListLinePlotStack*)
 
 
@@ -58,7 +58,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
@@ -120,6 +120,19 @@ HHImageThresholdLinear::usage="Thresholds an image by linear closeness to the gi
 
 
 (* //ToDo2 create HHImageTestImage[] for help files??*)
+
+
+(* ::Subsection:: *)
+(*HHColorData*)
+
+
+HHColorData::usage = 
+"HHColorData takes a number, and gives back that number of color specifications\
+based on a ColorData scheme, sampling circularly beyond the given color list. \
+This circumvents ColorData not being callable beyond the given number of color samples.";
+HHOptColorData::usage = "";
+
+Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
 
 
 (* ::Section:: *)
@@ -301,7 +314,7 @@ Block[{tempData, tempPlotRangeOpts},
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
@@ -462,11 +475,11 @@ HHLabelGraphics::invalidAlignmentY = "Y alignment must be Top or Bottom, not `1`
 HHLabelGraphics[args___]:=Message[HHLabelGraphics::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Image Related*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*HHImageMean*)
 
 
@@ -826,6 +839,17 @@ HHImageThresholdLinear[image_Image, color_List/;Length[color]==3, threshold_:0.2
 
 
 HHImageThresholdLinear[args___]:=Message[HHImageThresholdLinear::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHColorData*)
+
+
+HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
+	HHTakeCyclical[ OptionValue[HHOptColorData], count ];
+
+
+HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
 
 
 (* ::Section:: *)
