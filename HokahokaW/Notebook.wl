@@ -16,8 +16,11 @@ HHOptNotebook::usage = "";
 HHOptCellType::usage = "";
 
 
-HHNotebookWrite::usage="Use NotebookWrite to write a cell.";
-Options[HHNotebookWrite]={HHOptNotebook :> $HHCurrentNotebook, HHOptCellType -> Automatic};
+HHNotebookWriteCell::usage="Use NotebookWrite to write a cell.";
+Options[HHNotebookWriteCell]=Join[
+	{HHOptNotebook :> $HHCurrentNotebook, HHOptCellType -> Automatic},
+	Options[Cell]
+];
 
 
 HHNotebookSave::usage="Use NotebookSave to save a notebook or \
@@ -72,8 +75,10 @@ NotebookWrite[ OptionValue[ HHOptNotebook ],
 HHNotebookWriteCell[contents_, opts:OptionsPattern[]] := 
 NotebookWrite[ OptionValue[ HHOptNotebook ],
 	If[ OptionValue[HHOptCellType] === Automatic,
-		Cell[ BoxData[ToBoxes[ contents ]] ],
-		Cell[ BoxData[ToBoxes[ contents ]], OptionValue[HHOptCellType]]
+		Cell[ BoxData[ToBoxes[ contents ]], 
+				FilterRules[{opts}, Options[Cell]] ],
+		Cell[ BoxData[ToBoxes[ contents ]], OptionValue[HHOptCellType], 
+				FilterRules[{opts}, Options[Cell]]]
 	]];
 
 
