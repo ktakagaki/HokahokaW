@@ -18,7 +18,7 @@ HHOptCellType::usage = "";
 
 HHNotebookWriteCell::usage="Use NotebookWrite to write a cell.";
 Options[HHNotebookWriteCell]=Join[
-	{HHOptNotebook :> $HHCurrentNotebook, HHOptCellType -> Automatic},
+	{HHOptNotebook :> $HHCurrentNotebook},
 	Options[Cell]
 ];
 
@@ -42,13 +42,13 @@ Begin["`Private`"];
 $HHCurrentNotebook = Null;
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHNotebookCreate*)
 
 
-HHNotebookCreate[variables___, opts:OptionsPattern]:=
+HHNotebookCreate[opts:OptionsPattern[]]:=
 Block[{},
-	$HHCurrentNotebook = CreateNotebook[variables];
+	$HHCurrentNotebook = CreateNotebook[];
 	If[Length[{opts}]>0, SetOptions[ $HHCurrentNotebook, opts]];
 ];
 
@@ -60,26 +60,22 @@ HHNotebookCreate[args___]:=Message[HHNotebookCreate::invalidArgs,{args}];
 (*HHNotebookWriteCell*)
 
 
-HHNotebookWriteCell[contents_List, opts:OptionsPattern[]] := 
-	HHNotebookWriteCell[#, opts]& /@ contents;
+HHNotebookWriteCell[contents_List, cellStyle___String, opts:OptionsPattern[]] := 
+	HHNotebookWriteCell[#, cellStyle, opts]& /@ contents;
 
 
-HHNotebookWriteCell[contents_String, opts:OptionsPattern[]] := 
+HHNotebookWriteCell[contents_String, cellStyle___String, opts:OptionsPattern[]] := 
 NotebookWrite[ OptionValue[ HHOptNotebook ],
-	If[ OptionValue[HHOptCellType] === Automatic,
-		Cell[ contents ],
-		Cell[ contents, OptionValue[HHOptCellType]]
-	]];
+	Cell[ contents, cellStyle, opts ]
+];
 
 
-HHNotebookWriteCell[contents_, opts:OptionsPattern[]] := 
+HHNotebookWriteCell[contents_, cellStyle___String, opts:OptionsPattern[]] := 
 NotebookWrite[ OptionValue[ HHOptNotebook ],
-	If[ OptionValue[HHOptCellType] === Automatic,
-		Cell[ BoxData[ToBoxes[ contents ]], 
-				FilterRules[{opts}, Options[Cell]] ],
-		Cell[ BoxData[ToBoxes[ contents ]], OptionValue[HHOptCellType], 
-				FilterRules[{opts}, Options[Cell]]]
-	]];
+	Cell[ BoxData[ToBoxes[ contents ]], 
+			FilterRules[{opts}, Options[Cell]], cellStyle, opts 
+	]
+];
 
 
 HHNotebookWriteCell[args___]:=Message[HHNotebookWriteCell::invalidArgs,{args}];
@@ -89,7 +85,7 @@ HHNotebookWriteCell[args___]:=Message[HHNotebookWriteCell::invalidArgs,{args}];
 (*HHNotebookSave*)
 
 
-HHNotebookSave[fileName_String, opts:OptionsPattern]:=
+HHNotebookSave[fileName_String, opts:OptionsPattern[]]:=
 If[ StringMatchQ[ fileName, __~~".nb" ],
 	NotebookSave[ OptionValue[HHOptNotebook], fileName ],
 	If[ StringMatchQ[ fileName, __~~".pdf" ],
@@ -106,7 +102,7 @@ HHNotebookSave[args___]:=Message[HHNotebookSave::invalidArgs,{args}];
 (*HHNotebookClose*)
 
 
-HHNotebookClose[opts:OptionsPattern]:= NotebookClose[ OptionValue[HHOptNotebook] ];
+HHNotebookClose[opts:OptionsPattern[]]:= NotebookClose[ OptionValue[HHOptNotebook] ];
 
 
 HHNotebookClose[args___]:=Message[HHNotebookClose::invalidArgs,{args}];
