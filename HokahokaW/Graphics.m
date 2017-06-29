@@ -135,6 +135,31 @@ HHOptColorData::usage = "";
 Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
 
 
+(* ::Subsection:: *)
+(*HHExploreGraphics*)
+
+
+HHExploreGraphics::usage=
+"Pass a Graphics object to explore it by zooming and panning with left and right \
+mouse buttons respectively. Left click once to reset view.";
+
+
+HHOptAxesRedraw::usage=
+"Option for HHExploreGraphics to specify redrawing of axes. Default True.";
+
+
+Options[HHExploreGraphics] = {HHOptAxesRedraw -> True};
+
+
+(* ::Subsection:: *)
+(*HHExploreGraphicsSlider*)
+
+
+HHExploreGraphicsSlider::usage=
+"Pass a Graphics object to explore it by dynamically changing the PlotRange with \
+the help of Sliders.";
+
+
 (* ::Section:: *)
 (*Private*)
 
@@ -475,7 +500,7 @@ HHLabelGraphics::invalidAlignmentY = "Y alignment must be Top or Bottom, not `1`
 HHLabelGraphics[args___]:=Message[HHLabelGraphics::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Image Related*)
 
 
@@ -841,7 +866,7 @@ HHImageThresholdLinear[image_Image, color_List/;Length[color]==3, threshold_:0.2
 HHImageThresholdLinear[args___]:=Message[HHImageThresholdLinear::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHColorData*)
 
 
@@ -850,6 +875,68 @@ HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
 
 
 HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHExploreGraphics*)
+
+
+(* adapted from http://forums.wolfram.com/mathgroup/archive/2008/Jan/msg00009.html *)
+(*TODO: update documentation*)
+HHExploreGraphics[graph_Graphics, opts:OptionsPattern[] ] :=
+  With[ {gr = First[graph],
+    opt = DeleteCases[Options[graph], PlotRange -> _ | AspectRatio -> _ | AxesOrigin -> _],
+    plr = PlotRange /. AbsoluteOptions[graph, PlotRange],
+    ar = AspectRatio /. AbsoluteOptions[graph, AspectRatio],
+    ao = AbsoluteOptions[AxesOrigin],
+    rectangle = {Dashing[Small],Line[{#1, {First[#2], Last[#1]}, #2, {First[#1], Last[#2]}, #1}]} &,
+    optAxesRedraw = OptionValue[HHOptAxesRedraw]},
+    DynamicModule[ {dragging = False, first, second, rx1, rx2, ry1, ry2, range = plr},
+    {{rx1, rx2}, {ry1, ry2}} = plr;
+      Panel@EventHandler[Dynamic@
+        Graphics[If[ dragging,
+                   {gr, rectangle[first, second]},
+                   gr
+                 ], PlotRange -> Dynamic@range, AspectRatio -> ar, AxesOrigin -> If[optAxesRedraw, Dynamic@Mean[range\[Transpose]], ao], Sequence @@ opt],
+         {{"MouseDown", 1} :> (first = MousePosition["Graphics"]),
+        {"MouseDragged", 1} :> (dragging = True;
+                                second = MousePosition["Graphics"]),
+        {"MouseUp", 1} :> If[ dragging,
+                            dragging = False;
+                            range = {{rx1, rx2}, {ry1, ry2}} = Transpose@{first, second},
+                            range = {{rx1, rx2}, {ry1, ry2}} = plr
+                          ],
+       {"MouseDown", 2} :> (first = {sx1, sy1} = MousePosition["Graphics"]),
+         {"MouseDragged", 2} :> (second = {sx2, sy2} = MousePosition["Graphics"];
+                                 rx1 = rx1 - (sx2 - sx1);
+                                 rx2 = rx2 - (sx2 - sx1);
+                                 ry1 = ry1 - (sy2 - sy1);
+                                 ry2 =  ry2 - (sy2 - sy1);
+                                 range = {{rx1, rx2}, {ry1, ry2}})
+       }]]
+  ];
+
+
+(* ::Subsection:: *)
+(*HHExploreGraphicsSlider*)
+
+
+HHExploreGraphicsSlider[gr_Graphics] :=
+  Module[ {tempRange, opt, ar},
+  (*seems like an idiomatic way to get Option values*)
+    tempRange = PlotRange /. AbsoluteOptions[gr, PlotRange]; 
+    opt = DeleteCases[Options[graph], PlotRange -> _ | AspectRatio -> _];
+    ar = AspectRatio /. AbsoluteOptions[gr, AspectRatio];
+    Manipulate[
+      Show[gr, 
+        PlotRange -> {{pos[[1]] - xrange/2, pos[[1]] + xrange / 2}, {pos[[2]] - yrange / 2, pos[[2]] + yrange / 2}},
+        AspectRatio -> ar,
+        Sequence @@ opt],
+      {{xrange, First[Differences[tempRange[[1]]]], "x range"}, 0, First[Differences[tempRange[[1]]]]},
+     {{yrange, First[Differences[tempRange[[2]]]], "y range"}, 0, First[Differences[tempRange[[2]]]]},
+     {{pos, {Mean[tempRange[[1]]],  Mean[tempRange[[2]]]}, "Position"}, {tempRange[[1, 1]], tempRange[[2, 1]]}, {tempRange[[1, 2]], tempRange[[2, 2]]}}
+    ]
+  ];
 
 
 (* ::Section:: *)
