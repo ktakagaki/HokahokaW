@@ -130,7 +130,10 @@ Cell["HHExploreGraphicsSlider", "ObjectName",
 Cell[TextData[{
  Cell["   ", "ModInfo"],
  Cell[BoxData[
-  RowBox[{"HHExploreGraphicsSlider", "[", 
+  RowBox[{
+   ButtonBox["HHExploreGraphicsSlider",
+    BaseStyle->"Link",
+    ButtonData->"paclet:HokahokaW/ref/HHExploreGraphicsSlider"], "[", 
    StyleBox["graphic", "Notes",
     FontFamily->"Utopia",
     FontSlant->"Italic"], "]"}]], "InlineFormula"],
@@ -140,7 +143,8 @@ Cell[TextData[{
   ButtonData->"paclet:ref/Graphics"],
  " object with the help of sliders."
 }], "Usage",
- CellChangeTimes->{{3.707696827881694*^9, 3.707696836519079*^9}},
+ CellChangeTimes->{{3.707696827881694*^9, 3.707696836519079*^9}, {
+  3.707710021629703*^9, 3.70771002162988*^9}},
  CellID->982511436],
 
 Cell["XXXX", "Notes",
@@ -269,7 +273,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{958, 1024},
-WindowMargins->{{Automatic, 732}, {6, Automatic}},
+WindowMargins->{{Automatic, 978}, {6, Automatic}},
 CellContext->"Global`",
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 

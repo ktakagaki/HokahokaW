@@ -134,7 +134,10 @@ Cell["HHExploreGraphics", "ObjectName",
 Cell[TextData[{
  Cell["   ", "ModInfo"],
  Cell[BoxData[
-  RowBox[{"HHExploreGraphics", "[", 
+  RowBox[{
+   ButtonBox["HHExploreGraphics",
+    BaseStyle->"Link",
+    ButtonData->"paclet:HokahokaW/ref/HHExploreGraphics"], "[", 
    StyleBox["graphics", "TI"], "]"}]], "InlineFormula"],
  " \[LineSeparator]lets you zoom and pan in a passed ",
  ButtonBox["Graphics",
@@ -145,7 +148,7 @@ pan. Single left click to reset view."
 }], "Usage",
  CellChangeTimes->{{3.7077002382072906`*^9, 3.7077002706213923`*^9}, {
   3.707700342025647*^9, 3.7077004363264027`*^9}, {3.707700558653946*^9, 
-  3.707700558961741*^9}},
+  3.707700558961741*^9}, {3.707710003650103*^9, 3.707710003650249*^9}},
  CellID->982511436],
 
 Cell["XXXX", "Notes",
@@ -738,7 +741,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{874, 937},
-WindowMargins->{{Automatic, 1045}, {Automatic, 55}},
+WindowMargins->{{Automatic, 1044}, {38, Automatic}},
 CellContext->"Global`",
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 

@@ -61,7 +61,7 @@ HHExploreGraphics.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$3946], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$3947], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "HokahokaW/ref/HHExploreGraphics", ".html"]], None}]}]},
@@ -95,7 +95,12 @@ Cell[CellGroupData[{
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      RowBox[{"HHExploreGraphics", "[", 
+      RowBox[{
+       TemplateBox[{Cell[
+          TextData["HHExploreGraphics"]],
+         "paclet:HokahokaW/ref/HHExploreGraphics"},
+        "RefLink",
+        BaseStyle->{"InlineFormula"}], "[", 
        StyleBox["graphics", "TI"], "]"}]], "InlineFormula"],
      " \[LineSeparator]lets you zoom and pan in a passed ",
      ButtonBox["Graphics",
@@ -137,7 +142,7 @@ Cell[TextData[Cell[BoxData[
   Method->"Preemptive"]]]], "NotesSection",
  WholeCellGroupOpener->True,
  CellGroupingRules->{"SectionGrouping", 50},
- CellID->934408883],
+ CellID->1367860404],
 
 Cell["", "SectionHeaderSpacer"],
 
@@ -176,7 +181,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->1326978652],
+ CellID->662356270],
 
 Cell[CellGroupData[{
 
@@ -186,7 +191,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->1307546744],
+ CellID->1249360138],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
@@ -682,7 +687,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2017, 6, 29, 7, 3, 32.060914}", 
+   "built" -> "{2017, 6, 29, 9, 27, 30.810167}", 
     "history" -> {"XX", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {"graphics", "explore", "zoom", "pan", "plotting"}, 
     "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> True,
