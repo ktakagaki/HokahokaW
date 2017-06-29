@@ -140,7 +140,7 @@ Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
 
 
 HHExploreGraphics::usage=
-"Pass a Graphics object to explore it by zooming and panning with left and right\
+"Pass a Graphics object to explore it by zooming and panning with left and right \
 mouse buttons respectively. Left click once to reset view.";
 
 
@@ -155,8 +155,8 @@ Options[HHExploreGraphics] = {HHOptAxesRedraw -> True};
 (*HHExploreGraphicsSlider*)
 
 
-HHExploreGraphicSlider::usage=
-"Pass a Graphics object to explore it by dynamically changing the PlotRange with\
+HHExploreGraphicsSlider::usage=
+"Pass a Graphics object to explore it by dynamically changing the PlotRange with \
 the help of Sliders.";
 
 
