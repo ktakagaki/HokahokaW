@@ -6,6 +6,9 @@
 BeginPackage["HokahokaW`Data`",{"HokahokaW`"}];
 
 
+HHRaggedArrayDepth::usage = 
+"ArrayDepth, but without assuming regular array";
+
 HHImportAssociation::usage = 
 "Automatically loads a JSON file or HDF5 file to association for easy use";
 
@@ -18,6 +21,21 @@ Begin["`Private`"];
 
 
 (* ::Subsection:: *)
+(*HHRaggedArrayDepth*)
+
+
+HHRaggedArrayDepth[list_List] := HHRaggedArrayDepthImpl[list, 1];
+
+HHRaggedArrayDepthImpl[remainder_List, n_] :=
+Module[{ragMin},
+	ragMin = Min[ ArrayDepth /@ remainder ];
+	If[ ragMin == 0, n, Min[ HHRaggedArrayDepthImpl[#, n+1]& /@ remainder ]]
+];  
+
+HHRaggedArrayDepth[args___]:=Message[HHRaggedArrayDepth::invalidArgs,{args}];
+
+
+(* ::Subsection::Closed:: *)
 (*HHImportAssociation*)
 
 

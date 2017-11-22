@@ -2,7 +2,7 @@
 
 (* Wolfram Language package *)
 
-BeginPackage["HokahokaW`Graphics`", {"HokahokaW`"}];
+BeginPackage["HokahokaW`Graphics`", {"HokahokaW`", "HokahokaW`Data`"}];
 
 
 (* ::Section:: *)
@@ -142,12 +142,12 @@ Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHStackLists*)
 
 
 HHStackLists[
-	traces_ /; Length[Dimensions[traces]]==2, 
+	traces_ /; HHRaggedArrayDepth[traces]==2, 
 	increment_/;NumericQ[increment], 
 	opts:OptionsPattern[]
 ] :=
@@ -188,7 +188,7 @@ Block[{tempTraces, temp,
 
 (*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
 HHStackLists[
-	traces_ /; (Length[Dimensions[traces]] == 3 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), 
+	traces_ /; (HHRaggedArrayDepth[traces] == 3), 
 	increment_/;NumericQ[increment], 
 	opts:OptionsPattern[]] :=
 Block[{tempTimes, tempTraces},
@@ -206,7 +206,7 @@ Block[{tempTimes, tempTraces},
 (*Old Signatures*)
 
 
-HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
+(*HHStackLists[traces_ /; Depth[traces]==3, opts:OptionsPattern[]] :=
 Block[{tempTraces, temp, 
 		opHHOptBaselineCorrection, baselineSubtractFactors, 
 		opHHOptStack, stackAddFactors, stackFactorsCumulated},
@@ -251,10 +251,10 @@ Block[{tempTraces, temp,
 	tempTraces + stackFactorsCumulated[[ ;; -2]](*FoldList[Plus, 0, stackAddFactors[[ ;; -2]] ]*)
 						(*last stack add factor is not used here... nothing to stack on top*)
 
-   ];
+   ];*)
 
 
-(*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
+(*(*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
 HHStackLists[
 	traces_ /; (Depth[traces]==4 && Union[(Dimensions /@ traces)[[All, 2]]]=={2}), 
 	opts:OptionsPattern[]] :=
@@ -269,7 +269,7 @@ Block[{tempTimes, tempTraces},
 	tempTraces =  HHStackLists[tempTraces, opts];
 
 	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
-];
+];*)
 
 
 (* ::Subsubsection:: *)
