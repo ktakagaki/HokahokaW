@@ -1,6 +1,6 @@
 (* Created with the Wolfram Language : www.wolfram.com *)
 <|"GitPath" -> "C:\\prog\\_w\\HokahokaW\\.git", "GitBranch" -> "master", 
- "GitHEAD" -> "157eae2b85e37292b25f4351e2d6c81ab817371e", 
+ "GitHEAD" -> "6f0f08419eb745b9cb1bc1458c7c002dd7e587d2", 
  "GitRemotes" -> 
   {"origin" -> "https://ktakagaki@github.com/ktakagaki/HokahokaW.git"}, 
- "GitArtifactDate" -> "Sat 13 May 2017 11:18:54"|>
+ "GitArtifactDate" -> "Wed 10 Jan 2018 00:37:28"|>

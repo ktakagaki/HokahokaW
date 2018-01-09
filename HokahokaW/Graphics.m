@@ -127,12 +127,30 @@ HHImageThresholdLinear::usage="Thresholds an image by linear closeness to the gi
 
 
 HHColorData::usage = 
-"HHColorData takes a number, and gives back that number of color specifications\
-based on a ColorData scheme, sampling circularly beyond the given color list. \
+"HHColorData is a utility extension to the standard ColorData function which \
+allows easier access to the default Mathematica color scheme and other coloring \
+schemes. 
+
+In the most basic call pattern, HHColorData takes an Integer, and gives back the \
+corresponding color specification within the Mathematica default \
+color list, sampling circularly beyond the given color list. \
 This circumvents ColorData not being callable beyond the given number of color samples.";
 HHOptColorData::usage = "";
 
 Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
+
+
+(* ::Subsection:: *)
+(*Plotting Utility Functions*)
+
+
+HHColorDirectiveQ::usage = 
+"HHColorDirectiveQ returns True if the argument given is a color directive (RGBColor, Hue, GrayLevel, ...).";
+
+
+HHPlotStyleTable::usage = 
+"HHPlotStyleTable creates a List of specified length, consisting of repeated plot style directives. \
+If no color specification is given, the list of Automatic colors is applied cyclically.";
 
 
 (* ::Section:: *)
@@ -142,7 +160,7 @@ Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHStackLists*)
 
 
@@ -475,7 +493,7 @@ HHLabelGraphics::invalidAlignmentY = "Y alignment must be Top or Bottom, not `1`
 HHLabelGraphics[args___]:=Message[HHLabelGraphics::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Image Related*)
 
 
@@ -841,7 +859,7 @@ HHImageThresholdLinear[image_Image, color_List/;Length[color]==3, threshold_:0.2
 HHImageThresholdLinear[args___]:=Message[HHImageThresholdLinear::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHColorData*)
 
 
@@ -849,7 +867,66 @@ HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
 	HHTakeCyclical[ OptionValue[HHOptColorData], count ];
 
 
+HHColorData[ counts_List, opts: OptionsPattern[] ]:=
+	HHColorData[#, opts]& /@ counts;
+
+
+HHColorData[ opts: OptionsPattern[] ]:= ColorData[97, "ColorList"];
+
+
 HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*Plotting Utility Functions*)
+
+
+HHColorDirectiveQ[directive_RGBColor ]:= True;
+HHColorDirectiveQ[directive_Hue ]:= True;
+HHColorDirectiveQ[directive_CMYKColor ]:= True;
+HHColorDirectiveQ[directive_GrayLevel ]:= True;
+
+HHColorDirectiveQ[directive_LABColor ]:= True;
+HHColorDirectiveQ[directive_LCHColor ]:= True;
+HHColorDirectiveQ[directive_LUVColor ]:= True;
+HHColorDirectiveQ[directive_XYZColor ]:= True;
+
+HHColorDirectiveQ[directive_ ]:= False;
+
+
+HHColorDirectiveQ[args___] := Message[HHColorDirectiveQ::invalidArgs, {args}];
+
+
+HHPlotStyleTable[ plotStyle_List ]:=
+	MapThread[ HHPlotStyleTableImpl[#1, #2]&, {plotStyle, Range[Length[plotStyle]]}];
+
+HHPlotStyleTable[plotStyle_List, {count_}]:=
+	HHPlotStyleTable[plotStyle[[ ;; Min[Length[plotStyle], count]]]];
+	
+HHPlotStyleTable[Automatic, {count_} ]:= HHColorData /@ Range[count];
+HHPlotStyleTable[plotStyle_,{count_} ]:= HHPlotStyleTableImpl[plotStyle, #]& /@ Range[ count ];
+
+
+HHPlotStyleTable[args___] := Message[HHPlotStyleTable::invalidArgs, {args}];
+
+
+HHPlotStyleTableImpl[plotStyle_Directive,number_ ]:=
+Block[{temp},
+	temp = GatherBy[List@@plotStyle, HHColorDirectiveQ];
+	If[ Length[temp[[1]]]>0,
+		Directive@@Join[ {temp[[1,1]]}, temp[[2]]],
+		Directive@@Join[ {HHColorData[number]}, temp[[2]]]
+	]
+];
+
+HHPlotStyleTableImpl[plotStyle_,number_ ]:=
+If[HHColorDirectiveQ[plotStyle], 
+	plotStyle,
+	Directive[ HHColorData[number], plotStyle]
+];
+
+
+HHPlotStyleTableImpl[args___] := Message[HHPlotStyleTableImpl::invalidArgs, {args}];
 
 
 (* ::Section:: *)

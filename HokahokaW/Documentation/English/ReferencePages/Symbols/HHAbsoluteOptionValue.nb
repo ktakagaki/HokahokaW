@@ -1,0 +1,604 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     22241,        594]
+NotebookOptionsPosition[     16340,        459]
+NotebookOutlinePosition[     18516,        516]
+CellTagsIndexPosition[     18431,        511]
+WindowTitle->HHAbsoluteOptionValue
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell",ExpressionUUID->
+     "3b75ad72-160e-4317-95ce-34c6f001a22d"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }],ExpressionUUID->"8a3fe139-a94d-4d25-b7b5-259812bbaef9"],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHAbsoluteOptionValue\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["HokahokaW/ref/HHAbsoluteOptionValue"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHAbsoluteOptionValue.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$8464], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "HokahokaW/ref/HHAbsoluteOptionValue", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
+     LineSpacing->{1.4, 0},ExpressionUUID->
+     "43c66651-c58b-4185-bfb6-8cc60af7945b"]], "AnchorBar",ExpressionUUID->
+     "0b78a61f-bdd5-4282-85a3-3193f0154cb0"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1,ExpressionUUID->"64de3266-976f-4180-a6c4-ce3ff6342e78"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell["HHAbsoluteOptionValue", "ObjectName",ExpressionUUID->
+  "af4adb58-4601-405b-93f2-bfdf1384dd87"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"472f3581-eab3-4029-ab81-2ba73f3353cf"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "0074871b-41a7-4d48-9e20-d95a8f0fa214"]
+}], "ObjectNameGrid",ExpressionUUID->"dd8acdce-14aa-4f43-a2dd-30ca419ac4a5"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"HHAbsoluteOptionValue", "[", "]"}]], "InlineFormula",
+      ExpressionUUID->"86e9ed4b-b293-4a2e-865c-5b86c7f350ad"],
+     " \[LineSeparator]",
+     Cell[BoxData[
+      RowBox[{"DEPRECATED", ":", " ", 
+       RowBox[{"use", " ", "AbsoluteOptions", " ", 
+        RowBox[{"instead", "."}]}]}]], "Code",ExpressionUUID->
+      "84b937b2-ccda-4b2b-abd3-02cb798e97e7"]
+    }],ExpressionUUID->"c99612d1-8cc1-47f0-8432-e1b57b1128e9"]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436,ExpressionUUID->"254cbe82-fd5b-4fb9-ab86-1f7036dc3a48"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    TemplateBox[{6},
+     "Spacer1"]],ExpressionUUID->"641779a5-9cb9-439a-a863-0034a7723c0b"],
+   "Details"
+  }], "NotesFrameText",ExpressionUUID->"8c0a6ce6-8c8d-4e6d-88dc-39e463dafd27"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"7e87a6d3-1e9b-4b6f-937e-2a1b4c4b973c"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->405954071,ExpressionUUID->"7526e0dd-cafc-43bd-8cbf-19654f9b6e1e"],
+
+Cell["", "SectionHeaderSpacer",ExpressionUUID->"195d33af-ce0c-4c99-84f5-39f16a4c6ef1"],
+
+Cell["Former (failed) implementation:", "Notes",
+ CellID->1067943069,ExpressionUUID->"86ec3580-2539-420e-9384-694473c7af18"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHAbsoluteOptionValue", "[", 
+    RowBox[{"x_", ",", " ", "optionSymbol_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "tempOpts", "}"}], ",", "\n", "\t", 
+     RowBox[{
+      RowBox[{"tempOpts", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"AbsoluteOptions", "[", "x", "]"}], ",", 
+         RowBox[{"Options", "[", 
+          RowBox[{"Head", "[", "x", "]"}], "]"}]}], "]"}]}], ";", "\n", "\t", 
+      RowBox[{"OptionValue", "[", " ", 
+       RowBox[{"tempOpts", " ", ",", "optionSymbol"}], " ", "]"}]}]}], "\n", 
+    "]"}]}], ";"}]], "Code",
+ CellID->39368832,ExpressionUUID->"e28863eb-625e-45c8-a959-14e749b4facf"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]],ExpressionUUID->"9d6fed4a-76fc-4fbe-882a-3f61d990b849"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "4081ba59-cac4-41be-8223-0148db7da75d"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->281400,ExpressionUUID->"f012ee3a-f98e-4c2b-9769-84fbbfb17958"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "1fe034bc-6c9f-42e5-ab2d-4a3173de6a9d"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->928452532,ExpressionUUID->"943066cf-65c9-491d-b9b1-9a6e82c10571"],
+
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->33535659,ExpressionUUID->"69ade17c-b7ff-4c5d-bb51-97dabc6ee5be"],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Mon 4 Apr 2016 16:04:16     [Mathematica: 10.4.0 for Microsoft \
+Windows (64-bit) (February 26, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[e88c77baa446ff7c17d81aa6b3d6d1052b9c1cfd]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->615563664,ExpressionUUID->"867c6ab8-e381-4f95-82df-e91392da73d2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Options", "[", "HHObject", "]"}], "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"ValidOption", "\[Rule]", "4"}], ",", " ", 
+    RowBox[{"ValidOption2", "\[Rule]", "1000"}]}], "}"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->243122296,ExpressionUUID->"8fbd9022-4ab8-4bab-8204-0da81917e369"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"ValidOption", "\[Rule]", "4"}], ",", 
+   RowBox[{"ValidOption2", "\[Rule]", "1000"}]}], "}"}]], "Output",
+ ImageSize->{299, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->170926196,ExpressionUUID->"2beaf059-7881-4ce9-8961-e2c87d055256"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"temp", "=", 
+  RowBox[{"HHObject", "[", 
+   RowBox[{"1", ",", " ", "3", ",", " ", "\"\<values\>\"", ",", " ", 
+    RowBox[{"ValidOption", "\[Rule]", "3"}], ",", 
+    RowBox[{"\"\<ValidOptionText\>\"", "\[Rule]", "\"\<String\>\""}]}], 
+   "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->39093178,ExpressionUUID->"aaf36ad7-b198-46cd-914b-013a4a2c37fc"],
+
+Cell[BoxData[
+ RowBox[{"HHObject", "[", 
+  RowBox[{"1", ",", "3", ",", "\<\"values\"\>", ",", 
+   RowBox[{"ValidOption", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"ValidOptionText\"\>", "\[Rule]", "\<\"String\"\>"}]}], 
+  "]"}]], "Output",
+ ImageSize->{506, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->252707219,ExpressionUUID->"c0c07e27-9d5d-4c5d-aa83-9e6b89dd3359"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Options", "[", 
+  RowBox[{"temp", ",", " ", "ValidOption"}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->1016720011,ExpressionUUID->"baa90077-3945-4409-995f-74fec014c331"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"ValidOption", "\[Rule]", "3"}], "}"}]], "Output",
+ ImageSize->{138, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->132200920,ExpressionUUID->"45e57010-dc55-421e-9fce-0da86ffa01f0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AbsoluteOptions", "[", 
+  RowBox[{"temp", ",", " ", "\"\<ValidOptionText\>\""}], "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->45964637,ExpressionUUID->"776b4434-0c65-4ddc-82ea-f0f2b27b403e"],
+
+Cell[BoxData[
+ RowBox[{"AbsoluteOptions", "[", 
+  RowBox[{
+   RowBox[{"HHObject", "[", 
+    RowBox[{"1", ",", "3", ",", "\<\"values\"\>", ",", 
+     RowBox[{"ValidOption", "\[Rule]", "3"}], ",", 
+     RowBox[{"\<\"ValidOptionText\"\>", "\[Rule]", "\<\"String\"\>"}]}], 
+    "]"}], ",", "\<\"ValidOptionText\"\>"}], "]"}]], "Output",
+ ImageSize->{490, 39},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
+ CellID->873505486,ExpressionUUID->"f011d14d-0810-463d-8b0f-51bbb15a37aa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHAbsoluteOptionValue", "[", 
+  RowBox[{"temp", ",", " ", "ValidOption2"}], "]"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->502747949,ExpressionUUID->"d15b0ada-e7de-4b2b-957a-565ffe3b10e2"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Join", "::", "heads"}], "MessageName"], ":", 
+  " ", "\<\"Heads \[NoBreak]\\!\\(\\*RowBox[{\\\"AbsoluteOptions\\\"}]\\)\
+\[NoBreak] and \[NoBreak]\\!\\(\\*RowBox[{\\\"List\\\"}]\\)\[NoBreak] at \
+positions \[NoBreak]\\!\\(\\*RowBox[{\\\"1\\\"}]\\)\[NoBreak] and \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"2\\\"}]\\)\[NoBreak] are expected to be the \
+same. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/heads\\\", \
+ButtonNote -> \\\"Join::heads\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[6]:=",
+ CellID->233252767,ExpressionUUID->"4e163d74-f81a-4d1a-a349-38c579104a5b"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"OptionValue", "::", "rep"}], "MessageName"], ":", 
+  " ", "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"AbsoluteOptions\\\", \\\"[\\\", RowBox[{\\\"HHObject\\\", \
+\\\"[\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"\\\\\\\"values\\\\\\\"\\\", \\\",\\\", RowBox[{\\\"ValidOption\\\", \\\"\
+\[Rule]\\\", \\\"3\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"ValidOption\\\", \\\"\[Rule]\\\", \
+\\\"4\\\"}], \\\",\\\", RowBox[{\\\"ValidOption2\\\", \\\"\[Rule]\\\", \
+\\\"1000\\\"}]}], \\\"}\\\"}]}], \\\"]\\\"}]\\)\[NoBreak] is not a valid \
+replacement rule. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/rep\\\", ButtonNote -> \
+\\\"OptionValue::rep\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[6]:=",
+ CellID->598109953,ExpressionUUID->"d83fbc8a-056f-4722-964d-4eb47081a410"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"OptionValue", "::", "optnf"}], "MessageName"], ":", 
+  " ", "\<\"Option name \[NoBreak]\\!\\(\\*RowBox[{\\\"ValidOption2\\\"}]\\)\
+\[NoBreak] not found in defaults for \[NoBreak]\\!\\(\\*RowBox[{\\\"Join\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"AbsoluteOptions\\\", \\\"[\\\", \
+RowBox[{\\\"HHObject\\\", \\\"[\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"3\\\", \
+\\\",\\\", \\\"\\\\\\\"values\\\\\\\"\\\", \\\",\\\", RowBox[{\\\"ValidOption\
+\\\", \\\"\[Rule]\\\", \\\"3\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"ValidOption\\\", \\\"\[Rule]\\\", \
+\\\"4\\\"}], \\\",\\\", RowBox[{\\\"ValidOption2\\\", \\\"\[Rule]\\\", \
+\\\"1000\\\"}]}], \\\"}\\\"}]}], \\\"]\\\"}]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/OptionValue\\\", ButtonNote -> \
+\\\"OptionValue::optnf\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[6]:=",
+ CellID->80558045,ExpressionUUID->"f4bcce75-7aee-4cd8-8857-1cae2a327edc"],
+
+Cell[BoxData["ValidOption2"], "Output",
+ ImageSize->{101, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
+ CellID->509567409,ExpressionUUID->"d09546db-bbbb-4dfa-9e55-9c2ba4dad861"]
+}, Open  ]],
+
+Cell[BoxData["AbsoluteOptions"], "Input",
+ CellLabel->"In[7]:=",
+ CellID->355057238,ExpressionUUID->"ca4b90f3-3561-49c4-be04-e92140f95254"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AbsoluteOptions", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"Sin", "[", "x", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}]}], "]"}], ",", "PlotRange"}], 
+  "]"}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->635235521,ExpressionUUID->"81ab1ac6-f0b4-42ec-ac39-aa3f707b2ff0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"PlotRange", "\[Rule]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.`", ",", "6.283185307179586`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "0.9999998593152271`"}], ",", "0.9999998782428621`"}], 
+      "}"}]}], "}"}]}], "}"}]], "Output",
+ ImageSize->{320, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[8]=",
+ CellID->111587999,ExpressionUUID->"8fd3bd2c-8b72-464a-9e20-d0baf7abfa0c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AbsoluteOptions", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Circle", "[", "]"}], "}"}], "]"}], ",", "PlotRange"}], 
+  "]"}]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->177828218,ExpressionUUID->"08d95631-e33a-4a0a-8938-9c13bb11f401"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"PlotRange", "\[Rule]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1.`"}], ",", "1.`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1.`"}], ",", "1.`"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ ImageSize->{290, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[9]=",
+ CellID->96631216,ExpressionUUID->"ce82b692-7434-4347-9a49-1683b6a43b4f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"29ac725e-06b7-477b-9daf-6b6488006454"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHAbsoluteOptionValue",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2018, 1, 10, 0, 24, 37.3469728}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> 
+    "HHAbsoluteOptionValue[] DEPRECATED : use AbsoluteOptions instead.", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHAbsoluteOptionValue", 
+    "titlemodifier" -> "", "windowtitle" -> "HHAbsoluteOptionValue", "type" -> 
+    "Symbol", "uri" -> "HokahokaW/ref/HHAbsoluteOptionValue"}, 
+  "SearchTextTranslated" -> "", "NewStyles" -> False},
+CellContext->"Global`",
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> 
+  "11.2 for Microsoft Windows (64-bit) (September 10, 2017)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[6248, 165, 432, 11, 40, "PrimaryExamplesSection",ExpressionUUID->"f012ee3a-f98e-4c2b-9769-84fbbfb17958",
+   CellTags->"PrimaryExamplesSection",
+   CellID->281400]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 18236, 504}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[593, 21, 2622, 56, 58, "AnchorBarGrid",ExpressionUUID->"64de3266-976f-4180-a6c4-ce3ff6342e78",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[3240, 81, 406, 9, 64, "ObjectNameGrid",ExpressionUUID->"dd8acdce-14aa-4f43-a2dd-30ca419ac4a5"],
+Cell[3649, 92, 734, 17, 116, "Usage",ExpressionUUID->"254cbe82-fd5b-4fb9-ab86-1f7036dc3a48",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4420, 114, 855, 21, 42, "NotesSection",ExpressionUUID->"7526e0dd-cafc-43bd-8cbf-19654f9b6e1e",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->405954071],
+Cell[5278, 137, 86, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"195d33af-ce0c-4c99-84f5-39f16a4c6ef1"],
+Cell[5367, 139, 124, 1, 70, "Notes",ExpressionUUID->"86ec3580-2539-420e-9384-694473c7af18",
+ CellID->1067943069],
+Cell[5494, 142, 717, 18, 70, "Code",ExpressionUUID->"e28863eb-625e-45c8-a959-14e749b4facf",
+ CellID->39368832]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6248, 165, 432, 11, 40, "PrimaryExamplesSection",ExpressionUUID->"f012ee3a-f98e-4c2b-9769-84fbbfb17958",
+ CellTags->"PrimaryExamplesSection",
+ CellID->281400],
+Cell[CellGroupData[{
+Cell[6705, 180, 308, 7, 34, "ExampleSection",ExpressionUUID->"943066cf-65c9-491d-b9b1-9a6e82c10571",
+ CellID->928452532],
+Cell[7016, 189, 151, 3, 30, "Input",ExpressionUUID->"69ade17c-b7ff-4c5d-bb51-97dabc6ee5be",
+ CellID->33535659],
+Cell[7170, 194, 992, 34, 182, "Text",ExpressionUUID->"867c6ab8-e381-4f95-82df-e91392da73d2",
+ CellID->615563664],
+Cell[CellGroupData[{
+Cell[8187, 232, 326, 8, 30, "Input",ExpressionUUID->"8fbd9022-4ab8-4bab-8204-0da81917e369",
+ CellID->243122296],
+Cell[8516, 242, 343, 9, 39, "Output",ExpressionUUID->"2beaf059-7881-4ce9-8961-e2c87d055256",
+ CellID->170926196]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8896, 256, 377, 8, 51, "Input",ExpressionUUID->"aaf36ad7-b198-46cd-914b-013a4a2c37fc",
+ CellID->39093178],
+Cell[9276, 266, 422, 10, 39, "Output",ExpressionUUID->"c0c07e27-9d5d-4c5d-aa83-9e6b89dd3359",
+ CellID->252707219]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9735, 281, 200, 4, 70, "Input",ExpressionUUID->"baa90077-3945-4409-995f-74fec014c331",
+ CellID->1016720011],
+Cell[9938, 287, 275, 7, 39, "Output",ExpressionUUID->"45e57010-dc55-421e-9fce-0da86ffa01f0",
+ CellID->132200920]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10250, 299, 218, 4, 70, "Input",ExpressionUUID->"776b4434-0c65-4ddc-82ea-f0f2b27b403e",
+ CellID->45964637],
+Cell[10471, 305, 518, 12, 60, "Output",ExpressionUUID->"f011d14d-0810-463d-8b0f-51bbb15a37aa",
+ CellID->873505486]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11026, 322, 214, 4, 70, "Input",ExpressionUUID->"d15b0ada-e7de-4b2b-957a-565ffe3b10e2",
+ CellID->502747949],
+Cell[11243, 328, 727, 12, 70, "Message",ExpressionUUID->"4e163d74-f81a-4d1a-a349-38c579104a5b",
+ CellID->233252767],
+Cell[11973, 342, 1033, 17, 70, "Message",ExpressionUUID->"d83fbc8a-056f-4722-964d-4eb47081a410",
+ CellID->598109953],
+Cell[13009, 361, 1097, 17, 70, "Message",ExpressionUUID->"f4bcce75-7aee-4cd8-8857-1cae2a327edc",
+ CellID->80558045],
+Cell[14109, 380, 225, 5, 39, "Output",ExpressionUUID->"d09546db-bbbb-4dfa-9e55-9c2ba4dad861",
+ CellID->509567409]
+}, Open  ]],
+Cell[14349, 388, 139, 2, 70, "Input",ExpressionUUID->"ca4b90f3-3561-49c4-be04-e92140f95254",
+ CellID->355057238],
+Cell[CellGroupData[{
+Cell[14513, 394, 377, 11, 70, "Input",ExpressionUUID->"81ab1ac6-f0b4-42ec-ac39-aa3f707b2ff0",
+ CellID->635235521],
+Cell[14893, 407, 513, 15, 39, "Output",ExpressionUUID->"8fd3bd2c-8b72-464a-9e20-d0baf7abfa0c",
+ CellID->111587999]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15443, 427, 292, 8, 70, "Input",ExpressionUUID->"08d95631-e33a-4a0a-8938-9c13bb11f401",
+ CellID->177828218],
+Cell[15738, 437, 481, 15, 39, "Output",ExpressionUUID->"ce82b692-7434-4347-9a49-1683b6a43b4f",
+ CellID->96631216]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[16258, 457, 78, 0, 70, "FooterCell",ExpressionUUID->"29ac725e-06b7-477b-9daf-6b6488006454"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,221 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7205,        213]
+NotebookOptionsPosition[      5840,        182]
+NotebookOutlinePosition[      6187,        197]
+CellTagsIndexPosition[      6144,        194]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "HokahokaW`"}]], "Input",
+ CellChangeTimes->{{3.722441506465962*^9, 
+  3.722441510893215*^9}},ExpressionUUID->"f38816b4-a463-4bf0-b143-\
+d8cfed1c7380"],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Fri 22 Dec 2017 07:51:50     [Mathematica: 11.2.0 for Microsoft \
+Windows (64-bit) (September 11, 2017)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->14],
+ "\n",
+ StyleBox["     Artifact info as of: Sat 13 May 2017 11:18:54",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->14],
+ "\n",
+ StyleBox["     Local repo path:   C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->14],
+ "\n",
+ StyleBox["     Current branch [hash]:  master \
+[157eae2b85e37292b25f4351e2d6c81ab817371e]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->14],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->14]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.722914310958743*^9},
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"f796841c-2b6c-40dc-9f68-4ac36f2634fb"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7228314428065305`*^9, 
+  3.7228314476748085`*^9}},ExpressionUUID->"c3179706-b376-4b99-8735-\
+e844fca82cef"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHColorDirectiveQ", "[", "directive_RGBColor", " ", "]"}], ":=", 
+   " ", "True"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHColorDirectiveQ", "[", "directive_Hue", " ", "]"}], ":=", " ", 
+   "True"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHColorDirectiveQ", "[", "directive_CMYKColor", " ", "]"}], ":=", 
+   " ", "True"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"HHColorDirectiveQ", "[", "directive_GrayLevel", " ", "]"}], ":=",
+     " ", "True"}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHColorDirectiveQ", "[", "directive_LABColor", " ", "]"}], ":=", 
+   " ", "True"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHColorDirectiveQ", "[", "directive_LCHColor", " ", "]"}], ":=", 
+   " ", "True"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHColorDirectiveQ", "[", "directive_LUVColor", " ", "]"}], ":=", 
+   " ", "True"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"HHColorDirectiveQ", "[", "directive_XYZColor", " ", "]"}], ":=", 
+    " ", "True"}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"HHColorDirectiveQ", "[", "directive_", " ", "]"}], ":=", " ", 
+   "False"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7224416961278105`*^9, 3.7224417717911377`*^9}, {
+   3.7226025326758566`*^9, 3.7226025340399346`*^9}, {3.7227969605748415`*^9, 
+   3.7227969662681675`*^9}, 3.722797084989958*^9, {3.722797368978201*^9, 
+   3.7227973722793894`*^9}, {3.722831305716689*^9, 3.722831308339839*^9}, {
+   3.7228313596517744`*^9, 3.7228314368111877`*^9}, {3.7229143012771893`*^9, 
+   3.7229143529381437`*^9}, {3.7229145265910764`*^9, 
+   3.7229145887866335`*^9}, {3.7229146395065346`*^9, 
+   3.722914720128146*^9}},ExpressionUUID->"9893f297-e66f-4ded-90bd-\
+c96a3bc8a841"],
+
+Cell[CellGroupData[{
+
+Cell["Test", "Section",
+ CellChangeTimes->{
+  3.7227973956207247`*^9, {3.7227974388201957`*^9, 3.722797449052781*^9}, 
+   3.722914392597412*^9, {3.7229203350573015`*^9, 
+   3.722920340783629*^9}},ExpressionUUID->"dadd397f-12d1-4cdb-be9e-\
+aa5449445639"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHColorDirectiveQ", "[", 
+  RowBox[{"HHColorData", "[", "3", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7229143548912554`*^9, 3.7229143739453454`*^9}, {
+  3.7229147403613033`*^9, 
+  3.7229147575192842`*^9}},ExpressionUUID->"896c4e31-c4fb-409a-adf0-\
+c158830dae44"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.7229143746043835`*^9, 
+  3.722914757846303*^9},ExpressionUUID->"be89349c-4572-4e84-a930-\
+cbbad35e2c77"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHColorDirectiveQ", "[", 
+  RowBox[{"Lighter", "[", 
+   RowBox[{"HHColorData", "[", "3", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7229143548912554`*^9, 3.7229143739453454`*^9}, {
+  3.7229147403613033`*^9, 
+  3.722914765620748*^9}},ExpressionUUID->"3bbf734f-95b0-4eea-9012-\
+93b3c60f25eb"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.7229147665598016`*^9},ExpressionUUID->"d48577b5-63db-4b67-95eb-\
+2f0c797d9e7d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHColorDirectiveQ", "[", 
+  RowBox[{"Blend", "[", 
+   RowBox[{"{", 
+    RowBox[{"Green", ",", " ", "Red"}], "}"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7229143548912554`*^9, 3.7229143739453454`*^9}, {
+  3.7229147403613033`*^9, 
+  3.722914789212097*^9}},ExpressionUUID->"313ed613-35f8-433f-bc6d-\
+a9a0e1ccb476"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.722914782944739*^9, 
+  3.7229147899631405`*^9}},ExpressionUUID->"90c26f38-242f-40ad-83c9-\
+9a6127cd622e"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1430, 1508},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 180, 4, 32, "Input",ExpressionUUID->"f38816b4-a463-4bf0-b143-d8cfed1c7380"],
+Cell[741, 26, 1144, 39, 173, "Text",ExpressionUUID->"f796841c-2b6c-40dc-9f68-4ac36f2634fb"],
+Cell[1888, 67, 156, 3, 32, "Input",ExpressionUUID->"c3179706-b376-4b99-8735-e844fca82cef"],
+Cell[2047, 72, 1970, 47, 273, "Input",ExpressionUUID->"9893f297-e66f-4ded-90bd-c96a3bc8a841"],
+Cell[CellGroupData[{
+Cell[4042, 123, 253, 5, 75, "Section",ExpressionUUID->"dadd397f-12d1-4cdb-be9e-aa5449445639"],
+Cell[CellGroupData[{
+Cell[4320, 132, 291, 6, 32, "Input",ExpressionUUID->"896c4e31-c4fb-409a-adf0-c158830dae44"],
+Cell[4614, 140, 157, 3, 36, "Output",ExpressionUUID->"be89349c-4572-4e84-a930-cbbad35e2c77"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4808, 148, 324, 7, 32, "Input",ExpressionUUID->"3bbf734f-95b0-4eea-9012-93b3c60f25eb"],
+Cell[5135, 157, 135, 3, 36, "Output",ExpressionUUID->"d48577b5-63db-4b67-95eb-2f0c797d9e7d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5307, 165, 343, 8, 32, "Input",ExpressionUUID->"313ed613-35f8-433f-bc6d-a9a0e1ccb476"],
+Cell[5653, 175, 159, 3, 36, "Output",ExpressionUUID->"90c26f38-242f-40ad-83c9-9a6127cd622e"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

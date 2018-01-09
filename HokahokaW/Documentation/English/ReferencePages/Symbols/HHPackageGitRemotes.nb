@@ -1,0 +1,364 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13059,        354]
+NotebookOptionsPosition[      8616,        250]
+NotebookOutlinePosition[     10896,        308]
+CellTagsIndexPosition[     10811,        303]
+WindowTitle->HHPackageGitRemotes
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell",ExpressionUUID->
+     "76a83ae6-ff3d-4efd-8997-7ff4aa8f58ce"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }],ExpressionUUID->"afa7c269-9995-46bd-9c2c-68c3532f60b9"],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHPackageGitRemotes\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["HokahokaW/ref/HHPackageGitRemotes"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHPackageGitRemotes.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$16211], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "HokahokaW/ref/HHPackageGitRemotes", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
+     LineSpacing->{1.4, 0},ExpressionUUID->
+     "7621aff8-d76d-41b1-a276-e40816c1b85c"]], "AnchorBar",ExpressionUUID->
+     "138bd96b-692d-4863-b254-e5a720099c5a"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1,ExpressionUUID->"c514bf6b-e7b9-4438-a0bc-25a1f9cd0fb5"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell["HHPackageGitRemotes", "ObjectName",ExpressionUUID->
+  "079cdb10-27b6-4df2-8567-d488404a9c96"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"076b5fd1-b0ae-4b69-89b5-4c9285862657"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "5300a2e1-8205-407f-bb7b-f93097cd8cb7"]
+}], "ObjectNameGrid",ExpressionUUID->"cfda563a-f052-4878-9125-7e18e0474a49"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"HHPackageGitRemotes", "[", "packageName_String", "]"}]], 
+      "InlineFormula",ExpressionUUID->"fa481cdf-c1de-438b-9047-50ce6523d890"],
+     " \[LineSeparator]",
+     "Prints a list of git remotes for either the given package or the \
+current NotebookDirectory[]."
+    }],ExpressionUUID->"5511b8b6-e676-4509-82a8-9c8558612a26"]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436,ExpressionUUID->"300be38e-baab-4077-a8c4-9aaa2e45ad1e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]],ExpressionUUID->"ef5b5eed-8009-49ea-90ac-a4d5d5093b0e"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "460c7174-82f9-4480-ae86-106224215d7d"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->182997256,ExpressionUUID->"ead65db5-f738-461b-808e-f29b1eb57bd9"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "9b53557a-0dad-4dc0-b86f-cb276dfc8ed8"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->697132998,ExpressionUUID->"83dcdfc3-4110-4c14-b5d7-7854b7d0b08a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "\"\<HokahokaW`\>\""}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->641573816,ExpressionUUID->"6e9df89a-ae4d-4917-8c3d-c75a96a25250"],
+
+Cell[BoxData["\<\"HokahokaW`HHPackageGitLoad: Loaded Git repository located \
+at C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->129784627,ExpressionUUID->"b24bc94f-5ffa-41b6-9f9f-dd9f05e5c9f3"]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Sun 18 Oct 2015 22:08:03     [Mathematica: 10.3.0 for Microsoft \
+Windows (64-bit) (October 9, 2015)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[0000d6200537209de6a630fb7d04a5669238dfac]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->659877046,ExpressionUUID->"c117748e-3739-4faf-8093-4ccfd4d8f068"],
+
+Cell["Retrieve package remotes for NotebookDirectory[]", "Notes",
+ CellID->658416936,ExpressionUUID->"e5c33b22-6d1c-4620-a9e9-fbc4e5f68357"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPackageGitRemotes", "[", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->250094976,ExpressionUUID->"a6560ded-da26-4bab-918b-121d3006c02e"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"origin\"\>", "}"}]], "Output",
+ ImageSize->{70, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->183267066,ExpressionUUID->"d13a9715-c053-4040-93bb-6ff35321da73"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPackageGitRemotes", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->702191801,ExpressionUUID->"aa3e7ee2-c996-4996-8e47-8b2c59f71525"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"origin\"\>", "}"}]], "Output",
+ ImageSize->{70, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->403649394,ExpressionUUID->"894b97cb-cd38-45ad-8f07-e1bb0e993fc7"]
+}, Open  ]],
+
+Cell["\<\
+Nonexistent repositories (as well as any repositories not tracked by Git) \
+will return \"NO VALID REPOSITORY\".\
+\>", "Notes",
+ CellID->15860803,ExpressionUUID->"24ebcc60-45c3-4729-9dc0-ff25186134a3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPackageGitRemotes", "[", "\"\<NonexistentPackage\>\"", 
+  "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->90773577,ExpressionUUID->"c2999f9f-d7ad-4b66-8d36-307bb14b82ab"],
+
+Cell[BoxData["\<\"Unloading repository: C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\
+\"\>"], "Print",
+ CellLabel->"During evaluation of In[7]:=",
+ CellID->160199228,ExpressionUUID->"3739a45f-6b9e-4d7d-bd05-c9f051e6a726"],
+
+Cell[BoxData["\<\"NO VALID REPOSITORY\"\>"], "Output",
+ ImageSize->{157, 18},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->418008245,ExpressionUUID->"c878d4b1-604d-49e0-932d-516f1e93bbcd"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"c6b9829e-4eb0-4a36-ad84-131f3f6bc21a"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHPackageGitRemotes",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2018, 1, 10, 0, 25, 4.7665411}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> 
+    "HHPackageGitRemotes[packageName_String] Prints a list of git remotes for \
+either the given package or the current NotebookDirectory[].", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "HHPackageGitRemotes", 
+    "titlemodifier" -> "", "windowtitle" -> "HHPackageGitRemotes", "type" -> 
+    "Symbol", "uri" -> "HokahokaW/ref/HHPackageGitRemotes"}, 
+  "SearchTextTranslated" -> "", "NewStyles" -> False},
+CellContext->"Global`",
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  TaggingRules -> {"NewStyles" -> False}, FrontEndVersion -> 
+  "11.2 for Microsoft Windows (64-bit) (September 10, 2017)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[4313, 111, 435, 11, 40, "PrimaryExamplesSection",ExpressionUUID->"ead65db5-f738-461b-808e-f29b1eb57bd9",
+   CellTags->"PrimaryExamplesSection",
+   CellID->182997256]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 10613, 296}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[591, 21, 2615, 56, 58, "AnchorBarGrid",ExpressionUUID->"c514bf6b-e7b9-4438-a0bc-25a1f9cd0fb5",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[3231, 81, 404, 9, 64, "ObjectNameGrid",ExpressionUUID->"cfda563a-f052-4878-9125-7e18e0474a49"],
+Cell[3638, 92, 638, 14, 146, "Usage",ExpressionUUID->"300be38e-baab-4077-a8c4-9aaa2e45ad1e",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4313, 111, 435, 11, 40, "PrimaryExamplesSection",ExpressionUUID->"ead65db5-f738-461b-808e-f29b1eb57bd9",
+ CellTags->"PrimaryExamplesSection",
+ CellID->182997256],
+Cell[CellGroupData[{
+Cell[4773, 126, 308, 7, 34, "ExampleSection",ExpressionUUID->"83dcdfc3-4110-4c14-b5d7-7854b7d0b08a",
+ CellID->697132998],
+Cell[CellGroupData[{
+Cell[5106, 137, 160, 3, 30, "Input",ExpressionUUID->"6e9df89a-ae4d-4917-8c3d-c75a96a25250",
+ CellID->641573816],
+Cell[5269, 142, 253, 3, 47, "Print",ExpressionUUID->"b24bc94f-5ffa-41b6-9f9f-dd9f05e5c9f3",
+ CellID->129784627]
+}, Open  ]],
+Cell[5537, 148, 991, 34, 207, "Text",ExpressionUUID->"c117748e-3739-4faf-8093-4ccfd4d8f068",
+ CellID->659877046],
+Cell[6531, 184, 140, 1, 40, "Notes",ExpressionUUID->"e5c33b22-6d1c-4620-a9e9-fbc4e5f68357",
+ CellID->658416936],
+Cell[CellGroupData[{
+Cell[6696, 189, 165, 3, 30, "Input",ExpressionUUID->"a6560ded-da26-4bab-918b-121d3006c02e",
+ CellID->250094976],
+Cell[6864, 194, 248, 6, 39, "Output",ExpressionUUID->"d13a9715-c053-4040-93bb-6ff35321da73",
+ CellID->183267066]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7149, 205, 187, 3, 70, "Input",ExpressionUUID->"aa3e7ee2-c996-4996-8e47-8b2c59f71525",
+ CellID->702191801],
+Cell[7339, 210, 248, 6, 39, "Output",ExpressionUUID->"894b97cb-cd38-45ad-8f07-e1bb0e993fc7",
+ CellID->403649394]
+}, Open  ]],
+Cell[7602, 219, 211, 4, 70, "Notes",ExpressionUUID->"24ebcc60-45c3-4729-9dc0-ff25186134a3",
+ CellID->15860803],
+Cell[CellGroupData[{
+Cell[7838, 227, 197, 4, 70, "Input",ExpressionUUID->"c2999f9f-d7ad-4b66-8d36-307bb14b82ab",
+ CellID->90773577],
+Cell[8038, 233, 214, 3, 70, "Print",ExpressionUUID->"3739a45f-6b9e-4d7d-bd05-c9f051e6a726",
+ CellID->160199228],
+Cell[8255, 238, 240, 5, 39, "Output",ExpressionUUID->"c878d4b1-604d-49e0-932d-516f1e93bbcd",
+ CellID->418008245]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[8534, 248, 78, 0, 70, "FooterCell",ExpressionUUID->"c6b9829e-4eb0-4a36-ad84-131f3f6bc21a"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,413 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13168,        404]
+NotebookOptionsPosition[      9077,        310]
+NotebookOutlinePosition[     11270,        368]
+CellTagsIndexPosition[     11185,        363]
+WindowTitle->HHPackageMessage
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["HOKAHOKA W SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"HokahokaW/ref/HHPackageMessage\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["HokahokaW/ref/HHPackageMessage"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/HokahokaW/ref/\
+HHPackageMessage.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$17653], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "HokahokaW/ref/HHPackageMessage", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[TextData[{
+ Cell["HHPackageMessage", "ObjectName"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[{
+      RowBox[{"HHPackageMessage", "[", "]"}], "\[IndentingNewLine]", 
+      RowBox[{"HHPackageMessage", "[", "string", "]"}]}], "InlineFormula"],
+     " \[LineSeparator]HHPackageMessage prints a standard package message for \
+either the given package or the current NotebookDirectory[]."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1],
+
+Cell[BoxData[
+ RowBox[{"<<", "\"\<HokahokaW`\>\""}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->641573816],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Fri 1 Apr 2016 15:41:56     [Mathematica: 10.4.0 for Microsoft \
+Windows (64-bit) (February 26, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[e88c77baa446ff7c17d81aa6b3d6d1052b9c1cfd]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->258678269],
+
+Cell["Print a message for this notebook (NotebookDirectory[])", "Notes",
+ CellID->658416936],
+
+Cell[BoxData[
+ RowBox[{"HHPackageMessage", "[", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->250094976],
+
+Cell[TextData[{
+ StyleBox["C:\\prog\\_w\\HokahokaW\\HokahokaW\\Documentation\\English\\\
+ReferencePages\\Symbols\\HHPackageMessage.nb",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Fri 1 Apr 2016 15:42:01     [Mathematica: 10.4.0 for Microsoft \
+Windows (64-bit) (February 26, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[e88c77baa446ff7c17d81aa6b3d6d1052b9c1cfd]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->722008809],
+
+Cell[BoxData[
+ RowBox[{"HHPackageMessage", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->702191801],
+
+Cell[TextData[{
+ StyleBox["HokahokaW`",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Fri 1 Apr 2016 15:42:17     [Mathematica: 10.4.0 for Microsoft \
+Windows (64-bit) (February 26, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current local repository path:   \
+C:\\prog\\_w\\HokahokaW\\.git",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Current branch [hash]:  dev \
+[e88c77baa446ff7c17d81aa6b3d6d1052b9c1cfd]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10],
+ "\n",
+ StyleBox["     Remote:  origin \
+(https://ktakagaki@github.com/ktakagaki/HokahokaW.git)",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->10]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->737032355],
+
+Cell["\<\
+Nonexistent repositories (as well as any repositories not tracked by Git) \
+will get a message which encourages use of Git for tracking.\
+\>", "Notes",
+ CellID->15860803],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HHPackageMessage", "[", "\"\<NonexistentPackage\>\"", 
+  "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->90773577],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"HHPackageGitFindRepoDir", "::", "notGitDirectory"}], 
+   "MessageName"], ":", 
+  " ", "\<\"No git directory \\\".git\\\" was found within the parent tree of \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"NonexistentPackage\\\\\\\"\\\"}]\\)\
+\[NoBreak].\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[4]:=",
+ CellID->184284211]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["NonexistentPackage",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ "\n",
+ StyleBox["Fri 1 Apr 2016 15:42:27     [Mathematica: 10.4.0 for Microsoft \
+Windows (64-bit) (February 26, 2016)]",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     This package/notebook does not seem to be tracked by Git: no \
+.git  directory found",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12],
+ "\n",
+ StyleBox["     You should always track items with Git or another VCS for \
+reproducibility!",
+  StripOnInput->False,
+  FontFamily->"Helvetica",
+  FontSize->12]
+}], "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ Background->GrayLevel[0.85],
+ CellID->47204553]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"HHPackageMessage",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:HokahokaW/guide/HokahokaW", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2018, 1, 10, 0, 25, 9.4488089}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Hokahoka W Symbol", "language" -> "en", "paclet" -> "HokahokaW", 
+    "status" -> "None", "summary" -> 
+    "HHPackageMessage[] HHPackageMessage[string] HHPackageMessage prints a \
+standard package message for either the given package or the current \
+NotebookDirectory[].", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "HHPackageMessage", "titlemodifier" -> "", "windowtitle" -> 
+    "HHPackageMessage", "type" -> "Symbol", "uri" -> 
+    "HokahokaW/ref/HHPackageMessage"}},
+CellContext->"Global`",
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> 
+  "11.2 for Microsoft Windows (64-bit) (September 10, 2017)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[3638, 101, 259, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"f473beeb-157f-4425-80d5-85beabf14ad2",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 10995, 356}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[588, 21, 2310, 53, 70, "AnchorBarGrid",ExpressionUUID->"37632853-1621-4583-99a0-80d0d274f446",
+ CellID->1],
+Cell[2901, 76, 173, 6, 70, "ObjectNameGrid",ExpressionUUID->"0c239850-7459-49bf-a6bd-a6d6d4f22f79"],
+Cell[3077, 84, 536, 13, 70, "Usage",ExpressionUUID->"9472ae05-3ded-48da-ac22-f17f99ddb323",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[3638, 101, 259, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"f473beeb-157f-4425-80d5-85beabf14ad2",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[3922, 115, 187, 6, 70, "ExampleSection",ExpressionUUID->"fe112dc1-d817-4c46-b0c1-04cb3b4445b7",
+ CellID->1],
+Cell[4112, 123, 105, 3, 70, "Input",ExpressionUUID->"cde55c04-0299-4f56-9667-b28150fc701c",
+ CellID->641573816],
+Cell[4220, 128, 937, 34, 70, "Text",ExpressionUUID->"3274609e-857a-4866-9514-b5c12f18dce7",
+ CellID->258678269],
+Cell[5160, 164, 92, 1, 70, "Notes",ExpressionUUID->"a3c6cfc2-1be3-4e3f-8cb9-c88c3f921f1b",
+ CellID->658416936],
+Cell[5255, 167, 107, 3, 70, "Input",ExpressionUUID->"283d15af-04f2-422e-bc92-50460120eeae",
+ CellID->250094976],
+Cell[5365, 172, 1033, 35, 70, "Text",ExpressionUUID->"d65c132d-dc07-45f2-9900-5cc2653f895f",
+ CellID->722008809],
+Cell[6401, 209, 129, 3, 70, "Input",ExpressionUUID->"87e230f6-33fc-4d2b-80c4-a2f1f7f71b3a",
+ CellID->702191801],
+Cell[6533, 214, 937, 34, 70, "Text",ExpressionUUID->"289580af-f7b7-45de-a543-79452eef3f42",
+ CellID->737032355],
+Cell[7473, 250, 180, 4, 70, "Notes",ExpressionUUID->"62a9b9f1-683e-41a8-a8c5-b8bf1b899f45",
+ CellID->15860803],
+Cell[CellGroupData[{
+Cell[7678, 258, 139, 4, 70, "Input",ExpressionUUID->"ac817522-8dca-4565-b822-477085d66b79",
+ CellID->90773577],
+Cell[7820, 264, 385, 9, 70, "Message",ExpressionUUID->"790772c9-dd89-42d6-b285-23e58f044b0d",
+ CellID->184284211]
+}, Open  ]],
+Cell[8220, 276, 803, 28, 70, "Text",ExpressionUUID->"15c96b0a-40e4-4c2a-94b7-81cde4e7bf15",
+ CellID->47204553]
+}, Open  ]]
+}, Open  ]],
+Cell[9050, 308, 23, 0, 70, "FooterCell",ExpressionUUID->"3595e01e-019c-4db3-9e6b-7174ea655961"]
+}
+]
+*)
+
+(* End of internal cache information *)

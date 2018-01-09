@@ -1,0 +1,604 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     27684,        596]
+NotebookOptionsPosition[     24912,        536]
+NotebookOutlinePosition[     25469,        557]
+CellTagsIndexPosition[     25383,        552]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"?", "DocumentationSearcher`*"}]], "Input",
+ CellChangeTimes->{{3.7224010629861856`*^9, 3.7224011118189783`*^9}, {
+  3.722401154840439*^9, 
+  3.722401195261751*^9}},ExpressionUUID->"64cbe831-2978-49fe-854b-\
+d37806b300e7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["DocumentationSearcher`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["DocumentationSearcher`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["closeSearcher",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info43722404795-7994667", {
+            "closeSearcher", "DocumentationSearcher`"}},
+          ButtonNote->"DocumentationSearcher`"], 
+         ButtonBox["search",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info43722404795-7994667", {"search", "DocumentationSearcher`"}},
+          ButtonNote->"DocumentationSearcher`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.475]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellChangeTimes->{
+  3.7224011959937935`*^9},ExpressionUUID->"839c6366-b516-41ae-887e-\
+d116f245eb0d"],
+
+Cell["DocumentationSearcher`search", "Print", "PrintUsage",
+ CellTags->
+  "Info43722404795-7994667",ExpressionUUID->"e87c30fc-4730-4881-b8d0-\
+8e8330dbb081"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DocumentationSearcher`search[\"Plot\"]"}]], "Input",
+ CellChangeTimes->{{3.7224010629861856`*^9, 3.7224011118189783`*^9}, {
+  3.722401154840439*^9, 
+  3.7224012161979485`*^9}},ExpressionUUID->"f9743187-71ec-4eff-8d4d-\
+4c4be3a89204"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Information","nomatch",
+   "\"No symbol matching \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"DocumentationSearcher`search[\\\\\\\\\\\\\\\"\
+Plot\\\\\\\\\\\\\\\"]\\\\\\\"\\\"}]\\) found.\"",2,5,1,29809141218742612329,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7224012164849653`*^9},ExpressionUUID->"ef0e4902-0e53-418b-b493-\
+7290e6f50949"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DocumentationIndexes", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.722401225188463*^9, 
+  3.722401233209922*^9}},ExpressionUUID->"c30b7503-d52f-4338-8231-\
+602d918b5c53"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\CUDALink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\DatabaseLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\IPOPTLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\JLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\LibraryLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\NETLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\OpenCLLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\RLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\TetGenLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\TriangleLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\WebServices\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Components\\\\CCodeGenerator\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Components\\\\CCompilerDriver\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Components\\\\FEMDocumentation\\\\Documentation\\\\English\\\
+\\TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Components\\\\LowLevelLinearAlgebra\\\\Documentation\\\\\
+English\\\\TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\ClusterIntegration\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\CompiledFunctionTools\\\\Documentation\\\\English\
+\\\\TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\LightweightGridClient\\\\Documentation\\\\English\
+\\\\TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\Parallel\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\SymbolicC\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Packages\\\\GUIKit\\\\Documentation\\\\English\\\\TextSearchIndex\
+\"\>", ",", \
+"\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\\\
+Applications\\\\HokahokaW\\\\Documentation\\\\English\\\\TextSearchIndex\"\>",
+    ",", "\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\
+\\Applications\\\\NounouW\\\\Documentation\\\\English\\\\TextSearchIndex\"\>",
+    ",", "\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\
+\\Applications\\\\ParaparaW\\\\Documentation\\\\English\\\\TextSearchIndex\"\>\
+", ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\Documentation\\\\English\\\\TextSearchIndex\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.722401230777783*^9, 
+  3.7224012335249395`*^9}},ExpressionUUID->"0e8ed553-4f13-413f-b3d9-\
+c4529191f01b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DocumentationIndexes", "[", "]"}], "=", 
+  RowBox[{"{", "}"}]}]], "Input",
+ CellChangeTimes->{{3.722401252096002*^9, 
+  3.7224012673138723`*^9}},ExpressionUUID->"3f7822f8-b990-4021-afc7-\
+d5b5da7b6879"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.722401262856618*^9, 
+  3.722401267944908*^9}},ExpressionUUID->"2c9bbfca-9010-4bba-917e-\
+62361789a70c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DocumentationIndexes", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.722401252096002*^9, 
+  3.7224012821937237`*^9}},ExpressionUUID->"516d26f7-3337-44e1-9a39-\
+829332411bb3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\CUDALink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\DatabaseLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\IPOPTLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\JLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\LibraryLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\NETLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\OpenCLLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\RLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\TetGenLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\TriangleLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\WebServices\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Components\\\\CCodeGenerator\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Components\\\\CCompilerDriver\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Components\\\\FEMDocumentation\\\\Documentation\\\\English\\\
+\\TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Components\\\\LowLevelLinearAlgebra\\\\Documentation\\\\\
+English\\\\TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\ClusterIntegration\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\CompiledFunctionTools\\\\Documentation\\\\English\
+\\\\TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\LightweightGridClient\\\\Documentation\\\\English\
+\\\\TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\Parallel\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Applications\\\\SymbolicC\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", 
+   ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\AddOns\\\\Packages\\\\GUIKit\\\\Documentation\\\\English\\\\TextSearchIndex\
+\"\>", ",", \
+"\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\\\
+Applications\\\\HokahokaW\\\\Documentation\\\\English\\\\TextSearchIndex\"\>",
+    ",", "\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\
+\\Applications\\\\NounouW\\\\Documentation\\\\English\\\\TextSearchIndex\"\>",
+    ",", "\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\
+\\Applications\\\\ParaparaW\\\\Documentation\\\\English\\\\TextSearchIndex\"\>\
+", ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\Documentation\\\\English\\\\TextSearchIndex\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.7224012712380967`*^9, 
+  3.722401512020869*^9},ExpressionUUID->"15a61d36-b1f8-4477-8abf-\
+13a89b8ff3f5"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"<<", "JLink`"}]], "Input",
+ CellChangeTimes->{{3.722401614822749*^9, 
+  3.7224016279965024`*^9}},ExpressionUUID->"e7b9db81-5f12-4024-8692-\
+04f3e6f144c8"],
+
+Cell[BoxData[
+ RowBox[{"ShowJavaConsole", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.7224016396101665`*^9, 
+  3.722401642258318*^9}},ExpressionUUID->"6c6571d7-85dd-49f0-a032-\
+c4deb2ce83ac"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DocumentationIndexes", "[", "]"}], "=", 
+  RowBox[{
+  "{", "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\JLink\\\\\
+Documentation\\\\English\\\\TextSearchIndex\>\"", "}"}]}]], "Input",
+ CellChangeTimes->{{3.7224015835229588`*^9, 
+  3.722401597628765*^9}},ExpressionUUID->"db48a024-cf29-4376-bc47-\
+3d269d72ae67"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\JLink\\\\\
+Documentation\\\\English\\\\TextSearchIndex\"\>", "}"}]], "Output",
+ CellChangeTimes->{{3.7224015933555207`*^9, 
+  3.7224015992388573`*^9}},ExpressionUUID->"66b62808-0abf-46e8-999a-\
+2c26f4a3fc07"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DocumentationIndexes", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.7224015835229588`*^9, 
+  3.7224016053832088`*^9}},ExpressionUUID->"d85af18a-67b9-4f7c-8793-\
+05aca9cb1fec"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\JLink\\\\\
+Documentation\\\\English\\\\TextSearchIndex\"\>", "}"}]], "Output",
+ CellChangeTimes->{
+  3.7224016060442467`*^9},ExpressionUUID->"dc0f3d12-3d68-414d-a689-\
+4240b2b4b229"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SearchDocumentation", "[", 
+  RowBox[{
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{
+   "{", "\"\<C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\JLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\>\"", "}"}], ",", 
+   RowBox[{"{", "\"\<Plot\>\"", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.72240130293791*^9, 3.722401338130923*^9}, {
+  3.7224014209636607`*^9, 3.7224014337603927`*^9}, {3.722401548252941*^9, 
+  3.7224015675470448`*^9}},ExpressionUUID->"d1f85050-2ee5-439a-85c4-\
+53988e187c54"],
+
+Cell[BoxData[
+ RowBox[{"SearchDocumentation", "[", 
+  RowBox[{
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{
+   "{", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\\\
+\\SystemFiles\\\\Links\\\\JLink\\\\Documentation\\\\English\\\\\
+TextSearchIndex\"\>", "}"}], ",", 
+   RowBox[{"{", "\<\"Plot\"\>", "}"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.722401338409939*^9, 3.7224014344044294`*^9, 
+  3.7224015687761154`*^9},ExpressionUUID->"0b871977-0191-4216-8c93-\
+e6008e015943"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SearchDocumentation", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", " ", "\n", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\CUDALink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\DatabaseLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\GPUTools\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\IPOPTLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\JLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\LibraryLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\NETLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\OpenCLLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\RLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\TetGenLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\TriangleLink\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\WebServices\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Components\\\\\
+CCodeGenerator\\\\Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Components\\\\\
+CCompilerDriver\\\\Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Components\\\\\
+FEMDocumentation\\\\Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Components\\\\\
+LowLevelLinearAlgebra\\\\Documentation\\\\English\\\\SpellIndex\>\"", ",", 
+      " ", "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\AddOns\\\\Applications\\\\\
+ClusterIntegration\\\\Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\AddOns\\\\Applications\\\\\
+CompiledFunctionTools\\\\Documentation\\\\English\\\\SpellIndex\>\"", ",", 
+      " ", "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\AddOns\\\\Applications\\\\\
+LightweightGridClient\\\\Documentation\\\\English\\\\SpellIndex\>\"", ",", 
+      " ", "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\AddOns\\\\Applications\\\\Parallel\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\AddOns\\\\Applications\\\\SymbolicC\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\AddOns\\\\Packages\\\\GUIKit\\\\\
+Documentation\\\\English\\\\SpellIndex\>\"", ",", " ", 
+      "\"\<C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\\\
+Applications\\\\NounouW\\\\Documentation\\\\English\\\\SpellIndex\>\"", ",", 
+      " ", "\"\<C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\
+\\\\Applications\\\\ParaparaW\\\\Documentation\\\\English\\\\SpellIndex\>\"", 
+      ",", " ", 
+      "\"\<C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\Documentation\\\\English\\\\SpellIndex\>\"\
+"}], "}"}], ",", " ", "\"\<plot\>\""}], "]"}], "\n"}]], "Input",
+ CellChangeTimes->{{3.7224013721248674`*^9, 3.7224013816334114`*^9}, {
+  3.7224014961589613`*^9, 
+  3.7224015040394125`*^9}},ExpressionUUID->"578ff573-ccad-446b-bee3-\
+e88d21f1559c"],
+
+Cell[BoxData[
+ RowBox[{"SearchDocumentation", "[", 
+  RowBox[{
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\CUDALink\\\\\
+Documentation\\\\English\\\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\DatabaseLink\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\GPUTools\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\IPOPTLink\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\JLink\\\\Documentation\\\\English\\\\SpellIndex\"\
+\>", ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\LibraryLink\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\NETLink\\\\Documentation\\\\English\\\\SpellIndex\
+\"\>", ",", "\<\"C:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\11.2\\\\SystemFiles\\\\Links\\\\OpenCLLink\\\\\
+Documentation\\\\English\\\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\RLink\\\\Documentation\\\\English\\\\SpellIndex\"\
+\>", ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\TetGenLink\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\TriangleLink\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Links\\\\WebServices\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Components\\\\CCodeGenerator\\\\Documentation\\\\English\\\
+\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Components\\\\CCompilerDriver\\\\Documentation\\\\English\\\
+\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Components\\\\FEMDocumentation\\\\Documentation\\\\English\
+\\\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\SystemFiles\\\\Components\\\\LowLevelLinearAlgebra\\\\Documentation\\\\\
+English\\\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\AddOns\\\\Applications\\\\ClusterIntegration\\\\Documentation\\\\English\\\
+\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\AddOns\\\\Applications\\\\CompiledFunctionTools\\\\Documentation\\\\\
+English\\\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\AddOns\\\\Applications\\\\LightweightGridClient\\\\Documentation\\\\\
+English\\\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\AddOns\\\\Applications\\\\Parallel\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\AddOns\\\\Applications\\\\SymbolicC\\\\Documentation\\\\English\\\\\
+SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\AddOns\\\\Packages\\\\GUIKit\\\\Documentation\\\\English\\\\SpellIndex\"\>\
+", ",", "\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\\\
+Applications\\\\NounouW\\\\Documentation\\\\English\\\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Users\\\\ktakagaki\\\\AppData\\\\Roaming\\\\Mathematica\\\
+\\Applications\\\\ParaparaW\\\\Documentation\\\\English\\\\SpellIndex\"\>", 
+     ",", "\<\"C:\\\\Program Files\\\\Wolfram Research\\\\Mathematica\\\\11.2\
+\\\\Documentation\\\\English\\\\SpellIndex\"\>"}], "}"}], 
+   ",", "\<\"plot\"\>"}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.7224015058505163`*^9},ExpressionUUID->"83e263dd-c496-4f36-b45d-\
+e9705efb7712"]
+}, Open  ]]
+},
+WindowSize->{772, 823},
+WindowMargins->{{569, Automatic}, {45, Automatic}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info43722404795-7994667"->{
+  Cell[2134, 70, 157, 3, 50, "Print",ExpressionUUID->"e87c30fc-4730-4881-b8d0-8e8330dbb081",
+   CellTags->"Info43722404795-7994667"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info43722404795-7994667", 25225, 546}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 245, 5, 32, "Input",ExpressionUUID->"64cbe831-2978-49fe-854b-d37806b300e7"],
+Cell[CellGroupData[{
+Cell[850, 31, 1281, 37, 64, "Print",ExpressionUUID->"839c6366-b516-41ae-887e-d116f245eb0d"],
+Cell[2134, 70, 157, 3, 50, "Print",ExpressionUUID->"e87c30fc-4730-4881-b8d0-8e8330dbb081",
+ CellTags->"Info43722404795-7994667"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2340, 79, 262, 5, 32, "Input",ExpressionUUID->"f9743187-71ec-4eff-8d4d-4c4be3a89204"],
+Cell[2605, 86, 393, 10, 25, "Message",ExpressionUUID->"ef0e4902-0e53-418b-b493-7290e6f50949"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3035, 101, 194, 4, 32, "Input",ExpressionUUID->"c30b7503-d52f-4338-8231-602d918b5c53"],
+Cell[3232, 107, 4462, 75, 1525, "Output",ExpressionUUID->"0e8ed553-4f13-413f-b3d9-c4529191f01b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7731, 187, 237, 6, 32, "Input",ExpressionUUID->"3f7822f8-b990-4021-afc7-d5b5da7b6879"],
+Cell[7971, 195, 171, 4, 36, "Output",ExpressionUUID->"2c9bbfca-9010-4bba-917e-62361789a70c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8179, 204, 196, 4, 32, "Input",ExpressionUUID->"516d26f7-3337-44e1-9a39-829332411bb3"],
+Cell[8378, 210, 4460, 75, 1525, "Output",ExpressionUUID->"15a61d36-b1f8-4477-8abf-13a89b8ff3f5"]
+}, Open  ]],
+Cell[12853, 288, 178, 4, 32, "Input",ExpressionUUID->"e7b9db81-5f12-4024-8692-04f3e6f144c8"],
+Cell[13034, 294, 191, 4, 32, "Input",ExpressionUUID->"6c6571d7-85dd-49f0-a032-c4deb2ce83ac"],
+Cell[CellGroupData[{
+Cell[13250, 302, 398, 9, 105, "Input",ExpressionUUID->"db48a024-cf29-4376-bc47-3d269d72ae67"],
+Cell[13651, 313, 333, 6, 85, "Output",ExpressionUUID->"66b62808-0abf-46e8-999a-2c26f4a3fc07"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14021, 324, 198, 4, 32, "Input",ExpressionUUID->"d85af18a-67b9-4f7c-8793-05aca9cb1fec"],
+Cell[14222, 330, 307, 6, 85, "Output",ExpressionUUID->"dc0f3d12-3d68-414d-a689-4240b2b4b229"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14566, 341, 566, 12, 105, "Input",ExpressionUUID->"d1f85050-2ee5-439a-85c4-53988e187c54"],
+Cell[15135, 355, 491, 11, 85, "Output",ExpressionUUID->"0b871977-0191-4216-8c93-e6008e015943"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15663, 371, 4763, 84, 1809, "Input",ExpressionUUID->"578ff573-ccad-446b-bee3-e88d21f1559c"],
+Cell[20429, 457, 4467, 76, 1285, "Output",ExpressionUUID->"83e263dd-c496-4f36-b45d-e9705efb7712"]
+}, Open  ]]
+}
+]
+*)
+
