@@ -58,6 +58,24 @@ HHJoinOptionLists[
 ];
 
 
+(* ::Subsection:: *)
+(*HHListLineGroupPlot*)
+
+
+HHListLinePlotGroups::usage= 
+"HHListLinePlotGroups is the same as ListLinePlot, but it allows one \
+to specify multiple groups of plotting data, which are plotted as an overlay \
+with different PlotStyle specifications.";
+
+
+HHListLinePlotGroups$OverrideOptions = { PlotStyle -> Automatic };
+Options[HHListLinePlotGroups] = HHJoinOptionLists[
+	(*HHListLineGroupPlot$UniqueOptions, *)
+	HHListLinePlotGroups$OverrideOptions,
+	Options[ListLinePlot]
+];
+
+
 (* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
@@ -330,6 +348,38 @@ Block[{tempData, tempPlotRangeOpts},
 
 
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHListLinePlotGroups*)
+
+
+HHListLinePlotGroups[
+	traces_/;(HHRaggedArrayDepth[traces] == 3 || Depth[traces] == 4),
+	opts:OptionsPattern[]
+]:=
+Block[{traceCount, tempStyles},
+	
+	traceCount = Length[traces];
+	tempStyles = 
+	If[ OptionValue[PlotStyle] === Automatic,
+		Table[ HHColorData[n], {n, 1, traceCount}],
+		If[ Head[OptionValue[PlotStyle]]===List,
+			Table[ HHTakeCyclical[OptionValue[PlotStyle], n], {n, 1, traceCount}],
+			Table[ OptionValue[PlotStyle], {traceCount}]
+		]
+	];
+
+	Show[MapThread[
+		ListLinePlot[#1,
+			Sequence@@HHJoinOptionLists[ ListLinePlot, {PlotRange-> All, PlotStyle -> #2} , {opts}, 
+				Options[HHListLinePlotGroups]
+		]]&, {traces, tempStyles}
+	], Sequence@@HHJoinOptionLists[Graphics, {opts}, Options[HHListLinePlotGroups]]]
+];
+
+
+HHListLinePlotGroups[args___] := Message[HHListLinePlotGroups::invalidArgs, {args}];
 
 
 (* ::Subsection::Closed:: *)
@@ -859,7 +909,7 @@ HHImageThresholdLinear[image_Image, color_List/;Length[color]==3, threshold_:0.2
 HHImageThresholdLinear[args___]:=Message[HHImageThresholdLinear::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHColorData*)
 
 

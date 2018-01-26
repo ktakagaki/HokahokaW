@@ -153,7 +153,8 @@ HHJitterize::usage =
 (*Utilities: List manipulation*)
 
 
-HHTakeCyclical::usage ="";
+HHTakeCyclical::usage ="Same as Take, but uses Mod in order to take cyclically, i.e. \
+if specification is beyond range of list to take from, samples cyclically wrapping to beginning.";
 
 
 (* ::Section:: *)
@@ -1087,6 +1088,17 @@ HHTakeCyclical[ list_List, indices_List/;Depth[indices]==2]:=
 
 HHTakeCyclical[ list_List, index_Integer]:=
 	list[[ Mod[index - 1, Length[list]]+1 ]];
+
+
+HHTakeCyclical[ list_List, span_Span]:=
+Module[{start, last, step},
+	step = If[ Length[span] == 2, 1, span[[3]]];
+	start = If[ span[[1]] < 0, Length[list] + span[[1]], span[[1]] ];
+	last = If[ span[[2]] === All, 
+			Length[list],
+			If[ span[[2]] < 0, Length[list] + span[[2]], span[[2]] ]];
+	Table[ HHTakeCyclical[ list, n ], {n, start, last, step}]				
+];
 
 
 HHTakeCyclical[args___] := Message[HHTakeCyclical::invalidArgs, {args}];
