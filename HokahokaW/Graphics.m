@@ -58,7 +58,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLineGroupPlot*)
 
 
@@ -106,6 +106,19 @@ HHJoinOptionLists[
 	HHListLinePlotMean$UniqueOptions, 
 	HHListLinePlotMean$OverrideOptions,
 	Options[ListLinePlot]
+];
+
+
+(* ::Subsection:: *)
+(*HHLineHistogram*)
+
+
+HHLineHistogram::usage = "";
+
+
+Options[HHLineHistogram]= HHJoinOptionLists[
+	Options[ListLinePlot],
+	{}
 ];
 
 
@@ -350,7 +363,7 @@ Block[{tempData, tempPlotRangeOpts},
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotGroups*)
 
 
@@ -361,14 +374,14 @@ HHListLinePlotGroups[
 Block[{traceCount, tempStyles},
 	
 	traceCount = Length[traces];
-	tempStyles = 
-	If[ OptionValue[PlotStyle] === Automatic,
+	tempStyles = HHPlotStyleTable[OptionValue[PlotStyle], {Length[traces]}];
+	(*If[ OptionValue[PlotStyle] === Automatic,
 		Table[ HHColorData[n], {n, 1, traceCount}],
 		If[ Head[OptionValue[PlotStyle]]===List,
 			Table[ HHTakeCyclical[OptionValue[PlotStyle], n], {n, 1, traceCount}],
 			Table[ OptionValue[PlotStyle], {traceCount}]
 		]
-	];
+	];*)
 
 	Show[MapThread[
 		ListLinePlot[#1,
@@ -498,6 +511,56 @@ Block[{temp,
 
 
 HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHLineHistogram*)
+
+
+HHLineHistogram[data_/;HHRaggedArrayDepth[data]==1, bspec_, hspec_, opts:OptionsPattern[] ]:=
+	HHLineHistogramImpl[HistogramList[data,bspec,hspec]];
+
+
+HHLineHistogram[
+	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
+	bspec_, opts:OptionsPattern[] ]:=
+HHLineHistogram[data, bspec, Automatic, opts];
+
+
+HHLineHistogram[
+	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
+	opts:OptionsPattern[] ]:=
+HHLineHistogram[data, Automatic, Automatic, opts];
+
+
+HHLineHistogram[data_/;HHRaggedArrayDepth[data]==2, bspec_, hspec_, opts:OptionsPattern[] ]:=
+Block[
+	{realOptionList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
+	Show[MapThread[
+		HHLineHistogramImpl[HistogramList[#1, bspec, hspec], 
+			PlotStyle->#2, 
+			Sequence@@FilterRules[{opts}, Options[HHLineHistogramImpl]]]&, 
+		{data, realOptionList}
+	], Sequence@@FilterRules[{opts}, Options[Show]] ]
+];
+
+
+HHLineHistogram[args___] := Message[HHLineHistogram::invalidArgs, {args}];
+
+
+Options[HHLineHistogramImpl]= HHJoinOptionLists[
+	{PlotRange->All},
+	Options[ListLinePlot]
+];
+
+
+HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:OptionsPattern[] ]:=
+Module[{countBorder=Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@histogramList},
+	ListLinePlot[countBorder, Sequence@@FilterRules[{opts}, Options[ListLinePlot]]]
+];
+
+
+HHLineHistogramImpl[args___] := Message[HHLineHistogramImpl::invalidArgs, {args}];
 
 
 (* ::Subsection::Closed:: *)
@@ -909,7 +972,7 @@ HHImageThresholdLinear[image_Image, color_List/;Length[color]==3, threshold_:0.2
 HHImageThresholdLinear[args___]:=Message[HHImageThresholdLinear::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHColorData*)
 
 
@@ -940,6 +1003,7 @@ HHColorDirectiveQ[directive_LABColor ]:= True;
 HHColorDirectiveQ[directive_LCHColor ]:= True;
 HHColorDirectiveQ[directive_LUVColor ]:= True;
 HHColorDirectiveQ[directive_XYZColor ]:= True;
+HHColorDirectiveQ[directive_Opacity/;Length[directive]==2 ]:= True;
 
 HHColorDirectiveQ[directive_ ]:= False;
 
@@ -960,14 +1024,16 @@ HHPlotStyleTable[plotStyle_,{count_} ]:= HHPlotStyleTableImpl[plotStyle, #]& /@ 
 HHPlotStyleTable[args___] := Message[HHPlotStyleTable::invalidArgs, {args}];
 
 
-HHPlotStyleTableImpl[plotStyle_Directive,number_ ]:=
-Block[{temp},
-	temp = GatherBy[List@@plotStyle, HHColorDirectiveQ];
-	If[ Length[temp[[1]]]>0,
-		Directive@@Join[ {temp[[1,1]]}, temp[[2]]],
-		Directive@@Join[ {HHColorData[number]}, temp[[2]]]
+HHPlotStyleTableImpl[plotStyle_Directive, number_ ]:=
+Block[{tempColor, tempNoncolor},
+	tempColor = Select[List@@plotStyle, HHColorDirectiveQ];
+	tempNoncolor = Select[List@@plotStyle, !HHColorDirectiveQ[#]&];
+	If[ Length[ tempColor ] >0,
+		plotStyle,
+		Directive@@Flatten[Join[ {HHColorData[number]}, tempNoncolor ]]
 	]
 ];
+
 
 HHPlotStyleTableImpl[plotStyle_,number_ ]:=
 If[HHColorDirectiveQ[plotStyle], 

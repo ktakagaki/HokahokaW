@@ -9,6 +9,11 @@ BeginPackage["HokahokaW`Data`",{"HokahokaW`"}];
 HHRaggedArrayDepth::usage = 
 "ArrayDepth, but without assuming regular array";
 
+
+HHRaggedPartition::usage = 
+"Partition, but with non-padded overhang at end (potentially sublists of different lengths).";
+
+
 HHImportAssociation::usage = 
 "Automatically loads a JSON file or HDF5 file to association for easy use";
 
@@ -26,13 +31,25 @@ Begin["`Private`"];
 
 HHRaggedArrayDepth[list_List] := HHRaggedArrayDepthImpl[list, 1];
 
+
 HHRaggedArrayDepthImpl[remainder_List, n_] :=
 Module[{ragMin},
 	ragMin = Min[ ArrayDepth /@ remainder ];
 	If[ ragMin == 0, n, Min[ HHRaggedArrayDepthImpl[#, n+1]& /@ remainder ]]
 ];  
 
+
 HHRaggedArrayDepth[args___]:=Message[HHRaggedArrayDepth::invalidArgs,{args}];
+
+
+(* ::Subsection:: *)
+(*HHRaggedPartition*)
+
+
+HHRaggedPartition[list_List, n_/;IntegerQ[n] ] := 
+	Partition[ list, n, n, {1,1},{}];
+	
+HHRaggedPartition[args___]:=Message[HHRaggedPartition::invalidArgs,{args}];
 
 
 (* ::Subsection::Closed:: *)

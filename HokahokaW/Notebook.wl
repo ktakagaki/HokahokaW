@@ -9,7 +9,12 @@ BeginPackage["HokahokaW`Notebook`",{"HokahokaW`"}];
 HHNotebookCreate::usage="Alias for CreateNotebook[]. Takes options to apply \
 to the created NotebookObject. Saves the created notebook in \
 $HHCurrentNotebook to use in further writing functions";
-Options[HHNotebookCreate]=Options[NotebookObject];
+Options[HHNotebookCreate]=HHJoinOptionLists[
+	{PrintingOptions->
+		{"PrintingMargins"->72*{{0.5(*Left*),0.5},{0.5,0.5}}, 
+		"PaperOrientation"->"Portrait"}},
+	Options[CreateNotebook]
+	];
 
 
 HHOptNotebook::usage = "";
@@ -21,6 +26,10 @@ Options[HHNotebookWriteCell]=Join[
 	{HHOptNotebook :> $HHCurrentNotebook},
 	Options[Cell]
 ];
+
+
+HHNotebookSetOptions::usage="";
+Options[HHNotebookSetOptions]={HHOptNotebook :> $HHCurrentNotebook};
 
 
 HHNotebookSave::usage="Use NotebookSave to save a notebook or \
@@ -48,8 +57,9 @@ $HHCurrentNotebook = Null;
 
 HHNotebookCreate[opts:OptionsPattern[]]:=
 Block[{},
-	$HHCurrentNotebook = CreateNotebook[];
-	If[Length[{opts}]>0, SetOptions[ $HHCurrentNotebook, opts]];
+	$HHCurrentNotebook = 
+		CreateNotebook[Sequence@@FilterRules[ {opts}, Options[CreateNotebook]]]
+	(*If[Length[{opts}]>0, SetOptions[ $HHCurrentNotebook, opts]];*)
 ];
 
 
@@ -79,6 +89,17 @@ NotebookWrite[ OptionValue[ HHOptNotebook ],
 
 
 HHNotebookWriteCell[args___]:=Message[HHNotebookWriteCell::invalidArgs,{args}];
+
+
+(* ::Subsection:: *)
+(*HHNotebookSetOptions*)
+
+
+HHNotebookSetOptions[options_List, opts:OptionsPattern[]]:=
+	SetOptions[ OptionValue[HHOptNotebook], options ];	
+
+
+HHNotebookSetOptions[args___]:=Message[HHNotebookSetOptions::invalidArgs,{args}];
 
 
 (* ::Subsection:: *)
