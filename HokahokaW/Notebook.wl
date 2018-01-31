@@ -11,7 +11,7 @@ to the created NotebookObject. Saves the created notebook in \
 $HHCurrentNotebook to use in further writing functions";
 Options[HHNotebookCreate]=HHJoinOptionLists[
 	{PrintingOptions->
-		{"PrintingMargins"->72*{{0.5(*Left*),0.5},{0.5,0.5}}, 
+		{"PrintingMargins"->72*{{0.25(*Left*),0.25},{0.5,0.25}}, 
 		"PaperOrientation"->"Portrait"}},
 	Options[CreateNotebook]
 	];
