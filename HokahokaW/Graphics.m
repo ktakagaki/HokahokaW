@@ -116,9 +116,10 @@ HHJoinOptionLists[
 HHLineHistogram::usage = "";
 
 
+HHLineHistogram$OverrideOptions = { PlotRange -> All, PlotStyle -> Automatic};
 Options[HHLineHistogram]= HHJoinOptionLists[
-	Options[ListLinePlot],
-	{}
+	HHLineHistogram$OverrideOptions,
+	Options[ListLinePlot]
 ];
 
 
@@ -518,7 +519,7 @@ HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
 HHLineHistogram[data_/;HHRaggedArrayDepth[data]==1, bspec_, hspec_, opts:OptionsPattern[] ]:=
-	HHLineHistogramImpl[HistogramList[data,bspec,hspec]];
+	HHLineHistogramImpl[HistogramList[data,bspec,hspec], opts];
 
 
 HHLineHistogram[
@@ -534,14 +535,19 @@ HHLineHistogram[data, Automatic, Automatic, opts];
 
 
 HHLineHistogram[data_/;HHRaggedArrayDepth[data]==2, bspec_, hspec_, opts:OptionsPattern[] ]:=
-Block[
-	{realOptionList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
+Block[{realOptionList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
 	Show[MapThread[
 		HHLineHistogramImpl[HistogramList[#1, bspec, hspec], 
 			PlotStyle->#2, 
-			Sequence@@FilterRules[{opts}, Options[HHLineHistogramImpl]]]&, 
+			Sequence@@FilterRules[
+				Join[{opts}, Options[HHLineHistogram]], 
+				Options[HHLineHistogramImpl]]
+		]&, 
 		{data, realOptionList}
-	], Sequence@@FilterRules[{opts}, Options[Show]] ]
+	], Sequence@@FilterRules[
+			Join[{opts}, Options[HHLineHistogram]], 
+			Options[Grapics]] 
+	]
 ];
 
 
@@ -556,7 +562,12 @@ Options[HHLineHistogramImpl]= HHJoinOptionLists[
 
 HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:OptionsPattern[] ]:=
 Module[{countBorder=Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@histogramList},
-	ListLinePlot[countBorder,  PlotRange->All, Sequence@@FilterRules[{opts},Options[ListLinePlot]]]
+	ListLinePlot[countBorder,  
+		Sequence@@FilterRules[
+			Join[{opts}, Options[HHLineHistogramImpl]],
+			Options[ListLinePlot]
+		]
+	]
 ];
 
 
@@ -1018,7 +1029,7 @@ HHPlotStyleTable[plotStyle_List, {count_}]:=
 	HHPlotStyleTable[plotStyle[[ ;; Min[Length[plotStyle], count]]]];
 	
 HHPlotStyleTable[Automatic, {count_} ]:= HHColorData /@ Range[count];
-HHPlotStyleTable[plotStyle_,{count_} ]:= HHPlotStyleTableImpl[plotStyle, #]& /@ Range[ count ];
+HHPlotStyleTable[plotStyle_, {count_} ]:= HHPlotStyleTableImpl[plotStyle, #]& /@ Range[ count ];
 
 
 HHPlotStyleTable[args___] := Message[HHPlotStyleTable::invalidArgs, {args}];
@@ -1035,7 +1046,7 @@ Block[{tempColor, tempNoncolor},
 ];
 
 
-HHPlotStyleTableImpl[plotStyle_,number_ ]:=
+HHPlotStyleTableImpl[plotStyle_, number_ ]:=
 If[HHColorDirectiveQ[plotStyle], 
 	plotStyle,
 	Directive[ HHColorData[number], plotStyle]

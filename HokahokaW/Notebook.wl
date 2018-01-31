@@ -9,12 +9,13 @@ BeginPackage["HokahokaW`Notebook`",{"HokahokaW`"}];
 HHNotebookCreate::usage="Alias for CreateNotebook[]. Takes options to apply \
 to the created NotebookObject. Saves the created notebook in \
 $HHCurrentNotebook to use in further writing functions";
+HHNotebookCreate$OverrideOptions = {PrintingOptions->
+		{"PrintingMargins"->72*{{0.25(*Left*),0.25},{0.25(*bottom*),0.5(*top*)}}, 
+		"PaperOrientation"->"Portrait"}};
 Options[HHNotebookCreate]=HHJoinOptionLists[
-	{PrintingOptions->
-		{"PrintingMargins"->72*{{0.25(*Left*),0.25},{0.5,0.25}}, 
-		"PaperOrientation"->"Portrait"}},
+	HHNotebookCreate$OverrideOptions,
 	Options[CreateNotebook]
-	];
+];
 
 
 HHOptNotebook::usage = "";
@@ -58,7 +59,10 @@ $HHCurrentNotebook = Null;
 HHNotebookCreate[opts:OptionsPattern[]]:=
 Block[{},
 	$HHCurrentNotebook = 
-		CreateNotebook[Sequence@@FilterRules[ {opts}, Options[CreateNotebook]]]
+		CreateNotebook[Sequence@@FilterRules[ 
+			Join[{opts}, HHNotebookCreate$OverrideOptions], 
+			Options[CreateNotebook]]
+		]
 	(*If[Length[{opts}]>0, SetOptions[ $HHCurrentNotebook, opts]];*)
 ];
 
