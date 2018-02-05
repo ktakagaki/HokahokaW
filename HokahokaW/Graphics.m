@@ -570,9 +570,8 @@ Block[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[dat
 HHLineHistogram[args___] := Message[HHLineHistogram::invalidArgs, {args}];
 
 
-Options[HHLineHistogramImpl]= (*HHJoinOptionLists[*)
-	Options[ListLinePlot]
-(*]*);
+Options[HHLineHistogramImpl] = Options[ListLinePlot];(*HHJoinOptionLists[*)
+(*]*)
 
 
 HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:OptionsPattern[] ]:=
