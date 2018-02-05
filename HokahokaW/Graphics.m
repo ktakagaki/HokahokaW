@@ -12,7 +12,7 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`", "HokahokaW`Data`"}];
 HHOptLabelStyleSpecifications::usage = "Option for HHLabelGraphics.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHStackLists / HHListLinePlotStack*)
 
 
@@ -58,7 +58,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHListLineGroupPlot*)
 
 
@@ -76,7 +76,7 @@ Options[HHListLinePlotGroups] = HHJoinOptionLists[
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHListLinePlotMean*)
 
 
@@ -329,7 +329,7 @@ Block[{tempTimes, tempTraces},
 HHStackLists[args___] := Message[HHStackLists::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHListLinePlotStack*)
 
 
@@ -364,7 +364,7 @@ Block[{tempData, tempPlotRangeOpts},
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHListLinePlotGroups*)
 
 
@@ -396,7 +396,7 @@ Block[{traceCount, tempStyles},
 HHListLinePlotGroups[args___] := Message[HHListLinePlotGroups::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHListLinePlotMean*)
 
 
@@ -570,9 +570,9 @@ Block[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[dat
 HHLineHistogram[args___] := Message[HHLineHistogram::invalidArgs, {args}];
 
 
-Options[HHLineHistogramImpl]= HHJoinOptionLists[
+Options[HHLineHistogramImpl]= (*HHJoinOptionLists[*)
 	Options[ListLinePlot]
-];
+(*]*);
 
 
 HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:OptionsPattern[] ]:=
