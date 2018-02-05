@@ -123,7 +123,7 @@ Options[HHLineHistogram]= HHJoinOptionLists[
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHLabelGraphics*)
 
 
@@ -518,13 +518,9 @@ HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 (*HHLineHistogram*)
 
 
-HHLineHistogram[data_/;HHRaggedArrayDepth[data]==1, bspec_, hspec_, opts:OptionsPattern[] ]:=
-	HHLineHistogramImpl[HistogramList[data,bspec,hspec], opts];
-
-
 HHLineHistogram[
 	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
-	bspec_, opts:OptionsPattern[] ]:=
+	bspec_/;(Head[bspec]=!=Rule), opts:OptionsPattern[] ]:=
 HHLineHistogram[data, bspec, Automatic, opts];
 
 
@@ -534,8 +530,28 @@ HHLineHistogram[
 HHLineHistogram[data, Automatic, Automatic, opts];
 
 
-HHLineHistogram[data_/;HHRaggedArrayDepth[data]==2, bspec_, hspec_, opts:OptionsPattern[] ]:=
-Block[{realOptionList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
+HHLineHistogram[data_/;HHRaggedArrayDepth[data]==1, 
+	bspec_/;(Head[bspec]=!=Rule), hspec_/;(Head[hspec]=!=Rule), opts:OptionsPattern[] ]:=
+	HHLineHistogramImpl[HistogramList[data,bspec,hspec], opts];
+
+
+HHLineHistogram[
+	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
+	opts:OptionsPattern[] ]:=
+HHLineHistogram[data, Automatic, Automatic, opts];
+
+
+HHLineHistogram[
+	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2),
+	bspec_/;(Head[bspec]=!=Rule),
+	opts:OptionsPattern[] ]:=
+HHLineHistogram[data, bspec, Automatic, opts];
+
+
+HHLineHistogram[data_/;HHRaggedArrayDepth[data]==2, 
+	bspec_/;(Head[bspec]=!=Rule), hspec_/;(Head[hspec]=!=Rule), opts:OptionsPattern[] 
+]:=
+Block[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
 	Show[MapThread[
 		HHLineHistogramImpl[HistogramList[#1, bspec, hspec], 
 			PlotStyle->#2, 
@@ -543,10 +559,10 @@ Block[{realOptionList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}
 				Join[{opts}, Options[HHLineHistogram]], 
 				Options[HHLineHistogramImpl]]
 		]&, 
-		{data, realOptionList}
+		{data, realPlotStyleList}
 	], Sequence@@FilterRules[
 			Join[{opts}, Options[HHLineHistogram]], 
-			Options[Grapics]] 
+			Options[Graphics]] 
 	]
 ];
 
@@ -555,14 +571,14 @@ HHLineHistogram[args___] := Message[HHLineHistogram::invalidArgs, {args}];
 
 
 Options[HHLineHistogramImpl]= HHJoinOptionLists[
-	{PlotRange->All},
 	Options[ListLinePlot]
 ];
 
 
 HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:OptionsPattern[] ]:=
 Module[{countBorder=Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@histogramList},
-	ListLinePlot[countBorder,  
+	ListLinePlot[countBorder, 
+		PlotRange->All,
 		Sequence@@FilterRules[
 			Join[{opts}, Options[HHLineHistogramImpl]],
 			Options[ListLinePlot]
@@ -574,16 +590,17 @@ Module[{countBorder=Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@hi
 HHLineHistogramImpl[args___] := Message[HHLineHistogramImpl::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHLabelGraphics*)
 
 
-HHLabelGraphics[ graphics_Graphics, text_String, opts:OptionsPattern[] ]:=
+HHLabelGraphics[ graphics_Graphics,
+ text_String, opts:OptionsPattern[] ]:=
 	HHLabelGraphics[ graphics, text, {Right, Bottom}, opts];
 
 
-HHLabelGraphics[
-	graphics_Graphics, text_String, {alignmentX_:Right, alignmentY_:Bottom}, 
+HHLabelGraphics[ graphics_Graphics,
+	text_String, {alignmentX_:Right, alignmentY_:Bottom}, 
 	opts:OptionsPattern[] ]:=
 Block[{optLabelStyleSpecifications, tempAbsPlotRange,
 		tempX, tempY},
@@ -611,6 +628,8 @@ Block[{optLabelStyleSpecifications, tempAbsPlotRange,
 		]]
 	]
 ];
+
+
 HHLabelGraphics::invalidAlignmentX = "X alignment must be Left or Right, not `1`";
 HHLabelGraphics::invalidAlignmentY = "Y alignment must be Top or Bottom, not `1`";
 
