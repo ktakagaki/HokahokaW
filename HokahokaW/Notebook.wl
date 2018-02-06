@@ -10,7 +10,7 @@ HHNotebookCreate::usage="Alias for CreateNotebook[]. Takes options to apply \
 to the created NotebookObject. Saves the created notebook in \
 $HHCurrentNotebook to use in further writing functions";
 HHNotebookCreate$OverrideOptions = {PrintingOptions->
-		{"PrintingMargins"->72*{{0.25(*Left*),0.25},{0.25(*bottom*),0.5(*top*)}}, 
+		{"PrintingMargins"->72*{{0.25(*Left*),0.25},{0.25(*bottom*),0.25(*top*)}}, 
 		"PaperOrientation"->"Portrait"}};
 Options[HHNotebookCreate]=HHJoinOptionLists[
 	HHNotebookCreate$OverrideOptions,
