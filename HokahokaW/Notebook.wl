@@ -120,6 +120,10 @@ If[ StringMatchQ[ fileName, __~~".nb" ],
 ];	
 
 
+HHNotebookSave[opts:OptionsPattern[]]:=
+	NotebookSave[ OptionValue[HHOptNotebook] ];	
+
+
 HHNotebookSave[args___]:=Message[HHNotebookSave::invalidArgs,{args}];
 
 
