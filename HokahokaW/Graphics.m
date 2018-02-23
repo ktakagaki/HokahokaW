@@ -59,7 +59,7 @@ HHJoinOptionLists[
 
 
 (* ::Subsection:: *)
-(*HHListLineGroupPlot*)
+(*HHListLinePlotGroups/HHListLinePlotGroupsStack*)
 
 
 HHListLinePlotGroups::usage= 
@@ -76,7 +76,19 @@ Options[HHListLinePlotGroups] = HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+HHListLinePlotGroupsStack::usage= 
+"";
+
+
+HHListLinePlotGroupsStack$OverrideOptions = { PlotStyle -> Automatic };
+Options[HHListLinePlotGroupsStack] = HHJoinOptionLists[
+	(*HHListLineGroupPlot$UniqueOptions, *)
+	HHListLinePlotGroupsStack$OverrideOptions,
+	Options[ListLinePlot]
+];
+
+
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
@@ -109,7 +121,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHLineHistogram*)
 
 
@@ -123,7 +135,7 @@ Options[HHLineHistogram]= HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHLabelGraphics*)
 
 
@@ -154,7 +166,7 @@ HHImageThresholdLinear::usage="Thresholds an image by linear closeness to the gi
 (* //ToDo2 create HHImageTestImage[] for help files??*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHColorData*)
 
 
@@ -172,7 +184,7 @@ HHOptColorData::usage = "";
 Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Plotting Utility Functions*)
 
 
@@ -192,7 +204,7 @@ If no color specification is given, the list of Automatic colors is applied cycl
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHStackLists*)
 
 
@@ -201,7 +213,7 @@ HHStackLists[
 	increment_/;NumericQ[increment], 
 	opts:OptionsPattern[]
 ] :=
-Block[{tempTraces, temp, 
+Module[{tempTraces, temp, 
 		opHHOptBaselineCorrection, baselineSubtractFactors, 
 		opHHOptStack, stackAddFactors, stackFactorsCumulated},
 	
@@ -241,7 +253,7 @@ HHStackLists[
 	traces_ /; (HHRaggedArrayDepth[traces] == 3), 
 	increment_/;NumericQ[increment], 
 	opts:OptionsPattern[]] :=
-Block[{tempTimes, tempTraces},
+Module[{tempTimes, tempTraces},
 
 	tempTimes = traces[[All, All, 1]];
 	tempTraces = traces[[All, All, 2]];
@@ -343,7 +355,7 @@ HHListLinePlotStack[
 	increment_/;NumericQ[increment], 
 	opts:OptionsPattern[]
 ]:=
-Block[{tempData, tempPlotRangeOpts},
+Module[{tempData, tempPlotRangeOpts},
 	
 	tempData = HHStackLists[traces, increment, Sequence@@FilterRules[{opts}, Options[HHStackLists]]];
 	tempPlotRangeOpts = 
@@ -372,17 +384,9 @@ HHListLinePlotGroups[
 	traces_/;(HHRaggedArrayDepth[traces] == 3 || Depth[traces] == 4),
 	opts:OptionsPattern[]
 ]:=
-Block[{traceCount, tempStyles},
+Module[{tempStyles},
 	
-	traceCount = Length[traces];
 	tempStyles = HHPlotStyleTable[OptionValue[PlotStyle], {Length[traces]}];
-	(*If[ OptionValue[PlotStyle] === Automatic,
-		Table[ HHColorData[n], {n, 1, traceCount}],
-		If[ Head[OptionValue[PlotStyle]]===List,
-			Table[ HHTakeCyclical[OptionValue[PlotStyle], n], {n, 1, traceCount}],
-			Table[ OptionValue[PlotStyle], {traceCount}]
-		]
-	];*)
 
 	Show[MapThread[
 		ListLinePlot[#1,
@@ -390,6 +394,7 @@ Block[{traceCount, tempStyles},
 				Options[HHListLinePlotGroups]
 		]]&, {traces, tempStyles}
 	], Sequence@@HHJoinOptionLists[Graphics, {opts}, Options[HHListLinePlotGroups]]]
+	
 ];
 
 
@@ -397,11 +402,33 @@ HHListLinePlotGroups[args___] := Message[HHListLinePlotGroups::invalidArgs, {arg
 
 
 (* ::Subsection:: *)
+(*HHListLinePlotGroupsStack*)
+
+
+HHListLinePlotGroupsStack[
+	traces_/;(HHRaggedArrayDepth[traces] == 3 || Depth[traces] == 4),
+	increment_/;NumericQ[increment], 
+	opts:OptionsPattern[]
+]:=
+Module[{tempData},
+	
+	tempData = HHStackLists[#, increment, Sequence@@FilterRules[{opts}, Options[HHStackLists]]]& /@ 
+		Transpose[traces];
+
+	HHListLinePlotGroups[ tempData, Sequence@@FilterRules[{opts}, Options[HHListLinePlotGroups]] ]
+	
+];
+
+
+HHListLinePlotGroupsStack[args___] := Message[HHListLinePlotGroupsStack::invalidArgs, {args}];
+
+
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotMean*)
 
 
 HHListLinePlotMean[traces_/;(Length[Dimensions[traces]]==2 && Length[Union[Length/@traces]]==1), opts:OptionsPattern[]]:=
-Block[{temp,
+Module[{temp,
 		tempMeanData = {}, 
 		tempErrorMeanData = {}, tempErrorData1 = {}, tempErrorData2 = {},
 		opPlotStyle,
@@ -514,7 +541,7 @@ Block[{temp,
 HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHLineHistogram*)
 
 
@@ -551,7 +578,7 @@ HHLineHistogram[data, bspec, Automatic, opts];
 HHLineHistogram[data_/;HHRaggedArrayDepth[data]==2, 
 	bspec_/;(Head[bspec]=!=Rule), hspec_/;(Head[hspec]=!=Rule), opts:OptionsPattern[] 
 ]:=
-Block[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
+Module[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
 	Show[MapThread[
 		HHLineHistogramImpl[HistogramList[#1, bspec, hspec], 
 			PlotStyle->#2, 
@@ -589,19 +616,18 @@ Module[{countBorder=Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@hi
 HHLineHistogramImpl[args___] := Message[HHLineHistogramImpl::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHLabelGraphics*)
 
 
-HHLabelGraphics[ graphics_Graphics,
- text_String, opts:OptionsPattern[] ]:=
+HHLabelGraphics[ graphics_Graphics, text_String, opts:OptionsPattern[] ]:=
 	HHLabelGraphics[ graphics, text, {Right, Bottom}, opts];
 
 
 HHLabelGraphics[ graphics_Graphics,
 	text_String, {alignmentX_:Right, alignmentY_:Bottom}, 
 	opts:OptionsPattern[] ]:=
-Block[{optLabelStyleSpecifications, tempAbsPlotRange,
+Module[{optLabelStyleSpecifications, tempAbsPlotRange,
 		tempX, tempY},
 		
 	optLabelStyleSpecifications = OptionValue[ HHOptLabelStyleSpecifications ];
@@ -631,6 +657,7 @@ Block[{optLabelStyleSpecifications, tempAbsPlotRange,
 
 HHLabelGraphics::invalidAlignmentX = "X alignment must be Left or Right, not `1`";
 HHLabelGraphics::invalidAlignmentY = "Y alignment must be Top or Bottom, not `1`";
+
 
 HHLabelGraphics[args___]:=Message[HHLabelGraphics::invalidArgs, {args}];
 

@@ -61,7 +61,7 @@ HHPackageGitCurrentBranch.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$14280], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$14692], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageGitCurrentBranch", ".html"]], None}]}]},
@@ -114,7 +114,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2018, 1, 10, 0, 24, 59.1362191}", 
+   "built" -> "{2018, 2, 23, 0, 19, 30.1834181}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -149,12 +149,12 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[597, 21, 2368, 55, 70, "AnchorBarGrid",ExpressionUUID->"6b694182-d81b-4a2e-a3a4-9dbe042ee15f",
+Cell[597, 21, 2368, 55, 70, "AnchorBarGrid",ExpressionUUID->"e614333a-6a4f-4f6e-90a9-2d074f8bc9c2",
  CellID->1],
-Cell[2968, 78, 182, 6, 70, "ObjectNameGrid",ExpressionUUID->"2ee0be94-d32e-44b4-943e-502969f30e53"],
-Cell[3153, 86, 371, 11, 70, "Usage",ExpressionUUID->"299ec5b3-625c-44c1-abf5-39170dce60e8",
+Cell[2968, 78, 182, 6, 70, "ObjectNameGrid",ExpressionUUID->"145f24dd-e1f3-46e6-8622-de739afbb0a6"],
+Cell[3153, 86, 371, 11, 70, "Usage",ExpressionUUID->"3ba1d04b-1b8f-4edb-b77f-a9df0077b6d5",
  CellID->982511436],
-Cell[3527, 99, 23, 0, 70, "FooterCell",ExpressionUUID->"1a058b5e-fe27-448b-a931-483a4847dbc2"]
+Cell[3527, 99, 23, 0, 70, "FooterCell",ExpressionUUID->"d42e9a0e-938b-40d2-a82d-a72d09c1fa8c"]
 }
 ]
 *)

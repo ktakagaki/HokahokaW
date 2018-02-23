@@ -21,14 +21,14 @@ WindowFrame->Normal*)
 Notebook[{
 Cell[BoxData[GridBox[{
    {Cell["HOKAHOKA W TUTORIAL", "PacletNameCell",ExpressionUUID->
-     "216a134c-d53e-42a0-a95a-56a284a41a26"], Cell[TextData[Cell[BoxData[
+     "a88dacb9-03db-4402-98ba-5b1196421081"], Cell[TextData[Cell[BoxData[
      ActionMenuBox[
       FrameBox[
        InterpretationBox[Cell[TextData[{
          "URL",
          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
           StripOnInput->False]
-        }],ExpressionUUID->"2276d2e4-2935-4b7e-a297-a8829e09e8b1"],
+        }],ExpressionUUID->"0614fba2-57da-4b4d-9348-d555f8765aa8"],
         TextCell[
          Row[{"URL", 
            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -62,7 +62,7 @@ Handling rules and options.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$21535], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$22423], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/tutorial/Handling rules and options", ".html"]], 
@@ -71,30 +71,30 @@ Handling rules and options.html"], StandardForm]], "Input", TextClipboardType ->
       MenuAppearance->Automatic,
       MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0},ExpressionUUID->
-     "d3c53839-812b-4c0b-89c4-9ff0c8b8ee61"]], "AnchorBar",ExpressionUUID->
-     "37bcb7a2-c25e-46e7-9b5c-21879c46e986"]}
+     "7ee2d1c6-56d1-488e-bbbc-1a1140aad3a1"]], "AnchorBar",ExpressionUUID->
+     "d2495d52-84a9-4665-9a43-6b8740297f51"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1,ExpressionUUID->"900a0c1e-f339-4b9c-b39b-0568bd54042d"],
+ CellID->1,ExpressionUUID->"c534e2ae-0cc4-4554-a1ed-6890d9822176"],
 
 Cell[CellGroupData[{
 
 Cell["Handling rules and options", "Title",
- CellID->509267359,ExpressionUUID->"4999bf8f-456b-4f6a-8ef4-a3985275601c"],
+ CellID->509267359,ExpressionUUID->"ba21341f-e753-47f3-86bc-93eb04b4a8bf"],
 
 Cell[BoxData[GridBox[{
    {"HHRuleQ", Cell[
     "Whether an object is a Rule or RuleDelayed object", "TableText",
-     ExpressionUUID->"604c9133-4a97-4570-9f77-cf0ec27d482d"]},
+     ExpressionUUID->"0fdd773d-d592-4cc8-b0c7-9299da452012"]},
    {"HHRuleListQ", Cell["\<\
 Whether a List or Sequence is a sequence of Rule or RuleDelayed objects\
-\>", "TableText",ExpressionUUID->"6f9d56e9-64bb-4f56-a7a5-bf817bc3c974"]},
+\>", "TableText",ExpressionUUID->"ba9bc895-f4f0-4974-b19c-fc9711fb0906"]},
    {"HHJoinOptionLists", Cell[
     "Join (and filter) option lists", "TableText",ExpressionUUID->
-     "3cfd7483-4649-489b-87f8-27c78e2d8060"]},
+     "eaab5b4d-22ba-4690-a2be-55c2c8b4936c"]},
    {"HHAddOptions", 
     RowBox[{
     "Add", " ", "further", " ", "options", " ", "to", " ", "a", " ", 
@@ -105,27 +105,27 @@ Whether a List or Sequence is a sequence of Rule or RuleDelayed objects\
       RowBox[{"or", " ", "defaults"}], ")"}], " ", "from", " ", "an", " ", 
      RowBox[{"object", "."}]}]}
   }]], "DefinitionBox",
- CellID->2096742444,ExpressionUUID->"3ca95b72-b235-40e5-a7ab-aeb9629d1d45"],
+ CellID->2096742444,ExpressionUUID->"6f24c0e9-a9f2-45fd-bae2-18a5fd7343ec"],
 
 Cell["XXXX.", "Caption",
- CellID->1891092685,ExpressionUUID->"c7c1d46e-ac16-4285-bd27-ba78cec23ba6"],
+ CellID->1891092685,ExpressionUUID->"841b8aa2-f32b-4591-848f-1270ce43f7db"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData["XXXX"], "Input",
  CellLabel->"In[1]:=",
- CellID->2058623809,ExpressionUUID->"b5bf39c3-4599-4944-9840-78d2366755cd"],
+ CellID->2058623809,ExpressionUUID->"093d34d8-080a-41a7-83b0-35b6f6027f91"],
 
 Cell[BoxData["XXXX"], "Output",
- ImageSize->{36, 18},
+ ImageSize->{32, 14},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[1]=",
- CellID->1181321046,ExpressionUUID->"1cb7ebfd-1bb8-4550-b691-af391ffe1140"]
+ CellID->1181321046,ExpressionUUID->"f3e0cebe-3546-4f4d-9b44-fa10e0f3f4ae"]
 }, Open  ]]
 }, Open  ]],
 
-Cell[" ", "FooterCell",ExpressionUUID->"a8ad36d5-e8d5-43ac-8952-c4ba7d9b4646"]
+Cell[" ", "FooterCell",ExpressionUUID->"d95bd095-1e06-47b9-a1be-f1f98a59d04b"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -141,13 +141,13 @@ TaggingRules->{
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
     Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
   "", "Metadata" -> {
-   "built" -> "{2018, 1, 10, 0, 25, 23.3366033}", 
+   "built" -> "{2018, 2, 23, 0, 20, 42.2574248}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Tutorial", "language" -> "en", "paclet" -> "HokahokaW", 
     "status" -> "None", "summary" -> "XXXX.", "synonyms" -> {}, "tabletags" -> 
-    DocumentationBuild`Make`Private`tabletaggingrules$21480, "title" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$22368, "title" -> 
     "Handling rules and options", "titlemodifier" -> "", "windowtitle" -> 
     "Handling rules and options", "type" -> "Tutorial", "uri" -> 
     "HokahokaW/tutorial/Handling rules and options"}, "SearchTextTranslated" -> 
@@ -185,23 +185,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[598, 21, 2698, 59, 58, "AnchorBarGrid",ExpressionUUID->"900a0c1e-f339-4b9c-b39b-0568bd54042d",
+Cell[598, 21, 2698, 59, 55, "AnchorBarGrid",ExpressionUUID->"c534e2ae-0cc4-4554-a1ed-6890d9822176",
  CellID->1],
 Cell[CellGroupData[{
-Cell[3321, 84, 118, 1, 75, "Title",ExpressionUUID->"4999bf8f-456b-4f6a-8ef4-a3985275601c",
+Cell[3321, 84, 118, 1, 63, "Title",ExpressionUUID->"ba21341f-e753-47f3-86bc-93eb04b4a8bf",
  CellID->509267359],
-Cell[3442, 87, 957, 20, 291, "DefinitionBox",ExpressionUUID->"3ca95b72-b235-40e5-a7ab-aeb9629d1d45",
+Cell[3442, 87, 957, 20, 205, "DefinitionBox",ExpressionUUID->"6f24c0e9-a9f2-45fd-bae2-18a5fd7343ec",
  CellID->2096742444],
-Cell[4402, 109, 100, 1, 41, "Caption",ExpressionUUID->"c7c1d46e-ac16-4285-bd27-ba78cec23ba6",
+Cell[4402, 109, 100, 1, 36, "Caption",ExpressionUUID->"841b8aa2-f32b-4591-848f-1270ce43f7db",
  CellID->1891092685],
 Cell[CellGroupData[{
-Cell[4527, 114, 129, 2, 30, "Input",ExpressionUUID->"b5bf39c3-4599-4944-9840-78d2366755cd",
+Cell[4527, 114, 129, 2, 26, "Input",ExpressionUUID->"093d34d8-080a-41a7-83b0-35b6f6027f91",
  CellID->2058623809],
-Cell[4659, 118, 217, 5, 39, "Output",ExpressionUUID->"1cb7ebfd-1bb8-4550-b691-af391ffe1140",
+Cell[4659, 118, 217, 5, 35, "Output",ExpressionUUID->"f3e0cebe-3546-4f4d-9b44-fa10e0f3f4ae",
  CellID->1181321046]
 }, Open  ]]
 }, Open  ]],
-Cell[4903, 127, 78, 0, 44, "FooterCell",ExpressionUUID->"a8ad36d5-e8d5-43ac-8952-c4ba7d9b4646"]
+Cell[4903, 127, 78, 0, 41, "FooterCell",ExpressionUUID->"d95bd095-1e06-47b9-a1be-f1f98a59d04b"]
 }
 ]
 *)

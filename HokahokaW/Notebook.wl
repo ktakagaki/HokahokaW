@@ -57,14 +57,13 @@ $HHCurrentNotebook = Null;
 
 
 HHNotebookCreate[opts:OptionsPattern[]]:=
-Block[{},
-	$HHCurrentNotebook = 
-		CreateNotebook[Sequence@@FilterRules[ 
-			Join[{opts}, HHNotebookCreate$OverrideOptions], 
-			Options[CreateNotebook]]
-		]
-	(*If[Length[{opts}]>0, SetOptions[ $HHCurrentNotebook, opts]];*)
-];
+($HHCurrentNotebook = 
+	CreateNotebook[Sequence@@FilterRules[ 
+		Join[{opts}, HHNotebookCreate$OverrideOptions], 
+		Options[CreateNotebook]]
+	]
+(*If[Length[{opts}]>0, SetOptions[ $HHCurrentNotebook, opts]];*)
+);
 
 
 HHNotebookCreate[args___]:=Message[HHNotebookCreate::invalidArgs,{args}];

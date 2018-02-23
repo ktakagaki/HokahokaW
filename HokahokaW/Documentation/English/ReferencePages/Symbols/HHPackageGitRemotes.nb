@@ -10,8 +10,8 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13059,        354]
-NotebookOptionsPosition[      8616,        250]
+NotebookDataLength[     13058,        354]
+NotebookOptionsPosition[      8615,        250]
 NotebookOutlinePosition[     10896,        308]
 CellTagsIndexPosition[     10811,        303]
 WindowTitle->HHPackageGitRemotes
@@ -21,14 +21,14 @@ WindowFrame->Normal*)
 Notebook[{
 Cell[BoxData[GridBox[{
    {Cell["HOKAHOKA W SYMBOL", "PacletNameCell",ExpressionUUID->
-     "76a83ae6-ff3d-4efd-8997-7ff4aa8f58ce"], Cell[TextData[Cell[BoxData[
+     "a49e3311-287d-4137-aad6-724a31bc1e41"], Cell[TextData[Cell[BoxData[
      ActionMenuBox[
       FrameBox[
        InterpretationBox[Cell[TextData[{
          "URL",
          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
           StripOnInput->False]
-        }],ExpressionUUID->"afa7c269-9995-46bd-9c2c-68c3532f60b9"],
+        }],ExpressionUUID->"5ee321ab-bb09-4b6b-80f5-88c3bd74ae61"],
         TextCell[
          Row[{"URL", 
            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -60,7 +60,7 @@ HHPackageGitRemotes.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$16211], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$16623], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/ref/HHPackageGitRemotes", ".html"]], None}]}]},
@@ -68,43 +68,43 @@ HHPackageGitRemotes.html"], StandardForm]], "Input", TextClipboardType ->
       MenuAppearance->Automatic,
       MenuStyle->"URLMenu"]],
      LineSpacing->{1.4, 0},ExpressionUUID->
-     "7621aff8-d76d-41b1-a276-e40816c1b85c"]], "AnchorBar",ExpressionUUID->
-     "138bd96b-692d-4863-b254-e5a720099c5a"]}
+     "e0122074-8978-4be6-97e8-5011f9ae2429"]], "AnchorBar",ExpressionUUID->
+     "ce4f22dd-d4c0-4d1e-a2f7-24604644836b"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1,ExpressionUUID->"c514bf6b-e7b9-4438-a0bc-25a1f9cd0fb5"],
+ CellID->1,ExpressionUUID->"1d0aca00-cd3a-4a74-acf1-9ce5049e4551"],
 
 Cell[CellGroupData[{
 
 Cell[TextData[{
  Cell["HHPackageGitRemotes", "ObjectName",ExpressionUUID->
-  "079cdb10-27b6-4df2-8567-d488404a9c96"],
+  "29266a13-0a33-404e-8d6a-f685b16df583"],
  Cell[BoxData[
   TemplateBox[{8},
-   "Spacer1"]],ExpressionUUID->"076b5fd1-b0ae-4b69-89b5-4c9285862657"],
+   "Spacer1"]],ExpressionUUID->"b4c77c29-342a-461a-8c01-ce3480656f1f"],
  Cell[BoxData[
  ""], "ObjectNameTranslation",ExpressionUUID->
-  "5300a2e1-8205-407f-bb7b-f93097cd8cb7"]
-}], "ObjectNameGrid",ExpressionUUID->"cfda563a-f052-4878-9125-7e18e0474a49"],
+  "18d8d19e-8345-4544-98fa-386d73b4bed9"]
+}], "ObjectNameGrid",ExpressionUUID->"793b333b-79f2-4d2b-950a-1280f51fe0c0"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
       RowBox[{"HHPackageGitRemotes", "[", "packageName_String", "]"}]], 
-      "InlineFormula",ExpressionUUID->"fa481cdf-c1de-438b-9047-50ce6523d890"],
+      "InlineFormula",ExpressionUUID->"06723ffe-1365-4341-9014-44f7e68252e9"],
      " \[LineSeparator]",
      "Prints a list of git remotes for either the given package or the \
 current NotebookDirectory[]."
-    }],ExpressionUUID->"5511b8b6-e676-4509-82a8-9c8558612a26"]}
+    }],ExpressionUUID->"cba2cc26-92c0-4615-898c-7b8f536483f5"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
    "RowsIndexed" -> {}}},
- CellID->982511436,ExpressionUUID->"300be38e-baab-4077-a8c4-9aaa2e45ad1e"]
+ CellID->982511436,ExpressionUUID->"745e6725-1f12-4572-9d26-0aff148db8e8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -112,15 +112,15 @@ Cell[CellGroupData[{
 Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{6},
-   "Spacer1"]],ExpressionUUID->"ef5b5eed-8009-49ea-90ac-a4d5d5093b0e"],
+   "Spacer1"]],ExpressionUUID->"da27e0e4-749c-40ce-bbe9-228374c86955"],
  "Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
  Cell["(1)", "ExampleCount",ExpressionUUID->
-  "460c7174-82f9-4480-ae86-106224215d7d"]
+  "1e9f1baa-91a3-4247-ab43-e32f2992ea48"]
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->182997256,ExpressionUUID->"ead65db5-f738-461b-808e-f29b1eb57bd9"],
+ CellID->551895050,ExpressionUUID->"b0455ac0-3e69-440d-9236-30b0afc7424d"],
 
 Cell[CellGroupData[{
 
@@ -128,22 +128,22 @@ Cell[TextData[{
  "Basic Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
  Cell["(1)", "ExampleCount",ExpressionUUID->
-  "9b53557a-0dad-4dc0-b86f-cb276dfc8ed8"]
+  "623fe300-3c46-410c-b778-902442d8fb79"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->697132998,ExpressionUUID->"83dcdfc3-4110-4c14-b5d7-7854b7d0b08a"],
+ CellID->19610117,ExpressionUUID->"963020b3-9374-4050-9e2e-b7d2c8c6a8ff"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"<<", "\"\<HokahokaW`\>\""}]], "Input",
  CellLabel->"In[1]:=",
- CellID->641573816,ExpressionUUID->"6e9df89a-ae4d-4917-8c3d-c75a96a25250"],
+ CellID->641573816,ExpressionUUID->"9cd544e9-479f-43a8-a79f-4d81fd2998d1"],
 
 Cell[BoxData["\<\"HokahokaW`HHPackageGitLoad: Loaded Git repository located \
 at C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\"\>"], "Print",
  CellLabel->"During evaluation of In[1]:=",
- CellID->129784627,ExpressionUUID->"b24bc94f-5ffa-41b6-9f9f-dd9f05e5c9f3"]
+ CellID->129784627,ExpressionUUID->"cc4a0965-dfa7-429e-84c6-837d65c3fd7f"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -180,25 +180,25 @@ C:\\prog\\_w\\HokahokaW\\.git",
  GeneratedCell->True,
  CellAutoOverwrite->True,
  Background->GrayLevel[0.85],
- CellID->659877046,ExpressionUUID->"c117748e-3739-4faf-8093-4ccfd4d8f068"],
+ CellID->659877046,ExpressionUUID->"dc6bd453-fda5-49f1-ad12-ba008b96d49d"],
 
 Cell["Retrieve package remotes for NotebookDirectory[]", "Notes",
- CellID->658416936,ExpressionUUID->"e5c33b22-6d1c-4620-a9e9-fbc4e5f68357"],
+ CellID->658416936,ExpressionUUID->"b3eff194-6e1f-4540-b593-9c9d81c4cdb4"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"HHPackageGitRemotes", "[", "]"}]], "Input",
  CellLabel->"In[2]:=",
- CellID->250094976,ExpressionUUID->"a6560ded-da26-4bab-918b-121d3006c02e"],
+ CellID->250094976,ExpressionUUID->"61b113e2-f96d-40ed-912f-18243301b5b0"],
 
 Cell[BoxData[
  RowBox[{"{", "\<\"origin\"\>", "}"}]], "Output",
- ImageSize->{70, 18},
+ ImageSize->{60, 14},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->183267066,ExpressionUUID->"d13a9715-c053-4040-93bb-6ff35321da73"]
+ CellID->183267066,ExpressionUUID->"f43676c8-dfea-48c1-9889-205cfa4225ac"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -206,22 +206,22 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"HHPackageGitRemotes", "[", "\"\<HokahokaW`\>\"", "]"}]], "Input",
  CellLabel->"In[3]:=",
- CellID->702191801,ExpressionUUID->"aa3e7ee2-c996-4996-8e47-8b2c59f71525"],
+ CellID->702191801,ExpressionUUID->"0c40ccd7-1715-4d0e-84ca-33c2b1658e06"],
 
 Cell[BoxData[
  RowBox[{"{", "\<\"origin\"\>", "}"}]], "Output",
- ImageSize->{70, 18},
+ ImageSize->{60, 14},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[3]=",
- CellID->403649394,ExpressionUUID->"894b97cb-cd38-45ad-8f07-e1bb0e993fc7"]
+ CellID->403649394,ExpressionUUID->"669ce21f-9087-4129-862a-bf05806a2f28"]
 }, Open  ]],
 
 Cell["\<\
 Nonexistent repositories (as well as any repositories not tracked by Git) \
 will return \"NO VALID REPOSITORY\".\
 \>", "Notes",
- CellID->15860803,ExpressionUUID->"24ebcc60-45c3-4729-9dc0-ff25186134a3"],
+ CellID->15860803,ExpressionUUID->"ff32bff4-9e8e-4050-8c97-d0cc987a8937"],
 
 Cell[CellGroupData[{
 
@@ -229,24 +229,24 @@ Cell[BoxData[
  RowBox[{"HHPackageGitRemotes", "[", "\"\<NonexistentPackage\>\"", 
   "]"}]], "Input",
  CellLabel->"In[4]:=",
- CellID->90773577,ExpressionUUID->"c2999f9f-d7ad-4b66-8d36-307bb14b82ab"],
+ CellID->90773577,ExpressionUUID->"c1711ea5-0828-4395-b66f-34660a1b0ef0"],
 
 Cell[BoxData["\<\"Unloading repository: C:\\\\prog\\\\_w\\\\HokahokaW\\\\.git\
 \"\>"], "Print",
  CellLabel->"During evaluation of In[7]:=",
- CellID->160199228,ExpressionUUID->"3739a45f-6b9e-4d7d-bd05-c9f051e6a726"],
+ CellID->160199228,ExpressionUUID->"318e32ed-1010-41ca-b654-1445e56be900"],
 
 Cell[BoxData["\<\"NO VALID REPOSITORY\"\>"], "Output",
- ImageSize->{157, 18},
+ ImageSize->{137, 14},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[4]=",
- CellID->418008245,ExpressionUUID->"c878d4b1-604d-49e0-932d-516f1e93bbcd"]
+ CellID->418008245,ExpressionUUID->"5b95c9b9-4a9b-4d87-9ec9-13bb0b08ca19"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
-Cell[" ", "FooterCell",ExpressionUUID->"c6b9829e-4eb0-4a36-ad84-131f3f6bc21a"]
+Cell[" ", "FooterCell",ExpressionUUID->"96400355-5997-4eb9-be41-45d02f223002"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -263,7 +263,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2018, 1, 10, 0, 25, 4.7665411}", 
+   "built" -> "{2018, 2, 23, 0, 19, 42.8403753}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -295,9 +295,9 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[4313, 111, 435, 11, 40, "PrimaryExamplesSection",ExpressionUUID->"ead65db5-f738-461b-808e-f29b1eb57bd9",
+  Cell[4313, 111, 435, 11, 35, "PrimaryExamplesSection",ExpressionUUID->"b0455ac0-3e69-440d-9236-30b0afc7424d",
    CellTags->"PrimaryExamplesSection",
-   CellID->182997256]}
+   CellID->551895050]}
  }
 *)
 (*CellTagsIndex
@@ -307,55 +307,55 @@ CellTagsIndex->{
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[591, 21, 2615, 56, 58, "AnchorBarGrid",ExpressionUUID->"c514bf6b-e7b9-4438-a0bc-25a1f9cd0fb5",
+Cell[591, 21, 2615, 56, 55, "AnchorBarGrid",ExpressionUUID->"1d0aca00-cd3a-4a74-acf1-9ce5049e4551",
  CellID->1],
 Cell[CellGroupData[{
-Cell[3231, 81, 404, 9, 64, "ObjectNameGrid",ExpressionUUID->"cfda563a-f052-4878-9125-7e18e0474a49"],
-Cell[3638, 92, 638, 14, 146, "Usage",ExpressionUUID->"300be38e-baab-4077-a8c4-9aaa2e45ad1e",
+Cell[3231, 81, 404, 9, 52, "ObjectNameGrid",ExpressionUUID->"793b333b-79f2-4d2b-950a-1280f51fe0c0"],
+Cell[3638, 92, 638, 14, 110, "Usage",ExpressionUUID->"745e6725-1f12-4572-9d26-0aff148db8e8",
  CellID->982511436]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4313, 111, 435, 11, 40, "PrimaryExamplesSection",ExpressionUUID->"ead65db5-f738-461b-808e-f29b1eb57bd9",
+Cell[4313, 111, 435, 11, 35, "PrimaryExamplesSection",ExpressionUUID->"b0455ac0-3e69-440d-9236-30b0afc7424d",
  CellTags->"PrimaryExamplesSection",
- CellID->182997256],
+ CellID->551895050],
 Cell[CellGroupData[{
-Cell[4773, 126, 308, 7, 34, "ExampleSection",ExpressionUUID->"83dcdfc3-4110-4c14-b5d7-7854b7d0b08a",
- CellID->697132998],
+Cell[4773, 126, 307, 7, 29, "ExampleSection",ExpressionUUID->"963020b3-9374-4050-9e2e-b7d2c8c6a8ff",
+ CellID->19610117],
 Cell[CellGroupData[{
-Cell[5106, 137, 160, 3, 30, "Input",ExpressionUUID->"6e9df89a-ae4d-4917-8c3d-c75a96a25250",
+Cell[5105, 137, 160, 3, 26, "Input",ExpressionUUID->"9cd544e9-479f-43a8-a79f-4d81fd2998d1",
  CellID->641573816],
-Cell[5269, 142, 253, 3, 47, "Print",ExpressionUUID->"b24bc94f-5ffa-41b6-9f9f-dd9f05e5c9f3",
+Cell[5268, 142, 253, 3, 39, "Print",ExpressionUUID->"cc4a0965-dfa7-429e-84c6-837d65c3fd7f",
  CellID->129784627]
 }, Open  ]],
-Cell[5537, 148, 991, 34, 207, "Text",ExpressionUUID->"c117748e-3739-4faf-8093-4ccfd4d8f068",
+Cell[5536, 148, 991, 34, 174, "Text",ExpressionUUID->"dc6bd453-fda5-49f1-ad12-ba008b96d49d",
  CellID->659877046],
-Cell[6531, 184, 140, 1, 40, "Notes",ExpressionUUID->"e5c33b22-6d1c-4620-a9e9-fbc4e5f68357",
+Cell[6530, 184, 140, 1, 35, "Notes",ExpressionUUID->"b3eff194-6e1f-4540-b593-9c9d81c4cdb4",
  CellID->658416936],
 Cell[CellGroupData[{
-Cell[6696, 189, 165, 3, 30, "Input",ExpressionUUID->"a6560ded-da26-4bab-918b-121d3006c02e",
+Cell[6695, 189, 165, 3, 26, "Input",ExpressionUUID->"61b113e2-f96d-40ed-912f-18243301b5b0",
  CellID->250094976],
-Cell[6864, 194, 248, 6, 39, "Output",ExpressionUUID->"d13a9715-c053-4040-93bb-6ff35321da73",
+Cell[6863, 194, 248, 6, 35, "Output",ExpressionUUID->"f43676c8-dfea-48c1-9889-205cfa4225ac",
  CellID->183267066]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7149, 205, 187, 3, 70, "Input",ExpressionUUID->"aa3e7ee2-c996-4996-8e47-8b2c59f71525",
+Cell[7148, 205, 187, 3, 26, "Input",ExpressionUUID->"0c40ccd7-1715-4d0e-84ca-33c2b1658e06",
  CellID->702191801],
-Cell[7339, 210, 248, 6, 39, "Output",ExpressionUUID->"894b97cb-cd38-45ad-8f07-e1bb0e993fc7",
+Cell[7338, 210, 248, 6, 35, "Output",ExpressionUUID->"669ce21f-9087-4129-862a-bf05806a2f28",
  CellID->403649394]
 }, Open  ]],
-Cell[7602, 219, 211, 4, 70, "Notes",ExpressionUUID->"24ebcc60-45c3-4729-9dc0-ff25186134a3",
+Cell[7601, 219, 211, 4, 55, "Notes",ExpressionUUID->"ff32bff4-9e8e-4050-8c97-d0cc987a8937",
  CellID->15860803],
 Cell[CellGroupData[{
-Cell[7838, 227, 197, 4, 70, "Input",ExpressionUUID->"c2999f9f-d7ad-4b66-8d36-307bb14b82ab",
+Cell[7837, 227, 197, 4, 70, "Input",ExpressionUUID->"c1711ea5-0828-4395-b66f-34660a1b0ef0",
  CellID->90773577],
-Cell[8038, 233, 214, 3, 70, "Print",ExpressionUUID->"3739a45f-6b9e-4d7d-bd05-c9f051e6a726",
+Cell[8037, 233, 214, 3, 70, "Print",ExpressionUUID->"318e32ed-1010-41ca-b654-1445e56be900",
  CellID->160199228],
-Cell[8255, 238, 240, 5, 39, "Output",ExpressionUUID->"c878d4b1-604d-49e0-932d-516f1e93bbcd",
+Cell[8254, 238, 240, 5, 35, "Output",ExpressionUUID->"5b95c9b9-4a9b-4d87-9ec9-13bb0b08ca19",
  CellID->418008245]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[8534, 248, 78, 0, 70, "FooterCell",ExpressionUUID->"c6b9829e-4eb0-4a36-ad84-131f3f6bc21a"]
+Cell[8533, 248, 78, 0, 70, "FooterCell",ExpressionUUID->"96400355-5997-4eb9-be41-45d02f223002"]
 }
 ]
 *)

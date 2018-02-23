@@ -59,7 +59,7 @@ Graphics Functions.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$7509], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$7411], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "HokahokaW/guide/Graphics Functions", ".html"]], None}]}]},
@@ -112,13 +112,13 @@ TaggingRules->{
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
     Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
   "", "Metadata" -> {
-   "built" -> "{2018, 1, 10, 0, 24, 35.7938840}", 
+   "built" -> "{2018, 2, 23, 0, 18, 29.4394306}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "HokahokaW`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Hokahoka W Guide", "language" -> "en", "paclet" -> "HokahokaW", "status" -> 
     "None", "summary" -> "", "synonyms" -> {}, "tabletags" -> 
-    DocumentationBuild`Make`Private`tabletaggingrules$7427, "title" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$7329, "title" -> 
     "Graphics Functions", "titlemodifier" -> "", "windowtitle" -> 
     "Graphics Functions", "type" -> "Guide", "uri" -> 
     "HokahokaW/guide/Graphics Functions"}},
@@ -137,19 +137,19 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[590, 21, 2324, 53, 70, "AnchorBarGrid",ExpressionUUID->"e5f0b9dc-5778-4987-9153-7dcf3e20c478",
+Cell[590, 21, 2324, 53, 70, "AnchorBarGrid",ExpressionUUID->"d893ae47-88fb-485b-b69f-98324fbae54f",
  CellID->1],
 Cell[CellGroupData[{
 Cell[2939, 78, 60, 1, 70, "GuideTitle",ExpressionUUID->"3e264ef3-1a6a-4389-bfb1-22879f9e7d36",
  CellID->942062912],
-Cell[3002, 81, 56, 1, 70, "GuideAbstract",ExpressionUUID->"280b3ab3-90cf-45dd-add1-f7490826f81b",
+Cell[3002, 81, 56, 1, 70, "GuideAbstract",ExpressionUUID->"984f43e8-382f-4c96-a1c8-f333872be2e8",
  CellID->1]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3095, 87, 137, 6, 70, "GuideReferenceSection",ExpressionUUID->"6368a48e-fdd0-4777-a691-14a61163ee55"],
-Cell[3235, 95, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"47cbae38-5bc1-4758-8a54-9e24f64f892c"]
+Cell[3095, 87, 137, 6, 70, "GuideReferenceSection",ExpressionUUID->"3c917b31-29ab-440c-89e8-ea2e31d1abb3"],
+Cell[3235, 95, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"1fca95bd-3a53-4e16-be31-8ae43e6b8359"]
 }, Open  ]],
-Cell[3281, 98, 23, 0, 70, "FooterCell",ExpressionUUID->"68cf14c1-cd2a-4556-9582-e9250b538e0e"]
+Cell[3281, 98, 23, 0, 70, "FooterCell",ExpressionUUID->"d68a3690-e232-4ebe-a614-b27b5193692c"]
 }
 ]
 *)
