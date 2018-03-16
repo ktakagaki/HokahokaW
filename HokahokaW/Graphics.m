@@ -12,7 +12,7 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`", "HokahokaW`Data`"}];
 HHOptLabelStyleSpecifications::usage = "Option for HHLabelGraphics.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHStackLists / HHListLinePlotStack*)
 
 
@@ -58,7 +58,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotGroups/HHListLinePlotGroupsStack*)
 
 
@@ -119,6 +119,16 @@ HHJoinOptionLists[
 	HHListLinePlotMean$OverrideOptions,
 	Options[ListLinePlot]
 ];
+
+
+(* ::Subsection:: *)
+(*HHListLinePlotMean*)
+
+
+HHListDensityPlot::usage= "ListDensityPlot allowing arrays smaller than 2x2";
+
+
+Options[HHListDensityPlot] = Options[ListDensityPlot];
 
 
 (* ::Subsection::Closed:: *)
@@ -204,7 +214,7 @@ If no color specification is given, the list of Automatic colors is applied cycl
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHStackLists*)
 
 
@@ -341,7 +351,7 @@ Block[{tempTimes, tempTraces},
 HHStackLists[args___] := Message[HHStackLists::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotStack*)
 
 
@@ -376,7 +386,7 @@ Module[{tempData, tempPlotRangeOpts},
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotGroups*)
 
 
@@ -401,7 +411,7 @@ Module[{tempStyles},
 HHListLinePlotGroups[args___] := Message[HHListLinePlotGroups::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotGroupsStack*)
 
 
@@ -541,41 +551,82 @@ Module[{temp,
 HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
+(*HHListDensityPlot*)
+
+
+HHListDensityPlot[ data_/;MatrixQ[data], opts:OptionsPattern[] ]:=
+Module[{tempData=data},
+	If[ Length[tempData]==1, tempData = Join[tempData, tempData] ];
+	If[ Length[tempData[[1]]]==0, 
+		tempData = ({0,0})& /@ tempData,
+		If[ Length[ tempData[[1]] ] == 1,
+			tempData = {#[[1]],#[[1]]}& /@ tempData
+		]
+	];
+	ListDensityPlot[tempData, opts]
+];
+
+
+HHListDensityPlot[args___] := Message[HHListDensityPlot::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
 (*HHLineHistogram*)
 
 
 HHLineHistogram[
 	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
-	bspec_/;(Head[bspec]=!=Rule), opts:OptionsPattern[] ]:=
-HHLineHistogram[data, bspec, Automatic, opts];
-
-
-HHLineHistogram[
-	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
-	opts:OptionsPattern[] ]:=
-HHLineHistogram[data, Automatic, Automatic, opts];
-
-
-HHLineHistogram[data_/;HHRaggedArrayDepth[data]==1, 
-	bspec_/;(Head[bspec]=!=Rule), hspec_/;(Head[hspec]=!=Rule), opts:OptionsPattern[] ]:=
-	HHLineHistogramImpl[HistogramList[data,bspec,hspec], opts];
-
-
-HHLineHistogram[
-	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
 	opts:OptionsPattern[] ]:=
 HHLineHistogram[data, Automatic, Automatic, opts];
 
 
 HHLineHistogram[
-	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2),
-	bspec_/;(Head[bspec]=!=Rule),
+	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
+	bspec_/;(Head[bspec]=!=Rule), 
 	opts:OptionsPattern[] ]:=
 HHLineHistogram[data, bspec, Automatic, opts];
 
 
-HHLineHistogram[data_/;HHRaggedArrayDepth[data]==2, 
+HHLineHistogram[
+	data_/;HHRaggedArrayDepth[data]==1, 
+	bspec_/;(Head[bspec]=!=Rule), 
+	hspec_/;(Head[hspec]=!=Rule), 
+	opts:OptionsPattern[] ]:=
+HHLineHistogramImpl[ HistogramList[data,bspec,hspec], opts];
+
+
+HHLineHistogram[{}, ___ ]:= Graphics[];
+
+
+HHLineHistogram[
+	data_/;( HHRaggedArrayDepth[data] == 2 ), 
+	bspec_/;(Head[bspec]=!=Rule), 
+	hspec_/;(Head[hspec]=!=Rule), 
+	opts:OptionsPattern[] 
+]:= HHLineHistogramImpl[ HistogramList[#, bspec, hspec]& /@ data, opts ];
+
+
+HHLineHistogramImpl[
+	data_/;(HHRaggedArrayDepth[data]==3 && And@@( HHHistogramListQ /@ data ) ),
+	opts:OptionsPattern[] 
+]:= Module[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
+	Show[MapThread[
+		HHLineHistogramImpl[#1, 
+			PlotStyle->#2, 
+			Sequence@@FilterRules[
+				Join[{opts}, Options[HHLineHistogram]], 
+				Options[HHLineHistogramImpl]]
+		]&, 
+		{data, realPlotStyleList}
+	], Sequence@@FilterRules[
+			Join[{opts}, Options[HHLineHistogram]], 
+			Options[Graphics]] 
+	]
+];
+
+
+(*HHLineHistogram[data_/;HHRaggedArrayDepth[data]==2, 
 	bspec_/;(Head[bspec]=!=Rule), hspec_/;(Head[hspec]=!=Rule), opts:OptionsPattern[] 
 ]:=
 Module[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
@@ -591,14 +642,16 @@ Module[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[da
 			Join[{opts}, Options[HHLineHistogram]], 
 			Options[Graphics]] 
 	]
-];
+];*)
 
 
 HHLineHistogram[args___] := Message[HHLineHistogram::invalidArgs, {args}];
 
 
-Options[HHLineHistogramImpl] = Options[ListLinePlot];(*HHJoinOptionLists[*)
-(*]*)
+Options[HHLineHistogramImpl] = Options[ListLinePlot];
+
+
+HHLineHistogramImpl[{{}, {}}, ___ ]:= Graphics[];
 
 
 HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:OptionsPattern[] ]:=

@@ -14,6 +14,10 @@ HHRaggedPartition::usage =
 "Partition, but with non-padded overhang at end (potentially sublists of different lengths).";
 
 
+HHHistogramListQ::usage = 
+"";
+
+
 HHImportAssociation::usage = 
 "Automatically loads a JSON file or HDF5 file to association for easy use";
 
@@ -39,7 +43,27 @@ Module[{ragMin},
 ];  
 
 
+HHRaggedArrayDepthImpl[{}, n_] := n;
+
+
+HHRaggedArrayDepth[nonlist_] := 0;
+
+
 HHRaggedArrayDepth[args___]:=Message[HHRaggedArrayDepth::invalidArgs,{args}];
+
+
+(* ::Subsection:: *)
+(*HHHistogramListQ*)
+
+
+HHHistogramListQ[list_List/;(HHRaggedArrayDepth[list]==2 && Length[list]==2 && Length[list[[2]]]>0 )] := 
+	Length[ list[[1]] ] - Length[ list[[2]] ] == 1;
+
+
+HHHistogramListQ[list_] := False;
+
+
+HHHistogramListQ[args___]:=Message[HHHistogramListQ::invalidArgs,{args}];
 
 
 (* ::Subsection:: *)
