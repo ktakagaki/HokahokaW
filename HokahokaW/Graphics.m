@@ -12,6 +12,26 @@ BeginPackage["HokahokaW`Graphics`", {"HokahokaW`", "HokahokaW`Data`"}];
 HHOptLabelStyleSpecifications::usage = "Option for HHLabelGraphics.";
 
 
+(* ::Subsection:: *)
+(*HHAbsoluteOptionsPlotRange*)
+
+
+HHAbsoluteOptionsPlotRange::usage="";
+HHAbsoluteOptionsAspectRatio::usage="";
+
+
+(* ::Subsection::Closed:: *)
+(*HHGraphicsColumn*)
+
+
+HHGraphicsColumn::usage="Stacks images vertically. In contrast to the standard GraphicsColumn, adjusts widths to be equal.";
+Options[HHGraphicsColumn]= Join[ {Spacings -> Scaled[0]}, Options[Graphics]];
+
+
+HHGraphicsRow::usage="";
+Options[HHGraphicsRow]= Options[HHGraphicsColumn];
+
+
 (* ::Subsection::Closed:: *)
 (*HHStackLists / HHListLinePlotStack*)
 
@@ -176,7 +196,7 @@ HHImageThresholdLinear::usage="Thresholds an image by linear closeness to the gi
 (* //ToDo2 create HHImageTestImage[] for help files??*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHColorData*)
 
 
@@ -215,6 +235,158 @@ Begin["`Private`"];
 
 
 (* ::Subsection::Closed:: *)
+(*HHAbsoluteOptionsPlotRange*)
+
+
+HHAbsoluteOptionsPlotRange[ gr_Graphics]:= 
+Module[{tempPlotRange, tempPlotRangePadding},
+	tempPlotRange = AbsoluteOptions[gr,PlotRange][[1,2]];
+	tempPlotRangePadding = AbsoluteOptions[gr,PlotRangePadding][[1,2]];
+	tempPlotRangePadding = {
+		Map[
+			If[Head[#]===List, #,
+			If[Head[#]===Scaled, 
+				#[[1]]*(tempPlotRange[[1,2]]-tempPlotRange[[1,1]]), #]]&,
+				tempPlotRangePadding[[1]], 2
+		],
+		Map[
+			If[Head[#]===List, #,
+			If[Head[#]===Scaled, 
+				#[[1]]*(tempPlotRange[[2,2]]-tempPlotRange[[2,1]]), #]]&,
+				tempPlotRangePadding[[2]], 2
+		]};
+	tempPlotRange+tempPlotRangePadding*{{-1, 1},{-1, 1}}
+];
+
+HHAbsoluteOptionsPlotRange[args___]:=Message[HHAbsoluteOptionsPlotRange::invalidArgs,{args}];
+
+
+HHAbsoluteOptionsAspectRatio[ gr_Graphics]:= 
+Module[{tempDimensions(*tempPlotRange, tempPlotRangeReal*)},
+	AbsoluteOptions[gr, AspectRatio][[1,2]]
+	(*tempDimensions = ImageDimensions[Image[gr]];
+	N[tempDimensions[[2]]/tempDimensions[[1]]]*)
+	
+	(*tempAbsolutePlotRange = HHAbsoluteOptionsPlotRange[gr];
+	((#[[2,2]]-#[[2,1]])/(#[[1,2]]-#[[1,1]]))& [tempAbsolutePlotRange]*)
+	(*tempPlotRange = AbsoluteOptions[gr,PlotRange][[1,2]];
+	tempPlotRangeReal = HHAbsoluteOptionsPlotRange[gr];
+	AbsoluteOptions[gr,AspectRatio][[1,2]]
+		*(Subtract@@tempPlotRangeReal[[1]] / Subtract@@tempPlotRange[[1]])
+		/(Subtract@@tempPlotRangeReal[[2]] / Subtract@@tempPlotRange[[2]])*)
+];
+
+HHAbsoluteOptionsAspectRatio[args___]:=Message[HHAbsoluteOptionsAspectRatio::invalidArgs,{args}];
+
+
+(* ::Subsection::Closed:: *)
+(*HHGraphicsColumn/Row*)
+
+
+HHGraphicsColumn[list:{__}, opts:OptionsPattern[]]:= 
+Module[{tempPlotRange, optSpacings, tempPlotWidth, tailHeightAccumulate},
+	(*ToDo: With AbsoluteOption for ImageSize, once MMA bug is fixed*)
+
+	tempPlotRange = HHAbsoluteOptionsPlotRange[list[[1]]];
+	optSpacings = OptionValue[Spacings];
+	optSpacings = If[ Head[optSpacings]===Scaled,
+						(tempPlotRange[[2,2]]-tempPlotRange[[2,1]])*(optSpacings[[1]]),
+						optSpacings
+						]; 
+	If[Dimensions[tempPlotRange]!={2,2},
+ 		Message[ HHGraphicsColumn::headNotGraphicsObject, list[[1]] ],
+ 		If[ Length[list]==1,
+ 			list[[1]],
+ 			
+ 			tempPlotWidth = tempPlotRange[[1,2]] - tempPlotRange[[1,1]];
+ 			tailHeightAccumulate = Accumulate[ 
+ 				tempPlotWidth * (HHAbsoluteOptionsAspectRatio[#]& /@ list[[2;;]]) ];
+			Graphics[
+				Prepend[
+					Table[ 
+						Inset[ Show[list[[n]], ImageSize->tempPlotWidth], 
+							{tempPlotRange[[1,1]], tempPlotRange[[2,1]]-tailHeightAccumulate[[n-1]]- optSpacings*(n-1)},
+							{Left, Bottom}, 
+							tempPlotWidth
+						], {n,2,Length[list]}
+					],
+					Inset[ Show[list[[1]], ImageSize->tempPlotWidth],
+						{tempPlotRange[[1,1]], tempPlotRange[[2,1]]},
+						{Left, Bottom}, 
+						tempPlotWidth
+					] 
+				],
+				PlotRange->{
+					tempPlotRange[[1]](*+{-1,1}*tempPlotWidth*0.02*), {tempPlotRange[[2,1]]-tailHeightAccumulate[[-1]]-optSpacings*(Length[list]-1),
+					tempPlotRange[[2,1]]+tempPlotWidth*(HHAbsoluteOptionsAspectRatio[list[[1]]])}
+				},
+				(*ImageSize->AbsoluteOptions[list[[1]], ImageSize],*)
+				Sequence@@HHJoinOptionLists[ Graphics, {opts}, Options[HHGraphicsColumn] ]
+			]
+		]
+	]
+];
+
+
+HHGraphicsColumn[args___]:=Message[HHGraphicsColumn::invalidArgs,{args}];
+HHGraphicsColumn::headNotGraphicsObject="The first list element `1` must be a Graphics object with a PlotRange specification!";
+
+
+HHGraphicsRow[list:{__}, opts:OptionsPattern[]]:= 
+Module[{tempPlotRange, optSpacings, tempPlotHeight, tempPlotWidths, tempWidthAccumulate},
+	(*ToDo: With AbsoluteOption for ImageSize, once MMA bug is fixed*)
+
+	tempPlotRange = AbsoluteOptions[list[[1]],PlotRange][[1,2]];
+	optSpacings = OptionValue[Spacings];
+	optSpacings = If[ Head[optSpacings]===Scaled,
+						(tempPlotRange[[1,2]]-tempPlotRange[[1,1]])*(optSpacings[[1]]),
+						optSpacings
+						]; 
+	
+	If[Dimensions[tempPlotRange]!={2,2},
+		Message[ HHGraphicsRow::headNotGraphicsObject, list[[1]] ],
+		If[ Length[list]==1,
+			list[[1]],
+
+			tempPlotHeight = tempPlotRange[[2,2]]-tempPlotRange[[2,1]];
+			tempPlotWidths = (tempPlotHeight / HHAbsoluteOptionsAspectRatio[#])& /@ list;
+			tempWidthAccumulate = Accumulate[tempPlotWidths];
+
+			Graphics[
+				Prepend[
+					Table[ 
+						Inset[ list[[n]], 
+							{tempPlotRange[[1,1]]+tempWidthAccumulate[[n-1]], tempPlotRange[[2,1]]},
+							{Left, Bottom}, 
+							tempPlotWidths[[n]] 
+ 						], {n,2,Length[list]}
+ 					],
+					Inset[ list[[1]],
+						{tempPlotRange[[1,1]], tempPlotRange[[2,1]]},
+						{Left, Bottom}, 
+						tempPlotWidths[[1]] 
+					] 
+				],
+				PlotRange-> {
+					{0, tempWidthAccumulate[[-1]]} + tempPlotRange[[1,1]], 
+					tempPlotRange[[2]]
+				},
+				Sequence@@HHJoinOptionLists[ Graphics, {opts}, Options[HHGraphicsRow] ]
+ 			]
+ 		]
+ 	]
+ ];
+
+
+HHGraphicsRow[args___]:=Message[HHGraphicsRow::invalidArgs,{args}];
+HHGraphicsRow::headNotGraphicsObject="The first list element `1` must be a Graphics object with a PlotRange specification!";
+
+
+(* ::Section:: *)
+(*Stacking*)
+
+
+(* ::Subsection:: *)
 (*HHStackLists*)
 
 
@@ -252,10 +424,10 @@ Module[{tempTraces, temp,
 	(*====================*)
 	(* Stack incrementation *)
 	(*====================*)
-	stackFactorsCumulated = FoldList[Plus, 0, Table[ increment, {Length[traces]}] ];
-	tempTraces + stackFactorsCumulated[[ ;; -2]]
+	stackFactorsCumulated = HHStackLists$StackFactorsCumulated[increment, Length[traces]];
+	tempTraces + stackFactorsCumulated
 
-  ];
+ ];
 
 
 (*Stack lists of {{t1, x1}, {t2, x2}, ...} pairs in the second dimension*)
@@ -270,7 +442,7 @@ Module[{tempTimes, tempTraces},
 
 	tempTraces =  HHStackLists[tempTraces, increment, opts];
 
-	Transpose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
+	HHRaggedTranspose /@ MapThread[{#1, #2}&, {tempTimes, tempTraces}]
 ];
 
 
@@ -352,6 +524,14 @@ HHStackLists[args___] := Message[HHStackLists::invalidArgs, {args}];
 
 
 (* ::Subsection::Closed:: *)
+(*HHStackLists$StackFactorsCumulated*)
+
+
+HHStackLists$StackFactorsCumulated[ increment_, count_ ]:=
+	FoldList[Plus, 0, Table[ increment, {count}] ][[ ;; -2]];
+
+
+(* ::Subsection::Closed:: *)
 (*HHListLinePlotStack*)
 
 
@@ -383,6 +563,18 @@ Module[{tempData, tempPlotRangeOpts},
 ];
 
 
+HHListLinePlotStack[
+	{},
+	increment_/;NumericQ[increment], 
+	opts:OptionsPattern[]
+]:=
+Module[{},
+	Graphics[ {},
+		Sequence@@FilterRules[Join[{opts},Options[HHListLinePlotStack]], Options[Graphics]] 
+	]
+];
+
+
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
 
 
@@ -397,14 +589,29 @@ HHListLinePlotGroups[
 Module[{tempStyles},
 	
 	tempStyles = HHPlotStyleTable[OptionValue[PlotStyle], {Length[traces]}];
-
+(*Print[tempStyles];
+Print[Dimensions/@traces];
+Print[OptionValue[PlotStyle]];*)
 	Show[MapThread[
 		ListLinePlot[#1,
-			Sequence@@HHJoinOptionLists[ ListLinePlot, {PlotRange-> All, PlotStyle -> #2} , {opts}, 
-				Options[HHListLinePlotGroups]
-		]]&, {traces, tempStyles}
+			Sequence@@HHJoinOptionLists[ ListLinePlot, 
+				{PlotRange-> All, PlotStyle -> #2} , {opts}, Options[HHListLinePlotGroups]
+			]
+		]&, {traces, tempStyles}
 	], Sequence@@HHJoinOptionLists[Graphics, {opts}, Options[HHListLinePlotGroups]]]
 	
+];
+
+
+HHListLinePlotGroups[
+	{},
+	increment_/;NumericQ[increment], 
+	opts:OptionsPattern[]
+]:=
+Module[{tempData, stackFactorsCumulated},
+	Graphics[ {},
+		Sequence@@FilterRules[Join[{opts},Options[HHListLinePlotGroupsStack]], Options[Graphics]] 
+	]
 ];
 
 
@@ -416,17 +623,49 @@ HHListLinePlotGroups[args___] := Message[HHListLinePlotGroups::invalidArgs, {arg
 
 
 HHListLinePlotGroupsStack[
+	{},
+	increment_/;NumericQ[increment], 
+	opts:OptionsPattern[]
+]:=
+Module[{tempData, stackFactorsCumulated},
+	Graphics[ {},
+		Sequence@@FilterRules[Join[{opts},Options[HHListLinePlotGroupsStack]], Options[Graphics]] 
+	]
+];
+
+
+HHListLinePlotGroupsStack[
+	{{}},
+	increment_/;NumericQ[increment], 
+	opts:OptionsPattern[]
+]:=
+Module[{tempData, stackFactorsCumulated},
+	Graphics[ {},
+		Sequence@@FilterRules[Join[{opts},Options[HHListLinePlotGroupsStack]], Options[Graphics]] 
+	]
+];
+
+
+HHListLinePlotGroupsStack[
 	traces_/;(HHRaggedArrayDepth[traces] == 3 || Depth[traces] == 4),
 	increment_/;NumericQ[increment], 
 	opts:OptionsPattern[]
 ]:=
-Module[{tempData},
+Module[{tempData, stackFactorsCumulated},
 	
-	tempData = HHStackLists[#, increment, Sequence@@FilterRules[{opts}, Options[HHStackLists]]]& /@ 
-		Transpose[traces];
-
-	HHListLinePlotGroups[ tempData, Sequence@@FilterRules[{opts}, Options[HHListLinePlotGroups]] ]
+	(*tempData = HHStackLists[#, increment, Sequence@@FilterRules[{opts}, Options[HHStackLists]]]& /@ 
+		Transpose[traces];*)
 	
+	stackFactorsCumulated = HHStackLists$StackFactorsCumulated[increment, Length[traces]];
+	HHListLinePlotGroups[ 
+		MapThread[
+			(#1 + #2)&,
+			{traces, stackFactorsCumulated}
+		],
+		Sequence@@FilterRules[Join[{opts},Options[HHListLinePlotGroupsStack]], Options[HHListLinePlotGroups]] 
+	]
+(*Print[Dimensions /@ traces];
+Print[Dimensions[ stackFactorsCumulated]];*)	
 ];
 
 
@@ -551,7 +790,7 @@ Module[{temp,
 HHListLinePlotMean[args___] := Message[HHListLinePlotMean::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListDensityPlot*)
 
 
@@ -571,7 +810,11 @@ Module[{tempData=data},
 HHListDensityPlot[args___] := Message[HHListDensityPlot::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Section::Closed:: *)
+(*Stacking*)
+
+
+(* ::Subsection::Closed:: *)
 (*HHLineHistogram*)
 
 
@@ -669,7 +912,7 @@ Module[{countBorder=Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@hi
 HHLineHistogramImpl[args___] := Message[HHLineHistogramImpl::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Section::Closed:: *)
 (*HHLabelGraphics*)
 
 
@@ -715,7 +958,7 @@ HHLabelGraphics::invalidAlignmentY = "Y alignment must be Top or Bottom, not `1`
 HHLabelGraphics[args___]:=Message[HHLabelGraphics::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Section::Closed:: *)
 (*Image Related*)
 
 
@@ -1081,25 +1324,7 @@ HHImageThresholdLinear[image_Image, color_List/;Length[color]==3, threshold_:0.2
 HHImageThresholdLinear[args___]:=Message[HHImageThresholdLinear::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
-(*HHColorData*)
-
-
-HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
-	HHTakeCyclical[ OptionValue[HHOptColorData], count ];
-
-
-HHColorData[ counts_List, opts: OptionsPattern[] ]:=
-	HHColorData[#, opts]& /@ counts;
-
-
-HHColorData[ opts: OptionsPattern[] ]:= ColorData[97, "ColorList"];
-
-
-HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
-
-
-(* ::Subsection:: *)
+(* ::Section:: *)
 (*Plotting Utility Functions*)
 
 
@@ -1152,6 +1377,40 @@ If[HHColorDirectiveQ[plotStyle],
 
 
 HHPlotStyleTableImpl[args___] := Message[HHPlotStyleTableImpl::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHColorData*)
+
+
+HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
+Module[{optColorData},
+	optColorData = OptionValue[HHOptColorData];
+	If[optColorData == "ColorBlindnessSafe", optColorData=HHColorData["ColorBlindnessSafe"]];
+	HHTakeCyclical[ optColorData, count ]
+];
+
+
+HHColorData[ counts_List, opts: OptionsPattern[] ]:=
+	HHColorData[#, opts]& /@ counts;
+
+
+HHColorData[ opts: OptionsPattern[] ]:= ColorData[97, "ColorList"];
+
+
+HHColorData[ "ColorBlindnessSafe" ] := Map[(#/255.)&, {
+	RGBColor[0,0,0], RGBColor[0,73,73], RGBColor[0,146,146],
+	RGBColor[255,109,182], RGBColor[255,182,119], RGBColor[73,0,146],
+	RGBColor[0,109,219], RGBColor[82,109,255], RGBColor[109,182,255],
+	RGBColor[182,219,255], RGBColor[146,0,0], RGBColor[146,73,0],
+	RGBColor[219,209,0], RGBColor[36,255,36], RGBColor[255,255,109]
+}, {2}];
+
+
+HHColorData[ "ColorBlindnessSafe" ]
+
+
+HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
 
 
 (* ::Section:: *)

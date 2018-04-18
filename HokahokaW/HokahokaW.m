@@ -61,11 +61,12 @@ HHExtractRules[args___]:=Message[HHExtractRules::invalidArgs,{args}];*)
 HHFunctionQ::usage="Returns whether a given symbol is a pure function or a function rule.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Java*)
 
 
 HHJavaObjectQ::usage="Checks whether something is a Java object and an instance of the given class/interface.";
+HHJavaObjectListQ::usage="";
 
 
 HHIncreaseJavaStack::usage="Increases the Java stack size.";
@@ -105,13 +106,15 @@ HHPackageGitHEAD::usage="Returns the git HEAD hash for either the given director
 HHNextPower::usage=" ";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities*)
 
 
 HHPadZeros::usage =
-"HHPadZeros[n] gives the numeral n string padded to 3 digits with zeros. " <>
-"HHPadZeros[n,m] gives the numeral n string padded to m digits with zeros.";
+"HHPadZeros[n] gives the integer numeral \!\(\*
+StyleBox[\"n\",\nFontSlant->\"Italic\"]\) as a string, padded to 3 digits with zeros. " <>
+"HHPadZeros[n,m] gives the numeral n string padded to \!\(\*
+StyleBox[\"m\",\nFontSlant->\"Italic\"]\) digits with zeros.";
 
 
 HHPrintAssignmentCell::usage =
@@ -284,10 +287,12 @@ HHFunctionQ[args___]:=Message[HHFunctionQ::invalidArgs, {args}];
 
 
 HHJavaObjectQ[x_/;JavaObjectQ[x]]:= True;
-
 HHJavaObjectQ[x_/;JavaObjectQ[x], className_String]:= InstanceOf[x, className];
-
 HHJavaObjectQ[___]:= False;
+
+
+HHJavaObjectListQ[ objList_List, className_String ]:= And@@( HHJavaObjectQ[#, className]& /@ objList );
+HHJavaObjectListQ[ args___]:= False ;
 
 
 HHIncreaseJavaStack[stackSize_Integer]:=
@@ -320,10 +325,16 @@ HHIncreaseJavaStack[stackSize_Integer]:=
 
 		(*Change and ReinstallJava as necessary*)
 		If[tempReI,
-			SetOptions[JLink`InstallJava, JLink`JVMArguments -> "-Xmx"<>ToString[stackSize]<>"m"]
+			SetOptions[JLink`InstallJava, JLink`JVMArguments -> 
+				"-Xmx"<>ToString[stackSize]<>"m" (*<>
+				" -XX:MaxJavaStackTraceDepth=500"*)
+				]
 		];
 		If[tempReR,
-			SetOptions[JLink`ReinstallJava, JLink`JVMArguments -> "-Xmx"<>ToString[stackSize]<>"m"]
+			SetOptions[JLink`ReinstallJava, JLink`JVMArguments -> 
+			"-Xmx"<>ToString[stackSize]<>"m" (*<>
+				" -XX:MaxJavaStackTraceDepth=500"*)
+				]
 		];
 		If[tempReI || tempReR,
 			JLink`ReinstallJava[];
@@ -913,15 +924,15 @@ HHNextPower[base_, n_]:= Ceiling[Log[base, n]];
 HHNextPower[args___]:=Message[HHNextPower::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities*)
 
 
-HHPadZeros[n_]:=HHPadZeros[n,3];
-HHPadZeros[n_,m_Integer]:=
+HHPadZeros[n_Integer]:=HHPadZeros[n,3];
+HHPadZeros[n_Integer, m_Integer]:=
 	If[n < 10^m,
 		Apply[StringJoin,Map[ToString,IntegerDigits[n, 10, m] ]],
-		n
+		ToString[ n ]
 	];
 
 HHPadZeros[args___]:=Message[HHPadZeros::invalidArgs,{args}];
@@ -1078,7 +1089,7 @@ Block[{fileNameSplit, fileBaseName, fileExtension},
 HHAppendFileBaseName[args___]:=Message[HHAppendFileBaseName::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Utilities: List manipulation*)
 
 

@@ -14,6 +14,10 @@ HHRaggedPartition::usage =
 "Partition, but with non-padded overhang at end (potentially sublists of different lengths).";
 
 
+HHRaggedTranspose::usage = 
+"Transpose a ragged (currently 3 dimensional) list.";
+
+
 HHHistogramListQ::usage = 
 "";
 
@@ -53,6 +57,40 @@ HHRaggedArrayDepth[args___]:=Message[HHRaggedArrayDepth::invalidArgs,{args}];
 
 
 (* ::Subsection:: *)
+(*HHRaggedPartition*)
+
+
+HHRaggedPartition[list_List, n_/;IntegerQ[n] ] := 
+	Partition[ list, n, n, {1,1},{}];
+	
+HHRaggedPartition[args___]:=Message[HHRaggedPartition::invalidArgs,{args}];
+
+
+(* ::Subsection:: *)
+(*HHRaggedTranspose*)
+
+
+HHRaggedTranspose[list_List/;(
+	HHRaggedArrayDepth[list]==3 &&
+	Length[Union[ Dimensions[#][[2]]& /@ list]]==1
+) ] := 
+Module[{tempMax, tempAccum},
+	tempMax = Max[ Dimensions[#, 1]& /@ list ];
+	Table[
+		tempAccum = {};
+		Do[
+			If[ Length[ list[[n2]] ] >= n1, AppendTo[ tempAccum, list[[n2, n1]] ] ],
+			{n2, 1, Length[ list ]}
+		];
+		tempAccum,
+		{n1, 1, tempMax}
+	]
+];
+	
+HHRaggedTranspose[args___]:=Message[HHRaggedTranspose::invalidArgs,{args}];
+
+
+(* ::Subsection:: *)
 (*HHHistogramListQ*)
 
 
@@ -64,16 +102,6 @@ HHHistogramListQ[list_] := False;
 
 
 HHHistogramListQ[args___]:=Message[HHHistogramListQ::invalidArgs,{args}];
-
-
-(* ::Subsection:: *)
-(*HHRaggedPartition*)
-
-
-HHRaggedPartition[list_List, n_/;IntegerQ[n] ] := 
-	Partition[ list, n, n, {1,1},{}];
-	
-HHRaggedPartition[args___]:=Message[HHRaggedPartition::invalidArgs,{args}];
 
 
 (* ::Subsection::Closed:: *)

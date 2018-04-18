@@ -21,6 +21,9 @@ Options[HHNotebookCreate]=HHJoinOptionLists[
 ];
 
 
+Options[CreateNotebook]
+
+
 HHOptNotebook::usage = "";
 HHOptCellType::usage = "";
 
