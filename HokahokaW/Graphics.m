@@ -142,7 +142,7 @@ HHJoinOptionLists[
 
 
 (* ::Subsection:: *)
-(*HHListLinePlotMean*)
+(*HHListDensityPlot*)
 
 
 HHListDensityPlot::usage= "ListDensityPlot allowing arrays smaller than 2x2";
@@ -151,7 +151,7 @@ HHListDensityPlot::usage= "ListDensityPlot allowing arrays smaller than 2x2";
 Options[HHListDensityPlot] = Options[ListDensityPlot];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHLineHistogram*)
 
 
@@ -197,7 +197,16 @@ HHImageThresholdLinear::usage="Thresholds an image by linear closeness to the gi
 
 
 (* ::Subsection:: *)
-(*HHColorData*)
+(*Plotting Utility Functions*)
+
+
+HHColorDirectiveQ::usage = 
+"HHColorDirectiveQ returns True if the argument given is a color directive (RGBColor, Hue, GrayLevel, ...).";
+
+
+HHPlotStyleTable::usage = 
+"HHPlotStyleTable creates a List of specified length, consisting of repeated plot style directives. \
+If no color specification is given, the list of Automatic colors is applied cyclically.";
 
 
 HHColorData::usage = 
@@ -212,19 +221,6 @@ This circumvents ColorData not being callable beyond the given number of color s
 HHOptColorData::usage = "";
 
 Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
-
-
-(* ::Subsection::Closed:: *)
-(*Plotting Utility Functions*)
-
-
-HHColorDirectiveQ::usage = 
-"HHColorDirectiveQ returns True if the argument given is a color directive (RGBColor, Hue, GrayLevel, ...).";
-
-
-HHPlotStyleTable::usage = 
-"HHPlotStyleTable creates a List of specified length, consisting of repeated plot style directives. \
-If no color specification is given, the list of Automatic colors is applied cyclically.";
 
 
 (* ::Section:: *)
@@ -279,7 +275,7 @@ Module[{tempDimensions(*tempPlotRange, tempPlotRangeReal*)},
 HHAbsoluteOptionsAspectRatio[args___]:=Message[HHAbsoluteOptionsAspectRatio::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHGraphicsColumn/Row*)
 
 
@@ -336,21 +332,22 @@ HHGraphicsRow[list:{__}, opts:OptionsPattern[]]:=
 Module[{tempPlotRange, optSpacings, tempPlotHeight, tempPlotWidths, tempWidthAccumulate},
 	(*ToDo: With AbsoluteOption for ImageSize, once MMA bug is fixed*)
 
-	tempPlotRange = AbsoluteOptions[list[[1]],PlotRange][[1,2]];
+	tempPlotRange = AbsoluteOptions[list[[1]], PlotRange][[1, 2]];
+		tempPlotHeight = tempPlotRange[[2,2]]-tempPlotRange[[2,1]];
+		tempPlotWidths = (tempPlotHeight / HHAbsoluteOptionsAspectRatio[#])& /@ list;
 	optSpacings = OptionValue[Spacings];
 	optSpacings = If[ Head[optSpacings]===Scaled,
 						(tempPlotRange[[1,2]]-tempPlotRange[[1,1]])*(optSpacings[[1]]),
-						optSpacings
-						]; 
+						optSpacings]; 
+		tempWidthAccumulate = Accumulate[tempPlotWidths];
+	tempPlotRange = {tempPlotRange[[1]], tempPlotRange[[2]]+{-1, 1}*tempPlotHeight*0.02};
+	
 	
 	If[Dimensions[tempPlotRange]!={2,2},
 		Message[ HHGraphicsRow::headNotGraphicsObject, list[[1]] ],
 		If[ Length[list]==1,
 			list[[1]],
 
-			tempPlotHeight = tempPlotRange[[2,2]]-tempPlotRange[[2,1]];
-			tempPlotWidths = (tempPlotHeight / HHAbsoluteOptionsAspectRatio[#])& /@ list;
-			tempWidthAccumulate = Accumulate[tempPlotWidths];
 
 			Graphics[
 				Prepend[
@@ -382,11 +379,11 @@ HHGraphicsRow[args___]:=Message[HHGraphicsRow::invalidArgs,{args}];
 HHGraphicsRow::headNotGraphicsObject="The first list element `1` must be a Graphics object with a PlotRange specification!";
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Stacking*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHStackLists*)
 
 
@@ -811,10 +808,6 @@ HHListDensityPlot[args___] := Message[HHListDensityPlot::invalidArgs, {args}];
 
 
 (* ::Section::Closed:: *)
-(*Stacking*)
-
-
-(* ::Subsection::Closed:: *)
 (*HHLineHistogram*)
 
 
@@ -1391,8 +1384,22 @@ Module[{optColorData},
 ];
 
 
+HHColorData[ count_Integer, name_String, opts: OptionsPattern[] ]:=
+Module[{(*optColorData*)},
+	(*optColorData = OptionValue[HHOptColorData];*)
+	Switch[name,
+		"ColorBlindnessSafe",  HHTakeCyclical[ HHColorData["ColorBlindnessSafe"], count ],
+		_, HHTakeCyclical[ HHColorData[], count ]
+	]
+];
+
+
 HHColorData[ counts_List, opts: OptionsPattern[] ]:=
 	HHColorData[#, opts]& /@ counts;
+
+
+HHColorData[ counts_List, name_String, opts: OptionsPattern[] ]:=
+	HHColorData[#, name, opts]& /@ counts;
 
 
 HHColorData[ opts: OptionsPattern[] ]:= ColorData[97, "ColorList"];
@@ -1403,11 +1410,8 @@ HHColorData[ "ColorBlindnessSafe" ] := Map[(#/255.)&, {
 	RGBColor[255,109,182], RGBColor[255,182,119], RGBColor[73,0,146],
 	RGBColor[0,109,219], RGBColor[82,109,255], RGBColor[109,182,255],
 	RGBColor[182,219,255], RGBColor[146,0,0], RGBColor[146,73,0],
-	RGBColor[219,209,0], RGBColor[36,255,36], RGBColor[255,255,109]
+	RGBColor[219,209,0], RGBColor[36,255,36], RGBColor[255*0.5,255*0.5,109*0.5]
 }, {2}];
-
-
-HHColorData[ "ColorBlindnessSafe" ]
 
 
 HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
