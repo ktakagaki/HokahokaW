@@ -844,7 +844,7 @@ HHLineHistogram[
 
 
 HHLineHistogramImpl[
-	data_/;(HHRaggedArrayDepth[data]==3 && And@@( HHHistogramListQ /@ data ) ),
+	data_/;(HHRaggedArrayDepth[data]<=3 && And@@( HHHistogramListQ /@ data ) ),
 	opts:OptionsPattern[] 
 ]:= Module[{realPlotStyleList}, 
 	realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}];
