@@ -141,7 +141,7 @@ HHJoinOptionLists[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHListDensityPlot*)
 
 
@@ -275,7 +275,7 @@ Module[{tempDimensions(*tempPlotRange, tempPlotRangeReal*)},
 HHAbsoluteOptionsAspectRatio[args___]:=Message[HHAbsoluteOptionsAspectRatio::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHGraphicsColumn/Row*)
 
 
@@ -807,7 +807,7 @@ Module[{tempData=data},
 HHListDensityPlot[args___] := Message[HHListDensityPlot::invalidArgs, {args}];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*HHLineHistogram*)
 
 
@@ -846,7 +846,8 @@ HHLineHistogram[
 HHLineHistogramImpl[
 	data_/;(HHRaggedArrayDepth[data]==3 && And@@( HHHistogramListQ /@ data ) ),
 	opts:OptionsPattern[] 
-]:= Module[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
+]:= Module[{realPlotStyleList}, 
+	realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}];
 	Show[MapThread[
 		HHLineHistogramImpl[#1, 
 			PlotStyle->#2, 
