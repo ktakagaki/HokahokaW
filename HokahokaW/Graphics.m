@@ -165,6 +165,10 @@ Options[HHLineHistogram]= HHJoinOptionLists[
 ];
 
 
+HHLineHistogramImpl::usage = "";
+Options[HHLineHistogramImpl] = Options[ListLinePlot];
+
+
 (* ::Subsection::Closed:: *)
 (*HHLabelGraphics*)
 
@@ -832,6 +836,23 @@ HHLineHistogram[
 HHLineHistogramImpl[ HistogramList[data,bspec,hspec], opts];
 
 
+(*The function fh in Histogram[data,bspec,fh] is applied to two arguments: 
+a list of bins {{Subscript[b, 1],Subscript[b, 2]},{Subscript[b, 2],Subscript[b, 3]},\[Ellipsis]}, and a corresponding list of counts {Subscript[c, 1],Subscript[c, 2],\[Ellipsis]}. 
+The function should return a list of heights to be used for each of the Subscript[c, i]. *)
+
+
+HHLineHistogram[
+	data_/;HHRaggedArrayDepth[data]==1, 
+	bspec_/;(Head[bspec]=!=Rule), 
+	hFunc_/;(HHFunctionQ[hFunc]), 
+	opts:OptionsPattern[] ]:=
+Module[{bins, counts},
+	{bins, counts} = HistogramList[ data, bspec ];
+	counts = hFunc[ bins, counts ];
+	HHLineHistogramImpl[ {bins, counts}, opts];
+];
+
+
 HHLineHistogram[{}, ___ ]:= Graphics[];
 
 
@@ -839,8 +860,8 @@ HHLineHistogram[
 	data_/;( HHRaggedArrayDepth[data] == 2 ), 
 	bspec_/;(Head[bspec]=!=Rule), 
 	hspec_/;(Head[hspec]=!=Rule), 
-	opts:OptionsPattern[] 
-]:= HHLineHistogramImpl[ HistogramList[#, bspec, hspec]& /@ data, opts ];
+	opts:OptionsPattern[] ]:= 
+HHLineHistogramImpl[ HistogramList[#, bspec, hspec]& /@ data, opts ];
 
 
 HHLineHistogramImpl[
@@ -848,6 +869,9 @@ HHLineHistogramImpl[
 	opts:OptionsPattern[] 
 ]:= Module[{realPlotStyleList}, 
 	realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}];
+	If[Length[realPlotStyleList]!= Length[data],
+		realPlotStyleList = HHTakeCyclical[ realPlotStyleList, Length[data] ]
+	];
 	Show[MapThread[
 		HHLineHistogramImpl[#1, 
 			PlotStyle->#2, 
@@ -863,29 +887,7 @@ HHLineHistogramImpl[
 ];
 
 
-(*HHLineHistogram[data_/;HHRaggedArrayDepth[data]==2, 
-	bspec_/;(Head[bspec]=!=Rule), hspec_/;(Head[hspec]=!=Rule), opts:OptionsPattern[] 
-]:=
-Module[{realPlotStyleList = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]}]}, 
-	Show[MapThread[
-		HHLineHistogramImpl[HistogramList[#1, bspec, hspec], 
-			PlotStyle->#2, 
-			Sequence@@FilterRules[
-				Join[{opts}, Options[HHLineHistogram]], 
-				Options[HHLineHistogramImpl]]
-		]&, 
-		{data, realPlotStyleList}
-	], Sequence@@FilterRules[
-			Join[{opts}, Options[HHLineHistogram]], 
-			Options[Graphics]] 
-	]
-];*)
-
-
 HHLineHistogram[args___] := Message[HHLineHistogram::invalidArgs, {args}];
-
-
-Options[HHLineHistogramImpl] = Options[ListLinePlot];
 
 
 HHLineHistogramImpl[{{}, {}}, ___ ]:= Graphics[];
