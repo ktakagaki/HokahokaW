@@ -78,6 +78,16 @@ HHJoinOptionLists[
 ];
 
 
+(* ::Subsection:: *)
+(*HHListPlot*)
+
+
+HHListPlot::usage= "Convenence function to ignore empty lists";
+
+
+Options[HHListPlot] = Options[ListPlot];
+
+
 (* ::Subsection::Closed:: *)
 (*HHListLinePlotGroups/HHListLinePlotGroupsStack*)
 
@@ -384,7 +394,107 @@ HHGraphicsRow::headNotGraphicsObject="The first list element `1` must be a Graph
 
 
 (* ::Section::Closed:: *)
-(*Stacking*)
+(*Plotting Utility Functions*)
+
+
+HHColorDirectiveQ[directive_RGBColor ]:= True;
+HHColorDirectiveQ[directive_Hue ]:= True;
+HHColorDirectiveQ[directive_CMYKColor ]:= True;
+HHColorDirectiveQ[directive_GrayLevel ]:= True;
+
+HHColorDirectiveQ[directive_LABColor ]:= True;
+HHColorDirectiveQ[directive_LCHColor ]:= True;
+HHColorDirectiveQ[directive_LUVColor ]:= True;
+HHColorDirectiveQ[directive_XYZColor ]:= True;
+HHColorDirectiveQ[directive_Opacity/;Length[directive]==2 ]:= True;
+
+HHColorDirectiveQ[directive_ ]:= False;
+
+
+HHColorDirectiveQ[args___] := Message[HHColorDirectiveQ::invalidArgs, {args}];
+
+
+HHPlotStyleTable[ plotStyle_List ]:=
+	MapThread[ HHPlotStyleTableImpl[#1, #2]&, {plotStyle, Range[Length[plotStyle]]}];
+
+HHPlotStyleTable[plotStyle_List, {count_}]:=
+	HHPlotStyleTable[plotStyle[[ ;; Min[Length[plotStyle], count]]]];
+	
+HHPlotStyleTable[Automatic, {count_} ]:= HHColorData /@ Range[count];
+HHPlotStyleTable[plotStyle_, {count_} ]:= HHPlotStyleTableImpl[plotStyle, #]& /@ Range[ count ];
+
+
+HHPlotStyleTable[args___] := Message[HHPlotStyleTable::invalidArgs, {args}];
+
+
+HHPlotStyleTableImpl[plotStyle_Directive, number_ ]:=
+Block[{tempColor, tempNoncolor},
+	tempColor = Select[List@@plotStyle, HHColorDirectiveQ];
+	tempNoncolor = Select[List@@plotStyle, !HHColorDirectiveQ[#]&];
+	If[ Length[ tempColor ] >0,
+		plotStyle,
+		Directive@@Flatten[Join[ {HHColorData[number]}, tempNoncolor ]]
+	]
+];
+
+
+HHPlotStyleTableImpl[plotStyle_, number_ ]:=
+If[HHColorDirectiveQ[plotStyle], 
+	plotStyle,
+	Directive[ HHColorData[number], plotStyle]
+];
+
+
+HHPlotStyleTableImpl[args___] := Message[HHPlotStyleTableImpl::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHColorData*)
+
+
+HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
+Module[{optColorData},
+	optColorData = OptionValue[HHOptColorData];
+	If[optColorData == "ColorBlindnessSafe", optColorData=HHColorData["ColorBlindnessSafe"]];
+	HHTakeCyclical[ optColorData, count ]
+];
+
+
+HHColorData[ count_Integer, name_String, opts: OptionsPattern[] ]:=
+Module[{(*optColorData*)},
+	(*optColorData = OptionValue[HHOptColorData];*)
+	Switch[name,
+		"ColorBlindnessSafe",  HHTakeCyclical[ HHColorData["ColorBlindnessSafe"], count ],
+		_, HHTakeCyclical[ HHColorData[], count ]
+	]
+];
+
+
+HHColorData[ counts_List, opts: OptionsPattern[] ]:=
+	HHColorData[#, opts]& /@ counts;
+
+
+HHColorData[ counts_List, name_String, opts: OptionsPattern[] ]:=
+	HHColorData[#, name, opts]& /@ counts;
+
+
+HHColorData[ opts: OptionsPattern[] ]:= ColorData[97, "ColorList"];
+
+
+HHColorData[ "ColorBlindnessSafe" ] := Map[(#/255.)&, {
+	RGBColor[0,0,0], RGBColor[0,73,73], RGBColor[0,146,146],
+	RGBColor[255,109,182], RGBColor[255,182,119], RGBColor[73,0,146],
+	RGBColor[0,109,219], RGBColor[82,109,255], RGBColor[109,182,255],
+	RGBColor[182,219,255], RGBColor[146,0,0], RGBColor[146,73,0],
+	RGBColor[219,209,0], RGBColor[36,255,36], RGBColor[255*0.5,255*0.5,109*0.5]
+}, {2}];
+
+
+HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
+
+
+(* ::Section:: *)
+(*Stacking and List Plots*)
 
 
 (* ::Subsection::Closed:: *)
@@ -577,6 +687,26 @@ Module[{},
 
 
 HHListLinePlotStack[args___] := Message[HHListLinePlotStack::invalidArgs, {args}];
+
+
+(* ::Subsection:: *)
+(*HHListPlot*)
+
+
+HHListPlot[
+	data_/;(HHRaggedArrayDepth[data] >= 2),
+	opts:OptionsPattern[]
+]:=
+Module[{tempStyles, tempPickList},
+	
+	tempStyles = HHPlotStyleTable[ OptionValue[PlotStyle], {Length[data]} ];
+	tempPickList = (Length[#]>0)& /@ data;
+	ListPlot[ 
+		Pick[data, tempPickList],
+		PlotStyle-> Pick[tempStyles, tempPickList],
+		opts
+	]
+];
 
 
 (* ::Subsection::Closed:: *)
@@ -1318,106 +1448,6 @@ HHImageThresholdLinear[image_Image, color_List/;Length[color]==3, threshold_:0.2
 
 
 HHImageThresholdLinear[args___]:=Message[HHImageThresholdLinear::invalidArgs, {args}];
-
-
-(* ::Section:: *)
-(*Plotting Utility Functions*)
-
-
-HHColorDirectiveQ[directive_RGBColor ]:= True;
-HHColorDirectiveQ[directive_Hue ]:= True;
-HHColorDirectiveQ[directive_CMYKColor ]:= True;
-HHColorDirectiveQ[directive_GrayLevel ]:= True;
-
-HHColorDirectiveQ[directive_LABColor ]:= True;
-HHColorDirectiveQ[directive_LCHColor ]:= True;
-HHColorDirectiveQ[directive_LUVColor ]:= True;
-HHColorDirectiveQ[directive_XYZColor ]:= True;
-HHColorDirectiveQ[directive_Opacity/;Length[directive]==2 ]:= True;
-
-HHColorDirectiveQ[directive_ ]:= False;
-
-
-HHColorDirectiveQ[args___] := Message[HHColorDirectiveQ::invalidArgs, {args}];
-
-
-HHPlotStyleTable[ plotStyle_List ]:=
-	MapThread[ HHPlotStyleTableImpl[#1, #2]&, {plotStyle, Range[Length[plotStyle]]}];
-
-HHPlotStyleTable[plotStyle_List, {count_}]:=
-	HHPlotStyleTable[plotStyle[[ ;; Min[Length[plotStyle], count]]]];
-	
-HHPlotStyleTable[Automatic, {count_} ]:= HHColorData /@ Range[count];
-HHPlotStyleTable[plotStyle_, {count_} ]:= HHPlotStyleTableImpl[plotStyle, #]& /@ Range[ count ];
-
-
-HHPlotStyleTable[args___] := Message[HHPlotStyleTable::invalidArgs, {args}];
-
-
-HHPlotStyleTableImpl[plotStyle_Directive, number_ ]:=
-Block[{tempColor, tempNoncolor},
-	tempColor = Select[List@@plotStyle, HHColorDirectiveQ];
-	tempNoncolor = Select[List@@plotStyle, !HHColorDirectiveQ[#]&];
-	If[ Length[ tempColor ] >0,
-		plotStyle,
-		Directive@@Flatten[Join[ {HHColorData[number]}, tempNoncolor ]]
-	]
-];
-
-
-HHPlotStyleTableImpl[plotStyle_, number_ ]:=
-If[HHColorDirectiveQ[plotStyle], 
-	plotStyle,
-	Directive[ HHColorData[number], plotStyle]
-];
-
-
-HHPlotStyleTableImpl[args___] := Message[HHPlotStyleTableImpl::invalidArgs, {args}];
-
-
-(* ::Subsection:: *)
-(*HHColorData*)
-
-
-HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
-Module[{optColorData},
-	optColorData = OptionValue[HHOptColorData];
-	If[optColorData == "ColorBlindnessSafe", optColorData=HHColorData["ColorBlindnessSafe"]];
-	HHTakeCyclical[ optColorData, count ]
-];
-
-
-HHColorData[ count_Integer, name_String, opts: OptionsPattern[] ]:=
-Module[{(*optColorData*)},
-	(*optColorData = OptionValue[HHOptColorData];*)
-	Switch[name,
-		"ColorBlindnessSafe",  HHTakeCyclical[ HHColorData["ColorBlindnessSafe"], count ],
-		_, HHTakeCyclical[ HHColorData[], count ]
-	]
-];
-
-
-HHColorData[ counts_List, opts: OptionsPattern[] ]:=
-	HHColorData[#, opts]& /@ counts;
-
-
-HHColorData[ counts_List, name_String, opts: OptionsPattern[] ]:=
-	HHColorData[#, name, opts]& /@ counts;
-
-
-HHColorData[ opts: OptionsPattern[] ]:= ColorData[97, "ColorList"];
-
-
-HHColorData[ "ColorBlindnessSafe" ] := Map[(#/255.)&, {
-	RGBColor[0,0,0], RGBColor[0,73,73], RGBColor[0,146,146],
-	RGBColor[255,109,182], RGBColor[255,182,119], RGBColor[73,0,146],
-	RGBColor[0,109,219], RGBColor[82,109,255], RGBColor[109,182,255],
-	RGBColor[182,219,255], RGBColor[146,0,0], RGBColor[146,73,0],
-	RGBColor[219,209,0], RGBColor[36,255,36], RGBColor[255*0.5,255*0.5,109*0.5]
-}, {2}];
-
-
-HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
 
 
 (* ::Section:: *)

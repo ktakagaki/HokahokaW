@@ -93,6 +93,16 @@ NotebookWrite[ OptionValue[ HHOptNotebook ],
 ];
 
 
+HHNotebookWriteCell[contents_Row, cellStyle___String, opts:OptionsPattern[]] := 
+NotebookWrite[ OptionValue[ HHOptNotebook ],
+	TextCell[ contents, cellStyle, opts ]
+];
+
+
+(*HHNotebookWriteCell[contents_TextCell] := 
+NotebookWrite[ OptionValue[ HHOptNotebook ], contents ];*)
+
+
 HHNotebookWriteCell[contents_, cellStyle___String, opts:OptionsPattern[]] := 
 NotebookWrite[ OptionValue[ HHOptNotebook ],
 	Cell[ BoxData[ToBoxes[ contents ]], 
