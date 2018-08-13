@@ -58,7 +58,7 @@ Begin["`Private`"];
 $HHCurrentNotebook = Null;
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHNotebookCreate*)
 
 
@@ -79,8 +79,17 @@ HHNotebookCreate[args___]:=Message[HHNotebookCreate::invalidArgs,{args}];
 (*HHNotebookWriteCell*)
 
 
-HHNotebookWriteCell[contents_, opts:OptionsPattern[]] := 
-	HHNotebookWriteCell[contents, "Output", opts];
+(*Writing malformed cells to non-visible notebooks can lead to pernicious Heisenbugs!*)
+(*Be really really careful when touching anything!*)
+
+
+(*HHNotebookWriteCell[contents_TextCell, opts:OptionsPattern[]] := 
+NotebookWrite[ OptionValue[ HHOptNotebook ], contents,
+ 			Sequence@@FilterRules[{opts}, Options[NotebookWrite]]
+];*)
+
+
+HHNotebookWriteCell[contents_, opts:OptionsPattern[]] := HHNotebookWriteCell[contents, "Output", opts];
 
 
 (*HHNotebookWriteCell[contents_List, cellStyle___String, opts:OptionsPattern[]] := 
@@ -93,14 +102,10 @@ NotebookWrite[ OptionValue[ HHOptNotebook ],
 ];
 
 
-HHNotebookWriteCell[contents_Row, cellStyle___String, opts:OptionsPattern[]] := 
+(*HHNotebookWriteCell[contents_Row, cellStyle___String, opts:OptionsPattern[]] := 
 NotebookWrite[ OptionValue[ HHOptNotebook ],
 	TextCell[ contents, cellStyle, opts ]
-];
-
-
-(*HHNotebookWriteCell[contents_TextCell] := 
-NotebookWrite[ OptionValue[ HHOptNotebook ], contents ];*)
+];*)
 
 
 HHNotebookWriteCell[contents_, cellStyle___String, opts:OptionsPattern[]] := 
