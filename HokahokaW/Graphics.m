@@ -945,6 +945,10 @@ HHListDensityPlot[args___] := Message[HHListDensityPlot::invalidArgs, {args}];
 (*HHLineHistogram*)
 
 
+HHLineHistogram[{}, ___ ]:= Graphics[];
+HHLineHistogram[x_List/;(Length[x]==1), ___ ]:= Graphics[];
+
+
 HHLineHistogram[
 	data_/;(HHRaggedArrayDepth[data]==1 || HHRaggedArrayDepth[data]==2), 
 	opts:OptionsPattern[] ]:=
@@ -981,9 +985,6 @@ Module[{bins, counts},
 	counts = hFunc[ bins, counts ];
 	HHLineHistogramImpl[ {bins, counts}, opts];
 ];
-
-
-HHLineHistogram[{}, ___ ]:= Graphics[];
 
 
 HHLineHistogram[
