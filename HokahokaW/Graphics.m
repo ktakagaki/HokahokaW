@@ -469,12 +469,18 @@ Module[{},
 ];
 
 
-HHColorData[ counts_List, opts: OptionsPattern[] ]:= HHColorData[#, opts]& /@ counts;
+HHColorData[ colors_List, count_Integer, opts: OptionsPattern[] ]:= 
+Module[{},
+	HHTakeCyclical[ colors, count ]
+];(*HHColorData[#, opts]& /@ counts;*)
+
+
+(*HHColorData[ counts_List, opts: OptionsPattern[] ]:= HHColorData[#, opts]& /@ counts;*)
 
 
 (*ToDo: Deprecate signature!*)
-HHColorData[ counts_List, name_String, opts: OptionsPattern[] ]:= HHColorData[name, counts, opts];
-HHColorData[ name_String, counts_List, opts: OptionsPattern[] ]:= HHColorData[name, #, opts]& /@ counts;
+(*HHColorData[ counts_List, name_String, opts: OptionsPattern[] ]:= HHColorData[name, counts, opts];
+HHColorData[ name_String, counts_List, opts: OptionsPattern[] ]:= HHColorData[name, #, opts]& /@ counts;*)
 
 
 HHColorData[ opts: OptionsPattern[] ]:= ColorData[97, "ColorList"];
