@@ -393,7 +393,7 @@ HHGraphicsRow[args___]:=Message[HHGraphicsRow::invalidArgs,{args}];
 HHGraphicsRow::headNotGraphicsObject="The first list element `1` must be a Graphics object with a PlotRange specification!";
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Plotting Utility Functions*)
 
 
@@ -455,45 +455,67 @@ HHPlotStyleTableImpl[args___] := Message[HHPlotStyleTableImpl::invalidArgs, {arg
 HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
 Module[{optColorData},
 	optColorData = OptionValue[HHOptColorData];
-	If[optColorData == "ColorBlindnessSafe", optColorData=HHColorData["ColorBlindnessSafe"]];
-	HHTakeCyclical[ optColorData, count ]
+	HHColorData[optColorData, count]
+	(*If[optColorData == "ColorBlindnessSafe", optColorData=HHColorData["ColorBlindnessSafe"]];
+	HHTakeCyclical[ optColorData, count ]*)
 ];
 
 
-HHColorData[ count_Integer, name_String, opts: OptionsPattern[] ]:=
-Module[{(*optColorData*)},
-	(*optColorData = OptionValue[HHOptColorData];*)
-	Switch[name,
-		"ColorBlindnessSafe",  HHTakeCyclical[ HHColorData["ColorBlindnessSafe"], count ],
-		_, HHTakeCyclical[ HHColorData[], count ]
-	]
+(*ToDo: Deprecate signature!*)
+HHColorData[ count_Integer, name_String, opts: OptionsPattern[] ]:= HHColorData[ name, count, opts];
+HHColorData[ name_String, count_Integer, opts: OptionsPattern[] ]:=
+Module[{},
+	HHTakeCyclical[ HHColorData[name], count ]
 ];
 
 
-HHColorData[ counts_List, opts: OptionsPattern[] ]:=
-	HHColorData[#, opts]& /@ counts;
+HHColorData[ counts_List, opts: OptionsPattern[] ]:= HHColorData[#, opts]& /@ counts;
 
 
-HHColorData[ counts_List, name_String, opts: OptionsPattern[] ]:=
-	HHColorData[#, name, opts]& /@ counts;
+(*ToDo: Deprecate signature!*)
+HHColorData[ counts_List, name_String, opts: OptionsPattern[] ]:= HHColorData[name, counts, opts];
+HHColorData[ name_String, counts_List, opts: OptionsPattern[] ]:= HHColorData[name, #, opts]& /@ counts;
 
 
 HHColorData[ opts: OptionsPattern[] ]:= ColorData[97, "ColorList"];
 
 
-HHColorData[ "ColorBlindnessSafe" ] := Map[(#/255.)&, {
+HHColorData[ "ColorBlindnessSafe" ] := HHColorData[ "ColorBlindness15" ];
+HHColorData[ "ColorBlindness15" ] = 
+Map[(#/255.)&, {
 	RGBColor[0,0,0], RGBColor[0,73,73], RGBColor[0,146,146],
 	RGBColor[255,109,182], RGBColor[255,182,119], RGBColor[73,0,146],
-	RGBColor[0,109,219], RGBColor[82,109,255], RGBColor[109,182,255],
+	RGBColor[0,109,219], RGBColor[182,109,255], RGBColor[109,182,255],
 	RGBColor[182,219,255], RGBColor[146,0,0], RGBColor[146,73,0],
-	RGBColor[219,209,0], RGBColor[36,255,36], RGBColor[255*0.5,255*0.5,109*0.5]
+	RGBColor[219,209,0], RGBColor[36,255,36], RGBColor[255,255,109]
+}, {2}];
+
+
+(*HHColorData[ "ColorBlindness15" ] =
+ColorDataFunction["ColorBlindness15", "Indexed", {1, 15, 1}, 
+ (Map[(#/255.)&,{RGBColor[0,0,0], RGBColor[0,73,73], RGBColor[0,146,146],
+	RGBColor[255,109,182], RGBColor[255,182,119], RGBColor[73,0,146],
+	RGBColor[0,109,219], RGBColor[182,109,255], RGBColor[109,182,255],
+	RGBColor[182,219,255], RGBColor[146,0,0], RGBColor[146,73,0],
+	RGBColor[219,209,0], RGBColor[36,255,36], RGBColor[255, 255, 109]}, {2}][[ Mod[#-1,15]+1 ]]&)
+];*)
+
+
+(*https://www.nature.com/articles/nmeth.1618.pdf?origin=ppub*)
+HHColorData[ "ColorBlindness" ] := HHColorData[ "ColorBlindness8" ];
+HHColorData[ "ColorBlindness8" ] = 
+Map[(#/255.)&, {
+	RGBColor[0,0,0], RGBColor[230,159,0], 
+	RGBColor[86,180,233], RGBColor[0,158,115],
+	RGBColor[240,228,66], RGBColor[0,114,178],
+	RGBColor[213,94,0], RGBColor[204,121,167]
 }, {2}];
 
 
 HHColorData[args___] := Message[HHColorData::invalidArgs, {args}];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Stacking and List Plots*)
 
 

@@ -61,7 +61,7 @@ HHExtractRules[args___]:=Message[HHExtractRules::invalidArgs,{args}];*)
 HHFunctionQ::usage="Returns whether a given symbol is a pure function or a function rule.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Java*)
 
 
@@ -924,7 +924,7 @@ HHNextPower[base_, n_]:= Ceiling[Log[base, n]];
 HHNextPower[args___]:=Message[HHNextPower::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Utilities*)
 
 
@@ -977,7 +977,7 @@ HHJitterize[list_List, {lowerMultiply_, upperMultiply_}]:=
 HHJitterize[args___]:=Message[HHJitterize::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities: Files*)
 
 
