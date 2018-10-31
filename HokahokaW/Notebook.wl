@@ -41,7 +41,8 @@ Options[HHNotebookSetOptions]={HHOptNotebook :> $HHCurrentNotebook};
 
 HHNotebookSave::usage="Use NotebookSave to save a notebook or \
 NotebookPrint to save a *.pdf of the notebook, depending upon the file extension.";
-Options[HHNotebookSave]={HHOptNotebook :> $HHCurrentNotebook};
+Options[HHNotebookSave]={HHOptNotebook :> $HHCurrentNotebook(*, 
+	"AllowRasterization"\[Rule]True, ImageResoultion\[Rule]300*)};
 
 
 HHNotebookClose::usage="Alias for NotebookClose, applied to $HHCurrentNotebook";
@@ -75,7 +76,7 @@ HHNotebookCreate[opts:OptionsPattern[]]:=
 HHNotebookCreate[args___]:=Message[HHNotebookCreate::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHNotebookWriteCell*)
 
 
@@ -119,7 +120,7 @@ NotebookWrite[ OptionValue[ HHOptNotebook ],
 HHNotebookWriteCell[args___]:=Message[HHNotebookWriteCell::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHNotebookSetOptions*)
 
 

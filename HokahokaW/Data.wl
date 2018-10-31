@@ -26,6 +26,11 @@ HHImportAssociation::usage =
 "Automatically loads a JSON file or HDF5 file to association for easy use";
 
 
+HHFromLetterNumber::usage="Same as FromLetterNumber, except that numbers over the alphabet count (26 in \"English\" will "<>
+"give multi-letter results (e.g. 27 \[Rule] \"aa\"";
+Options[HHFromLetterNumber]=Options[FromLetterNumber];
+
+
 (* ::Section:: *)
 (*Private*)
 
@@ -33,7 +38,7 @@ HHImportAssociation::usage =
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHRaggedArrayDepth*)
 
 
@@ -63,7 +68,7 @@ HHRaggedArrayDepth[nonlist_] := 0;
 HHRaggedArrayDepth[args___]:=Message[HHRaggedArrayDepth::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHRaggedPartition*)
 
 
@@ -73,7 +78,7 @@ HHRaggedPartition[list_List, n_/;IntegerQ[n] ] :=
 HHRaggedPartition[args___]:=Message[HHRaggedPartition::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHRaggedTranspose*)
 
 
@@ -127,7 +132,7 @@ HHHistogramListQ[list_] := False;
 HHHistogramListQ[args___]:=Message[HHHistogramListQ::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHImportAssociation*)
 
 
@@ -166,6 +171,22 @@ Module[{tempExpr, tempret},
 		{ToExpression::sntx, ToExpression::sntxi}
 	]
 ];
+
+
+(* ::Subsection:: *)
+(*HHFromLetterNumber*)
+
+
+HHFromLetterNumber[n_]:=HHFromLetterNumber[n,"English"]
+
+
+HHFromLetterNumber[n_, alpha_]:=
+Module[{tempList=Alphabet[alpha]},
+	StringJoin[FromLetterNumber[#, alpha]& /@ IntegerDigits[ n, Length[tempList]]]
+];
+
+
+HHFromLetterNumber[args___]:=Message[HHFromLetterNumber::invalidArgs,{args}];
 
 
 (* ::Section:: *)
