@@ -11,7 +11,7 @@ to the created NotebookObject. Saves the created notebook in \
 $HHCurrentNotebook to use in further writing functions";
 HHNotebookCreate$OverrideOptions = {PrintingOptions->
 		{
-		"PrintingMargins"->72*{{0.25(*Left*),0.25},{0.25(*bottom*),0.25(*top*)}}, 
+		"PrintingMargins"->72*{{0.25(*Left*), 0.25},{0.25(*bottom*), 0.5(*top*)}}, 
 		"PaperOrientation"->"Portrait",
 		"PageSize"->72*{8.27, 11.69}
 		}};
@@ -28,10 +28,17 @@ HHOptNotebook::usage = "";
 HHOptCellType::usage = "";
 
 
-HHNotebookWriteCell::usage="Use NotebookWrite to write a cell.";
+HHNotebookWriteCell::usage="Use NotebookWrite to write contents as a cell.";
 Options[HHNotebookWriteCell]=Join[
 	{HHOptNotebook :> $HHCurrentNotebook},
 	Options[Cell]
+];
+
+
+HHNotebookWrite::usage="Write given cell to current notebook";
+Options[HHNotebookWrite]=Join[
+	{HHOptNotebook :> $HHCurrentNotebook},
+	Options[NotebookWrite]
 ];
 
 
@@ -76,7 +83,7 @@ HHNotebookCreate[opts:OptionsPattern[]]:=
 HHNotebookCreate[args___]:=Message[HHNotebookCreate::invalidArgs,{args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHNotebookWriteCell*)
 
 
@@ -118,6 +125,18 @@ NotebookWrite[ OptionValue[ HHOptNotebook ],
 
 
 HHNotebookWriteCell[args___]:=Message[HHNotebookWriteCell::invalidArgs,{args}];
+
+
+(* ::Subsection:: *)
+(*HHNotebookWrite*)
+
+
+HHNotebookWrite[contents_Cell, opts:OptionsPattern[]] := 
+	NotebookWrite[ OptionValue[ HHOptNotebook ], contents, Sequence@@FilterRules[{opts}, Options[NotebookWrite]]
+];
+
+
+HHNotebookWrite[args___]:=Message[HHNotebookWrite::invalidArgs,{args}];
 
 
 (* ::Subsection::Closed:: *)
