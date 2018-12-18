@@ -1050,17 +1050,21 @@ HHLineHistogram[args___] := Message[HHLineHistogram::invalidArgs, {args}];
 
 
 HHLineHistogramImpl[{{}, {}}, ___ ]:= Graphics[];
-HHLineHistogramImpl[{}, ___ ]:= Graphics[];
+(*HHLineHistogramImpl[{}, ___ ]:= Graphics[];*)
 
 
 HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:OptionsPattern[] ]:=
-Module[{countBorder=Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@histogramList},
-	ListLinePlot[countBorder, 
-		PlotRange->All,
-		Sequence@@FilterRules[
-			Join[{opts}, Options[HHLineHistogramImpl]],
-			Options[ListLinePlot]
-		]
+Module[{countBorder},
+	If[ Length[histogramList[[1]]]>=1,
+		countBorder = Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@histogramList;
+		ListLinePlot[countBorder, 
+			PlotRange->All,
+			Sequence@@FilterRules[
+				Join[{opts}, Options[HHLineHistogramImpl]],
+				Options[ListLinePlot]
+			]
+		],
+		Graphics[]
 	]
 ];
 
