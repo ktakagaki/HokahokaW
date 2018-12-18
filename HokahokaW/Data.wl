@@ -122,8 +122,11 @@ HHRaggedTranspose[args___]:=Message[HHRaggedTranspose::invalidArgs,{args}];
 (*HHHistogramListQ*)
 
 
-HHHistogramListQ[list_List/;(HHRaggedArrayDepth[list]==2 && Length[list]==2 (*&& Length[list[[2]]]>0*) )] := 
+HHHistogramListQ[list_List/;(HHRaggedArrayDepth[list]==2 && Length[list]==2 && Length[list[[2]]]>0 )] := 
 	Length[ list[[1]] ] - Length[ list[[2]] ] == 1;
+
+
+HHHistogramListQ[{{},{}}] := True;
 
 
 HHHistogramListQ[list_] := False;
