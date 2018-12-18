@@ -1057,6 +1057,7 @@ HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:O
 Module[{countBorder},
 	If[ Length[histogramList[[1]]]>=2,
 		countBorder = Partition[Riffle[Riffle[#1,#1[[2;;]]],Riffle[#2,#2]],2]&@@histogramList;
+		countBorder = If[#=={}, {{}}, #]& /@ countBorder;
 		ListLinePlot[countBorder, 
 			PlotRange->All,
 			Sequence@@FilterRules[
