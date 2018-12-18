@@ -1050,6 +1050,7 @@ HHLineHistogram[args___] := Message[HHLineHistogram::invalidArgs, {args}];
 
 
 HHLineHistogramImpl[{{}, {}}, ___ ]:= Graphics[];
+HHLineHistogramImpl[{}, ___ ]:= Graphics[];
 
 
 HHLineHistogramImpl[histogramList_/;HHRaggedArrayDepth[histogramList]==2, opts:OptionsPattern[] ]:=
