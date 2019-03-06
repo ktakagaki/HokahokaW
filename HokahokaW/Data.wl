@@ -3,7 +3,7 @@
 (* Wolfram Language package *)
 
 
-BeginPackage["HokahokaW`Data`",{"HokahokaW`"}];
+BeginPackage["HokahokaW`Data`",{"JLink`", "HokahokaW`"}];
 
 
 HHRaggedArrayDepth::usage = 
@@ -16,6 +16,10 @@ HHRaggedPartition::usage =
 
 HHRaggedTranspose::usage = 
 "Transpose a ragged (currently 3 dimensional) list.";
+
+
+HHMakeJavaDoubleArray::usage = 
+"";
 
 
 HHHistogramListQ::usage = 
@@ -38,7 +42,7 @@ Options[HHFromLetterNumber]=Options[FromLetterNumber];
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHRaggedArrayDepth*)
 
 
@@ -66,6 +70,15 @@ HHRaggedArrayDepth[nonlist_] := 0;
 
 
 HHRaggedArrayDepth[args___]:=Message[HHRaggedArrayDepth::invalidArgs,{args}];
+
+
+(*HHRaggedArrayDepth[{1,2}]*)
+
+
+(*HHRaggedArrayDepth[{{},{1}}]*)
+
+
+(*HHRaggedArrayDepth[{{},{{}}}]*)
 
 
 (* ::Subsection::Closed:: *)
@@ -119,6 +132,42 @@ HHRaggedTranspose[args___]:=Message[HHRaggedTranspose::invalidArgs,{args}];
 
 
 (* ::Subsection:: *)
+(*HHMakeJavaDoubleArray*)
+
+
+HHMakeJavaDoubleArray[x_/;NumberQ[x]] := x;
+HHMakeJavaDoubleArray[{}] := JavaNew["[D",{0}];
+HHMakeJavaDoubleArray[{{}}] := JavaNew["[[D", {0, 0} ];
+
+
+(*HHMakeJavaValueArray[{}, Integer] := JavaNew["[I",{0}];*)
+
+
+HHMakeJavaDoubleArray[list_List/;HHRaggedArrayDepth[list]==1] := MakeJavaObject[N[list]];
+
+
+HHMakeJavaDoubleArray[list_List/;(HHRaggedArrayDepth[list]==2) ] := 
+	MakeJavaObject[ HHMakeJavaDoubleArray /@ list ];
+
+
+(*Module[{},
+	temp = Flatten[list];
+	tempIsInteger = And[ IntegerQ /@ temp ];
+	If[ And[ IntegerQ /@ temp ], 
+		MakeJavaObject[ HHMakeJavaValueArray[#, Integer]& /@ list ],
+
+		]
+];*)
+
+
+HHMakeJavaDoubleArray[ list_List/;HHRaggedArrayDepth[list]==3 ] := 
+	MakeJavaObject[ HHMakeJavaDoubleArray /@ list ];
+
+
+HHMakeJavaDoubleArray[args___]:=Message[HHMakeJavaDoubleArray::invalidArgs,{args}];
+
+
+(* ::Subsection::Closed:: *)
 (*HHHistogramListQ*)
 
 
@@ -135,7 +184,7 @@ HHHistogramListQ[list_] := False;
 HHHistogramListQ[args___]:=Message[HHHistogramListQ::invalidArgs,{args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHImportAssociation*)
 
 
@@ -176,7 +225,7 @@ Module[{tempExpr, tempret},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHFromLetterNumber*)
 
 

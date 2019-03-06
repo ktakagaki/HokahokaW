@@ -1,0 +1,26 @@
+[
+	"Association",
+	[
+		"Rule",
+		"'abc'",
+		[
+			"Association",
+			[
+				"Rule",
+				"'x'",
+				123
+			],
+			[
+				"Rule",
+				"'y'",
+				[
+					"List",
+					1,
+					2,
+					3,
+					4
+				]
+			]
+		]
+	]
+]

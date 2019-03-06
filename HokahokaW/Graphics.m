@@ -448,7 +448,7 @@ If[HHColorDirectiveQ[plotStyle],
 HHPlotStyleTableImpl[args___] := Message[HHPlotStyleTableImpl::invalidArgs, {args}];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHColorData*)
 
 
@@ -969,7 +969,7 @@ Module[{tempData=data},
 HHListDensityPlot[args___] := Message[HHListDensityPlot::invalidArgs, {args}];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*HHLineHistogram*)
 
 
@@ -1073,7 +1073,7 @@ Module[{countBorder},
 HHLineHistogramImpl[args___] := Message[HHLineHistogramImpl::invalidArgs, {args}];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*HHLabelGraphics*)
 
 
