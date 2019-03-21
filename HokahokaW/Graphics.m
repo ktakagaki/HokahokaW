@@ -456,7 +456,7 @@ HHPlotStyleTableImpl[args___] := Message[HHPlotStyleTableImpl::invalidArgs, {arg
 HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
 Module[{optColorData, optNonPositiveBlack},
 	optColorData = OptionValue[HHOptColorData];
-	optNonPositiveBlack=HHOptColorDataNonPositiveToBlack;
+	optNonPositiveBlack=OptionValue[HHOptColorDataNonPositiveToBlack];
 	If[ optNonPositiveBlack && count <= 0, 
 		Black,
 		HHColorData[optColorData, count]
