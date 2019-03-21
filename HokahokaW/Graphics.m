@@ -161,7 +161,7 @@ HHListDensityPlot::usage= "ListDensityPlot allowing arrays smaller than 2x2";
 Options[HHListDensityPlot] = Options[ListDensityPlot];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*HHLineHistogram*)
 
 
@@ -233,8 +233,9 @@ corresponding color specification within the Mathematica default \
 color list, sampling circularly beyond the given color list. \
 This circumvents ColorData not being callable beyond the given number of color samples.";
 HHOptColorData::usage = "";
+HHOptColorDataNonPositiveToBlack::usage = "Whether to set color numbers <=0 to Black";
 
-Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"]};
+Options[HHColorData] = {HHOptColorData -> ColorData[97, "ColorList"], HHOptColorDataNonPositiveToBlack->True};
 
 
 (* ::Section:: *)
@@ -448,14 +449,18 @@ If[HHColorDirectiveQ[plotStyle],
 HHPlotStyleTableImpl[args___] := Message[HHPlotStyleTableImpl::invalidArgs, {args}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*HHColorData*)
 
 
 HHColorData[ count_Integer, opts: OptionsPattern[] ]:=
-Module[{optColorData},
+Module[{optColorData, optNonPositiveBlack},
 	optColorData = OptionValue[HHOptColorData];
-	HHColorData[optColorData, count]
+	optNonPositiveBlack=HHOptColorDataNonPositiveToBlack;
+	If[ optNonPositiveBlack && count <= 0, 
+		Black,
+		HHColorData[optColorData, count]
+	]
 	(*If[optColorData == "ColorBlindnessSafe", optColorData=HHColorData["ColorBlindnessSafe"]];
 	HHTakeCyclical[ optColorData, count ]*)
 ];
